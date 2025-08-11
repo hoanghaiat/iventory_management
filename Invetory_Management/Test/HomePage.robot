@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    resource.resource
+Resource    ../Resource/HomePage.resource
 Test Setup    Login To System
 Test Teardown    Close Browser
 *** Variables ***
