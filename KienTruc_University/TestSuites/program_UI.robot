@@ -48,9 +48,33 @@ TC_PP_06 Verify user can click Add Button successfully
     Click First Program Courses Button
     Page Should Contain    ${prog_name}
     Click Add Course Button In Courses Page
-TC_PP_06 Verify user can click Add Button successfully
+TC_PP_07 Verify user can click Back to Program Button successfully
     Go To Programs Page
     ${prog_name}=  Get First Program Name 
     Click First Program Courses Button
     Page Should Contain    ${prog_name}
     Click Back To Program Button In Courses Page
+TC_PP_08 Verify user can click Trang Chu successfully
+    Go To Programs Page
+    ${prog_name}=  Get First Program Name 
+    Click First Program Courses Button
+    Page Should Contain    ${prog_name}
+    CLick Trang Chu Link In Course Page
+TC_PP_09 Verify user can click Eyes Button successfully
+    Go To Programs Page
+    ${prog_name}=  Get First Program Name 
+    Click First Program Courses Button
+    Page Should Contain    ${prog_name}
+    Click Eyes Button In Course Page
+TC_PP_10 Verify user can click Edit Button successfully
+    Go To Programs Page
+    ${prog_name}=  Get First Program Name 
+    Click First Program Courses Button
+    Page Should Contain    ${prog_name}
+    Click Edit Button In Course Page
+TC_PP_11 Verify user can click View CLOs Button successfully
+    Go To Programs Page
+    ${prog_name}=  Get First Program Name 
+    Click First Program Courses Button
+    Page Should Contain    ${prog_name}
+    Click View CLOs Button In Course Page

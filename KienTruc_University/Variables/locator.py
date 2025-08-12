@@ -72,3 +72,11 @@ ADD_COURSES_BTN ="xpath=/html/body/div[3]/div[1]/div/div[2]/div/a[2]"
 BACK_TO_PROGRAM ="xpath=/html/body/div[3]/div[1]/div/div[2]/div/a[3]"
 URL_ALL_COURSE = "https://demo-clo.minds.vn/en/academics/programs/20/courses/"
 URL_PROGRAM ="xpath=https://demo-clo.minds.vn/en/academics/programs/20/"
+HOME_URL ="xpath=/html/body/div[3]/div[1]/div/div[1]/nav/ol/li/a"
+
+EYE_BTN = '//a[@href="/en/academics/courses/42/"]'
+EDIT_BTN= '//a[@href="/en/academics/courses/42/update/"]'
+VIEW_CLOS_BTN ='//a[@href="/en/academics/courses/42/update/"]'
+DETAIL_COURSE_TITLE = '//h1[@class="content-title"]'
+EDIT_COURSE_TITLE ='//h1[@class="content-title"]'
+CLO_TITLE ='//h1[@class="content-title"]'

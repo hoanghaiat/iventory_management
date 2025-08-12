@@ -73,4 +73,30 @@ Click Back To Program Button In Courses Page
    Wait Until Element Is Visible    ${BACK_TO_PROGRAM}       10s
    Wait Until Element Is Enabled    ${BACK_TO_PROGRAM}       10s
    Click Element    ${BACK_TO_PROGRAM}
-   Location Should Contain    ${URL_PROGRAM}
+   Wait Until Element Is Visible    ${DETAIL_PROGRAM_TITLE} 
+CLick Trang Chu Link In Course Page 
+   Wait Until Page Contains Element    ${HOME_URL}         10s 
+   Wait Until Element Is Visible    ${HOME_URL}       10s
+   Wait Until Element Is Enabled    ${HOME_URL}       10s
+   Click Element    ${HOME_URL}
+   Location Should Contain    ${BASE_URL_ROOT}
+
+Click Eyes Button In Course Page 
+   Wait Until Page Contains Element    ${EYE_BTN}         10s 
+   Wait Until Element Is Visible    ${EYE_BTN}       10s
+   Wait Until Element Is Enabled    ${EYE_BTN}       10s
+   Click Element    ${EYE_BTN}
+   Wait Until Element Is Visible    ${DETAIL_COURSE_TITLE}
+
+Click Edit Button In Course Page 
+   Wait Until Page Contains Element    ${EDIT_BTN}         10s 
+   Wait Until Element Is Visible    ${EDIT_BTN}       10s
+   Wait Until Element Is Enabled    ${EDIT_BTN}       10s
+   Click Element    ${EDIT_BTN}
+   Wait Until Element Is Visible    ${EDIT_COURSE_TITLE}
+Click View CLOs Button In Course Page 
+   Wait Until Page Contains Element    ${VIEW_CLOS_BTN}         10s 
+   Wait Until Element Is Visible    ${VIEW_CLOS_BTN}       10s
+   Wait Until Element Is Enabled    ${VIEW_CLOS_BTN}       10s
+   Click Element    ${VIEW_CLOS_BTN}
+   Wait Until Element Is Visible    ${CLO_TITLE}
