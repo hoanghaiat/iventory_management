@@ -17,6 +17,7 @@ TC012 - Kiểm tra thao tác nhanh "Thêm mục lục hồ sơ"
 
 TC013 - Kiểm tra thao tác nhanh "Thêm kho mới"
     Quick Add Warehouse
+    Capture Page Screenshot    123.png
 
 TC014 - Kiểm tra thao tác nhanh "Thêm giá kệ"
     Quick Add shelf
@@ -51,3 +52,21 @@ TC028 - Kiểm tra click “Hộp lưu trữ”
 
 TC030 - Kiểm tra click “Tìm kiếm”
     Click Search
+
+TC031 - Kiểm tra click “Trang quản trị”
+    Click Admin Page
+    Capture Page Screenshot
+
+TC032 - Kiểm tra click “Quản lý tài khoản”
+    Click Account Management
+
+TC033 - Kiểm tra click “Nhật ký hệ thống”
+    Click System Log
+
+TC034 - Kiểm tra click “Giao diện”
+    Click Interface
+    Capture Page Screenshot
+
+TC035 - Kiểm tra click “Đăng xuất”
+    Click Logout menu
+    Capture Page Screenshot
