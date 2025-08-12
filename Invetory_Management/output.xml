@@ -1,146 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.10.11 on win32)" generated="2025-08-12T09:55:48.464764" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.10.11 on win32)" generated="2025-08-12T16:53:14.926101" rpa="false" schemaversion="5">
 <suite id="s1" name="SystemAdministration" source="d:\autoQC\iventory_management\Invetory_Management\Testcase\SystemAdministration.robot">
-<test id="s1-t1" name="ACC-05 - Thêm tài khoản khi tên đăng nhập đã tồn tại" line="88">
+<test id="s1-t1" name="SL_006 - Kiểm tra thay đổi số lượng log hiển thị" line="237">
 <kw name="Login To System" owner="SystemAdministration" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-12T09:55:48.745321" level="INFO">Opening browser 'chrome' to base url 'https://kholuutru.minds.vn/'.</msg>
+<msg time="2025-08-12T16:53:15.146028" level="INFO">Opening browser 'chrome' to base url 'https://kholuutru.minds.vn/'.</msg>
 <arg>${URL}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-12T09:55:48.745321" elapsed="2.861864"/>
+<status status="PASS" start="2025-08-12T16:53:15.146028" elapsed="2.548332"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-08-12T09:55:51.608185" elapsed="0.053187"/>
+<status status="PASS" start="2025-08-12T16:53:17.694360" elapsed="0.036155"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${username_xpath}</arg>
 <arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-12T09:55:51.662373" elapsed="0.324781"/>
+<status status="PASS" start="2025-08-12T16:53:17.730515" elapsed="0.285712"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-12T09:55:51.989153" level="INFO">Typing text 'admin_qc_automation' into text field 'xpath=//*[@id="username"]'.</msg>
+<msg time="2025-08-12T16:53:18.016227" level="INFO">Typing text 'admin_qc_automation' into text field 'xpath=//*[@id="username"]'.</msg>
 <arg>${username_xpath}</arg>
 <arg>${USERNAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T09:55:51.988156" elapsed="0.222885"/>
+<status status="PASS" start="2025-08-12T16:53:18.016227" elapsed="0.101488"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-12T09:55:52.218029" level="INFO">Typing text 'Qc@12345' into text field 'xpath=//*[@id="password"]'.</msg>
+<msg time="2025-08-12T16:53:18.121484" level="INFO">Typing text 'Qc@12345' into text field 'xpath=//*[@id="password"]'.</msg>
 <arg>${password_xpath}</arg>
 <arg>${PASSWORD}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T09:55:52.215023" elapsed="0.139276"/>
+<status status="PASS" start="2025-08-12T16:53:18.117715" elapsed="0.221058"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-12T09:55:52.356300" level="INFO">Clicking button 'xpath=//*[@id="loginBtn"]'.</msg>
+<msg time="2025-08-12T16:53:18.341210" level="INFO">Clicking button 'xpath=//*[@id="loginBtn"]'.</msg>
 <arg>${loginbtn_xpath}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T09:55:52.355298" elapsed="2.335547"/>
+<status status="PASS" start="2025-08-12T16:53:18.340048" elapsed="2.387314"/>
 </kw>
-<status status="PASS" start="2025-08-12T09:55:48.744647" elapsed="5.947850"/>
+<status status="PASS" start="2025-08-12T16:53:15.146028" elapsed="5.582332"/>
 </kw>
-<kw name="Open Account Management" owner="SystemAdministration">
+<kw name="Open System Logs" owner="SystemAdministration">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-12T09:55:54.695139" level="INFO">Clicking element 'xpath=//a[@href='/admin/users']'.</msg>
-<arg>${account_management_page}</arg>
+<msg time="2025-08-12T16:53:20.730363" level="INFO">Clicking element 'xpath=//a[@href="/admin/logs" and contains(@class,'nav-item')]'.</msg>
+<arg>${system_log_page}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T09:55:54.695139" elapsed="1.121689"/>
+<status status="PASS" start="2025-08-12T16:53:20.729362" elapsed="0.784682"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Quản lý tài khoản</arg>
+<arg>Nhật ký hệ thống</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-08-12T09:55:55.816828" elapsed="0.045578"/>
+<status status="PASS" start="2025-08-12T16:53:21.514044" elapsed="0.042946"/>
 </kw>
-<status status="PASS" start="2025-08-12T09:55:54.693068" elapsed="1.170362"/>
+<status status="PASS" start="2025-08-12T16:53:20.729362" elapsed="0.829589"/>
 </kw>
-<kw name="Click Add Account Button" owner="SystemAdministration">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-12T09:55:55.867394" level="INFO">Clicking element '//a[@href='/admin/users/add'and contains(@class,'btn btn-primary')]'.</msg>
-<arg>${add_acc_btn}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T09:55:55.866394" elapsed="1.166946"/>
+<kw name="Select Log Rows Per Page" owner="SystemAdministration">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-12T16:53:21.567258" level="INFO">Selecting options from selection list 'xpath=//select[@name='per_page' and contains(@class,'form-select form-select-sm')]' by value 10.</msg>
+<arg>${row_dropdown}</arg>
+<arg>${rows}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-12T16:53:21.565909" elapsed="0.130628"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Thêm tài khoản mới</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-08-12T09:55:57.034342" elapsed="0.116123"/>
+<arg>10</arg>
+<status status="PASS" start="2025-08-12T16:53:21.563404" elapsed="0.133133"/>
 </kw>
-<status status="PASS" start="2025-08-12T09:55:55.865397" elapsed="1.286171"/>
-</kw>
-<kw name="Add Account" owner="SystemAdministration">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-12T09:55:57.166434" level="INFO">Typing text 'user3' into text field 'xpath=//input[@id='username' and contains(@class,'form-control-lg')]'.</msg>
-<arg>${addacc_username_xpath}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T09:55:57.161435" elapsed="0.430171"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-12T09:55:57.596917" level="INFO">Typing text 'user3@warehouse.vn' into text field 'xpath=//input[@id='email' and contains(@class,'form-control-lg')]'.</msg>
-<arg>${addacc_email_xpath}</arg>
-<arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T09:55:57.593902" elapsed="0.401756"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-12T09:55:57.995658" level="INFO">Typing text 'password123' into text field 'xpath=//input[@id='password' and contains(@class,'form-control-lg')]'.</msg>
-<arg>${addacc_password_xpath}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T09:55:57.995658" elapsed="1.288328"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-12T09:55:59.287000" level="INFO">Typing text 'password123' into text field 'xpath=//input[@id='confirm_password' and contains(@class,'form-control-lg')]'.</msg>
-<arg>${addacc_confirm_password_xpath}</arg>
-<arg>${confirm_password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T09:55:59.285003" elapsed="1.702889"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${addacc_submit_btn_xpath}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-08-12T09:56:00.988894" elapsed="0.513866"/>
-</kw>
+<kw name="Click Filter Button" owner="SystemAdministration">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-12T09:56:01.505769" level="INFO">Clicking button 'xpath=//input[@id='submit' and contains(@class,'btn-success')]'.</msg>
-<arg>${addacc_submit_btn_xpath}</arg>
+<msg time="2025-08-12T16:53:21.697537" level="INFO">Clicking button 'xpath=//button[@type='submit' and contains(@class,'btn btn-primary btn-sm')]'.</msg>
+<arg>${filter_button}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T09:56:01.505769" elapsed="0.715844"/>
+<status status="PASS" start="2025-08-12T16:53:21.697537" elapsed="0.582680"/>
 </kw>
-<arg>user3</arg>
-<arg>user3@warehouse.vn</arg>
-<arg>password123</arg>
-<arg>password123</arg>
-<status status="PASS" start="2025-08-12T09:55:57.156879" elapsed="5.065749"/>
+<status status="PASS" start="2025-08-12T16:53:21.697537" elapsed="0.583508"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Tên đăng nhập đã tồn tại</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-08-12T09:56:02.224612" elapsed="0.320811"/>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-08-12T16:53:42.572903" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-22.png"&gt;&lt;img src="selenium-screenshot-22.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-12T16:53:42.574892" level="FAIL">Element 'xpath=//table/tbody/tr[10]' did not appear in 20 seconds.</msg>
+<arg>xpath=//table/tbody/tr[10]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2025-08-12T16:53:22.282142" elapsed="20.299746">Element 'xpath=//table/tbody/tr[10]' did not appear in 20 seconds.</status>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<var>${count}</var>
+<arg>xpath=//table/tbody/tr</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-12T16:53:42.582225" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${count}</arg>
+<arg>10</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="NOT RUN" start="2025-08-12T16:53:42.582225" elapsed="0.000000"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-12T09:56:02.547165" elapsed="2.429430"/>
+<status status="PASS" start="2025-08-12T16:53:42.582225" elapsed="2.383494"/>
 </kw>
-<doc>Kiểm tra thêm tài khoản khi tên đăng nhập đã tồn tại</doc>
-<tag>negative</tag>
-<status status="PASS" start="2025-08-12T09:55:48.742573" elapsed="16.235041"/>
+<doc>Chọn hiển thị 10 dòng log</doc>
+<status status="FAIL" start="2025-08-12T16:53:15.146028" elapsed="29.820202">Element 'xpath=//table/tbody/tr[10]' did not appear in 20 seconds.</status>
 </test>
-<status status="PASS" start="2025-08-12T09:55:48.472721" elapsed="16.508887"/>
+<status status="FAIL" start="2025-08-12T16:53:14.929540" elapsed="30.036690"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">negative</stat>
 </tag>
 <suite>
-<stat name="SystemAdministration" id="s1" pass="1" fail="0" skip="0">SystemAdministration</stat>
+<stat name="SystemAdministration" id="s1" pass="0" fail="1" skip="0">SystemAdministration</stat>
 </suite>
 </statistics>
 <errors>
