@@ -21,7 +21,8 @@ BUTTON_REJECT = '//a[contains(@href,"/questionbank/questions/145/reject/") and @
 BUTTON_UPDATE_QUESTION = '//button[@class="btn btn-primary"]'
 BUTTON_ADD_QUESTION = '//a[contains(@href,"/questionbank/questions/create/") and @class="btn btn-primary"]'
 BUTTON_CREATE_QUESTION = '//button[@class="btn btn-primary"]'
-
+BUTTON_IMPORT_QUESTION = '//a[contains(@href,"/questionbank/questions/import/") and @class="btn btn-success"]'
+BUTTON_MANAGER_TAG = '//a[contains(@href,"/questionbank/tags/") and @class="btn btn-info"]'
 
 SELECT_COURSE = '//select[@id="course_id"]'
 SELECT_CLO = '//select[@id="clo_id"]'
@@ -50,5 +51,36 @@ POST_APPROVAL_STATUS = '//select[@id="id_approval_status"]'
 LINK_RELATED = '//a[contains(@href,"questionbank/questions/3/")]'
 LINK_COURSE = '//a[contains(@href,"/academics/courses/6/")]'
 LINK_CLO = '//a[contains(@href,"/academics/clos/10/")]'
+
+
+# TaomoiCauhoi
+URL_NEW_QUESTION = "//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]"
+URL_MANAGE_TAGS = "//div[@class='menu-section']//a[contains(@href, '/questionbank/tags/')]"
+URL_IMPORT_QUESTION = "//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][3]"
+
+# Bài kiểm tra
+URL_TEST = "//div[@class='menu-section']//a[contains(@href, '/assessment/tests/')]"
+NAV_MY_CLASSES = '//a[contains(@href, "/academics/classes/") and @class="btn btn-secondary"]'
+NAV_COURSES = '//div[@class="table-responsive"]/table/tbody/tr[1]/td[2]/a[contains(@href,"/academics/classes/")]'
+BTN_VIEW = '//div[@class="btn-group"]//a[contains(@href,"/assessment/tests/3/") and @class="btn btn-sm btn-primary"]'
+BTN_HELP = '//div[@class="btn-group"]//a[contains(@href,"/assessment/tests/3/") and @class="btn btn-sm btn-info"]'
+BTN_GRADE = '//div[@class="btn-group"]//a[contains(@href,"/assessment/tests/3/") and @class="btn btn-sm btn-success"]'
+BTN_EXPORT = '//div[@class="btn-group"]//a[contains(@href,"/reports/tests/3/") and @class="btn btn-sm btn-secondary"]'
+
+FILTER_ALL = '//div[@class="btn-group"]/a[normalize-space(text())="All"]'
+FILTER_MIDTERM = '//div[@class="btn-group"]/a[normalize-space(text())="Midterm"]'
+FILTER_FINAL = '//div[@class="btn-group"]/a[normalize-space(text())="Final"]'
+FILTER_QUIZ = '//div[@class="btn-group"]/a[normalize-space(text())="Quiz"]'
+FILTER_ASIGNMENT = '//div[@class="btn-group"]/a[normalize-space(text())="Assignment"]'
+FILTER_PROJECT = '//div[@class="btn-group"]/a[normalize-space(text())="Project"]'
+
+# BaoCaoCLO
+URL_REPORT_CLO = "//div[@class='menu-section']//a[contains(@href, '/reports/clo-reports/')]"
+
+
+
+
+
+
 
 

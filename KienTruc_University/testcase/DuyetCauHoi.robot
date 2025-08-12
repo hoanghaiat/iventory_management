@@ -1,8 +1,8 @@
 *** Settings ***
 Library    SeleniumLibrary
 Resource    ../resource/DuyetCauHoi.resource
-Suite Setup    Open Browser To LocCauHoi
-Suite Teardown    Close Browser
+Suite Setup    Open Browser To DuyetCauHoi
+Suite Teardown    Close Web
 *** Variables ***
 
 *** Test Cases ***
@@ -88,3 +88,9 @@ TC_QB_26 : Tìm kiếm với từ khóa trống
 TC_QB_27 : Tìm kiếm với từ khóa không hợp lệ
     [Documentation]    Tìm kiếm với từ khóa không thuộc nội dung câu hỏi 
     Search with keywords not in the question
+TC_QB_28: KIểm tra nút Import Question
+    [Documentation]     KIểm tra nút Import Question
+    Import Question
+TC_QB_28: KIểm tra nút Manage Tag
+    [Documentation]     KIểm tra nút Manage Tag
+    Manage Tag

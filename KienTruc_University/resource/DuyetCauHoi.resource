@@ -4,9 +4,11 @@ Variables   ../variables/locator.py
 
 
 *** Keywords ***
-Open Browser To LocCauHoi
+Open Browser To DuyetCauHoi
     # Open Browser    ${URL}    chrome
     Login   admin    demoadmin
+Close Web
+    Close All Browsers
 Login
     [Arguments]    ${username}    ${password}
     Open Browser    ${URL}    chrome
@@ -550,7 +552,16 @@ Search with keywords not in the question
     # Scroll Element Into View    ${RESULT_FAILD}
     # Wait Until Page Contains Element    ${RESULT_FAILD}    30s
     # Sleep    10s
-
+Import Question
+    Wait Until Element Is Visible    ${URL_QUESTION}    20s
+    Click Element    ${URL_QUESTION}
+    Wait Until Element Is Visible    ${BUTTON_IMPORT_QUESTION}    20s
+    Click Element    ${BUTTON_IMPORT_QUESTION}
+Manage Tag
+    Wait Until Element Is Visible    ${URL_QUESTION}    20s
+    Click Element    ${URL_QUESTION}
+    Wait Until Element Is Visible    ${BUTTON_MANAGER_TAG}    20s
+    Click Element    ${BUTTON_MANAGER_TAG}
 
 
 
