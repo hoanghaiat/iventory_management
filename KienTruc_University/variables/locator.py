@@ -23,6 +23,11 @@ BUTTON_ADD_QUESTION = '//a[contains(@href,"/questionbank/questions/create/") and
 BUTTON_CREATE_QUESTION = '//button[@class="btn btn-primary"]'
 BUTTON_IMPORT_QUESTION = '//a[contains(@href,"/questionbank/questions/import/") and @class="btn btn-success"]'
 BUTTON_MANAGER_TAG = '//a[contains(@href,"/questionbank/tags/") and @class="btn btn-info"]'
+BUTTON_EDIT_VIEW = '//a[contains(@href,"/questionbank/questions/147/update/") and @class="btn btn-warning"]'
+BUTTON_APPROVE_VIEW = '//a[contains(@href,"/questionbank/questions/151") and @class="btn btn-sm btn-primary"]'
+BUTTON_REJECT_VIEW = '//a[contains(@href,"/questionbank/questions/152") and @class="btn btn-sm btn-primary"]'
+BUTTON_DETAIL_APPROVE = '//div[@class="btn-group"]/a[@class="btn btn-success"]' 
+BUTTON_DETAIL_REJECT = '//div[@class="btn-group"]/a[@class="btn btn-danger"]' 
 
 SELECT_COURSE = '//select[@id="course_id"]'
 SELECT_CLO = '//select[@id="clo_id"]'
@@ -67,6 +72,7 @@ BTN_HELP = '//div[@class="btn-group"]//a[contains(@href,"/assessment/tests/3/") 
 BTN_GRADE = '//div[@class="btn-group"]//a[contains(@href,"/assessment/tests/3/") and @class="btn btn-sm btn-success"]'
 BTN_EXPORT = '//div[@class="btn-group"]//a[contains(@href,"/reports/tests/3/") and @class="btn btn-sm btn-secondary"]'
 
+TEST_LIST = '//div[@class="table-responsive"]/table/tbody/tr[5]'
 FILTER_ALL = '//div[@class="btn-group"]/a[normalize-space(text())="All"]'
 FILTER_MIDTERM = '//div[@class="btn-group"]/a[normalize-space(text())="Midterm"]'
 FILTER_FINAL = '//div[@class="btn-group"]/a[normalize-space(text())="Final"]'
@@ -77,7 +83,25 @@ FILTER_PROJECT = '//div[@class="btn-group"]/a[normalize-space(text())="Project"]
 # BaoCaoCLO
 URL_REPORT_CLO = "//div[@class='menu-section']//a[contains(@href, '/reports/clo-reports/')]"
 
+INPUT_SEARCH_CLO = '//input[@placeholder="Search reports..."]'
+BTN_SEARCH_CLO = '//form[@class="d-flex"]/button[@class="btn btn-primary"]'
+BTN_VIEW_CLO = '//a[@href="/en/reports/clo-reports/6/"]'
+BTN_PRINT_CLO = '//button[@class="btn btn-primary" and @onclick="printReport(6)"]'
+BTN_BACK_CLO = '//a[contains(@href,"/en/reports/clo-reports/") and @class="btn btn-secondary"]'
+RESULT_TABLE_CLO = '//div[@class="table-responsive"]/table/tbody/tr[5]'
+RESULT_TABLE_VIEW = '//div[@class="table-responsive"]/table/tbody/tr[5]'
+BTN_PRINT_REPORT = '//button[@class="btn btn-primary" and @onclick="window.print();"]'
+BTN_CANCEL_PRINT = ''
+BTN_SEARCH_STUDENT = '//button[@id="searchToggle"]'
+IP_SEARCH_STUDENT = '//input[@placeholder="Search student name..."]'
+RESULT_TABLE_STUDENT = '//div[@class="table-responsive"]/table/tbody/tr[3]'
 
+# bai kiem tra
+INPUT_SEARCH_TEST = '//input[@placeholder="Search test analyses..."]'
+BTN_SEARCH_TEST = '//form[@class="d-flex"]/button[@class="btn btn-primary"]'
+BTN_VIEW_TEST = '//a[@href="/en/reports/test-analyses/4/"]'
+BTN_PRINT_TEST = '//div[@class="table-responsive"]/table/tbody/tr[1]/td[6]/div/button'
+RESULT_TABLE_TEST = '//div[@class="table-responsive"]/table/tbody/tr[1]/td[6]/div[1]'
 
 
 

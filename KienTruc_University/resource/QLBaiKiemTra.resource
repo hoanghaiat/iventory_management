@@ -13,6 +13,7 @@ Login
     [Arguments]    ${username}    ${password}
     Open Browser    ${URL}    chrome
     Maximize Browser Window
+    Sleep    5s
     Wait Until Element Is Visible    ${BTN_HIDE}    30s
     Click Element    ${BTN_HIDE}
     Wait Until Element Is Visible    ${USERNAME_INPUT}    30s
@@ -25,6 +26,15 @@ Navigate My Classes page
     Wait Until Element Is Visible    ${NAV_MY_CLASSES}    20s
     Click Element    ${NAV_MY_CLASSES}
     Sleep    3s
+Check the list of tests
+    Wait Until Element Is Visible    ${URL_TEST}    20s
+    Click Element    ${URL_TEST}
+    Sleep    3s
+    Wait Until Page Contains Element    ${TEST_LIST}    10s
+    Sleep    10s
+    Scroll Element Into View    ${TEST_LIST}
+    Wait Until Page Contains Element    ${TEST_LIST}    30s
+    Sleep    10s
 Navigate Link Courses
     Wait Until Element Is Visible    ${URL_TEST}    20s
     Click Element    ${URL_TEST}
@@ -56,7 +66,7 @@ Export Test
     Click Element    ${BTN_EXPORT}
     Sleep    3s
 
-Check the filter
+Check the filter All
     Wait Until Element Is Visible    ${URL_TEST}    20s
     Click Element    ${URL_TEST}
     Sleep    5s 
@@ -65,25 +75,50 @@ Check the filter
     Click Element    ${FILTER_ALL}
     Sleep    2s
 
+Check the filter Midterm
+    Wait Until Element Is Visible    ${URL_TEST}    20s
+    Click Element    ${URL_TEST}
+    Sleep    5s 
+
     Wait Until Page Contains Element    ${FILTER_MIDTERM}    20s
     Scroll Element Into View    ${FILTER_MIDTERM}
     Click Element    ${FILTER_MIDTERM}
     Sleep    2s
 
+Check the filter Final
+    Wait Until Element Is Visible    ${URL_TEST}    20s
+    Click Element    ${URL_TEST}
+    Sleep    5s 
+
     Wait Until Page Contains Element    ${FILTER_FINAL}    20s
     Scroll Element Into View    ${FILTER_FINAL}
     Click Element    ${FILTER_FINAL}
     Sleep    2s
+Check the filter Quiz
+    Check the filter Final
+    Wait Until Element Is Visible    ${URL_TEST}    20s
+    Click Element    ${URL_TEST}
+    Sleep    5s 
 
     Wait Until Page Contains Element    ${FILTER_QUIZ}    20s
     Scroll Element Into View    ${FILTER_QUIZ}
     Click Element    ${FILTER_QUIZ}
     Sleep    2s
+Check the filter Assignment
+    Check the filter Final
+    Wait Until Element Is Visible    ${URL_TEST}    20s
+    Click Element    ${URL_TEST}
+    Sleep    5s 
 
     Wait Until Page Contains Element    ${FILTER_ASIGNMENT}    20s
     Scroll Element Into View    ${FILTER_ASIGNMENT}
     Click Element    ${FILTER_ASIGNMENT}
     Sleep    2s
+Check the filter Project
+    Check the filter Final
+    Wait Until Element Is Visible    ${URL_TEST}    20s
+    Click Element    ${URL_TEST}
+    Sleep    5s 
 
     Wait Until Page Contains Element    ${FILTER_PROJECT}    20s
     Scroll Element Into View    ${FILTER_PROJECT}

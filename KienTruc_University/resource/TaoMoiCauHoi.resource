@@ -13,6 +13,7 @@ Login
     [Arguments]    ${username}    ${password}
     Open Browser    ${URL}    chrome
     Maximize Browser Window
+    Sleep    5s
     Wait Until Element Is Visible    ${BTN_HIDE}    30s
     Click Element    ${BTN_HIDE}
     Wait Until Element Is Visible    ${USERNAME_INPUT}    30s

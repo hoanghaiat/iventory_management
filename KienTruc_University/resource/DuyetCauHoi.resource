@@ -13,6 +13,7 @@ Login
     [Arguments]    ${username}    ${password}
     Open Browser    ${URL}    chrome
     Maximize Browser Window
+    Sleep    5s
     Wait Until Element Is Visible    ${BTN_HIDE}    30s
     Click Element    ${BTN_HIDE}
     Wait Until Element Is Visible    ${USERNAME_INPUT}    30s
@@ -397,9 +398,7 @@ Approve Question
     Scroll Element Into View    ${BUTTON_APPROVE}
     Sleep    5s
     Click Element     ${BUTTON_APPROVE}
-    Wait Until Element Is Visible    ${BUTTON_BACK}     10s
-    Click Element     ${BUTTON_BACK}
-    Sleep    3s
+    Sleep    5s
 Reject Question
     Wait Until Element Is Visible    ${URL_QUESTION}    20s
     Click Element    ${URL_QUESTION}
@@ -408,9 +407,29 @@ Reject Question
     Scroll Element Into View    ${BUTTON_REJECT}
     Sleep    5s
     Click Element     ${BUTTON_REJECT}
-    Wait Until Element Is Visible    ${BUTTON_BACK}     10s
-    Click Element     ${BUTTON_BACK}
-    Sleep    3s
+    Sleep    5s
+Reject Question Successfully in Detail View
+    Wait Until Element Is Visible    ${URL_QUESTION}    20s
+    Click Element    ${URL_QUESTION}
+    Sleep    5s
+    Wait Until Element Is Visible    ${BUTTON_REJECT_VIEW}     20s
+    Scroll Element Into View    ${BUTTON_REJECT_VIEW}
+    Sleep    5s
+    Click Element     ${BUTTON_REJECT_VIEW}
+    Wait Until Element Is Visible    ${BUTTON_DETAIL_REJECT}     20s
+    Click Element     ${BUTTON_DETAIL_REJECT}
+    Sleep    5s
+Approve Question Successfully in Detail View
+    Wait Until Element Is Visible    ${URL_QUESTION}    20s
+    Click Element    ${URL_QUESTION}
+
+    Wait Until Element Is Visible    ${BUTTON_DETAIL_APPROVE}     20s
+    Scroll Element Into View    ${BUTTON_DETAIL_APPROVE}
+    Sleep    5s
+    Click Element     ${BUTTON_DETAIL_APPROVE}
+    Wait Until Element Is Visible    ${BUTTON_APPROVE_VIEW}     20s
+    Click Element     ${BUTTON_APPROVE_VIEW}
+    Sleep    5s
 Related Question Link
      Wait Until Element Is Visible    ${URL_QUESTION}    20s
     Click Element    ${URL_QUESTION}
@@ -455,35 +474,22 @@ CLO Link
     Sleep    5s
     Click Element     ${LINK_CLO}
     Sleep    3s
-Add New Question
+Nav Add New Question
     Wait Until Element Is Visible    ${URL_QUESTION}    20s
     Click Element    ${URL_QUESTION}
     Wait Until Element Is Visible    ${BUTTON_ADD_QUESTION}     10s
     Scroll Element Into View    ${BUTTON_ADD_QUESTION}
     Sleep    5s
     Click Element     ${BUTTON_ADD_QUESTION}
-
-    Wait Until Element Is Visible    ${POST_COURSE}     20s
-    Select From List By Value    ${POST_COURSE}   29         #DSA201 - Cấu trúc dữ liệu và giải thuật
-    Wait Until Element Is Visible    ${POST_CONTENT}     20s
-    Input Text   ${POST_CONTENT}     Stack và Queue là gì?
-    Wait Until Element Is Visible    ${POST_TYPE}     20s
-    Select From List By Value    ${POST_TYPE}   essay
-    Wait Until Element Is Visible    ${POST_DIFFICULTY}     20s
-    Select From List By Value    ${POST_DIFFICULTY}   hard
-    Wait Until Element Is Visible    ${POST_BLOOM}     20s
-    Select From List By Value    ${POST_BLOOM}   apply
-    Wait Until Element Is Visible    ${POST_STATUS}     20s
-    Select From List By Value    ${POST_STATUS}   inactive
-    Wait Until Element Is Visible    ${POST_APPROVAL_STATUS}     20s
-    Select From List By Value    ${POST_APPROVAL_STATUS}   pending
-
-    Wait Until Element Is Visible    ${BUTTON_CREATE_QUESTION}     10s
-    Scroll Element Into View    ${BUTTON_CREATE_QUESTION}
+Back to Question
+    Wait Until Element Is Visible    ${URL_QUESTION}    20s
+    Click Element    ${URL_QUESTION}
+    Wait Until Element Is Visible    ${BUTTON_ADD_QUESTION}     10s
+    Scroll Element Into View    ${BUTTON_ADD_QUESTION}
     Sleep    5s
-    Click Element     ${BUTTON_CREATE_QUESTION}
-    Sleep    5s
-
+    Click Element     ${BUTTON_ADD_QUESTION}
+    Wait Until Element Is Visible    ${BUTTON_BACK}     10s
+    Click Element     ${BUTTON_BACK}
 Search with keyword valid question
     Wait Until Element Is Visible    ${URL_QUESTION}    20s
     Click Element    ${URL_QUESTION}
@@ -562,10 +568,43 @@ Manage Tag
     Click Element    ${URL_QUESTION}
     Wait Until Element Is Visible    ${BUTTON_MANAGER_TAG}    20s
     Click Element    ${BUTTON_MANAGER_TAG}
+Edit questions in the detailed view
+    [Arguments]    ${course_value}    ${content_text}    ${type_value}    ${difficulty_value}
+    Wait Until Element Is Visible    ${URL_QUESTION}    20s
+    Click Element    ${URL_QUESTION}
+    Wait Until Element Is Visible    ${BUTTON_VIEW}     10s
+    Scroll Element Into View    ${BUTTON_VIEW}
+    Sleep    5s
+    Click Element     ${BUTTON_VIEW}
+    Wait Until Element Is Visible    ${BUTTON_EDIT_VIEW}     10s
+    Click Element     ${BUTTON_EDIT_VIEW}
 
-
-
-
+    Wait Until Element Is Visible    ${POST_COURSE}     20s
+    Select From List By Value    ${POST_COURSE}    ${course_value}
+    Wait Until Element Is Visible    ${POST_CONTENT}     20s
+    Input Text    ${POST_CONTENT}    ${content_text}
+    Wait Until Element Is Visible    ${POST_TYPE}     20s
+    Select From List By Value    ${POST_TYPE}    ${type_value}
+    Wait Until Element Is Visible    ${POST_DIFFICULTY}     20s
+    Select From List By Value    ${POST_DIFFICULTY}    ${difficulty_value}
+    
+    Wait Until Element Is Visible    ${BUTTON_UPDATE_QUESTION}     10s
+    Scroll Element Into View    ${BUTTON_UPDATE_QUESTION}
+    Sleep    5s
+    Click Element     ${BUTTON_UPDATE_QUESTION}
+    Sleep    5s
+Check back button in edit view
+    Wait Until Element Is Visible    ${URL_QUESTION}    20s
+    Click Element    ${URL_QUESTION}
+    Wait Until Element Is Visible    ${BUTTON_VIEW}     10s
+    Scroll Element Into View    ${BUTTON_VIEW}
+    Sleep    5s
+    Click Element     ${BUTTON_VIEW}
+    Wait Until Element Is Visible    ${BUTTON_EDIT_VIEW}     10s
+    Click Element     ${BUTTON_EDIT_VIEW}
+    Sleep    3s
+    Wait Until Element Is Visible    ${BUTTON_BACK}     10s
+    Click Element     ${BUTTON_BACK}
 
 
 
