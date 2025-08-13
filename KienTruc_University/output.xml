@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.1 (Python 3.13.5 on win32)" generated="2025-08-13T16:07:09.008888" rpa="false" schemaversion="5">
+<suite id="s1" name="Trangchu" source="D:\iventory_management\KienTruc_University\Test\trangchu.robot">
+<test id="s1-t1" name="Login" line="8">
+<kw name="Login To System" owner="dangNhap">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-13T16:07:09.390719" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-13T16:07:09.390561" elapsed="9.889069"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_INPUT}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-13T16:07:19.280186" elapsed="0.122726"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-13T16:07:19.403377" level="INFO">Typing text 'admin' into text field 'xpath=//input[@id='id_username']'.</msg>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T16:07:19.403112" elapsed="0.094574"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-13T16:07:19.498252" level="INFO">Typing text 'demoadmin' into text field 'xpath=//input[@id='id_password']'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T16:07:19.497933" elapsed="0.089215"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-13T16:07:19.587758" level="INFO">Clicking button 'xpath=//button[text()='Đăng nhập']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T16:07:19.587437" elapsed="0.083808"/>
+</kw>
+<arg>admin</arg>
+<arg>demoadmin</arg>
+<status status="PASS" start="2025-08-13T16:07:09.389716" elapsed="10.281851"/>
+</kw>
+<status status="PASS" start="2025-08-13T16:07:09.388684" elapsed="10.283327"/>
+</test>
+<status status="PASS" start="2025-08-13T16:07:09.010048" elapsed="10.663281"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Trangchu" id="s1" pass="1" fail="0" skip="0">Trangchu</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
