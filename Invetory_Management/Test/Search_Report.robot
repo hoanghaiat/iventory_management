@@ -13,7 +13,6 @@ TC042 - Kiểm tra tìm kiếm theo từ khoá hợp lệ
     [Tags]    TuAnh    Search_Report
     Click Search
     Search Textbox
-    Capture Page Screenshot
 
 TC043 - Kiểm tra tìm kiếm với từ khoá không tồn tại
     [Documentation]    TC043
@@ -27,7 +26,11 @@ TC044 - Kiểm tra tìm kiếm từ khoá khi để trống
     Click Search
     Search Textbox Blank
 
-
+TC045 - Kiểm tra tìm kiếm theo đơn vị
+    [Documentation]    TC045
+    [Tags]    TuAnh    Search_Report
+    Click Search
+    Search DonVi
 
 TC054 - Kiểm tra bottun "Xoá bộ lọc" sau khi tìm kiếm kết quả
     [Documentation]    TC054

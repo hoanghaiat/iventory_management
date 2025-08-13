@@ -42,7 +42,8 @@ ${Form_Add_Document_Search}             //div[@class="page-title" and normalize-
 ${Form_Add_See_Report}                  //div[@class="page-title" and normalize-space()="Hệ thống Quản lý Kho"]
 
 
-${Logout}    //a[normalize-space(.)="Đăng xuất"]
+${Logout}    //a[@href='/logout' and contains(@class,'btn-outline-danger')]
+${Logout_Menu}    //a[@href='/logout' and contains(@class,'nav-item')]
 
 ${Item_Unit}                        //a[contains(@href,"/don-vi") and contains(normalize-space(.),"Đơn vị")]
 ${Item_Storage_Room}                //a[contains(@href,"/phong") and contains(normalize-space(.),"Phông lưu trữ")]
@@ -55,7 +56,6 @@ ${Item_Admin_Page}                  //a[contains(@href,"/admin") and contains(no
 ${Item_Account_Management}          //a[contains(@href,"/admin/users") and contains(normalize-space(.),"Quản lý tài khoản")]
 ${Item_System_Log}                  //a[contains(@href,"/admin/logs") and contains(normalize-space(.),"Nhật ký hệ thống")]
 ${Item_Interface}                   //a[contains(@href,"/theme-settings") and contains(normalize-space(.),"Giao diện")]
-${Item_Logout}                      //a[contains(@href,"/logout") and contains(normalize-space(.),"Đăng xuất")]
 
 ${Page_Unit}                        //div[@class="page-title" and normalize-space(.)="Quản lý Đơn vị"]
 ${Page_Storage_Room}                //div[@class="page-title" and normalize-space(.)="Quản lý Phông Lưu trữ"]
@@ -81,12 +81,10 @@ Login To System
 Quick Add New Units
     Click Element    ${Quick_Add_New_Unit_xpath}
     Wait Until Page Contains Element    ${Form_Add_Unit}    30s
-    Capture Page Screenshot    thêm_đơn_vị.png
 
 Quick Add Storage Room
     Click Element    ${Quick_Add_Storage_Room}
     Wait Until Page Contains Element    ${Form_Add_Storage_Room}    10s
-    Capture Page Screenshot    them_phong_luu_tru.png
 
 Quick Add Profile Table of Contents
     Click Element    ${Quick_Add_Profile_Table_Contents}
@@ -118,13 +116,11 @@ Logout
     Scroll Element Into View    ${Logout}
     Click Element    ${Logout}
     Wait Until Element Is Visible    ${username_xpath}    10s
-    Capture Page Screenshot    logout.png
 
 Click Unit
     Wait Until Element Is Visible    ${Item_Unit}    10s
     Click Element    ${Item_Unit}
     Wait Until Page Contains Element    ${Page_Unit}    10s
-    Capture Page Screenshot    don_vi.png
 
 Click Storage Room
     Wait Until Element Is Visible    ${Item_Storage_Room}    10s
@@ -182,9 +178,9 @@ Click Interface
     Wait Until Page Contains Element    ${Page_Interface}    10s
 
 Click Logout menu
-    Wait Until Element Is Visible    ${Item_Logout}    10s
-    Scroll Element Into View    ${Item_Logout}
-    Click Element    ${Item_Logout}
+    Wait Until Element Is Visible    ${Logout_Menu}    10s
+    Scroll Element Into View    ${Logout_Menu}
+    Click Element    ${Logout_Menu}
     Wait Until Element Is Visible    ${username_xpath}    10s
 
 Close menu
