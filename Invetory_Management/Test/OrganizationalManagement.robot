@@ -8,78 +8,148 @@ Test Teardown    Close Browser
 
 *** Test Cases ***
 #Don vi
-TC050 - Kiểm tra huỷ bỏ khi thêm đơn vị mới
+TC059 - Kiểm tra huỷ bỏ khi thêm đơn vị mới
+    [Documentation]    TC059
+    [Tags]    TuAnh    OrganizationalManagement
     Click Unit
     Cancel Add Unit
 
-TC051 - Kiểm tra click quay lại khi thêm đơn vị mới
+TC060 - Kiểm tra click quay lại khi thêm đơn vị mới
+    [Documentation]    TC060
+    [Tags]    TuAnh    OrganizationalManagement
     Click Unit
     Back To List
 
-TC052 - Kiểm tra thêm đơn vị mới
+TC061 - Kiểm tra thêm đơn vị mới
+    [Documentation]    TC061
+    [Tags]    TuAnh    OrganizationalManagement
     Click Unit
     Verify Add To Unit
 
-TC053 - Kiểm tra huỷ bỏ khi chỉnh sửa đơn vị
+TC062 - Kiểm tra huỷ bỏ khi chỉnh sửa đơn vị
+    [Documentation]    TC062
+    [Tags]    TuAnh    OrganizationalManagement
     Click Unit
     Edit Unit "Cancel"
-    Capture Page Screenshot
 
-TC054 - Kiểm tra nút quay lại khi chỉnh sửa đơn vị
+TC063 - Kiểm tra nút quay lại khi chỉnh sửa đơn vị
+    [Documentation]    TC063
+    [Tags]    TuAnh    OrganizationalManagement
     Click Unit
     Edit Unit "Back to list"
 
-TC055 - Kiểm tra chỉnh sửa đơn vị
+TC064 - Kiểm tra chỉnh sửa đơn vị
+    [Documentation]    TC064
+    [Tags]    TuAnh    OrganizationalManagement
     Click Unit
     Edit Unit
 
-TC056 - Kiểm tra xoá đơn vị
+TC065 - Kiểm tra xoá đơn vị
+    [Documentation]    TC065
+    [Tags]    TuAnh    OrganizationalManagement
     Click Unit
     Delete Unit
 
 #Phong don vi
-TC059 - Kiểm tra huỷ bỏ khi thêm phông mới
+TC068 - Kiểm tra huỷ bỏ khi thêm phông mới
+    [Documentation]    TC068
+    [Tags]    TuAnh    OrganizationalManagement
     Click Storage Room
     Cancel Add Phong
 
-TC060 - Kiểm tra click quay lại khi thêm phông mới
+TC069 - Kiểm tra click quay lại khi thêm phông mới
+    [Documentation]    TC069
+    [Tags]    TuAnh    OrganizationalManagement
     Click Storage Room
     Back To Phong
 
-TC061 - Kiểm tra thêm mới phông lưu trữ
+TC070 - Kiểm tra thêm mới phông lưu trữ
+    [Documentation]    TC070
+    [Tags]    TuAnh    OrganizationalManagement
     Click Storage Room
     Verify Add To Phong
 
-
-TC062 - Kiểm tra chỉnh sửa phông lưu trữ
+TC071 - Kiểm tra chỉnh sửa phông lưu trữ
+    [Documentation]    TC071
+    [Tags]    TuAnh    OrganizationalManagement
     Click Storage Room
     Edit Phong
 
-TC063 - Kiểm tra huỷ bỏ khi chỉnh sửa phòng lưu trữ
+TC072 - Kiểm tra huỷ bỏ khi chỉnh sửa phòng lưu trữ
+    [Documentation]    TC072
+    [Tags]    TuAnh    OrganizationalManagement
     Click Storage Room
     Edit Phong "Cancel"
 
-TC064 - Kiểm tra nút quay lại khi chỉnh sửa phòng
+TC073 - Kiểm tra nút quay lại khi chỉnh sửa phòng
+    [Documentation]    TC073
+    [Tags]    TuAnh    OrganizationalManagement
     Click Storage Room
     Edit Back To Phong
 
-TC065 - Kiểm tra xoá phông lưu trữ
+TC074 - Kiểm tra xoá phông lưu trữ
+    [Documentation]    TC074
+    [Tags]    TuAnh    OrganizationalManagement
     Click Storage Room
     Delete Phong
 
-TC068 - Kiểm tra tìm kiếm phông lưu trữ lọc theo "Lọc theo đơn vị"
+TC077 - Kiểm tra tìm kiếm phông lưu trữ lọc theo "Lọc theo đơn vị"
+    [Documentation]    TC077
+    [Tags]    TuAnh    OrganizationalManagement
     Click Storage Room
     Filter Phong
 
 #Muc luc ho so
-TC069 - Kiểm tra huỷ bỏ khi thêm mục lục mới
+TC078 - Kiểm tra huỷ bỏ khi thêm mục lục mới
+    [Documentation]    TC078
+    [Tags]    TuAnh    OrganizationalManagement
     Click Profile Table of Contents
     Cancel Add Mucluc
 
-TC070 - Kiểm tra click quay lại khi thêm mục lục mới
+TC079 - Kiểm tra click quay lại khi thêm mục lục mới
+    [Documentation]    TC079
+    [Tags]    TuAnh    OrganizationalManagement
     Click Profile Table of Contents
     Back To Mucluc
 
-TC071 - Kiểm tra thêm mục lục mới
+TC080 - Kiểm tra thêm mục lục mới
+    [Documentation]    TC080
+    [Tags]    TuAnh    OrganizationalManagement
     Click Profile Table of Contents
     Verify Add To Mucluc
+
+TC081 - Kiểm tra chỉnh sửa mục lục
+    [Documentation]    TC081
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Profile Table of Contents
+    Edit Mucluc
+
+TC082 - Kiểm tra nút quay lại khi chỉnh sửa mục lục hồ sơ
+    [Documentation]    TC082
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Profile Table of Contents
+    Edit Mucluc "Cancel"
+
+TC083 - Kiểm tra nút quay lại khi chỉnh sửa mục lục hồ sơ
+    [Documentation]    TC083
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Profile Table of Contents
+    Edit Back To Mucluc
+
+TC084 - Kiểm tra xoá mục lục hồ sơ
+    [Documentation]    TC084
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Profile Table of Contents
+    Delete Mucluc
+
+TC086 - Kiểm tra tìm kiếm mục lục hồ sơ lọc theo "Đơn vị"
+    [Documentation]    TC086
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Profile Table of Contents
+    Filter Phong_Donvi
+
+TC087 - Kiểm tra tìm kiếm mục lục hồ sơ lọc theo "Đơn vị" và "Phông"
+    [Documentation]    TC087
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Profile Table of Contents
+    Filter Phong_Donvi2

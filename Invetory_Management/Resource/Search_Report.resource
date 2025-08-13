@@ -3,13 +3,13 @@ Library    SeleniumLibrary
 Resource    ../Resource/HomePage.resource
 
 *** Variables ***
-${Search_Textbox}    //input[@id="keyword"]
+${Search_Textbox}            //input[@id="keyword"]
 
-${Button_Search}    //button[@type="submit" and contains(normalize-space(.),"Tìm kiếm")]
-${Button_Clear_Filter}    //button[contains(@class, "btn-secondary") and contains(normalize-space(.), "Xóa bộ lọc")]
+${Button_Search}            //button[@type="submit" and contains(normalize-space(.),"Tìm kiếm")]
+${Button_Clear_Filter}      //button[contains(@class, "btn-secondary") and contains(normalize-space(.), "Xóa bộ lọc")]
 
-${Message}    //h3[normalize-space(.)="Tìm kiếm thông tin trong hệ thống"]
-${Error_Message}    //h5[contains(normalize-space(.), "Không tìm thấy kết quả nào")]
+${Message}                  //h3[normalize-space(.)="Tìm kiếm thông tin trong hệ thống"]
+${Error_Message}            //h5[contains(normalize-space(.), "Không tìm thấy kết quả nào")]
 *** Keywords ***
 Search Textbox 
     Wait Until Element Is Visible    ${Search_Textbox}    10s

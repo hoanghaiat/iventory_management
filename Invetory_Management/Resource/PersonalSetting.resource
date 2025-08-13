@@ -5,7 +5,7 @@ Resource    ../Resource/HomePage.resource
 
 *** Variables ***
 ${Button_Come_Back}    //a[contains(@class, "btn-outline-secondary") and contains(normalize-space(.), "Quay lại")]
-${Page_HomePage}    //div[@class="page-title" and normalize-space(.)="Trang chủ"]
+${Page_HomePage}       //div[@class="page-title" and normalize-space(.)="Trang chủ"]
 
 *** Keywords ***
 Button Come Back

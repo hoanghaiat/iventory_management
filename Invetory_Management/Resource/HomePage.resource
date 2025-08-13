@@ -10,6 +10,19 @@ ${username_xpath}    //*[@id="username"]
 ${password_xpath}    //*[@id="password"]
 ${loginbtn_xpath}    //*[@id="loginBtn"]
 
+${Box_Mucluc}    //span[@class='stat-number' and text()='17']
+${Box_Kho}       //span[@class='stat-number' and text()='5']
+
+
+${SideBar}          //button[@id='sidebarToggle']
+${QLKho}            //span[text()='Quản lý Kho']
+${QLToChuc}         //div[@class='nav-group-header']/span[normalize-space()='Quản lý tổ chức']
+${QLKho2}           //div[@class='nav-group-header']/span[normalize-space()='Quản lý kho']
+${Search_Report}    //div[@class='nav-group-header']/span[normalize-space()='Tìm kiếm &amp; Báo cáo']
+${QTHeThong}        //div[@class='nav-group-header']/span[normalize-space()='Quản trị hệ thống']
+${CaNhan}           //div[@class='nav-group-header']/span[normalize-space()='Cài đặt cá nhân']
+
+
 ${Quick_Add_New_Unit_xpath}             //a[@href="/don-vi/add" and contains(@class,"btn-primary")]
 ${Quick_Add_Storage_Room}               //a[@href="/phong/add" and contains(@class,"btn-primary")]
 ${Quick_Add_Profile_Table_Contents}     //a[@href="/muc-luc/add" and contains(@class,"btn-primary")]
@@ -55,6 +68,7 @@ ${Page_Admin_Page}                  //div[@class="page-title" and normalize-spac
 ${Page_Account_Managemnet}          //div[@class="page-title" and normalize-space(.)="Quản lý tài khoản"]
 ${Page_System_Log}                  //div[@class="page-title" and normalize-space(.)="Hệ thống Quản lý Kho"]
 ${Page_Interface}                   //div[@class="page-title" and normalize-space(.)="Hệ thống Quản lý Kho"]
+
 *** Keywords ***
 Login To System
     Open Browser    ${URL}    chrome
@@ -172,3 +186,32 @@ Click Logout menu
     Scroll Element Into View    ${Item_Logout}
     Click Element    ${Item_Logout}
     Wait Until Element Is Visible    ${username_xpath}    10s
+
+Close menu
+    Wait Until Element Is Visible    ${QLKho}    10s
+    Click Element    ${SideBar}
+    Wait Until Element Is Not Visible    ${QLKho}    10s
+
+Close QLToChuc
+    Wait Until Element Is Visible    ${QLKho}    10s
+    Click Element    ${QLToChuc}
+    Wait Until Element Is Not Visible    ${Item_Unit}    10s
+
+Close QLKho2
+    Wait Until Element Is Visible    ${QLKho}    10s
+    Click Element    ${QLKho2}
+    Wait Until Element Is Not Visible    ${Item_Warehouse}    10s
+
+Close Search_Report
+    Wait Until Element Is Visible    ${QLKho}    10s
+    Click Element    ${Search_Report}
+    Wait Until Element Is Not Visible    ${Item_Search}    10s
+
+Close QTHeThong
+    Wait Until Element Is Visible    ${QLKho}    10s
+    Click Element    ${QTHeThong}
+    Wait Until Element Is Not Visible    ${Item_Admin_Page}    10s
+Close CaNhan
+    Wait Until Element Is Visible    ${QLKho}    10s
+    Click Element    ${CaNhan}
+    Wait Until Element Is Not Visible    ${Item_Interface}    10s

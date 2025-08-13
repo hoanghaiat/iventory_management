@@ -24,6 +24,9 @@ ${Button_Add_Mucluc}          //a[contains(@href, "/muc-luc/add") and contains(n
 ${Button_Cancel_Mucluc}       //a[contains(@href, "/muc-luc") and contains(@class, "btn-secondary") and contains(normalize-space(.), "Hủy bỏ")]
 ${Button_Back_To_Mucluc}      //a[contains(@href, "/muc-luc") and contains(@class, "btn-outline-secondary") and contains(normalize-space(.), "Quay lại")]
 ${Button_Save_Mucluc}         //button[@type="submit" and contains(., "Lưu mục lục")]
+${Button_Edit_Mucluc}         //a[@title="Chỉnh sửa"]
+${Button_Update_Mucluc}       //button[contains(@class,"btn-primary") and normalize-space()="Cập nhật mục lục"]
+${Button_Delete_Mucluc}       //button[@type="submit" and contains(@class, "btn-outline-danger") and @title="Xóa"]
 
 ${Input_ID_Unit}        //input[@id="ma_don_vi"]
 ${Input_Name_Unit}      //input[@id="ten_don_vi"]
@@ -36,21 +39,25 @@ ${Option_Don_Vi_Ban_Kiem_Soat}    //select[@id="don_vi_id"]/option[@value="6"]
 ${Dropdown_Phong}                 //select[@id="don-vi-filter"]
 ${Option_Phong}                   //select[@id="don-vi-filter"]/option[normalize-space(.)="Ban kiểm soát chỉnh sửa"]
 ${Dropdown_Mucluc}                //select[@id="don_vi_select"]
-${Option_Mucluc}                 //select[@id="don_vi_select"]/option[@value="6"]
-${Dropdown_MuclucP}              //select[@id="phong_select_edit"]
-${Option_MuclucP}                //select[@id="phong_select_edit"]/option[@value="5"]
+${Option_Mucluc}                  //select[@id="don_vi_select"]/option[@value="6"]
+${Dropdown_MuclucP}               //select[@id="phong_select"]
+${Option_MuclucP}                 //select[@id="phong_select"]/option[@value="5"]
+${Dropdown_DonViP}                //select[@id="don-vi-filter"]
+${Option_DonViP}                  //select[@id="don-vi-filter"]/option[@value="7"]
+${Dropdown_DVPhong}               //select[@id="phong-filter"]
+${Option_DVPhong}                 //select[@id="phong-filter"]/option[normalize-space(.)="Phông Tài liệu Kế toán"]
 
-
-${Message_Unit}           //div[contains(@class, "alert-success") and contains(normalize-space(.), "Thêm đơn vị thành công")]
-${Message_Update_Unit}    //div[contains(@class, "alert-success") and contains(normalize-space(.), "Cập nhật đơn vị thành công!")]
-${Message_Delete_Unit}    //div[contains(@class, "alert-success") and contains(normalize-space(.), "Xoá đơn vị thành công!")]
-${Message_Phong}          //div[contains(@class, "alert-success") and contains(normalize-space(.), "Thêm phông lưu trữ thành công!")]
-${Message_Update_Phong}    //div[contains(@class, "alert-success") and contains(normalize-space(.), "Cập nhật phông lưu trữ thành công!")]
-${Message_Delete_Phong}    //div[contains(@class, "alert-success") and contains(normalize-space(.), "Xoá phông lưu trữ thành công!")]
-${Message_Mucluc}          //div[contains(@class, "alert-success") and contains(normalize-space(.), "Thêm mục lục hồ sơ thành công!")]
+${Message_Unit}              //div[contains(@class, "alert-success") and contains(normalize-space(.), "Thêm đơn vị thành công")]
+${Message_Update_Unit}       //div[contains(@class, "alert-success") and contains(normalize-space(.), "Cập nhật đơn vị thành công!")]
+${Message_Delete_Unit}       //div[contains(@class, "alert-success") and contains(normalize-space(.), "Xoá đơn vị thành công!")]
+${Message_Phong}             //div[contains(@class, "alert-success") and contains(normalize-space(.), "Thêm phông lưu trữ thành công!")]
+${Message_Update_Phong}      //div[contains(@class, "alert-success") and contains(normalize-space(.), "Cập nhật phông lưu trữ thành công!")]
+${Message_Delete_Phong}      //div[contains(@class, "alert-success") and contains(normalize-space(.), "Xoá phông lưu trữ thành công!")]
+${Message_Mucluc}            //div[contains(@class, "alert-success") and contains(normalize-space(.), "Thêm mục lục hồ sơ thành công!")]
+${Message_Update_Mucluc}     //div[contains(@class, "alert-success") and contains(normalize-space(.), "Cập nhật mục lục hồ sơ thành công!")]
+${Message_Delete_Mucluc}     //div[contains(@class, "alert-success") and contains(normalize-space(.), "Xoá mục lục hồ sơ thành công!")]
 
 ${KQ}                    //span[contains(@class,"badge") and normalize-space(text())="Ban kiểm soát chỉnh sửa"]
-
 
 *** Keywords ***
 #Don vi
@@ -273,10 +280,13 @@ Verify Add To Mucluc
     Click Element                    ${Button_Add_Mucluc}
     Wait Until Element Is Visible    ${Input_ID_Mucluc}    10s
     Input Text                       ${Input_ID_Mucluc}    2
-    Wait Until Element Is Visible    ${Dropdown_Mucluc}    10s
-    Select From List By Value        ${Dropdown_Mucluc}    7   
-    Wait Until Element Is Visible    ${Dropdown_MuclucP}    10s
-    Select From List By Value        ${Dropdown_MuclucP}    5    # 6 = Tài liệu demo
+
+    Wait Until Page Contains Element    ${Dropdown_Mucluc}    10s
+    Select From List By Value           ${Dropdown_Mucluc}    6
+
+    Click Element    ${Dropdown_MuclucP}
+    Wait Until Element Is Visible    ${Option_MuclucP}    15s
+    Select From List By Value        ${Dropdown_MuclucP}    5
 
     Wait Until Element Is Visible    ${Input_Name_Mucluc}    10s
     Input Text                       ${Input_Name_Mucluc}    Tài liệu demo
@@ -287,4 +297,82 @@ Verify Add To Mucluc
 
     Wait Until Element Is Visible    ${Message_Mucluc}    10s
     Page Should Contain              Thêm mục lục hồ sơ thành công!
+
+Edit Mucluc
+    Wait Until Element Is Visible    ${Button_Edit_Mucluc}    10s
+    Scroll Element Into View    ${Button_Edit_Mucluc}
+    Click Element                   ${Button_Edit_Mucluc}
+    
+    Wait Until Element Is Visible    ${Input_Name_Mucluc}    10s
+    Clear Element Text             ${Input_Name_Mucluc}
+    Input Text                       ${Input_Name_Mucluc}    Tài liệu demo1
+    
+    Wait Until Element Is Visible    ${Button_Update_Mucluc}    10s
+    Scroll Element Into View    ${Button_Update_Mucluc}
+    Click Element               ${Button_Update_Mucluc}
+
+
+    Wait Until Element Is Visible    ${Message_Update_Mucluc}    10s
+    Page Should Contain             Cập nhật mục lục hồ sơ thành công!
+
+Edit Mucluc "Cancel"
+    Wait Until Element Is Visible    ${Button_Edit_Mucluc}    10s
+    Scroll Element Into View    ${Button_Edit_Mucluc}
+    Click Element                   ${Button_Edit_Mucluc}  
+
+    Wait Until Element Is Visible    ${Input_Name_Mucluc}    10s
+    Clear Element Text             ${Input_Name_Mucluc}
+    Input Text                       ${Input_Name_Mucluc}    Tài liệu demo1
+
+    Wait Until Element Is Visible    ${Button_Cancel_Mucluc}    10s
+    Scroll Element Into View    ${Button_Cancel_Mucluc}
+    Click Element                   ${Button_Cancel_Mucluc}
+
+    Wait Until Element Is Visible    ${Page_Profile_Table_Contents}    10s
+
+Edit Back To Mucluc
+    Wait Until Element Is Visible    ${Button_Edit_Mucluc}    10s
+    Scroll Element Into View    ${Button_Edit_Mucluc}
+    Click Element                   ${Button_Edit_Mucluc}
+
+    Wait Until Element Is Visible    ${Input_Name_Mucluc}    10s
+    Scroll Element Into View    ${Input_Name_Mucluc}
+    Clear Element Text             ${Input_Name_Mucluc}
+    Input Text                       ${Input_Name_Mucluc}    Tài liệu demo1  
+
+    Wait Until Element Is Visible    ${Button_Back_To_Mucluc}    10s
+    Press Keys    None    PAGE_UP
+    Click Element                   ${Button_Back_To_Mucluc}
+
+    Wait Until Element Is Visible    ${Page_Profile_Table_Contents}    10s
+
+Delete Mucluc
+    Wait Until Element Is Visible    ${Button_Delete_Mucluc}    10s
+    Scroll Element Into View    ${Button_Delete_Mucluc}
+    Click Element                   ${Button_Delete_Mucluc}
+    Wait Until Element Is Visible    ${Message_Delete_Mucluc}    10s
+    Page Should Contain             Xoá mục lục hồ sơ thành công!
+
+Filter Phong_Donvi
+    Wait Until Element Is Visible    ${Dropdown_DonViP}    10s
+    Click Element    ${Dropdown_DonViP}
+    Click Element    ${Option_DonViP}
+    Wait Until Element Is Visible    ${KQ}    10s
+    Scroll Element Into View    ${KQ}
+    Page Should Contain             Ban kiểm soát chỉnh sửa
+
+Filter Phong_Donvi2
+    Wait Until Element Is Visible    ${Dropdown_DonViP}    10s
+    Click Element    ${Dropdown_DonViP}
+    Click Element    ${Option_DonViP}
+
+    Wait Until Element Is Visible    ${Dropdown_DVPhong}    10s
+    Click Element    ${Dropdown_DVPhong}
+    Click Element    ${Option_DVPhong}
+
+    Wait Until Element Is Visible    ${KQ}    10s
+    Scroll Element Into View    ${KQ}
+    Page Should Contain             Ban kiểm soát chỉnh sửa
+
+
 

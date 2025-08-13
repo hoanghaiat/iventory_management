@@ -7,6 +7,8 @@ Test Teardown    Close Browser
 *** Variables ***
 
 *** Test Cases ***
-TC048 - Kiểm tra điều hướng khi click "Quay lại" từ trang cài đặt giao diện
+TC057 - Kiểm tra điều hướng khi click "Quay lại" từ trang cài đặt giao diện
+    [Documentation]    TC057
+    [Tags]    TuAnh    PersonalSetting
     Click Interface
     Button Come Back
