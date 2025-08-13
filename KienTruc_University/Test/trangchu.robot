@@ -1,16 +1,18 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    resource.resource
+Resource    ../Resource/Trangchu.resource
 
 *** Variables ***
 
 *** Test Cases ***
 Login
     Login To System    lecturer1    demolecturer
-TC_003_ThaoTacNhanh
-    [Documentation]    Đăng nhập và truy cập trang học phần từ Thao tác nhanh
+TC_001
+    [Documentation]    Thao tac nhanh
     Go To Course Management
     Go To Home Page
     Go To Course Test
+    Go To Home Page
+    Go to Question Bank
     Sleep    5s
     [Teardown]    Close Browser

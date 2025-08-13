@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.3 on win32)" generated="2025-08-13T09:21:51.463617" rpa="false" schemaversion="5">
+<suite id="s1" name="Chuongtrinh" source="D:\Git\iventory_management\KienTruc_University\Test\chuongtrinh.robot">
+<test id="s1-t1" name="Login" line="8">
+<kw name="Login To System" owner="Chuongtrinhdaotao">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-13T09:21:52.074162" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-13T09:21:52.073016" elapsed="4.647109"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_INPUT}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-13T09:21:56.720125" elapsed="0.782598"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-13T09:21:57.503731" level="INFO">Typing text 'lecturer1' into text field 'xpath=//input[@id='id_username']'.</msg>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T09:21:57.503731" elapsed="0.116324"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-13T09:21:57.621052" level="INFO">Typing text 'demolecturer' into text field 'xpath=//input[@id='id_password']'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T09:21:57.621052" elapsed="0.083374"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-13T09:21:57.705464" level="INFO">Clicking button 'xpath=//button[text()='Đăng nhập']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T09:21:57.704426" elapsed="0.093012"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-13T09:21:57.801101" level="INFO">Current location contains 'https://demo-clo.minds.vn/'.</msg>
+<arg>https://demo-clo.minds.vn/</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-08-13T09:21:57.798883" elapsed="0.002218"/>
+</kw>
+<arg>lecturer1</arg>
+<arg>demolecturer</arg>
+<status status="PASS" start="2025-08-13T09:21:52.073016" elapsed="5.728085"/>
+</kw>
+<status status="PASS" start="2025-08-13T09:21:52.071694" elapsed="5.730518"/>
+</test>
+<test id="s1-t2" name="TC_002" line="10">
+<kw name="Search Program In Training" owner="Chuongtrinhdaotao">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Menu_ProGram}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-13T09:21:57.803178" elapsed="3.417321"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Menu_ProGram}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-13T09:22:01.220499" elapsed="0.277416"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-13T09:22:01.498935" level="INFO">Clicking element '//a[@href='/en/academics/programs/']'.</msg>
+<arg>${Menu_ProGram}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T09:22:01.497915" elapsed="0.766380"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TXT_SEARCH}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-13T09:22:02.264295" elapsed="0.051065"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-13T09:22:02.316878" level="INFO">Typing text 'Khoa Luan' into text field '//input[@name='q']'.</msg>
+<arg>${TXT_SEARCH}</arg>
+<arg>Khoa Luan</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T09:22:02.315360" elapsed="0.074879"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-13T09:22:02.391566" level="INFO">Clicking element '//button[i[contains(@class,'fa-search')]]'.</msg>
+<arg>${BTN_SEARCH}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T09:22:02.390239" elapsed="0.058412"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Khoa Luan</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-13T09:22:02.449967" elapsed="0.717887"/>
+</kw>
+<arg>Khoa Luan</arg>
+<status status="PASS" start="2025-08-13T09:21:57.803178" elapsed="5.364676"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-13T09:22:08.169598" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-13T09:22:03.169410" elapsed="5.000188"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-13T09:22:08.171897" elapsed="2.487752"/>
+</kw>
+<doc>Thao tac nhanh</doc>
+<status status="PASS" start="2025-08-13T09:21:57.803178" elapsed="12.856471"/>
+</test>
+<status status="PASS" start="2025-08-13T09:21:51.464320" elapsed="19.197378"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Chuongtrinh" id="s1" pass="2" fail="0" skip="0">Chuongtrinh</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

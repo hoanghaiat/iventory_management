@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Variables  locator.py
+Variables  ../variables/locator.py
 
 *** Variables ***
 ${URL}    https://demo-clo.minds.vn/
@@ -28,8 +28,6 @@ Wait Until Element Is Clickable
     [Arguments]    ${BTN_coursemanagement}    ${timeout}
     Wait Until Element Is Visible    ${BTN_coursemanagement}    ${timeout}
     # Add logic here if needed to ensure the element is clickable
-    
-
 Go To Course Management
     [Documentation]    Mở mục Thao tác nhanh và click vào Quản lý học phần
     Wait Until Element Is Visible    ${BTN_coursemanagement}    30s
@@ -39,6 +37,23 @@ Go To Course Management
     Click Element                    ${BTN_coursemanagement}
     Wait Until Element Is Visible    ${Menu_HP}    50s
     Element Should Contain           ${Menu_HP}    Học phần 
+Go To Course Test
+    [Documentation]    Mở mục Thao tác nhanh và click vào Quản lý bài kiểm tra
+    Wait Until Element Is Visible    ${BTN_TEST}    30s
+    Scroll Element Into View         ${BTN_TEST}
+    Wait Until Element Is Clickable  ${BTN_TEST}    30s
+    Wait Until Element Is Not Visible    xpath=//a[@class='CachePanel']    30s
+    Click Element                    ${BTN_TEST}
+    Wait Until Element Is Visible    ${Menu_BKT}    50s
+    Element Should Contain           ${Menu_BKT}    Bài kiểm tra 
+Go to Question Bank
+    [Documentation]    Mở mục Thao tác nhanh và click vào Quản lý câu hỏi 
+    Wait Until Element Is Visible    ${BTN_Ques}    30s
+    Scroll Element Into View         ${BTN_Ques}
+    Wait Until Element Is Clickable  ${BTN_Ques}    30s
+    Click Element                    ${BTN_Ques}
+    Wait Until Element Is Visible    ${Menu_Ques}    50s
+    Element Should Contain           ${Menu_Ques}    Duyệt câu hỏi
 Go To Home Page
     [Documentation]    Click vào nút Trang chủ để quay lại trang chủ
     Wait Until Element Is Visible    ${BTN_HOME}    30s
@@ -47,12 +62,3 @@ Go To Home Page
     Click Element                    ${BTN_HOME}
     Wait Until Element Is Visible    ${Menu_HOME}    50s
     Element Should Contain           ${Menu_HOME}    Trang chủ
-Go To Course Test
-    [Documentation]    Mở mục Thao tác nhanh và click vào Quản lý bài kiểm tra
-    Wait Until Element Is Visible    ${BTN_TEST}    30s
-    Execute Javascript    arguments[0].scrollIntoView({block: "center"});    ${BTN_TEST}
-    Wait Until Element Is Clickable  ${BTN_TEST}    30s
-    Execute Javascript    arguments[0].click();    ${BTN_TEST}
-    Wait Until Element Is Visible    ${Menu_BKT}    50s
-    Element Should Contain           ${Menu_BKT}    Bài kiểm tra
-
