@@ -2,14 +2,8 @@
 Library    SeleniumLibrary
 
 *** Variables ***
-${URL}    https://kholuutru.minds.vn/
-${USERNAME}  admin_qc_automation
-${PASSWORD}  Qc@12345
-${username_xpath}       xpath=//*[@id="username"]
-${password_xpath}       xpath=//*[@id="password"]
-${loginbtn_xpath}       xpath=//*[@id="loginBtn"]
+# Admin Page Elements
 ${admin_page}           xpath=//a[@href='/admin']
-
 ${card_user_detail}         xpath=//a[@href='/admin/users' and contains(@class,'card-footer')]
 ${card_unit_detail}         xpath=//a[@href='/don-vi' and contains(@class,'card-footer')]
 ${card_storage_detail}      xpath=//a[@href='/phong' and contains(@class,'card-footer')]
@@ -17,6 +11,7 @@ ${card_catalog_detail}      xpath=//a[@href='/muc-luc' and contains(@class,'card
 ${link_user_management}     xpath=//a[@href='/admin/users' and contains(@class,'list-group-item')]
 ${link_system_logs}         xpath=//a[@href='/admin/logs' and contains(@class,'list-group-item')]
 
+# Account Management Elements
 ${account_management_page}        xpath=//a[@href='/admin/users']
 ${add_acc_btn}                    //a[@href='/admin/users/add'and contains(@class,'btn btn-primary')]
 ${addacc_username_xpath}          xpath=//input[@id='username' and contains(@class,'form-control-lg')]
@@ -44,20 +39,17 @@ ${confirm_button}                xpath=//input[@id='submit' and contains(@class,
 ${cancelbtn}                    xpath=//a[@href="/admin/users" and contains(@class,'btn btn-secondary')]
 ${acc_to_change}                user4
 
+# System Log Page Elements
 ${system_log_page}              xpath=//a[@href="/admin/logs" and contains(@class,'nav-item')]
 ${log_type_dropdown}            xpath=//select[@id='log_type' and contains(@class,'form-select form-select-sm')]
 ${filter_button}                xpath=//button[@type='submit' and contains(@class,'btn btn-primary btn-sm')]
 ${row_dropdown}                 xpath=//select[@name='per_page' and contains(@class,'form-select form-select-sm')]
+${back_to_admin_page}           xpath=//a[@href="/admin" and contains(@class,'btn btn-outline-secondary me-2')]
+${refresh_logs_button}          xpath=//button[@class='btn btn-outline-primary' and contains(.,'Làm mới')]
 
 
 *** Keywords ***
-Login To System
-    Open Browser    ${URL}    chrome
-    Maximize Browser Window
-    Wait Until Element Is Visible    ${username_xpath}    30s
-    Input Text    ${username_xpath}    ${USERNAME}
-    Input Text    ${password_xpath}    ${PASSWORD}
-    Click Button  ${loginbtn_xpath}
+# Admin Page
 Open Admin Page
     Click Element    ${admin_page}
     Wait Until Page Contains    Trang quản trị hệ thống
@@ -86,7 +78,7 @@ Navigate to System Logs
     Click Element   ${link_system_logs} 
     Wait Until Page Contains    Nhật ký hệ thống
 
-
+# Account Management 
 Open Account Management 
     Click Element    ${account_management_page}
     Wait Until Page Contains    Quản lý tài khoản
@@ -171,7 +163,7 @@ Click Cancel Password Change
     Click Element    ${cancelbtn}
     Wait Until Page Contains    Quản lý tài khoản
 
-
+# System Log Page
 Open System Logs
     Click Element    ${system_log_page}
     Wait Until Page Contains    Nhật ký hệ thống
@@ -187,9 +179,25 @@ Check Log Type Color
         ${color}=    Execute JavaScript    return window.getComputedStyle(arguments[0]).getPropertyValue('color');    ${el}
         Should Contain    ${color}    ${expected_color}
     END
-Select Log Rows Per Page
-    [Arguments]    ${rows}
-    Select From List By Value    ${row_dropdown}   ${rows}
-Click Pagination Page
-    [Arguments]    ${page_num}
-    Click Element    xpath=//ul[contains(@class,'pagination')]//a[text()='${page_num}']
+Show Logs Per Page And Verify
+    [Arguments]    ${expected_rows}
+    Select From List By Value    ${row_dropdown}    ${expected_rows}
+    Click Element    ${filter_button}
+    Wait Until Element Is Visible    xpath=(//div[contains(@class,"log-line")])[1]    5s
+    ${scrollable}    Get WebElement    xpath=//div[contains(@class,"log-container")]
+    Execute JavaScript    arguments[0].scrollTop = arguments[0].scrollHeight    ARGUMENTS    ${scrollable}
+    Sleep    1s
+    ${rows}    Get Element Count    xpath=//div[contains(@class,"log-line")]
+    Should Be Equal As Integers    ${rows}    ${expected_rows}
+Go To Page
+    [Arguments]    ${page_number}
+    Scroll Element Into View    xpath=//a[@class="page-link" and normalize-space(text())="${page_number}"]
+    Click Element    xpath=//a[@class="page-link" and normalize-space(text())="${page_number}"]
+    Wait Until Page Contains Element    xpath=//div[contains(@class,"log-line")]
+    Location Should Contain    page=${page_number}
+Back to Admin Page
+    Click Element    ${back_to_admin_page}
+    Wait Until Page Contains    Trang quản trị hệ thống
+Refresh Logs
+    Click Element    ${refresh_logs_button}
+    Wait Until Page Contains    Nhật ký hệ thống

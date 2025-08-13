@@ -1,118 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.10.11 on win32)" generated="2025-08-12T16:53:14.926101" rpa="false" schemaversion="5">
-<suite id="s1" name="SystemAdministration" source="d:\autoQC\iventory_management\Invetory_Management\Testcase\SystemAdministration.robot">
-<test id="s1-t1" name="SL_006 - Kiểm tra thay đổi số lượng log hiển thị" line="237">
-<kw name="Login To System" owner="SystemAdministration" type="SETUP">
+<robot generator="Robot 7.3.2 (Python 3.10.11 on win32)" generated="2025-08-13T16:54:50.834637" rpa="false" schemaversion="5">
+<suite id="s1" name="WarehouseManagement" source="d:\autoQC\iventory_management\Invetory_Management\Testcase\WarehouseManagement.robot">
+<test id="s1-t1" name="BX_002 - Thêm hộp lưu trữ với mã hộp trùng" line="225">
+<kw name="Login To System" owner="Login" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-12T16:53:15.146028" level="INFO">Opening browser 'chrome' to base url 'https://kholuutru.minds.vn/'.</msg>
+<msg time="2025-08-13T16:54:51.235116" level="INFO">Opening browser 'chrome' to base url 'https://kholuutru.minds.vn/'.</msg>
 <arg>${URL}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-12T16:53:15.146028" elapsed="2.548332"/>
+<status status="PASS" start="2025-08-13T16:54:51.235116" elapsed="2.781547"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-08-12T16:53:17.694360" elapsed="0.036155"/>
+<status status="PASS" start="2025-08-13T16:54:54.024702" elapsed="0.050935"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${username_xpath}</arg>
 <arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-12T16:53:17.730515" elapsed="0.285712"/>
+<status status="PASS" start="2025-08-13T16:54:54.075637" elapsed="0.298754"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-12T16:53:18.016227" level="INFO">Typing text 'admin_qc_automation' into text field 'xpath=//*[@id="username"]'.</msg>
+<msg time="2025-08-13T16:54:54.374391" level="INFO">Typing text 'admin_qc_automation' into text field 'xpath=//*[@id="username"]'.</msg>
 <arg>${username_xpath}</arg>
 <arg>${USERNAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T16:53:18.016227" elapsed="0.101488"/>
+<status status="PASS" start="2025-08-13T16:54:54.374391" elapsed="0.272813"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-12T16:53:18.121484" level="INFO">Typing text 'Qc@12345' into text field 'xpath=//*[@id="password"]'.</msg>
+<msg time="2025-08-13T16:54:54.663816" level="INFO">Typing text 'Qc@12345' into text field 'xpath=//*[@id="password"]'.</msg>
 <arg>${password_xpath}</arg>
 <arg>${PASSWORD}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T16:53:18.117715" elapsed="0.221058"/>
+<status status="PASS" start="2025-08-13T16:54:54.658694" elapsed="0.173942"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-12T16:53:18.341210" level="INFO">Clicking button 'xpath=//*[@id="loginBtn"]'.</msg>
+<msg time="2025-08-13T16:54:54.832636" level="INFO">Clicking button 'xpath=//*[@id="loginBtn"]'.</msg>
 <arg>${loginbtn_xpath}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T16:53:18.340048" elapsed="2.387314"/>
+<status status="PASS" start="2025-08-13T16:54:54.832636" elapsed="5.019376"/>
 </kw>
-<status status="PASS" start="2025-08-12T16:53:15.146028" elapsed="5.582332"/>
+<status status="PASS" start="2025-08-13T16:54:51.219031" elapsed="8.632981"/>
 </kw>
-<kw name="Open System Logs" owner="SystemAdministration">
+<kw name="Open Storage Box Management" owner="WarehouseManagement">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-12T16:53:20.730363" level="INFO">Clicking element 'xpath=//a[@href="/admin/logs" and contains(@class,'nav-item')]'.</msg>
-<arg>${system_log_page}</arg>
+<msg time="2025-08-13T16:54:59.857279" level="INFO">Clicking element 'xpath=//a[@href='/hop' and contains(@class, 'nav-item')]'.</msg>
+<arg>${storage_box}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T16:53:20.729362" elapsed="0.784682"/>
+<status status="PASS" start="2025-08-13T16:54:59.854483" elapsed="2.543509"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Nhật ký hệ thống</arg>
+<arg>Quản lý Hộp lưu trữ</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-08-12T16:53:21.514044" elapsed="0.042946"/>
+<status status="PASS" start="2025-08-13T16:55:02.397992" elapsed="0.025677"/>
 </kw>
-<status status="PASS" start="2025-08-12T16:53:20.729362" elapsed="0.829589"/>
+<status status="PASS" start="2025-08-13T16:54:59.854483" elapsed="2.569186"/>
 </kw>
-<kw name="Select Log Rows Per Page" owner="SystemAdministration">
-<kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2025-08-12T16:53:21.567258" level="INFO">Selecting options from selection list 'xpath=//select[@name='per_page' and contains(@class,'form-select form-select-sm')]' by value 10.</msg>
-<arg>${row_dropdown}</arg>
-<arg>${rows}</arg>
-<doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2025-08-12T16:53:21.565909" elapsed="0.130628"/>
+<kw name="Click Add Box Button" owner="WarehouseManagement">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-13T16:55:02.423669" level="INFO">Clicking element 'xpath=//a[@href="/hop/add" and contains(.,'Thêm hộp mới')]'.</msg>
+<arg>${add_box_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T16:55:02.423669" elapsed="1.735719"/>
 </kw>
-<arg>10</arg>
-<status status="PASS" start="2025-08-12T16:53:21.563404" elapsed="0.133133"/>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Thêm hộp lưu trữ mới</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-13T16:55:04.159388" elapsed="0.048780"/>
 </kw>
-<kw name="Click Filter Button" owner="SystemAdministration">
+<status status="PASS" start="2025-08-13T16:55:02.423669" elapsed="1.787487"/>
+</kw>
+<kw name="Add Box" owner="WarehouseManagement">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-13T16:55:04.215270" level="INFO">Typing text 'BOX0018' into text field 'xpath=//input[@id='ma_hop']'.</msg>
+<arg>${box_code_input}</arg>
+<arg>${box_code}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T16:55:04.215270" elapsed="0.293149"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-13T16:55:04.508419" level="INFO">Typing text 'Hộp 18 - Hợp đồng mua bán - 3' into text field 'xpath=//input[@id='ten_hop']'.</msg>
+<arg>${box_name_input}</arg>
+<arg>${box_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T16:55:04.508419" elapsed="0.266141"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-08-13T16:55:04.783587" level="INFO">Selecting options from selection list 'xpath=//select[@id='gia_id']' by label Kho A - Tài liệu chính - Giá 1 - Kho A - Tài liệu chính.</msg>
+<arg>${box_rack_select}</arg>
+<arg>${box_rack}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-08-13T16:55:04.783587" elapsed="0.301048"/>
+</kw>
+<arg>'${box_rack}' != ''</arg>
+<arg>Select From List By Label</arg>
+<arg>${box_rack_select}</arg>
+<arg>${box_rack}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-13T16:55:04.783587" elapsed="0.301048"/>
+</kw>
+<arg>BOX0018</arg>
+<arg>Hộp 18 - Hợp đồng mua bán - 3</arg>
+<arg>Kho A - Tài liệu chính - Giá 1 - Kho A - Tài liệu chính</arg>
+<status status="PASS" start="2025-08-13T16:55:04.215270" elapsed="0.869365"/>
+</kw>
+<kw name="Click Box Save Button" owner="WarehouseManagement">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<msg time="2025-08-13T16:55:05.381591" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-13T16:55:05.381591" level="FAIL">Element with locator 'xpath=//button[@type='submit' and contains(.,'Lưu thay đổi')]' not found.</msg>
+<arg>locator=${box_save_button}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="FAIL" start="2025-08-13T16:55:05.092499" elapsed="0.307976">Element with locator 'xpath=//button[@type='submit' and contains(.,'Lưu thay đổi')]' not found.</status>
+</kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-12T16:53:21.697537" level="INFO">Clicking button 'xpath=//button[@type='submit' and contains(@class,'btn btn-primary btn-sm')]'.</msg>
-<arg>${filter_button}</arg>
+<arg>${box_save_button}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T16:53:21.697537" elapsed="0.582680"/>
+<status status="NOT RUN" start="2025-08-13T16:55:05.400475" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-08-12T16:53:21.697537" elapsed="0.583508"/>
+<status status="FAIL" start="2025-08-13T16:55:05.092499" elapsed="0.314527">Element with locator 'xpath=//button[@type='submit' and contains(.,'Lưu thay đổi')]' not found.</status>
 </kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<msg time="2025-08-12T16:53:42.572903" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-22.png"&gt;&lt;img src="selenium-screenshot-22.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-12T16:53:42.574892" level="FAIL">Element 'xpath=//table/tbody/tr[10]' did not appear in 20 seconds.</msg>
-<arg>xpath=//table/tbody/tr[10]</arg>
-<arg>timeout=20s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="FAIL" start="2025-08-12T16:53:22.282142" elapsed="20.299746">Element 'xpath=//table/tbody/tr[10]' did not appear in 20 seconds.</status>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Mã hộp đã tồn tại!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-08-13T16:55:05.407026" elapsed="0.000000"/>
 </kw>
-<kw name="Get Element Count" owner="SeleniumLibrary">
-<var>${count}</var>
-<arg>xpath=//table/tbody/tr</arg>
-<doc>Returns the number of elements matching ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-12T16:53:42.582225" elapsed="0.000000"/>
-</kw>
-<kw name="Should Be Equal As Integers" owner="BuiltIn">
-<arg>${count}</arg>
-<arg>10</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="NOT RUN" start="2025-08-12T16:53:42.582225" elapsed="0.000000"/>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-08-13T16:55:05.413637" elapsed="0.000000"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-12T16:53:42.582225" elapsed="2.383494"/>
+<status status="PASS" start="2025-08-13T16:55:05.413637" elapsed="2.352124"/>
 </kw>
-<doc>Chọn hiển thị 10 dòng log</doc>
-<status status="FAIL" start="2025-08-12T16:53:15.146028" elapsed="29.820202">Element 'xpath=//table/tbody/tr[10]' did not appear in 20 seconds.</status>
+<doc>BX_002</doc>
+<tag>Hộp lưu trữ</tag>
+<tag>Thu Uyên</tag>
+<status status="FAIL" start="2025-08-13T16:54:51.219031" elapsed="16.546730">Element with locator 'xpath=//button[@type='submit' and contains(.,'Lưu thay đổi')]' not found.</status>
 </test>
-<status status="FAIL" start="2025-08-12T16:53:14.929540" elapsed="30.036690"/>
+<status status="FAIL" start="2025-08-13T16:54:50.834637" elapsed="16.931124"/>
 </suite>
 <statistics>
 <total>
 <stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="0" fail="1" skip="0">Hộp lưu trữ</stat>
+<stat pass="0" fail="1" skip="0">Thu Uyên</stat>
 </tag>
 <suite>
-<stat name="SystemAdministration" id="s1" pass="0" fail="1" skip="0">SystemAdministration</stat>
+<stat name="WarehouseManagement" id="s1" pass="0" fail="1" skip="0">WarehouseManagement</stat>
 </suite>
 </statistics>
 <errors>
