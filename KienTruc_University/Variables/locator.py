@@ -17,3 +17,5 @@ Menu_ProGram="//a[@href='/en/academics/programs/']"
 BTN_SEARCH="//button[i[contains(@class,'fa-search')]]"
 #tukhoa
 TXT_SEARCH="//input[@name='q']"
+#click chuyen trang
+CLICK_NEXT="//a[@class='page-link' and text()='2']"
