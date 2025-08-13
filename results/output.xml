@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.2 on win32)" generated="2025-08-13T14:36:45.473889" rpa="false" schemaversion="5">
+<suite id="s1" name="Quiz Tests" source="D:\JAV siu\iventory_management\KienTruc_University\LecturerPage\Test\quiz_tests.robot">
+<kw name="Setup And Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:36:45.791217" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/en/accounts/login/?next=/en/'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-13T14:36:45.791217" elapsed="5.704890"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-13T14:36:51.497105" elapsed="0.033741"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_USER}</arg>
+<arg>${TO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-13T14:36:51.530846" elapsed="0.069080"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:36:51.602917" level="INFO">Typing text 'lecturer1' into text field '//input[@name="username" or @type="text"]'.</msg>
+<arg>${LOC_USER}</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T14:36:51.600919" elapsed="0.249550"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:36:51.850469" level="INFO">Typing text 'demolecturer' into text field '//input[@name="password" or @type="password"]'.</msg>
+<arg>${LOC_PASS}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T14:36:51.850469" elapsed="0.074840"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:36:51.925309" level="INFO">Clicking button '//button[@type="submit" or @id="login-submit"]'.</msg>
+<arg>${LOC_SUBMIT}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T14:36:51.925309" elapsed="2.997492"/>
+</kw>
+<kw name="Wait For Login Landed">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/en/</arg>
+<arg>10s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-08-13T14:36:54.922801" elapsed="0.007160"/>
+</kw>
+<msg time="2025-08-13T14:36:54.930961" level="INFO">${ok1} = True</msg>
+<var>${ok1}</var>
+<arg>Wait Until Location Contains</arg>
+<arg>/en/</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:36:54.922801" elapsed="0.008160"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_MENU_TESTS}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-13T14:36:54.930961" elapsed="0.029236"/>
+</kw>
+<msg time="2025-08-13T14:36:54.960197" level="INFO">${ok2} = True</msg>
+<var>${ok2}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${LOC_MENU_TESTS}</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:36:54.930961" elapsed="0.029236"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:36:55.120306" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-13T14:36:55.120306" level="FAIL">Page should have contained element '//a[contains(@href,"logout") or contains(.,"Logout")]' but did not.</msg>
+<arg>${LOC_LOGOUT}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="FAIL" start="2025-08-13T14:36:54.961198" elapsed="0.162102">Page should have contained element '//a[contains(@href,"logout") or contains(.,"Logout")]' but did not.</status>
+</kw>
+<msg time="2025-08-13T14:36:55.124299" level="INFO">${ok3} = False</msg>
+<var>${ok3}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${LOC_LOGOUT}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:36:54.960197" elapsed="0.164102"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${ok1} and not ${ok2} and not ${ok3}</arg>
+<arg>Handle Login Failure</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-13T14:36:55.124299" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-08-13T14:36:54.922801" elapsed="0.201498"/>
+</kw>
+<kw name="Hide Django Debug Toolbar If Present">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:36:55.132299" level="INFO">Current page contains element '//*[@id="djDebug"]'.</msg>
+<arg>//*[@id="djDebug"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-08-13T14:36:55.124299" elapsed="0.008000"/>
+</kw>
+<msg time="2025-08-13T14:36:55.132299" level="INFO">${has} = True</msg>
+<var>${has}</var>
+<arg>Page Should Contain Element</arg>
+<arg>//*[@id="djDebug"]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:36:55.124299" elapsed="0.008000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:36:55.133299" level="INFO">Executing JavaScript:
+const e=document.getElementById("djDebug"); if(e){e.style.display='none';}
+Without any arguments.</msg>
+<arg>const e=document.getElementById("djDebug"); if(e){e.style.display='none';}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-13T14:36:55.132299" elapsed="0.007045"/>
+</kw>
+<arg>${has}</arg>
+<arg>Execute JavaScript</arg>
+<arg>const e=document.getElementById("djDebug"); if(e){e.style.display='none';}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-13T14:36:55.132299" elapsed="0.007045"/>
+</kw>
+<status status="PASS" start="2025-08-13T14:36:55.124299" elapsed="0.015045"/>
+</kw>
+<status status="PASS" start="2025-08-13T14:36:45.790217" elapsed="9.349127"/>
+</kw>
+<test id="s1-t1" name="EX01 - Vào trang Quiz/Tests và chờ danh sách" line="118">
+<kw name="Go To Quiz List">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:36:55.144343" level="INFO">Clicking element '//a[contains(@href,"/tests") or contains(@href,"/assessments") or contains(.,"Bài kiểm tra") or contains(.,"Tests")]'.</msg>
+<arg>${LOC_MENU_TESTS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T14:36:55.141343" elapsed="0.797984"/>
+</kw>
+<msg time="2025-08-13T14:36:55.939327" level="INFO">${clicked} = True</msg>
+<var>${clicked}</var>
+<arg>Click Element</arg>
+<arg>${LOC_MENU_TESTS}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:36:55.141343" elapsed="0.797984"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${clicked}</arg>
+<arg>Go To</arg>
+<arg>${QUIZ_LIST_URL}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-13T14:36:55.939327" elapsed="0.000999"/>
+</kw>
+<kw name="Wait For Any List Container">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:37:06.185545" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-13T14:37:06.186547" level="FAIL">Element '//table[contains(@class,"table") or @role="table"]' did not appear in 10 seconds.</msg>
+<arg>${LOC_TABLE}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2025-08-13T14:36:55.941327" elapsed="10.247219">Element '//table[contains(@class,"table") or @role="table"]' did not appear in 10 seconds.</status>
+</kw>
+<msg time="2025-08-13T14:37:06.188546" level="INFO">${ok1} = False</msg>
+<var>${ok1}</var>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${LOC_TABLE}</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:36:55.941327" elapsed="10.247219"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:37:16.397006" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-13T14:37:16.398005" level="FAIL">Element '//ul[contains(@class,"list") or @role="list"] | //div[contains(@class,"list")]' did not appear in 10 seconds.</msg>
+<arg>${LOC_LIST}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2025-08-13T14:37:06.188546" elapsed="10.209459">Element '//ul[contains(@class,"list") or @role="list"] | //div[contains(@class,"list")]' did not appear in 10 seconds.</status>
+</kw>
+<msg time="2025-08-13T14:37:16.398005" level="INFO">${ok2} = False</msg>
+<var>${ok2}</var>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${LOC_LIST}</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:37:06.188546" elapsed="10.209459"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_CARDS}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-13T14:37:16.399005" elapsed="0.008002"/>
+</kw>
+<msg time="2025-08-13T14:37:16.408006" level="INFO">${ok3} = True</msg>
+<var>${ok3}</var>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${LOC_CARDS}</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:37:16.399005" elapsed="0.009001"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_GRID}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-13T14:37:16.408006" elapsed="0.009239"/>
+</kw>
+<msg time="2025-08-13T14:37:16.417245" level="INFO">${ok4} = True</msg>
+<var>${ok4}</var>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${LOC_GRID}</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:37:16.408006" elapsed="0.009239"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-08-13T14:37:16.417245" level="INFO">Returning from the enclosing user keyword.</msg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-08-13T14:37:16.417245" elapsed="0.000999"/>
+</kw>
+<arg>${ok1} or ${ok2} or ${ok3} or ${ok4}</arg>
+<arg>Return From Keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-13T14:37:16.417245" elapsed="0.000999"/>
+</kw>
+<kw name="Try Switch To Inner Iframe And Wait List">
+<status status="NOT RUN" start="2025-08-13T14:37:16.418244" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword" owner="BuiltIn">
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" start="2025-08-13T14:37:16.418244" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-08-13T14:36:55.940326" elapsed="20.477918"/>
+</kw>
+<status status="PASS" start="2025-08-13T14:36:55.141343" elapsed="21.276901"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-13T14:37:16.545957" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-13T14:37:16.418244" elapsed="0.127713"/>
+</kw>
+<timeout value="3 minutes"/>
+<status status="PASS" start="2025-08-13T14:36:55.140343" elapsed="21.406614"/>
+</test>
+<test id="s1-t2" name="EX02 - Lấy tiêu đề item từ UI" line="122">
+<kw name="Go To Quiz List">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:37:16.548957" level="INFO">Clicking element '//a[contains(@href,"/tests") or contains(@href,"/assessments") or contains(.,"Bài kiểm tra") or contains(.,"Tests")]'.</msg>
+<arg>${LOC_MENU_TESTS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T14:37:16.548957" elapsed="0.858551"/>
+</kw>
+<msg time="2025-08-13T14:37:17.408510" level="INFO">${clicked} = True</msg>
+<var>${clicked}</var>
+<arg>Click Element</arg>
+<arg>${LOC_MENU_TESTS}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:37:16.548957" elapsed="0.859553"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${clicked}</arg>
+<arg>Go To</arg>
+<arg>${QUIZ_LIST_URL}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-13T14:37:17.408510" elapsed="0.000000"/>
+</kw>
+<kw name="Wait For Any List Container">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:37:27.619694" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-13T14:37:27.619694" level="FAIL">Element '//table[contains(@class,"table") or @role="table"]' did not appear in 10 seconds.</msg>
+<arg>${LOC_TABLE}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2025-08-13T14:37:17.408510" elapsed="10.212182">Element '//table[contains(@class,"table") or @role="table"]' did not appear in 10 seconds.</status>
+</kw>
+<msg time="2025-08-13T14:37:27.620692" level="INFO">${ok1} = False</msg>
+<var>${ok1}</var>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${LOC_TABLE}</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:37:17.408510" elapsed="10.212182"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:37:37.804250" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-13T14:37:37.804250" level="FAIL">Element '//ul[contains(@class,"list") or @role="list"] | //div[contains(@class,"list")]' did not appear in 10 seconds.</msg>
+<arg>${LOC_LIST}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2025-08-13T14:37:27.620692" elapsed="10.184558">Element '//ul[contains(@class,"list") or @role="list"] | //div[contains(@class,"list")]' did not appear in 10 seconds.</status>
+</kw>
+<msg time="2025-08-13T14:37:37.805250" level="INFO">${ok2} = False</msg>
+<var>${ok2}</var>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${LOC_LIST}</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:37:27.620692" elapsed="10.184558"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_CARDS}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.805250" elapsed="0.004999"/>
+</kw>
+<msg time="2025-08-13T14:37:37.811250" level="INFO">${ok3} = True</msg>
+<var>${ok3}</var>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${LOC_CARDS}</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.805250" elapsed="0.006000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOC_GRID}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.811250" elapsed="0.005154"/>
+</kw>
+<msg time="2025-08-13T14:37:37.816404" level="INFO">${ok4} = True</msg>
+<var>${ok4}</var>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${LOC_GRID}</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.811250" elapsed="0.005154"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-08-13T14:37:37.816404" level="INFO">Returning from the enclosing user keyword.</msg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.816404" elapsed="0.000000"/>
+</kw>
+<arg>${ok1} or ${ok2} or ${ok3} or ${ok4}</arg>
+<arg>Return From Keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.816404" elapsed="0.000000"/>
+</kw>
+<kw name="Try Switch To Inner Iframe And Wait List">
+<status status="NOT RUN" start="2025-08-13T14:37:37.816404" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword" owner="BuiltIn">
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" start="2025-08-13T14:37:37.816404" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-08-13T14:37:17.408510" elapsed="20.408894"/>
+</kw>
+<status status="PASS" start="2025-08-13T14:37:16.547961" elapsed="21.269443"/>
+</kw>
+<kw name="Get Titles From UI">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:37:37.825404" level="INFO">Current page contains element '(//table[contains(@class,"table") or @role="table"])//tr[position()&gt;1]//td[1]//a | (//ul[contains(@class,"list") or @role="list"] | //div[contains(@class,"list")])//li//a | (//div[contains(@class,"card")] | //section[contains(@class,"card")])//a | (//div[contains(@class,"grid")] | //div[contains(@class,"row") and .//div[contains(@class,"col")]])//a'.</msg>
+<arg>${LOC_ROW_LINKS}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.817404" elapsed="0.008999"/>
+</kw>
+<msg time="2025-08-13T14:37:37.826403" level="INFO">${has} = True</msg>
+<var>${has}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${LOC_ROW_LINKS}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.817404" elapsed="0.008999"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${has}</arg>
+<arg>Log Url And Title And Html</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.826403" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${has}</arg>
+<arg>Return From Keyword</arg>
+<arg>@{EMPTY}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.826403" elapsed="0.000000"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:37:37.831565" level="INFO">${els} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="18dc16c4ca0978367d809b2c5dd667f7", element="f.39DE075AF89FEB9267B7C5ED9D983A53.d.E8009987432A3CC0436FC6DC19EE8E8F.e.122")&gt;, &lt;selenium.webdri...</msg>
+<var>${els}</var>
+<arg>${LOC_ROW_LINKS}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.826403" elapsed="0.005162"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-13T14:37:37.832565" level="INFO">${titles} = []</msg>
+<var>${titles}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.831565" elapsed="0.001000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-13T14:37:37.843660" level="INFO">${t} = All</msg>
+<var>${t}</var>
+<arg>${el}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.832565" elapsed="0.011095"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-13T14:37:37.845659" level="FAIL">Evaluating expression 'All.strip()' failed: NameError: name 'All' is not defined nor importable as module</msg>
+<var>${t}</var>
+<arg>${t}.strip()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="FAIL" start="2025-08-13T14:37:37.843660" elapsed="0.001999">Evaluating expression 'All.strip()' failed: NameError: name 'All' is not defined nor importable as module</status>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${titles}</arg>
+<arg>${t}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-08-13T14:37:37.845659" elapsed="0.000000"/>
+</kw>
+<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="18dc16c4ca0978367d809b2c5dd667f7", element="f.39DE075AF89FEB9267B7C5ED9D983A53.d.E8009987432A3CC0436FC6DC19EE8E8F.e.122")&gt;</var>
+<status status="FAIL" start="2025-08-13T14:37:37.832565" elapsed="0.013094">Evaluating expression 'All.strip()' failed: NameError: name 'All' is not defined nor importable as module</status>
+</iter>
+<var>${el}</var>
+<value>@{els}</value>
+<status status="FAIL" start="2025-08-13T14:37:37.832565" elapsed="0.013094">Evaluating expression 'All.strip()' failed: NameError: name 'All' is not defined nor importable as module</status>
+</for>
+<kw name="Return From Keyword" owner="BuiltIn">
+<arg>${titles}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" start="2025-08-13T14:37:37.845659" elapsed="0.000000"/>
+</kw>
+<var>${ui_titles}</var>
+<status status="FAIL" start="2025-08-13T14:37:37.817404" elapsed="0.028255">Evaluating expression 'All.strip()' failed: NameError: name 'All' is not defined nor importable as module</status>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${len(${ui_titles})}==0</arg>
+<arg>Skip</arg>
+<arg>Không có dữ liệu hoặc locator chưa khớp UI</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-08-13T14:37:37.846658" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>UI titles: ${ui_titles}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-13T14:37:37.846658" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-13T14:37:37.974424" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.846658" elapsed="0.128767"/>
+</kw>
+<timeout value="3 minutes"/>
+<status status="FAIL" start="2025-08-13T14:37:16.547961" elapsed="21.427464">Evaluating expression 'All.strip()' failed: NameError: name 'All' is not defined nor importable as module</status>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-08-13T14:37:37.976426" elapsed="2.200177"/>
+</kw>
+<status status="FAIL" start="2025-08-13T14:36:45.475134" elapsed="54.702468"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Quiz Tests" id="s1" pass="1" fail="1" skip="0">Quiz Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
