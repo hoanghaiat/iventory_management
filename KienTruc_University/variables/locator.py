@@ -96,13 +96,14 @@ BTN_SEARCH_STUDENT = '//button[@id="searchToggle"]'
 IP_SEARCH_STUDENT = '//input[@placeholder="Search student name..."]'
 RESULT_TABLE_STUDENT = '//div[@class="table-responsive"]/table/tbody/tr[3]'
 
-# bai kiem tra
-INPUT_SEARCH_TEST = '//input[@placeholder="Search test analyses..."]'
-BTN_SEARCH_TEST = '//form[@class="d-flex"]/button[@class="btn btn-primary"]'
-BTN_VIEW_TEST = '//a[@href="/en/reports/test-analyses/4/"]'
-BTN_PRINT_TEST = '//div[@class="table-responsive"]/table/tbody/tr[1]/td[6]/div/button'
-RESULT_TABLE_TEST = '//div[@class="table-responsive"]/table/tbody/tr[1]/td[6]/div[1]'
-
+# phân tích bai kiem tra
+URL_TEST_ANALYSES = "//div[@class='menu-section']//a[contains(@href,'/reports/test-analyses/')]"
+INPUT_SEARCH_TEST_ANALYSES = '//input[@placeholder="Search test analyses..."]'
+BTN_SEARCH_TEST_ANALYSES = '//form[@class="d-flex"]/button[@class="btn btn-primary"]'
+BTN_VIEW_TEST_ANALYSES = '//a[@href="/en/reports/test-analyses/4/"]'
+BTN_PRINT_TEST_ANALYSES = '//div[@class="table-responsive"]/table/tbody/tr[1]/td[6]/div/button'
+RESULT_TABLE_TEST_ANALYSES = '//div[@class="table-responsive"]/table/tbody/tr[5]'
+BTN_BACK_TEST_ANALYSES = '//a[contains(@href,"/en/reports/test-analyses/") and @class="btn btn-secondary"]'
 
 
 

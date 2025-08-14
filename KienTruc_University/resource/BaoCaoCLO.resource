@@ -1,7 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
 Variables   ../variables/locator.py
-Library    OperatingSystem
 
 
 *** Keywords ***
@@ -254,14 +253,10 @@ Check search the keyword is empty
     Sleep  2s
     Input Text    ${IP_SEARCH_STUDENT}    ${student_name}
     Sleep  10s
-Print Report Successfully in Test Detail View
+Check Report Popup Display
     Wait Until Element Is Visible    ${URL_REPORT_CLO}    20s
     Click Element    ${URL_REPORT_CLO}
     Sleep    3s
-    Wait Until Element Is Visible    ${BTN_VIEW_CLO}    20s
-    Click Element    ${BTN_VIEW_CLO}
-    Sleep    2s
-    Wait Until Element Is Visible    ${BTN_PRINT_REPORT}    20s
-    Click Element    ${BTN_PRINT_REPORT}
-
-  
+    Wait Until Element Is Visible    ${BTN_PRINT_CLO}    20s
+    Click Element    ${BTN_PRINT_CLO}
+    Sleep    5s

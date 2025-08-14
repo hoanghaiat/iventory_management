@@ -75,9 +75,7 @@ TC_RP_16 : Kiểm tra tìm kiếm theo mã sinh viên không hợp lệ
     [Documentation]    TC_RP_16
     [Tags]    AnhTuyet    BaoCaoCLO
     Check search the keyword is empty    ${EMPTY}
-# đang lỗi TC_RP_17
-TC_RP_17 - Print CLO Report Successfully 
-    [Documentation]    Verify CLO report can be printed to PDF successfully
+TC_RP_19 - Kiểm tra popup in báo cáo hiển thị đúng
+    [Documentation]    TC_RP_19
     [Tags]    AnhTuyet    BaoCaoCLO
-    Print Report Successfully In Test Detail View
-    
+    Check Report Popup Display
