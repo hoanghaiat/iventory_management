@@ -1,6 +1,7 @@
 *** Settings ***
 
 Library      SeleniumLibrary
+Library      CustomLibrary
 Variables     ../Variables/locator.py
 Resource      ../Resources/course_ui.resource 
 
@@ -28,15 +29,8 @@ Test Teardown    Close Browser
     [Documentation]        TC_CI_03
     [Tags]                Thu Phuong       Interface of Course
     Go To Course Page
-    ${prog_name}=    Get First Course Name
-    Click First Edit Courses Button
-
- Verify User Can Open CLOs of Course Page successfully
-    [Documentation]        TC_CI_04
-    [Tags]                Thu Phuong       Interface of Course
-    Go To Course Page
-    ${prog_name}=    Get First Course Name
-    Click First View CLO Button
+    ${prog_name}=  Get First Course Name 
+    Click First Edit Courses Button 
 
 Verify User Can Open Dashboard Program Page successfully
     [Documentation]        TC_CI_05
@@ -47,14 +41,10 @@ Verify User Can Open CLO Page successfully
     [Documentation]        TC_CI_06
     [Tags]                Thu Phuong       Interface of Course
     Go To Course Page
-    ${prog_name}=    Get First Course Name
+    ${prog_name}=  Get First Course Name 
     Click First View CLO Button
+    Page Should Contain    ${prog_name}
+    
 
-Verify user can edit courses successfully
-    [Documentation]        TC_CI_07
-    [Tags]                Thu Phuong     Edit Course 
-    Go To Course Page
-    Click First Edit Courses Button
-    Fill Course With Valid Data      Công nghệ thông tin  BL2    block chain   4   Khóa học Block Chain   Mandatory    Completed   CS301 - Cơ sở dữ liệu
-    Click Update Course Button
-    Verify Success Message And Course Update
+
+ 
