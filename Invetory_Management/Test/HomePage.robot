@@ -6,6 +6,10 @@ Test Teardown    Close Browser
 *** Variables ***
 
 *** Test Cases ***
+TC004- Kiểm tra hiển thị đúng "Mục lục hồ sơ"
+    [Documentation]    TC004
+    [Tags]    TuAnh    HomePage
+    Number MucLuc
 TC010 - Kiểm tra thao tác nhanh “Thêm đơn vị mới”
     [Documentation]    TC010
     [Tags]    TuAnh    HomePage

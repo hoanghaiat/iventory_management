@@ -1,7 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
 
-
 *** Variables ***
 ${URL}    https://kholuutru.minds.vn/
 ${USERNAME}  admin_qc_automation
@@ -10,9 +9,10 @@ ${username_xpath}    //*[@id="username"]
 ${password_xpath}    //*[@id="password"]
 ${loginbtn_xpath}    //*[@id="loginBtn"]
 
-${Box_Mucluc}    //span[@class='stat-number' and text()='17']
+${Box_Mucluc}    //div[contains(@class,'stats-card') and .//div[contains(text(),'Mục lục hồ sơ')]]//span[@class='stat-number']
 ${Box_Kho}       //span[@class='stat-number' and text()='5']
 
+${Box_Mucluc_Menu}    //div[contains(@class,'stats-card') and .//div[contains(text(),'Tổng mục lục')]]//span[@class='stat-number']
 
 ${SideBar}          //button[@id='sidebarToggle']
 ${QLKho}            //span[text()='Quản lý Kho']
@@ -22,15 +22,14 @@ ${Search_Report}    //div[@class='nav-group-header']/span[normalize-space()='Tì
 ${QTHeThong}        //div[@class='nav-group-header']/span[normalize-space()='Quản trị hệ thống']
 ${CaNhan}           //div[@class='nav-group-header']/span[normalize-space()='Cài đặt cá nhân']
 
-
 ${Quick_Add_New_Unit_xpath}             //a[@href="/don-vi/add" and contains(@class,"btn-primary")]
 ${Quick_Add_Storage_Room}               //a[@href="/phong/add" and contains(@class,"btn-primary")]
 ${Quick_Add_Profile_Table_Contents}     //a[@href="/muc-luc/add" and contains(@class,"btn-primary")]
 ${Quick_Add_Warehouse}                  //a[@href="/kho/add" and contains(@class,"btn-success")]
 ${Quick_Add_shelf}                      //a[@href="/gia/add" and contains(@class,"btn-success")]
 ${Quick_Add_Box}                        //a[@href="/hop/add" and contains(@class,"btn-success")]
-${Quick_Add_Document_Search}            //a[@href="/search/add" and contains(@class,"btn-success")]
-${Quick_Add_See_Report}                 //a[@href="/reports/add" and contains(@class,"btn-success")]
+${Quick_Add_Document_Search}            //a[@href='/search' and contains(@class,"btn-outline-primary")]
+${Quick_Add_See_Report}                 //a[@href="/reports" and contains(@class,"btn-outline-success")]
 
 ${Form_Add_Unit}                        //div[@class="page-title" and normalize-space()="Thêm Đơn vị"]
 ${Form_Add_Storage_Room}                //div[@class="page-title" and normalize-space()="Thêm Phông lưu trữ mới"]
@@ -87,6 +86,7 @@ Quick Add Storage Room
     Wait Until Page Contains Element    ${Form_Add_Storage_Room}    10s
 
 Quick Add Profile Table of Contents
+    Scroll Element Into View    ${Quick_Add_Profile_Table_Contents}
     Click Element    ${Quick_Add_Profile_Table_Contents}
     Wait Until Page Contains Element    ${Form_Add_Profile_Table_Contents}    10s
 
@@ -97,10 +97,14 @@ Quick Add Warehouse
     Wait Until Page Contains Element    ${Form_Add_Warehouse}    10s
 
 Quick Add shelf
+    Wait Until Element Is Visible    ${Quick_Add_shelf}    10s
+    Scroll Element Into View    ${Quick_Add_shelf}
     Click Element    ${Quick_Add_shelf}
     Wait Until Page Contains Element    ${Form_Add_shelf}    10s
 
 Quick Add Box
+    Wait Until Element Is Visible    ${Quick_Add_Box}    10s
+    Scroll Element Into View    ${Quick_Add_Box}
     Click Element    ${Quick_Add_Box}
     Wait Until Page Contains Element    ${Form_Add_Box}    10s
 
@@ -109,6 +113,8 @@ Quick Add Document Search
     Wait Until Page Contains Element    ${Form_Add_Document_Search}    10s
 
 Quick Add See report
+    Wait Until Element Is Visible    ${Quick_Add_See_Report}    10s
+    Scroll Element Into View    ${Quick_Add_See_Report}
     Click Element    ${Quick_Add_See_Report}
     Wait Until Page Contains Element    ${Form_Add_See_Report}    10s
 Logout
@@ -211,3 +217,16 @@ Close CaNhan
     Wait Until Element Is Visible    ${QLKho}    10s
     Click Element    ${CaNhan}
     Wait Until Element Is Not Visible    ${Item_Interface}    10s
+
+Number MucLuc 
+    ${dashboard_value}=    Get Text    ${Box_Mucluc}
+    Log    Số dashboard: ${dashboard_value}
+
+    Click Element    ${Item_Profile_Table_Contents}
+    Scroll Element Into View    ${Box_Mucluc_Menu}
+    Wait Until Element Is Visible    ${Box_Mucluc_Menu}
+
+    ${page_value}=    Get Text    ${Box_Mucluc_Menu}
+    Log    Số trang Mục lục: ${page_value}
+
+    Should Be Equal As Integers    ${dashboard_value}    ${page_value}

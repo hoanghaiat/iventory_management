@@ -153,3 +153,49 @@ TC087 - Kiểm tra tìm kiếm mục lục hồ sơ lọc theo "Đơn vị" và 
     [Tags]    TuAnh    OrganizationalManagement
     Click Profile Table of Contents
     Filter Phong_Donvi2
+
+TC088 - Thêm Đơn vị mới để trống Mã đơn vị
+    [Documentation]    TC088
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Unit
+    Add Unit and Name Unit Blank
+
+TC089 - Thêm Đơn vị mới bỏ tróng Mã đơn vị và Tên đơn vị
+    [Documentation]    TC089
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Unit
+    Add Unit and ID_Name Unit Blank
+
+TC090 - Thêm Phông lưu trữ mới để trống Tên Phông
+    [Documentation]    TC090
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Storage Room
+    Add Phong but Name Phong Blank
+    Verify Field Is Focused    ${Input_Name_Phong}
+
+TC091 - Thêm Phông lưu trữ mới để trống Đơn vịị
+    [Documentation]    TC091
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Storage Room
+    Add Phong but Unit Blank
+    
+TC092 - Thêm mục lục hồ sơ bỏ trống mã mục lục
+    [Documentation]    TC092
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Profile Table of Contents
+    Add Mucluc Blank All
+    Verify Field Is Focused    ${Input_ID_Mucluc}
+
+TC093 - Thêm mục lục hồ sơ mới bỏ trống đơn vị
+    [Documentation]    TC093
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Profile Table of Contents
+    Add Mucluc Unit Blank
+    Verify Field Is Focused    ${Dropdown_Mucluc}
+
+TC094 - Thêm mục mục hồ sơ mới bỏ trống tên mục lục
+    [Documentation]    TC093
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Profile Table of Contents
+    Add Mucluc but Name MucLuc Blank
+    Verify Field Is Focused    ${Input_Name_Mucluc}

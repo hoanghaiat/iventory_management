@@ -20,7 +20,6 @@ ${Gia_Option}        //select[@id='gia_id']/option[@value='1']
 
 ${KQDonVi}           //strong[normalize-space()='Ban kiểm soát']
 
-
 ${Message}                  //h3[normalize-space(.)="Tìm kiếm thông tin trong hệ thống"]
 ${Error_Message}            //h5[contains(normalize-space(.), "Không tìm thấy kết quả nào")]
 

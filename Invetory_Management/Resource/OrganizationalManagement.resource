@@ -47,17 +47,6 @@ ${Option_DonViP}                  //select[@id="don-vi-filter"]/option[@value="7
 ${Dropdown_DVPhong}               //select[@id="phong-filter"]
 ${Option_DVPhong}                 //select[@id="phong-filter"]/option[normalize-space(.)="Phông Tài liệu Kế toán"]
 
-${Message_Unit}              //div[contains(@class, "alert-success") and contains(normalize-space(.), "Thêm đơn vị thành công")]
-${Message_Update_Unit}       //div[contains(@class, "alert-success") and contains(normalize-space(.), "Cập nhật đơn vị thành công!")]
-${Message_Delete_Unit}       //div[contains(@class, "alert-success") and contains(normalize-space(.), "Xoá đơn vị thành công!")]
-${Message_Phong}             //div[contains(@class, "alert-success") and contains(normalize-space(.), "Thêm phông lưu trữ thành công!")]
-${Message_Update_Phong}      //div[contains(@class, "alert-success") and contains(normalize-space(.), "Cập nhật phông lưu trữ thành công!")]
-${Message_Delete_Phong}      //div[contains(@class, "alert-success") and contains(normalize-space(.), "Xoá phông lưu trữ thành công!")]
-${Message_Mucluc}            //div[contains(@class, "alert-success") and contains(normalize-space(.), "Thêm mục lục hồ sơ thành công!")]
-${Message_Update_Mucluc}     //div[contains(@class, "alert-success") and contains(normalize-space(.), "Cập nhật mục lục hồ sơ thành công!")]
-${Message_Delete_Mucluc}     //div[contains(@class, "alert-success") and contains(normalize-space(.), "Xoá mục lục hồ sơ thành công!")]
-
-${KQ}                    //span[contains(@class,"badge") and normalize-space(text())="Ban kiểm soát chỉnh sửa"]
 
 *** Keywords ***
 #Don vi
@@ -110,7 +99,7 @@ Back To List
     Scroll Element Into View    ${Button_Save_Add_Unit}
     Click Element                   ${Button_Save_Add_Unit}
 
-    Wait Until Element Is Visible    ${Message_Unit}    10s
+    Wait Until Page Contains    Thêm đơn vị thành công
 
 
 Edit Unit "Cancel"
@@ -145,7 +134,6 @@ Edit Unit "Back to list"
 
     Wait Until Element Is Visible    ${Page_Unit}    10s
 
-
 Edit Unit
     Wait Until Element Is Visible    ${Button_Edit_Unit}    10s
     Click Element                   ${Button_Edit_Unit}
@@ -157,17 +145,12 @@ Edit Unit
     Wait Until Element Is Visible    ${Button_Update_Unit}    10s
     Scroll Element Into View    ${Button_Update_Unit}
     Click Element               ${Button_Update_Unit}
-
-
-    Wait Until Element Is Visible    ${Message_Update_Unit}    10s
-    Page Should Contain             Cập nhật đơn vị thành công!
-
+    Wait Until Page Contains             Cập nhật đơn vị thành công!
 
 Delete Unit
     Wait Until Element Is Visible    ${Button_Delete_Unit}    10s
     Click Element                   ${Button_Delete_Unit}
-    Wait Until Element Is Visible    ${Message_Delete_Unit}    10s
-    Page Should Contain             Xoá đơn vị thành công!
+    Wait Until Page Contains             Xoá đơn vị thành công!
 
 #Phong luu tru
 Back To Phong
@@ -199,9 +182,7 @@ Cancel Add Phong
     Wait Until Element Is Visible    ${Button_Save_Phong}
     Scroll Element Into View    ${Button_Save_Phong}
     Click Element    ${Button_Save_Phong}
-
-    Wait Until Element Is Visible    ${Message_Phong}    10s
-    Page Should Contain             Thêm phông lưu trữ thành công!
+    Wait Until Page Contains             Thêm phông lưu trữ thành công!
 
 Edit Phong
     Wait Until Element Is Visible    ${Button_Edit_Phong}    10s
@@ -216,9 +197,7 @@ Edit Phong
     Scroll Element Into View    ${Button_Update_Phong}
     Click Element               ${Button_Update_Phong}
 
-
-    Wait Until Element Is Visible    ${Message_Update_Phong}    10s
-    Page Should Contain             Cập nhật phông lưu trữ thành công!
+    Wait Until Page Contains             Cập nhật phông lưu trữ thành công!
 
 Edit Phong "Cancel"
     Wait Until Element Is Visible    ${Button_Edit_Phong}    10s
@@ -244,16 +223,13 @@ Edit Back To Phong
 Delete Phong
     Wait Until Element Is Visible    ${Button_Delete_Phong}    10s
     Click Element                   ${Button_Delete_Phong}
-    Wait Until Element Is Visible    ${Message_Delete_Phong}    10s
-    Page Should Contain             Xoá phông lưu trữ thành công!
+    Wait Until Page Contains             Xoá phông lưu trữ thành công!
 
 Filter Phong
     Wait Until Element Is Visible    ${Dropdown_Phong}
     Click Element    ${Dropdown_Phong}
     Click Element    ${Option_Phong}
-    Wait Until Element Is Visible    ${KQ}    10s
-    Scroll Element Into View    ${KQ}
-    Page Should Contain             Ban kiểm soát chỉnh sửa
+    Wait Until Page Contains             Ban kiểm soát chỉnh sửa
 
 #Muc luc ho so
 Back To Mucluc
@@ -295,8 +271,7 @@ Verify Add To Mucluc
     Scroll Element Into View         ${Button_Save_Mucluc}
     Click Element                    ${Button_Save_Mucluc}
 
-    Wait Until Element Is Visible    ${Message_Mucluc}    10s
-    Page Should Contain              Thêm mục lục hồ sơ thành công!
+    Wait Until Page Contains              Thêm mục lục hồ sơ thành công!
 
 Edit Mucluc
     Wait Until Element Is Visible    ${Button_Edit_Mucluc}    10s
@@ -311,9 +286,7 @@ Edit Mucluc
     Scroll Element Into View    ${Button_Update_Mucluc}
     Click Element               ${Button_Update_Mucluc}
 
-
-    Wait Until Element Is Visible    ${Message_Update_Mucluc}    10s
-    Page Should Contain             Cập nhật mục lục hồ sơ thành công!
+    Wait Until Page Contains             Cập nhật mục lục hồ sơ thành công!
 
 Edit Mucluc "Cancel"
     Wait Until Element Is Visible    ${Button_Edit_Mucluc}    10s
@@ -350,16 +323,13 @@ Delete Mucluc
     Wait Until Element Is Visible    ${Button_Delete_Mucluc}    10s
     Scroll Element Into View    ${Button_Delete_Mucluc}
     Click Element                   ${Button_Delete_Mucluc}
-    Wait Until Element Is Visible    ${Message_Delete_Mucluc}    10s
-    Page Should Contain             Xoá mục lục hồ sơ thành công!
+    Wait Until Page Contains             Xoá mục lục hồ sơ thành công!
 
 Filter Phong_Donvi
     Wait Until Element Is Visible    ${Dropdown_DonViP}    10s
     Click Element    ${Dropdown_DonViP}
     Click Element    ${Option_DonViP}
-    Wait Until Element Is Visible    ${KQ}    10s
-    Scroll Element Into View    ${KQ}
-    Page Should Contain             Ban kiểm soát chỉnh sửa
+    Wait Until Page Contains             Ban kiểm soát chỉnh sửa
 
 Filter Phong_Donvi2
     Wait Until Element Is Visible    ${Dropdown_DonViP}    10s
@@ -370,9 +340,103 @@ Filter Phong_Donvi2
     Click Element    ${Dropdown_DVPhong}
     Click Element    ${Option_DVPhong}
 
-    Wait Until Element Is Visible    ${KQ}    10s
-    Scroll Element Into View    ${KQ}
-    Page Should Contain             Ban kiểm soát chỉnh sửa
+    Wait Until Page Contains           Ban kiểm soát chỉnh sửa
 
+Add Unit and Name Unit Blank 
+    Wait Until Element Is Visible    ${Button_Add_Unit}    10s
+    Click Element                   ${Button_Add_Unit}
 
+    
+    Wait Until Element Is Visible    ${Input_ID_Unit}    10s
+    Scroll Element Into View    ${Input_ID_Unit}
+    Input Text                    ${Input_ID_Unit}    01
 
+    Wait Until Element Is Visible    ${Button_Save_Add_Unit}    10s
+    Scroll Element Into View    ${Button_Save_Add_Unit}
+    Click Element                   ${Button_Save_Add_Unit}
+
+    Wait Until Page Contains    Tên đơn vị không được để trống
+
+Add Unit and ID_Name Unit Blank
+    Wait Until Element Is Visible    ${Button_Add_Unit}    10s
+    Click Element                   ${Button_Add_Unit}
+
+    Wait Until Element Is Visible    ${Button_Save_Add_Unit}    10s
+    Scroll Element Into View    ${Button_Save_Add_Unit}
+    Click Element                   ${Button_Save_Add_Unit}
+    Wait Until Page Contains    Mã đơn vị không được để trống
+    Wait Until Page Contains    Tên đơn vị không được để trống    
+
+Add Phong but Name Phong Blank
+    Wait Until Element Is Visible    ${Button_Add_Storage}    10s
+    Click Element                   ${Button_Add_Storage}
+
+    Wait Until Element Is Visible    ${Dropdown_Name_Unit}    10s
+    Click Element    ${Dropdown_Name_Unit}
+    Click Element    ${Option_Don_Vi_Ban_Kiem_Soat}
+
+    Wait Until Element Is Visible    ${Button_Save_Phong}    10s
+    Scroll Element Into View    ${Button_Save_Phong}
+    Click Element                   ${Button_Save_Phong}
+
+Add Phong but Unit Blank
+    Wait Until Element Is Visible    ${Button_Add_Storage}    10s
+    Click Element                   ${Button_Add_Storage}
+
+    Wait Until Element Is Visible    ${Input_Name_Phong}    10s
+    Scroll Element Into View    ${Input_Name_Phong}
+    Input Text    ${Input_Name_Phong}    tài liệu
+
+    Wait Until Element Is Visible    ${Button_Save_Phong}    10s
+    Scroll Element Into View    ${Button_Save_Phong}
+    Click Element                   ${Button_Save_Phong}
+    Wait Until Page Contains    Vui lòng chọn đơn vị
+
+Add Mucluc Blank All 
+    Wait Until Element Is Visible    ${Button_Add_Mucluc}    10s
+    Click Element                   ${Button_Add_Mucluc}
+
+    Wait Until Element Is Visible    ${Button_Save_Mucluc}    10s
+    Scroll Element Into View    ${Button_Save_Mucluc}
+    Click Element                   ${Button_Save_Mucluc}
+
+Add Mucluc Unit Blank 
+    Wait Until Element Is Visible    ${Button_Add_Mucluc}    10s
+    Click Element                   ${Button_Add_Mucluc}
+
+    Wait Until Element Is Visible    ${Input_ID_Mucluc}    10s
+    Input Text    ${Input_ID_Mucluc}    01
+    Scroll Element Into View    ${Input_Name_Mucluc}
+    Input Text    ${Input_ID_Mucluc}    Hồ sơ demo
+    
+
+    Wait Until Element Is Visible    ${Button_Save_Mucluc}    10s
+    Scroll Element Into View    ${Button_Save_Mucluc}
+    Click Element                   ${Button_Save_Mucluc}
+
+Add Mucluc but Name MucLuc Blank 
+    Wait Until Element Is Visible    ${Button_Add_Mucluc}    10s
+    Click Element                   ${Button_Add_Mucluc}
+
+    Wait Until Element Is Visible    ${Input_ID_Mucluc}    10s
+    Input Text    ${Input_ID_Mucluc}    01
+    Scroll Element Into View    ${Input_Name_Mucluc}
+    Input Text    ${Input_ID_Mucluc}    Hồ sơ demo
+    
+    Wait Until Element Is Visible    ${Dropdown_Mucluc}    10s
+    Click Element    ${Dropdown_Mucluc}
+    Click Element    ${Option_Mucluc}
+
+    Wait Until Element Is Visible    ${Dropdown_MuclucP}    10s
+    Click Element    ${Dropdown_MuclucP}
+    Click Element    ${Option_MuclucP}
+
+    Wait Until Element Is Visible    ${Button_Save_Mucluc}    10s
+    Scroll Element Into View    ${Button_Save_Mucluc}
+    Click Element                   ${Button_Save_Mucluc}
+
+Verify Field Is Focused
+    [Arguments]    ${locator}
+    ${focused_element}=    Execute Javascript    return document.activeElement
+    ${expected_element}=    Get WebElement    ${locator}
+    Should Be Equal    ${focused_element}    ${expected_element}
