@@ -2,6 +2,8 @@
 Library    SeleniumLibrary
 Library    OperatingSystem
 Library    DateTime
+Library    XML
+Library    Collections
 
 *** Variables ***
 # Warehouse Storage
@@ -55,12 +57,16 @@ ${add_box_button}              xpath=//a[@href="/hop/add" and contains(.,'Thêm 
 ${box_code_input}              xpath=//input[@id='ma_hop']
 ${box_name_input}              xpath=//input[@id='ten_hop']
 ${box_rack_select}             xpath=//select[@id='gia_id']
-${box_save_button}             xpath=//button[@type='submit' and contains(.,'Lưu thay đổi')]
+${box_save_button}             xpath=//button[@type='submit' and contains(.,'Lưu hộp')]
 ${box_cancel_button}           xpath=//a[@href="/hop" and contains(@class, 'btn btn-secondary')]
 ${back_box_button}             xpath=//a[@href="/hop" and contains(@class, 'btn btn-outline-secondary')]
 
+${box_export_button}           xpath=//a[@href="/reports/export/hop" and contains(@class, 'btn btn-success')]
+${file_box_prefix}             Bao_cao_hop_luu_tru
+
 ${edit_box_icon}               xpath=//a[@href="/hop/edit/4" and contains(@class, 'btn btn-outline-primary btn-sm')]
-${update_box_button}           xpath=//button[@type='submit' and contains(.,'Cập nhật')]
+${update_box_button}           xpath=//button[@type='submit' and contains(.,'Lưu thay đổi')]
+${cancel_update_box_btn}      xpath=//a[@href="/hop" and contains(@class, 'btn btn-secondary')]
 ${back_update_box_btn}        xpath=//a[@href="/hop" and contains(@class, 'btn btn-secondary')]
 ${view_container_button}       xpath=//a[@href="/kho/edit/4" and contains(@class, 'btn btn-outline-secondary btn-sm')]
 
@@ -233,3 +239,57 @@ Add Box
 Click Box Save Button
     Scroll Element Into View    locator=${box_save_button}
     Click Button    ${box_save_button}
+Click Box Cancel Button
+    Scroll Element Into View    locator=${box_cancel_button}
+    Click Element    ${box_cancel_button}
+    Wait Until Page Contains    Quản lý Hộp lưu trữ
+Click Back Box Button
+    Scroll Element Into View    locator=${back_box_button}
+    Click Element    ${back_box_button}
+    Wait Until Page Contains    Quản lý Hộp lưu trữ
+Delete Box
+    [Arguments]    ${box_id}
+    Scroll Element Into View    xpath=//form[@method="POST" and @action="/hop/delete/${box_id}" and contains(@class,'d-inline')]
+    Click Button    xpath=//form[@method="POST" and @action="/hop/delete/${box_id}" and contains(@class,'d-inline')]//button[contains(@class,'btn-outline-danger')]
+Export Excel - Box Report
+    Click Element    ${box_export_button}
+    ${found}=    Set Variable    False
+    FOR    ${i}    IN RANGE    15
+        ${files}=    List Files In Directory    ${download_dir}
+        FOR    ${file}    IN    @{files}
+            Run Keyword If    '${file_box_prefix}' in '${file}'    Set Variable    ${found}    True
+        END
+        Run Keyword If    ${found}    Exit For Loop
+        Sleep    1s
+    END
+    Should Be True    ${found}    File Excel báo cáo Hộp lưu trữ không được tải xuống
+
+Click Edit Box Icon
+    [Arguments]    ${box_id}
+    Scroll Element Into View    xpath=//a[@href='/hop/edit/${box_id}' and contains(@class,'btn btn-outline-primary btn-sm')]
+    Click Element    xpath=//a[@href='/hop/edit/${box_id}' and contains(@class,'btn btn-outline-primary btn-sm')]
+    Wait Until Page Contains    Chỉnh sửa Hộp lưu trữ
+Update Box Name
+    [Arguments]    ${new_box_name}
+    Input Text    ${box_name_input}    ${new_box_name}
+    Scroll Element Into View    locator=${update_box_button}
+    Click Button    ${update_box_button}
+Click Box Cancel Update Button
+    Scroll Element Into View    locator=${cancel_update_box_btn}
+    Click Element    ${cancel_update_box_btn}
+    Wait Until Page Contains    Quản lý Hộp lưu trữ
+Update Empty Box Rack
+    Select From List By Label    ${box_rack_select}    -- Chọn giá --
+    Scroll Element Into View    locator=${update_box_button}
+    Click Button    ${update_box_button}
+Back Box Button - Update
+    Scroll Element Into View    locator=${back_update_box_btn}
+    Click Element    ${back_update_box_btn}
+
+Click Related Action
+    [Arguments]    ${action_text}
+    Wait Until Element Is Visible    xpath=//a[contains(normalize-space(.), '${action_text}')]    10s
+    Scroll Element Into View    xpath=//a[contains(normalize-space(.), '${action_text}')]
+    Click Element    xpath=//a[contains(normalize-space(.), '${action_text}')]
+
+
