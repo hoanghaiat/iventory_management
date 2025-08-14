@@ -80,3 +80,48 @@ VIEW_CLOS_BTN ='//a[@href="/en/academics/courses/42/update/"]'
 DETAIL_COURSE_TITLE = '//h1[@class="content-title"]'
 EDIT_COURSE_TITLE ='//h1[@class="content-title"]'
 CLO_TITLE ='//h1[@class="content-title"]'
+
+
+MENU_COURSE = '//a[@href="/en/academics/courses/"]' 
+SEARCH_BOX_COURSE = "//input[@type='text' and @placeholder='Search courses...']"
+COURSES_TABLE_ROWSS = "//div[@class='card-body']" 
+FIRST_COURSE_NAME_CELL = "xpath=/html/body/div[3]/div[2]/div[2]/div[2]/div[1]/table/tbody/tr[1]/td[7]"
+EDIT_COURSE_BTN = '//a[@href="/en/academics/courses/1/update/"]'
+DEATAIL_COURSE_TABLE = '//div[@class="col-lg-6 mb-4"]'
+
+SEARCH_BOX_CLO = '//input[@type="text" and @placeholder="Search courses..."]'
+PROGRAM_BUTTON ='//a[@href="/en/academics/programs/"]'
+
+BACK_TO_COURSE = '//a[@href="/en/academics/courses/1/"]'
+PROGRAM_DROP='//select[@id="id_program"]'
+PROGRAM_OPT ='//option[@value="5"]'
+COURSE_CODE_FIELD ='//input[@id="id_course_code"]'
+COURSE_NAME_FILED='//input[@id="id_course_name"]'
+CREDIT_FIELD='//input[@id="id_credits"]'
+DESCRIPTION_FIELD='//textarea[@id="id_description"]'
+TYPE_DROP = '//select[@id="id_type"]'
+TYPE_OPT = '//option[@value="mandatory"]'
+STATUS_DROP= '//select[@id="id_status"]'
+STATUS_OPT = '//option[@value="completed"]'
+
+PREREQUISITE_COURSE_DROP='//select[@id="id_prerequisite_courses"]'
+PREREQUISITE_COURSE_OPT='//select[@id="id_prerequisite_courses"]/option[@value="4"]'
+UPDATE_COURSE_BTN ="//button[@type='submit' and contains(@class,'btn-primary')]"
+SUCCESS_UPDATE_MESSAGE ='//div[contains(@class,"alert-success")]'
+ERROR_UPDATE_MESSAGES = {
+    "program": "//strong[contains(text(),'This field is required')]",
+    "course code": "//strong[contains(text(),'This field is required')]",
+    "course name": "//strong[contains(text(),'This field is required')]",
+    "credit": "//strong[contains(text(),'This field is required')]",
+    "description": "//strong[contains(text(),'This field is required')]"
+}  
+
+MANDATORY ='//span[@class="badge bg-primary me-2"]'
+ELECTIVE='//span[@class="badge bg-secondary me-2"]'
+ACTIVE='//span[@class="badge bg-success"]'
+COMPLETED='//span[@class="badge bg-secondary"]'
+UPDATED='//span[@class="badge bg-warning"]'
+
+VIEW_CLOC_BTN ='//a[@href="/en/academics/courses/50/clos/"]'
+EDIT_COURSE='//a[@href="/en/academics/courses/50/update/"]'
+VIEW_DETAIL_COURSE_BTN='//a[@href="/en/academics/courses/50/"]'
