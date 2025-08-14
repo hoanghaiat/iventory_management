@@ -6,6 +6,7 @@ LOGIN_BUTTON   = "xpath=//button[text()='Đăng nhập']"
 
 BTN_HIDE ='//a[@id="djHideToolBarButton"]'
 # DuyetCauhoi
+Menu_QUEST="//a[normalize-space()='Duyệt câu hỏi']"
 URL_QUESTION = "//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][1]"
 BUTTON_APPLY_FILTERS = "//button[@type='submit' and @class='btn btn-primary']"
 BUTTON_CLEAR_FILTERS = '//a[@class="btn btn-secondary"]'
