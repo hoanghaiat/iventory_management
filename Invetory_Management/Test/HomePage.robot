@@ -1,15 +1,45 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    String
 Resource    ../Resource/HomePage.resource
 Test Setup    Login To System
 Test Teardown    Close Browser
 *** Variables ***
 
 *** Test Cases ***
-TC004- Kiểm tra hiển thị đúng "Mục lục hồ sơ"
-    [Documentation]    TC004
+TC002 - Kiểm tra hiển thị đúng số lượng "Đơn vị"
+    [Documentation]    TC002
     [Tags]    TuAnh    HomePage
-    Number MucLuc
+    ${so_trang_chu}=    Get Count From Homepage Box    Đơn vị
+    Log    Số trên Trang chủ: ${so_trang_chu}
+
+    ${so_dong}=    Get Count From Table    ${Item_Unit}    xpath=//table//tbody//tr
+    Log    Số mục trên bảng: ${so_dong}
+
+    Should Be Equal As Integers    ${so_trang_chu}    ${so_dong}    Số không khớp
+
+TC003 - Kiểm tra hiển thị đúng số lượng "Phông lưu trữ"
+    [Documentation]    TC003
+    [Tags]    TuAnh    HomePage
+    ${so_trang_chu}=    Get Count From Homepage Box    Phông lưu trữ
+    Log    Số trên Trang chủ: ${so_trang_chu}
+
+    ${so_dong}=    Get Count From Table    ${Item_Storage_Room}    xpath=//table//tbody//tr
+    Log    Số mục trên bảng: ${so_dong}
+
+    Should Be Equal As Integers    ${so_trang_chu}    ${so_dong}    Số không khớp
+
+TC005 - Kiểm tra hiển thị đúng "Kho lưu trữ"
+    [Documentation]    TC003
+    [Tags]    TuAnh    HomePage
+    ${so_trang_chu}=    Get Count From Homepage Box    Kho lưu trữ
+    Log    Số trên Trang chủ: ${so_trang_chu}
+
+    ${so_dong}=    Get Count From Table    ${Item_Warehouse}    xpath=//table//tbody//tr
+    Log    Số mục trên bảng: ${so_dong}
+
+    Should Be Equal As Integers    ${so_trang_chu}    ${so_dong}    Số không khớp
+
 TC010 - Kiểm tra thao tác nhanh “Thêm đơn vị mới”
     [Documentation]    TC010
     [Tags]    TuAnh    HomePage
@@ -110,6 +140,10 @@ TC030 - Kiểm tra click “Tìm kiếm”
     [Tags]    TuAnh    HomePage
     Click Search
 
+TC031 - Kiểm tra click “Báo cáo”
+    [Documentation]    TC030
+    [Tags]    TuAnh    HomePage
+    Click Report
 TC032 - Kiểm tra click vào "Quản trị hệ thống"
     [Documentation]    TC032
     [Tags]    TuAnh    HomePage

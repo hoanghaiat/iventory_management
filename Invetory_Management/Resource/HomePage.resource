@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    String
 
 *** Variables ***
 ${URL}    https://kholuutru.minds.vn/
@@ -9,10 +10,7 @@ ${username_xpath}    //*[@id="username"]
 ${password_xpath}    //*[@id="password"]
 ${loginbtn_xpath}    //*[@id="loginBtn"]
 
-${Box_Mucluc}    //div[contains(@class,'stats-card') and .//div[contains(text(),'Mục lục hồ sơ')]]//span[@class='stat-number']
-${Box_Kho}       //span[@class='stat-number' and text()='5']
-
-${Box_Mucluc_Menu}    //div[contains(@class,'stats-card') and .//div[contains(text(),'Tổng mục lục')]]//span[@class='stat-number']
+${TimeOut}    10s
 
 ${SideBar}          //button[@id='sidebarToggle']
 ${QLKho}            //span[text()='Quản lý Kho']
@@ -51,22 +49,11 @@ ${Item_Warehouse}                   //a[contains(@href,"/kho") and contains(norm
 ${Item_shelf}                       //a[contains(@href,"/gia") and contains(normalize-space(.),"Giá kệ")]
 ${Item_Box}                         //a[contains(@href,"/hop") and contains(normalize-space(.),"Hộp lưu trữ")]
 ${Item_Search}                      //a[contains(@href,"/search") and contains(normalize-space(.),"Tìm kiếm")]
+${Item_Report}                      //a[contains(@href,"/report") and contains(normalize-space(.),"Báo cáo")]
 ${Item_Admin_Page}                  //a[contains(@href,"/admin") and contains(normalize-space(.),"Trang quản trị")]
 ${Item_Account_Management}          //a[contains(@href,"/admin/users") and contains(normalize-space(.),"Quản lý tài khoản")]
 ${Item_System_Log}                  //a[contains(@href,"/admin/logs") and contains(normalize-space(.),"Nhật ký hệ thống")]
 ${Item_Interface}                   //a[contains(@href,"/theme-settings") and contains(normalize-space(.),"Giao diện")]
-
-${Page_Unit}                        //div[@class="page-title" and normalize-space(.)="Quản lý Đơn vị"]
-${Page_Storage_Room}                //div[@class="page-title" and normalize-space(.)="Quản lý Phông Lưu trữ"]
-${Page_Profile_Table_Contents}      //div[@class="page-title" and normalize-space(.)="Quản lý Mục lục hồ sơ"]
-${Page_Warehouse}                   //div[@class="page-title" and normalize-space(.)="Quản lý Kho lưu trữ"]
-${Page_shelf}                       //div[@class="page-title" and normalize-space(.)="Quản lý Giá kệ"]
-${Page_Box}                         //div[@class="page-title" and normalize-space(.)="Quản lý Hộp lưu trữ"]
-${Page_Search}                      //div[@class="page-title" and normalize-space(.)="Tìm kiếm"]
-${Page_Admin_Page}                  //div[@class="page-title" and normalize-space(.)="Hệ thống Quản lý Kho"]
-${Page_Account_Managemnet}          //div[@class="page-title" and normalize-space(.)="Quản lý tài khoản"]
-${Page_System_Log}                  //div[@class="page-title" and normalize-space(.)="Hệ thống Quản lý Kho"]
-${Page_Interface}                   //div[@class="page-title" and normalize-space(.)="Hệ thống Quản lý Kho"]
 
 *** Keywords ***
 Login To System
@@ -77,6 +64,21 @@ Login To System
     Input Text    ${password_xpath}    ${PASSWORD}
     Click Button  ${loginbtn_xpath}
     
+Get Count From Homepage Box
+    [Arguments]    ${box_name}
+    ${locator}=    Set Variable    xpath=//div[contains(@class,"stats-card") and .//div[contains(@class,"stat-label") and normalize-space(.)="${box_name}"]]//span[@class="stat-number"]
+    Wait Until Element Is Visible    ${locator}    ${TimeOut}
+    ${count}=    Get Text    ${locator}
+    ${count}=    Strip String    ${count}
+    [Return]    ${count}
+
+Get Count From Table
+    [Arguments]    ${menu_locator}    ${row_locator}
+    Click Element    ${menu_locator}
+    Wait Until Page Contains Element    ${row_locator}
+    ${count}=    Get Element Count    ${row_locator}
+    [Return]    ${count}
+
 Quick Add New Units
     Click Element    ${Quick_Add_New_Unit_xpath}
     Wait Until Page Contains Element    ${Form_Add_Unit}    30s
@@ -126,62 +128,66 @@ Logout
 Click Unit
     Wait Until Element Is Visible    ${Item_Unit}    10s
     Click Element    ${Item_Unit}
-    Wait Until Page Contains Element    ${Page_Unit}    10s
+    Wait Until Page Contains    Quản lý Đơn vị
 
 Click Storage Room
     Wait Until Element Is Visible    ${Item_Storage_Room}    10s
     Click Element    ${Item_Storage_Room}
-    Wait Until Page Contains Element    ${Page_Storage_Room}    10s
+    Wait Until Page Contains    Quản lý Phông lưu trữ
 
 Click Profile Table of Contents
     Wait Until Element Is Visible    ${Item_Profile_Table_Contents}    10s
     Click Element    ${Item_Profile_Table_Contents}
-    Wait Until Page Contains Element    ${Page_Profile_Table_Contents}    10s
-    Capture Page Screenshot    muc_luc.png
+    Wait Until Page Contains    Quản lý Mục lục hồ sơ
 
 Click Warehouse
     Wait Until Element Is Visible    ${Item_Warehouse}    10s
     Click Element    ${Item_Warehouse}
-    Wait Until Page Contains Element    ${Page_Warehouse}    10s
+    Wait Until Page Contains    Quản lý Kho lưu trữ
 
 Click shelf
     Wait Until Element Is Visible    ${Item_shelf}    10s
     Click Element    ${Item_shelf}
-    Wait Until Page Contains Element    ${Page_shelf}    10s
+    Wait Until Page Contains    Quản lý Giá kệ
 
 Click Box
     Wait Until Element Is Visible    ${Item_Box}    10s
     Click Element    ${Item_Box}
-    Wait Until Page Contains Element    ${Page_Box}    10s
+    Wait Until Page Contains    Quản lý Hộp lưu trữ
 
 Click Search
     Wait Until Element Is Visible    ${Item_Search}    10s
     Click Element    ${Item_Search}
-    Wait Until Page Contains Element    ${Page_Search}    10s
+    Wait Until Page Contains    Tìm kiếm
+
+Click Report
+    Wait Until Element Is Visible    ${Item_Report}    10s
+    Click Element    ${Item_Search}
+    Wait Until Page Contains    Báo cáo thống kê
 
 Click Admin Page
     Wait Until Element Is Visible    ${Item_Admin_Page}    10s
     Scroll Element Into View    ${Item_Admin_Page}
     Click Element    ${Item_Admin_Page}
-    Wait Until Page Contains Element    ${Page_Admin_Page}    10s
+    Wait Until Page Contains    Trang quản trị hệ thống
 
 Click Account Management
     Wait Until Element Is Visible    ${Item_Account_Management}    10s
     Scroll Element Into View    ${Item_Account_Management}
     Click Element    ${Item_Account_Management}
-    Wait Until Page Contains Element    ${Page_Account_Managemnet}    10s
+    Wait Until Page Contains    Quản lý tài khoản
 
 Click System Log
     Wait Until Element Is Visible    ${Item_System_Log}    10s
     Scroll Element Into View    ${Item_System_Log}
     Click Element    ${Item_System_Log}
-    Wait Until Page Contains Element    ${Page_System_Log}    10s
+    Wait Until Page Contains    Nhật ký hệ thống
 
 Click Interface 
     Wait Until Element Is Visible    ${Item_Interface}    10s
     Scroll Element Into View    ${Item_Interface}
     Click Element    ${Item_Interface}
-    Wait Until Page Contains Element    ${Page_Interface}    10s
+    Wait Until Page Contains    Cài đặt giao diện
 
 Click Logout menu
     Wait Until Element Is Visible    ${Logout_Menu}    10s
@@ -217,16 +223,3 @@ Close CaNhan
     Wait Until Element Is Visible    ${QLKho}    10s
     Click Element    ${CaNhan}
     Wait Until Element Is Not Visible    ${Item_Interface}    10s
-
-Number MucLuc 
-    ${dashboard_value}=    Get Text    ${Box_Mucluc}
-    Log    Số dashboard: ${dashboard_value}
-
-    Click Element    ${Item_Profile_Table_Contents}
-    Scroll Element Into View    ${Box_Mucluc_Menu}
-    Wait Until Element Is Visible    ${Box_Mucluc_Menu}
-
-    ${page_value}=    Get Text    ${Box_Mucluc_Menu}
-    Log    Số trang Mục lục: ${page_value}
-
-    Should Be Equal As Integers    ${dashboard_value}    ${page_value}

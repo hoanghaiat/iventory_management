@@ -13,6 +13,11 @@ TC042 - Kiểm tra tìm kiếm theo từ khoá hợp lệ
     [Tags]    TuAnh    Search_Report
     Click Search
     Search Textbox
+    Duyet Tung Dong Bang Chua Tu Khoa    ${keyword}
+    Scroll Element Into View    /html/body/div[3]/div[2]/div[4]/div/div/div[2]/div[2]/h5
+
+    Capture Page Screenshot
+
 
 TC043 - Kiểm tra tìm kiếm với từ khoá không tồn tại
     [Documentation]    TC043

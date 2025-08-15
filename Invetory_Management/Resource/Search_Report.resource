@@ -3,6 +3,7 @@ Library    SeleniumLibrary
 Resource    ../Resource/HomePage.resource
 
 *** Variables ***
+${keyword}    Tài liệu
 ${Search_Textbox}            //input[@id="keyword"]
 
 ${Button_Search}            //button[@type="submit" and contains(normalize-space(.),"Tìm kiếm")]
@@ -24,14 +25,43 @@ ${Message}                  //h3[normalize-space(.)="Tìm kiếm thông tin tron
 ${Error_Message}            //h5[contains(normalize-space(.), "Không tìm thấy kết quả nào")]
 
 *** Keywords ***
+*** Settings ***
+Library    SeleniumLibrary
+
+*** Keywords ***
+Duyet Tung Dong Bang Chua Tu Khoa
+    [Arguments]    ${keyword}
+    ${tables}=    Get WebElements    xpath=//table
+    ${found}=    Set Variable    False
+    FOR    ${table}    IN    @{tables}
+        ${table_text}=    Get Text    ${table}
+        IF    $keyword in $table_text
+            ${found}=    Set Variable    True
+            Duyet Tung Dong Ket Qua    ${table}
+            Exit For Loop
+        END
+    END
+    Run Keyword Unless    ${found}    Fail    Không tìm thấy bảng chứa từ khóa "${keyword}"
+
+Duyet Tung Dong Ket Qua
+    [Arguments]    ${table_xpath}
+    ${rows} =    Get WebElements    xpath=//table//tbody//tr
+    FOR    ${row}    IN    @{rows}
+        ${text}=    Get Text    ${row}
+        Log    Nội dung dòng: ${text}
+    END
+
+
+
+
 Search Textbox 
     Wait Until Element Is Visible    ${Search_Textbox}    10s
     Click Element    ${Search_Textbox}
-    Input Text    ${Search_Textbox}    Tài liệu
+    Input Text    ${Search_Textbox}    ${keyword}
     Wait Until Element Is Visible    ${Button_Search}    10s
     Scroll Element Into View    ${Button_Search}
     Click Button    ${Button_Search}
-    Wait Until Page Contains    Tài liệu    10s
+    Wait Until Page Contains Element    xpath=//table    10s
 
 Search Wrong Keyword
     Wait Until Element Is Visible    ${Search_Textbox}    10s
