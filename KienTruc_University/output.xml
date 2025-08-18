@@ -1,2887 +1,799 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.1 (Python 3.13.5 on win32)" generated="2025-08-14T14:09:57.141377" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-14T15:31:02.127125" rpa="false" schemaversion="5">
 <suite id="s1" name="Loccauhoi" source="D:\iventory_management\KienTruc_University\test\loccauhoi.robot">
-<kw name="Open Browser And Login" owner="loccauhoi" type="SETUP">
+<kw name="Open Browser To TaoMoiCauHoi" owner="TaoMoiCauHoi" type="SETUP">
+<kw name="Login" owner="TaoMoiCauHoi">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:09:57.526159" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/en/accounts/login/?next=/en/'.</msg>
-<arg>${BASE_URL}/en/accounts/login/?next=/en/</arg>
-<arg>${BROWSER}</arg>
+<msg time="2025-08-14T15:31:02.430347" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-14T14:09:57.525946" elapsed="2.176493"/>
+<status status="PASS" start="2025-08-14T15:31:02.430194" elapsed="3.939408"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-08-14T14:09:59.702805" elapsed="0.790152"/>
+<status status="PASS" start="2025-08-14T15:31:06.369881" elapsed="0.027113"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:31:11.398354" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:31:06.397165" elapsed="5.001638"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//input[@id='id_username']</arg>
-<arg>20s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:00.493215" elapsed="0.039566"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:00.533341" level="INFO">Typing text 'lecturer1' into text field 'xpath=//input[@id='id_username']'.</msg>
-<arg>xpath=//input[@id='id_username']</arg>
-<arg>${USERNAME}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:00.533023" elapsed="0.131633"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:00.665383" level="INFO">Typing text 'demolecturer' into text field 'xpath=//input[@id='id_password']'.</msg>
-<arg>xpath=//input[@id='id_password']</arg>
-<arg>${PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:00.664949" elapsed="0.099541"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:00.765216" level="INFO">Clicking button 'xpath=//button[normalize-space()='Đăng nhập']'.</msg>
-<arg>xpath=//button[normalize-space()='Đăng nhập']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:00.764810" elapsed="0.128033"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${MENU_QB}</arg>
+<arg>${BTN_HIDE}</arg>
 <arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:00.893006" elapsed="5.078761"/>
+<status status="PASS" start="2025-08-14T15:31:11.399451" elapsed="0.029435"/>
 </kw>
-<status status="PASS" start="2025-08-14T14:09:57.525549" elapsed="8.446420"/>
-</kw>
-<test id="s1-t1" name="QB-FUNC-01 - Lọc theo Course có dữ liệu" line="21">
-<kw name="Go To Question Bank" owner="loccauhoi" type="SETUP">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:05.975384" level="INFO">Clicking element 'xpath=//a[contains(@href,'/questionbank/questions/')]'.</msg>
-<arg>${MENU_QB}</arg>
+<msg time="2025-08-14T15:31:11.429472" level="INFO">Clicking element '//a[@id="djHideToolBarButton"]'.</msg>
+<arg>${BTN_HIDE}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:05.975219" elapsed="1.958502"/>
+<status status="PASS" start="2025-08-14T15:31:11.429169" elapsed="0.064095"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${BTN_APPLY}</arg>
-<arg>20s</arg>
+<arg>${USERNAME_INPUT}</arg>
+<arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:07.933919" elapsed="0.027355"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Close Debug Overlay" owner="loccauhoi">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-14T14:10:07.962806" level="INFO">${overlay} = css=.StaticFilesPanel, #djDebug, .djDebug</msg>
-<var>${overlay}</var>
-<arg>css=.StaticFilesPanel, #djDebug, .djDebug</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-14T14:10:07.962530" elapsed="0.000362"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:07.964396" level="INFO">Executing JavaScript:
-return document.querySelector(arguments[0])!==null;css=.StaticFilesPanel, #djDebug, .djDebug
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:08.126240" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-381.png"&gt;&lt;img src="selenium-screenshot-381.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:08.126491" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:07.963502" elapsed="0.168291">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-14T14:10:08.131951" level="INFO">${exists} = False</msg>
-<var>${exists}</var>
-<arg>Execute Javascript</arg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:07.963192" elapsed="0.168783"/>
-</kw>
-<if>
-<branch type="IF" condition="${exists}">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<arg>document.querySelectorAll(arguments[0]).forEach(e=&gt;e.style.display='none');</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:08.132215" elapsed="0.000023"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T14:10:08.132076" elapsed="0.000192"/>
-</branch>
-<status status="PASS" start="2025-08-14T14:10:08.132045" elapsed="0.000255"/>
-</if>
-<status status="PASS" start="2025-08-14T14:10:07.962109" elapsed="0.170238"/>
-</kw>
-<arg>Close Debug Overlay</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-14T14:10:07.961670" elapsed="0.170715"/>
-</kw>
-<status status="PASS" start="2025-08-14T14:10:05.975002" elapsed="2.157418"/>
-</kw>
-<kw name="Set Course" owner="loccauhoi">
-<kw name="Select Option Smart" owner="loccauhoi">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${select_locator}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:08.133489" elapsed="0.016287"/>
-</kw>
-<kw name="Get List Items" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:08.499384" level="INFO">${items} = ['All Courses', 'CS301: Cơ sở dữ liệu', 'SE101: Nhập môn kỹ thuật phần mềm', 'SE201: Phân tích và thiết kế phần mềm', 'SE301: Kiểm thử phần mềm', 'ECON101: Kinh tế học vi mô', 'ECON201: Kinh tế học vĩ...</msg>
-<var>${items}</var>
-<arg>${select_locator}</arg>
-<doc>Returns all labels or values of selection list ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:08.149925" elapsed="0.349557"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-08-14T14:10:08.500147" level="INFO">Options in xpath=(//div[contains(@class,'filter') or contains(.,'Filter Options')]//select)[1]: ['All Courses', 'CS301: Cơ sở dữ liệu', 'SE101: Nhập môn kỹ thuật phần mềm', 'SE201: Phân tích và thiết kế phần mềm', 'SE301: Kiểm thử phần mềm', 'ECON101: Kinh tế học vi mô', 'ECON201: Kinh tế học vĩ mô', 'FIN301: Tài chính doanh nghiệp', 'DCS101: Demo Introduction to Programming', 'CS201: Cấu trúc dữ liệu và giải thuật', 'CNTT011: Kiểm thử phần mềm12', 'CS101: Nhập môn lập trình', 'BL2: block chain', 'DSA201: Cấu trúc dữ liệu và giải thuật', 'CNKT001: Bằng Cử Nhân', 'KL01111: Khoá luận TN', 'DSA201: Cấu trúc dữ liệu và giải thuật', 'as1: abc', 'KL_01: KL_01', 'KL01111: aaaa', 'PO001: Khoá học CN', 'BLC01: Block chain cơ bản', 'BLC02: Block chain cơ bản', 'as1: abc', 'KL01111: aaaa', 'CNTT001: CNTT cơ bản', 'BLC01: Block chain', 'BL2: block chain', 'DT01: Khoá đào tạo', 'DSA201: Cấu trúc dữ liệu và giải thuật', 'CNTT001: CNTT cơ bản', 'd: d', 'CNTT03: QLDA', 'CNTT05: QLDA', 'CNTT01: Kiểm thử phần mềm', 'PO001: Khoá học CN', 'BLC02: Block chain cơ bản', 'BL059: Block chain cơ bản 7', 'BLC01: Block chain', 'BL2: block chain', 'BL059: Block chain cơ bản 7', '88: DDDDDD']</msg>
-<arg>Options in ${select_locator}: ${items}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-08-14T14:10:08.499751" elapsed="0.000514"/>
-</kw>
-<kw name="Normalize Text" owner="loccauhoi">
-<kw name="NormalizeHelper.Normalize Text">
-<msg time="2025-08-14T14:10:08.505106" level="FAIL">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</msg>
-<var>${norm}</var>
-<arg>${text}</arg>
-<status status="FAIL" start="2025-08-14T14:10:08.504997" elapsed="0.000201">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<return>
-<value>${norm}</value>
-<status status="NOT RUN" start="2025-08-14T14:10:08.505357" elapsed="0.000068"/>
-</return>
-<var>${norm_desired}</var>
-<arg>${desired_label}</arg>
-<status status="FAIL" start="2025-08-14T14:10:08.500592" elapsed="0.005054">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${selected}</var>
-<arg>${False}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:08.505871" elapsed="0.000053"/>
-</kw>
-<for flavor="IN ENUMERATE">
-<iter>
-<kw name="Normalize Text" owner="loccauhoi">
-<var>${norm_label}</var>
-<arg>${label}</arg>
-<status status="NOT RUN" start="2025-08-14T14:10:08.506590" elapsed="0.000095"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${match_exact}</var>
-<arg>Should Be Equal</arg>
-<arg>${norm_label}</arg>
-<arg>${norm_desired}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:08.506886" elapsed="0.000055"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${match_contains}</var>
-<arg>Should Contain</arg>
-<arg>${norm_label}</arg>
-<arg>${norm_desired}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:08.507125" elapsed="0.000047"/>
-</kw>
-<if>
-<branch type="IF" condition="${match_exact} or ${match_contains}">
-<kw name="Select From List By Index" owner="SeleniumLibrary">
-<arg>${select_locator}</arg>
-<arg>${index}</arg>
-<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:08.507508" elapsed="0.000047"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${selected}</var>
-<arg>${True}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:08.507716" elapsed="0.000047"/>
-</kw>
-<kw name="Exit For Loop" owner="BuiltIn">
-<doc>Stops executing the enclosing FOR loop.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:08.507919" elapsed="0.000036"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T14:10:08.507335" elapsed="0.000674"/>
-</branch>
-<status status="NOT RUN" start="2025-08-14T14:10:08.507298" elapsed="0.000784"/>
-</if>
-<var name="${index}"/>
-<var name="${label}"/>
-<status status="NOT RUN" start="2025-08-14T14:10:08.506330" elapsed="0.001800"/>
-</iter>
-<var>${index}</var>
-<var>${label}</var>
-<value>@{items}</value>
-<status status="NOT RUN" start="2025-08-14T14:10:08.506056" elapsed="0.002169"/>
-</for>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${selected}</arg>
-<arg>Fail</arg>
-<arg>Option '${desired_label}' not found. Available: ${items}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:08.508396" elapsed="0.000029"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${selected}</arg>
-<arg>Fail</arg>
-<arg>Option '${desired_label}' not found. Available: ${items}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:08.508566" elapsed="0.000025"/>
-</kw>
-<arg>${COURSE}</arg>
-<arg>${label}</arg>
-<status status="FAIL" start="2025-08-14T14:10:08.133276" elapsed="0.375507">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<arg>${COURSE_CS301}</arg>
-<status status="FAIL" start="2025-08-14T14:10:08.132961" elapsed="0.376004">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<kw name="Apply Filters" owner="loccauhoi">
-<status status="NOT RUN" start="2025-08-14T14:10:08.509529" elapsed="0.000047"/>
-</kw>
-<kw name="Should Have Data" owner="loccauhoi">
-<status status="NOT RUN" start="2025-08-14T14:10:08.509912" elapsed="0.000042"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2025-08-14T14:10:08.667068" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-382.png"&gt;&lt;img src="selenium-screenshot-382.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-14T14:10:08.510435" elapsed="0.156732"/>
-</kw>
-<status status="FAIL" start="2025-08-14T14:10:05.973328" elapsed="2.694154">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</test>
-<test id="s1-t2" name="QB-FUNC-02 - Lọc theo CLO không có dữ liệu" line="26">
-<kw name="Go To Question Bank" owner="loccauhoi" type="SETUP">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:08.669548" level="INFO">Clicking element 'xpath=//a[contains(@href,'/questionbank/questions/')]'.</msg>
-<arg>${MENU_QB}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:08.669343" elapsed="2.022626"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${BTN_APPLY}</arg>
-<arg>20s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:10.692225" elapsed="0.016991"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Close Debug Overlay" owner="loccauhoi">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-14T14:10:10.710344" level="INFO">${overlay} = css=.StaticFilesPanel, #djDebug, .djDebug</msg>
-<var>${overlay}</var>
-<arg>css=.StaticFilesPanel, #djDebug, .djDebug</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-14T14:10:10.710136" elapsed="0.000254"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:10.711282" level="INFO">Executing JavaScript:
-return document.querySelector(arguments[0])!==null;css=.StaticFilesPanel, #djDebug, .djDebug
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:10.847925" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-383.png"&gt;&lt;img src="selenium-screenshot-383.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:10.848057" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:10.710740" elapsed="0.138584">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-14T14:10:10.849435" level="INFO">${exists} = False</msg>
-<var>${exists}</var>
-<arg>Execute Javascript</arg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:10.710561" elapsed="0.138893"/>
-</kw>
-<if>
-<branch type="IF" condition="${exists}">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<arg>document.querySelectorAll(arguments[0]).forEach(e=&gt;e.style.display='none');</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:10.849630" elapsed="0.000018"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T14:10:10.849524" elapsed="0.000150"/>
-</branch>
-<status status="PASS" start="2025-08-14T14:10:10.849507" elapsed="0.000189"/>
-</if>
-<status status="PASS" start="2025-08-14T14:10:10.709811" elapsed="0.139915"/>
-</kw>
-<arg>Close Debug Overlay</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-14T14:10:10.709477" elapsed="0.140275"/>
-</kw>
-<status status="PASS" start="2025-08-14T14:10:08.668975" elapsed="2.180806"/>
-</kw>
-<kw name="Set CLO" owner="loccauhoi">
-<kw name="Select Option Smart" owner="loccauhoi">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${select_locator}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:10.850983" elapsed="0.016265"/>
-</kw>
-<kw name="Get List Items" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:11.299393" level="INFO">${items} = ['All CLOs', 'CLO2: Phát triển các chương trình đơn giản bằng ngôn ng…', 'CLO3: Hiểu và giải thích các khái niệm cơ bản trong lập…', 'CLO1: Phân tích và so sánh độ phức tạp của các thuật to…', 'CLO2: ...</msg>
-<var>${items}</var>
-<arg>${select_locator}</arg>
-<doc>Returns all labels or values of selection list ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:10.867559" elapsed="0.431917"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-08-14T14:10:11.300084" level="INFO">Options in xpath=(//div[contains(@class,'filter') or contains(.,'Filter Options')]//select)[2]: ['All CLOs', 'CLO2: Phát triển các chương trình đơn giản bằng ngôn ng…', 'CLO3: Hiểu và giải thích các khái niệm cơ bản trong lập…', 'CLO1: Phân tích và so sánh độ phức tạp của các thuật to…', 'CLO2: Áp dụng các cấu trúc dữ liệu thích hợp để giải qu…', 'CLO3: Phát triển các thuật toán hiệu quả cho các bài to…', 'CLO1: Hiểu và giải thích các giai đoạn trong vòng đời p…', 'CLO2: Áp dụng các nguyên tắc quản lý dự án phần mềm cơ …', 'CLO3: Phát triển một ứng dụng nhỏ theo quy trình phát t…', 'CLO1: Hiểu và giải thích các khái niệm cơ bản liên quan…', 'CLO2: Áp dụng kiến thức đã học để giải quyết các bài to…', 'CLO1: Hiểu và giải thích các khái niệm cơ bản liên quan…', 'CLO2: Áp dụng kiến thức đã học để giải quyết các bài to…', 'CLO3: Phân tích và đánh giá các giải pháp cho các vấn đ…', 'CLO4: Phát triển kỹ năng làm việc nhóm và giao tiếp hiệ…', 'CLO1: Hiểu và giải thích các khái niệm cơ bản liên quan…', 'CLO2: Áp dụng kiến thức đã học để giải quyết các bài to…', 'CLO3: Phân tích và đánh giá các giải pháp cho các vấn đ…', 'CLO4: Phát triển kỹ năng làm việc nhóm và giao tiếp hiệ…', 'CLO1: Hiểu và giải thích các khái niệm cơ bản liên quan…', 'CLO2: Áp dụng kiến thức đã học để giải quyết các bài to…', 'CLO3: Phân tích và đánh giá các giải pháp cho các vấn đ…', 'CLO4: Phát triển kỹ năng làm việc nhóm và giao tiếp hiệ…', 'CLO1: Hiểu và giải thích các lý thuyết kinh tế cơ bản', 'CLO2: Áp dụng các mô hình kinh tế để phân tích các tình…', 'CLO3: Đánh giá tác động của các chính sách kinh tế đến …', 'CLO4: Phát triển tư duy phản biện về các vấn đề kinh tế…', 'CLO1: Hiểu và giải thích các lý thuyết kinh tế cơ bản', 'CLO2: Áp dụng các mô hình kinh tế để phân tích các tình…', 'CLO3: Đánh giá tác động của các chính sách kinh tế đến …', 'CLO4: Phát triển tư duy phản biện về các vấn đề kinh tế…', 'CLO1: Hiểu và giải thích các lý thuyết kinh tế cơ bản', 'CLO2: Áp dụng các mô hình kinh tế để phân tích các tình…', 'CLO3: Đánh giá tác động của các chính sách kinh tế đến …', 'CLO4: Phát triển tư duy phản biện về các vấn đề kinh tế…', 'CLO1: Áp dụng các cấu trúc lập trình cơ bản như biến, v…', '12312: 321312', 'DCLO1: Demo description for CLO1 of Demo Introduction to…', 'DCLO2: Demo description for CLO2 of Demo Introduction to…', 'CLQ: 3432', 'CLQ: 3432', 'CL002: Mục tiêu khoá học 2', 'KL_01: KL_01', 'KL_015: KL_015', 'CL01: zzzzz', 'CL001: Mục tiêu khoá học Block chain', 'CLO01: Mục tiêu khoá học 01', 'CLQ: 3432', 'CLO01: Mục tiêu khoá học 01', 'CL00: sfds', 'CLO0011: closs444', 'CL002: abc', 'CLO01: aaaaaaaaaaaaaaaaaaaaaa', 'CL005: abc', '@: @', 'CL001: azbc', 'CLO01: Mục tiêu khoá học 01', 'CL01: zzzzz', 'CL002: Mục tiêu khoá học 2', 'CL001: Mục tiêu khoá học Block chain', 'CLO01: aaaaaaaaaaaaaaaaaaaaaa', 'CL005: abc', '@: @', 'd: d', '2: dd']</msg>
-<arg>Options in ${select_locator}: ${items}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-08-14T14:10:11.299713" elapsed="0.000591"/>
-</kw>
-<kw name="Normalize Text" owner="loccauhoi">
-<kw name="NormalizeHelper.Normalize Text">
-<msg time="2025-08-14T14:10:11.304479" level="FAIL">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</msg>
-<var>${norm}</var>
-<arg>${text}</arg>
-<status status="FAIL" start="2025-08-14T14:10:11.304411" elapsed="0.000134">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<return>
-<value>${norm}</value>
-<status status="NOT RUN" start="2025-08-14T14:10:11.304690" elapsed="0.000055"/>
-</return>
-<var>${norm_desired}</var>
-<arg>${desired_label}</arg>
-<status status="FAIL" start="2025-08-14T14:10:11.300571" elapsed="0.004343">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${selected}</var>
-<arg>${False}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:11.305095" elapsed="0.000047"/>
-</kw>
-<for flavor="IN ENUMERATE">
-<iter>
-<kw name="Normalize Text" owner="loccauhoi">
-<var>${norm_label}</var>
-<arg>${label}</arg>
-<status status="NOT RUN" start="2025-08-14T14:10:11.305656" elapsed="0.000052"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${match_exact}</var>
-<arg>Should Be Equal</arg>
-<arg>${norm_label}</arg>
-<arg>${norm_desired}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:11.305870" elapsed="0.000045"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${match_contains}</var>
-<arg>Should Contain</arg>
-<arg>${norm_label}</arg>
-<arg>${norm_desired}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:11.306073" elapsed="0.000041"/>
-</kw>
-<if>
-<branch type="IF" condition="${match_exact} or ${match_contains}">
-<kw name="Select From List By Index" owner="SeleniumLibrary">
-<arg>${select_locator}</arg>
-<arg>${index}</arg>
-<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:11.306372" elapsed="0.000038"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${selected}</var>
-<arg>${True}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:11.306539" elapsed="0.000038"/>
-</kw>
-<kw name="Exit For Loop" owner="BuiltIn">
-<doc>Stops executing the enclosing FOR loop.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:11.306719" elapsed="0.000038"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T14:10:11.306240" elapsed="0.000570"/>
-</branch>
-<status status="NOT RUN" start="2025-08-14T14:10:11.306211" elapsed="0.000656"/>
-</if>
-<var name="${index}"/>
-<var name="${label}"/>
-<status status="NOT RUN" start="2025-08-14T14:10:11.305464" elapsed="0.001440"/>
-</iter>
-<var>${index}</var>
-<var>${label}</var>
-<value>@{items}</value>
-<status status="NOT RUN" start="2025-08-14T14:10:11.305248" elapsed="0.001730"/>
-</for>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${selected}</arg>
-<arg>Fail</arg>
-<arg>Option '${desired_label}' not found. Available: ${items}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:11.307123" elapsed="0.000034"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${selected}</arg>
-<arg>Fail</arg>
-<arg>Option '${desired_label}' not found. Available: ${items}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:11.307283" elapsed="0.000033"/>
-</kw>
-<arg>${CLO}</arg>
-<arg>${label}</arg>
-<status status="FAIL" start="2025-08-14T14:10:10.850695" elapsed="0.456751">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<arg>${CLO_INVALID}</arg>
-<status status="FAIL" start="2025-08-14T14:10:10.850241" elapsed="0.457324">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<kw name="Apply Filters" owner="loccauhoi">
-<status status="NOT RUN" start="2025-08-14T14:10:11.308237" elapsed="0.000056"/>
-</kw>
-<kw name="Should Show No Data" owner="loccauhoi">
-<status status="NOT RUN" start="2025-08-14T14:10:11.308676" elapsed="0.000037"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2025-08-14T14:10:11.444888" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-384.png"&gt;&lt;img src="selenium-screenshot-384.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-14T14:10:11.309193" elapsed="0.135830"/>
-</kw>
-<status status="FAIL" start="2025-08-14T14:10:08.668349" elapsed="2.777034">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</test>
-<test id="s1-t3" name="QB-FUNC-03 - Lọc theo Tag" line="31">
-<kw name="Go To Question Bank" owner="loccauhoi" type="SETUP">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:11.446830" level="INFO">Clicking element 'xpath=//a[contains(@href,'/questionbank/questions/')]'.</msg>
-<arg>${MENU_QB}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:11.446697" elapsed="1.985160"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${BTN_APPLY}</arg>
-<arg>20s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:13.432084" elapsed="0.030137"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Close Debug Overlay" owner="loccauhoi">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-14T14:10:13.463767" level="INFO">${overlay} = css=.StaticFilesPanel, #djDebug, .djDebug</msg>
-<var>${overlay}</var>
-<arg>css=.StaticFilesPanel, #djDebug, .djDebug</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-14T14:10:13.463548" elapsed="0.000268"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:13.464905" level="INFO">Executing JavaScript:
-return document.querySelector(arguments[0])!==null;css=.StaticFilesPanel, #djDebug, .djDebug
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:13.602303" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-385.png"&gt;&lt;img src="selenium-screenshot-385.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:13.602537" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:13.464206" elapsed="0.139647">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-14T14:10:13.604022" level="INFO">${exists} = False</msg>
-<var>${exists}</var>
-<arg>Execute Javascript</arg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:13.463981" elapsed="0.140071"/>
-</kw>
-<if>
-<branch type="IF" condition="${exists}">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<arg>document.querySelectorAll(arguments[0]).forEach(e=&gt;e.style.display='none');</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:13.604335" elapsed="0.000031"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T14:10:13.604169" elapsed="0.000244"/>
-</branch>
-<status status="PASS" start="2025-08-14T14:10:13.604143" elapsed="0.000315"/>
-</if>
-<status status="PASS" start="2025-08-14T14:10:13.463212" elapsed="0.141304"/>
-</kw>
-<arg>Close Debug Overlay</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-14T14:10:13.462677" elapsed="0.141891"/>
-</kw>
-<status status="PASS" start="2025-08-14T14:10:11.446521" elapsed="2.158112"/>
-</kw>
-<kw name="Set Tag" owner="loccauhoi">
-<kw name="Select Option Smart" owner="loccauhoi">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${select_locator}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:13.605433" elapsed="0.012930"/>
-</kw>
-<kw name="Get List Items" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:13.737911" level="INFO">${items} = ['All Tags', 'Lý thuyết cơ bản', 'Thực hành', 'Khó', 'Trung bình', 'Dễ', 'Lập trình', 'Cơ sở dữ liệu', 'Thuật toán', 'Kinh tế học', 'Trắc nghiệm', 'Tự luận', 'Đúng/Sai', 'Bài tập ngắn', 'Bài tập lớn']</msg>
-<var>${items}</var>
-<arg>${select_locator}</arg>
-<doc>Returns all labels or values of selection list ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:13.618713" elapsed="0.119237"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-08-14T14:10:13.738365" level="INFO">Options in xpath=(//div[contains(@class,'filter') or contains(.,'Filter Options')]//select)[8]: ['All Tags', 'Lý thuyết cơ bản', 'Thực hành', 'Khó', 'Trung bình', 'Dễ', 'Lập trình', 'Cơ sở dữ liệu', 'Thuật toán', 'Kinh tế học', 'Trắc nghiệm', 'Tự luận', 'Đúng/Sai', 'Bài tập ngắn', 'Bài tập lớn']</msg>
-<arg>Options in ${select_locator}: ${items}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-08-14T14:10:13.738069" elapsed="0.000378"/>
-</kw>
-<kw name="Normalize Text" owner="loccauhoi">
-<kw name="NormalizeHelper.Normalize Text">
-<msg time="2025-08-14T14:10:13.742381" level="FAIL">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</msg>
-<var>${norm}</var>
-<arg>${text}</arg>
-<status status="FAIL" start="2025-08-14T14:10:13.742312" elapsed="0.000140">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<return>
-<value>${norm}</value>
-<status status="NOT RUN" start="2025-08-14T14:10:13.742580" elapsed="0.000050"/>
-</return>
-<var>${norm_desired}</var>
-<arg>${desired_label}</arg>
-<status status="FAIL" start="2025-08-14T14:10:13.738674" elapsed="0.004122">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${selected}</var>
-<arg>${False}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:13.742987" elapsed="0.000047"/>
-</kw>
-<for flavor="IN ENUMERATE">
-<iter>
-<kw name="Normalize Text" owner="loccauhoi">
-<var>${norm_label}</var>
-<arg>${label}</arg>
-<status status="NOT RUN" start="2025-08-14T14:10:13.743518" elapsed="0.000050"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${match_exact}</var>
-<arg>Should Be Equal</arg>
-<arg>${norm_label}</arg>
-<arg>${norm_desired}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:13.743866" elapsed="0.000045"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${match_contains}</var>
-<arg>Should Contain</arg>
-<arg>${norm_label}</arg>
-<arg>${norm_desired}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:13.744069" elapsed="0.000046"/>
-</kw>
-<if>
-<branch type="IF" condition="${match_exact} or ${match_contains}">
-<kw name="Select From List By Index" owner="SeleniumLibrary">
-<arg>${select_locator}</arg>
-<arg>${index}</arg>
-<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:13.744391" elapsed="0.000052"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${selected}</var>
-<arg>${True}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:13.744590" elapsed="0.000041"/>
-</kw>
-<kw name="Exit For Loop" owner="BuiltIn">
-<doc>Stops executing the enclosing FOR loop.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:13.744789" elapsed="0.000041"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T14:10:13.744244" elapsed="0.000645"/>
-</branch>
-<status status="NOT RUN" start="2025-08-14T14:10:13.744216" elapsed="0.000737"/>
-</if>
-<var name="${index}"/>
-<var name="${label}"/>
-<status status="NOT RUN" start="2025-08-14T14:10:13.743336" elapsed="0.001657"/>
-</iter>
-<var>${index}</var>
-<var>${label}</var>
-<value>@{items}</value>
-<status status="NOT RUN" start="2025-08-14T14:10:13.743135" elapsed="0.001938"/>
-</for>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${selected}</arg>
-<arg>Fail</arg>
-<arg>Option '${desired_label}' not found. Available: ${items}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:13.745243" elapsed="0.000038"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${selected}</arg>
-<arg>Fail</arg>
-<arg>Option '${desired_label}' not found. Available: ${items}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:13.745424" elapsed="0.000038"/>
-</kw>
-<arg>${TAG}</arg>
-<arg>${label}</arg>
-<status status="FAIL" start="2025-08-14T14:10:13.605261" elapsed="0.140461">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<arg>${TAG_PHYSICS}</arg>
-<status status="FAIL" start="2025-08-14T14:10:13.604953" elapsed="0.140922">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<kw name="Apply Filters" owner="loccauhoi">
-<status status="NOT RUN" start="2025-08-14T14:10:13.746313" elapsed="0.000034"/>
-</kw>
-<kw name="Should Have Data" owner="loccauhoi">
-<status status="NOT RUN" start="2025-08-14T14:10:13.746504" elapsed="0.000025"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2025-08-14T14:10:13.877735" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-386.png"&gt;&lt;img src="selenium-screenshot-386.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-14T14:10:13.746856" elapsed="0.130996"/>
-</kw>
-<status status="FAIL" start="2025-08-14T14:10:11.446200" elapsed="2.432052">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</test>
-<test id="s1-t4" name="QB-FUNC-04 - Lọc kết hợp nhiều filter" line="36">
-<kw name="Go To Question Bank" owner="loccauhoi" type="SETUP">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:13.881003" level="INFO">Clicking element 'xpath=//a[contains(@href,'/questionbank/questions/')]'.</msg>
-<arg>${MENU_QB}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:13.880737" elapsed="2.022450"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${BTN_APPLY}</arg>
-<arg>20s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:15.903505" elapsed="0.025450"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Close Debug Overlay" owner="loccauhoi">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-14T14:10:15.930295" level="INFO">${overlay} = css=.StaticFilesPanel, #djDebug, .djDebug</msg>
-<var>${overlay}</var>
-<arg>css=.StaticFilesPanel, #djDebug, .djDebug</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-14T14:10:15.930015" elapsed="0.000339"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:15.931475" level="INFO">Executing JavaScript:
-return document.querySelector(arguments[0])!==null;css=.StaticFilesPanel, #djDebug, .djDebug
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:16.059249" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-387.png"&gt;&lt;img src="selenium-screenshot-387.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:16.059387" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:15.930780" elapsed="0.129313">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-14T14:10:16.060216" level="INFO">${exists} = False</msg>
-<var>${exists}</var>
-<arg>Execute Javascript</arg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:15.930553" elapsed="0.129682"/>
-</kw>
-<if>
-<branch type="IF" condition="${exists}">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<arg>document.querySelectorAll(arguments[0]).forEach(e=&gt;e.style.display='none');</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:16.060417" elapsed="0.000020"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T14:10:16.060309" elapsed="0.000154"/>
-</branch>
-<status status="PASS" start="2025-08-14T14:10:16.060290" elapsed="0.000197"/>
-</if>
-<status status="PASS" start="2025-08-14T14:10:15.929639" elapsed="0.130896"/>
-</kw>
-<arg>Close Debug Overlay</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-14T14:10:15.929253" elapsed="0.131323"/>
-</kw>
-<status status="PASS" start="2025-08-14T14:10:13.880372" elapsed="2.180248"/>
-</kw>
-<kw name="Set Course" owner="loccauhoi">
-<kw name="Select Option Smart" owner="loccauhoi">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${select_locator}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:16.061556" elapsed="0.014242"/>
-</kw>
-<kw name="Get List Items" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:16.306117" level="INFO">${items} = ['All Courses', 'CS301: Cơ sở dữ liệu', 'SE101: Nhập môn kỹ thuật phần mềm', 'SE201: Phân tích và thiết kế phần mềm', 'SE301: Kiểm thử phần mềm', 'ECON101: Kinh tế học vi mô', 'ECON201: Kinh tế học vĩ...</msg>
-<var>${items}</var>
-<arg>${select_locator}</arg>
-<doc>Returns all labels or values of selection list ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:16.075988" elapsed="0.230166"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-08-14T14:10:16.306418" level="INFO">Options in xpath=(//div[contains(@class,'filter') or contains(.,'Filter Options')]//select)[1]: ['All Courses', 'CS301: Cơ sở dữ liệu', 'SE101: Nhập môn kỹ thuật phần mềm', 'SE201: Phân tích và thiết kế phần mềm', 'SE301: Kiểm thử phần mềm', 'ECON101: Kinh tế học vi mô', 'ECON201: Kinh tế học vĩ mô', 'FIN301: Tài chính doanh nghiệp', 'DCS101: Demo Introduction to Programming', 'CS201: Cấu trúc dữ liệu và giải thuật', 'CNTT011: Kiểm thử phần mềm12', 'CS101: Nhập môn lập trình', 'BL2: block chain', 'DSA201: Cấu trúc dữ liệu và giải thuật', 'CNKT001: Bằng Cử Nhân', 'KL01111: Khoá luận TN', 'DSA201: Cấu trúc dữ liệu và giải thuật', 'as1: abc', 'KL_01: KL_01', 'KL01111: aaaa', 'PO001: Khoá học CN', 'BLC01: Block chain cơ bản', 'BLC02: Block chain cơ bản', 'as1: abc', 'KL01111: aaaa', 'CNTT001: CNTT cơ bản', 'BLC01: Block chain', 'BL2: block chain', 'DT01: Khoá đào tạo', 'DSA201: Cấu trúc dữ liệu và giải thuật', 'CNTT001: CNTT cơ bản', 'd: d', 'CNTT03: QLDA', 'CNTT05: QLDA', 'CNTT01: Kiểm thử phần mềm', 'PO001: Khoá học CN', 'BLC02: Block chain cơ bản', 'BL059: Block chain cơ bản 7', 'BLC01: Block chain', 'BL2: block chain', 'BL059: Block chain cơ bản 7', '88: DDDDDD']</msg>
-<arg>Options in ${select_locator}: ${items}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-08-14T14:10:16.306266" elapsed="0.000276"/>
-</kw>
-<kw name="Normalize Text" owner="loccauhoi">
-<kw name="NormalizeHelper.Normalize Text">
-<msg time="2025-08-14T14:10:16.308561" level="FAIL">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</msg>
-<var>${norm}</var>
-<arg>${text}</arg>
-<status status="FAIL" start="2025-08-14T14:10:16.308521" elapsed="0.000081">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<return>
-<value>${norm}</value>
-<status status="NOT RUN" start="2025-08-14T14:10:16.308670" elapsed="0.000031"/>
-</return>
-<var>${norm_desired}</var>
-<arg>${desired_label}</arg>
-<status status="FAIL" start="2025-08-14T14:10:16.306655" elapsed="0.002131">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${selected}</var>
-<arg>${False}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:16.309026" elapsed="0.000049"/>
-</kw>
-<for flavor="IN ENUMERATE">
-<iter>
-<kw name="Normalize Text" owner="loccauhoi">
-<var>${norm_label}</var>
-<arg>${label}</arg>
-<status status="NOT RUN" start="2025-08-14T14:10:16.309526" elapsed="0.000047"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${match_exact}</var>
-<arg>Should Be Equal</arg>
-<arg>${norm_label}</arg>
-<arg>${norm_desired}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:16.309717" elapsed="0.000039"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${match_contains}</var>
-<arg>Should Contain</arg>
-<arg>${norm_label}</arg>
-<arg>${norm_desired}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:16.309894" elapsed="0.000038"/>
-</kw>
-<if>
-<branch type="IF" condition="${match_exact} or ${match_contains}">
-<kw name="Select From List By Index" owner="SeleniumLibrary">
-<arg>${select_locator}</arg>
-<arg>${index}</arg>
-<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:16.310168" elapsed="0.000035"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${selected}</var>
-<arg>${True}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:16.310324" elapsed="0.000035"/>
-</kw>
-<kw name="Exit For Loop" owner="BuiltIn">
-<doc>Stops executing the enclosing FOR loop.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:16.310474" elapsed="0.000033"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T14:10:16.310046" elapsed="0.000510"/>
-</branch>
-<status status="NOT RUN" start="2025-08-14T14:10:16.310020" elapsed="0.000591"/>
-</if>
-<var name="${index}"/>
-<var name="${label}"/>
-<status status="NOT RUN" start="2025-08-14T14:10:16.309348" elapsed="0.001317"/>
-</iter>
-<var>${index}</var>
-<var>${label}</var>
-<value>@{items}</value>
-<status status="NOT RUN" start="2025-08-14T14:10:16.309158" elapsed="0.001574"/>
-</for>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${selected}</arg>
-<arg>Fail</arg>
-<arg>Option '${desired_label}' not found. Available: ${items}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:16.310871" elapsed="0.000035"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${selected}</arg>
-<arg>Fail</arg>
-<arg>Option '${desired_label}' not found. Available: ${items}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:16.311032" elapsed="0.000033"/>
-</kw>
-<arg>${COURSE}</arg>
-<arg>${label}</arg>
-<status status="FAIL" start="2025-08-14T14:10:16.061330" elapsed="0.249881">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<arg>${COURSE_CS301}</arg>
-<status status="FAIL" start="2025-08-14T14:10:16.060978" elapsed="0.250359">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</kw>
-<kw name="Set Difficulty" owner="loccauhoi">
-<arg>${DIFFICULTY_HARD}</arg>
-<status status="NOT RUN" start="2025-08-14T14:10:16.311660" elapsed="0.000069"/>
-</kw>
-<kw name="Apply Filters" owner="loccauhoi">
-<status status="NOT RUN" start="2025-08-14T14:10:16.312071" elapsed="0.000047"/>
-</kw>
-<kw name="Should Have Data" owner="loccauhoi">
-<status status="NOT RUN" start="2025-08-14T14:10:16.312451" elapsed="0.000038"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2025-08-14T14:10:16.446583" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-388.png"&gt;&lt;img src="selenium-screenshot-388.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-14T14:10:16.312707" elapsed="0.134043"/>
-</kw>
-<status status="FAIL" start="2025-08-14T14:10:13.879521" elapsed="2.567817">No keyword with name 'NormalizeHelper.Normalize Text' found. Did you try using keyword 'norm' and forgot to use enough whitespace between keyword and arguments?</status>
-</test>
-<test id="s1-t5" name="QB-VAL-01 - Search từ khóa" line="42">
-<kw name="Go To Question Bank" owner="loccauhoi" type="SETUP">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:16.449890" level="INFO">Clicking element 'xpath=//a[contains(@href,'/questionbank/questions/')]'.</msg>
-<arg>${MENU_QB}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:16.449584" elapsed="1.784812"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${BTN_APPLY}</arg>
-<arg>20s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:18.234602" elapsed="0.027381"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Close Debug Overlay" owner="loccauhoi">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-14T14:10:18.262856" level="INFO">${overlay} = css=.StaticFilesPanel, #djDebug, .djDebug</msg>
-<var>${overlay}</var>
-<arg>css=.StaticFilesPanel, #djDebug, .djDebug</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-14T14:10:18.262703" elapsed="0.000186"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:18.263564" level="INFO">Executing JavaScript:
-return document.querySelector(arguments[0])!==null;css=.StaticFilesPanel, #djDebug, .djDebug
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:18.408225" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-389.png"&gt;&lt;img src="selenium-screenshot-389.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:18.408506" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:18.263150" elapsed="0.147525">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-14T14:10:18.410816" level="INFO">${exists} = False</msg>
-<var>${exists}</var>
-<arg>Execute Javascript</arg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:18.263008" elapsed="0.147829"/>
-</kw>
-<if>
-<branch type="IF" condition="${exists}">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<arg>document.querySelectorAll(arguments[0]).forEach(e=&gt;e.style.display='none');</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:18.411047" elapsed="0.000022"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T14:10:18.410920" elapsed="0.000180"/>
-</branch>
-<status status="PASS" start="2025-08-14T14:10:18.410899" elapsed="0.000230"/>
-</if>
-<status status="PASS" start="2025-08-14T14:10:18.262458" elapsed="0.148711"/>
-</kw>
-<arg>Close Debug Overlay</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-14T14:10:18.262203" elapsed="0.148998"/>
-</kw>
-<status status="PASS" start="2025-08-14T14:10:16.449043" elapsed="1.962194"/>
-</kw>
-<kw name="Set Search Query" owner="loccauhoi">
-<kw name="Clear Element Text" owner="SeleniumLibrary">
-<arg>${SEARCH_INPUT}</arg>
-<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:18.412122" elapsed="0.027990"/>
+<status status="PASS" start="2025-08-14T15:31:11.493425" elapsed="0.019165"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:18.440584" level="INFO">Typing text 'algebra' into text field 'xpath=//input[contains(@placeholder,'Search') or @name='search' or contains(@aria-label,'Search')]'.</msg>
-<arg>${SEARCH_INPUT}</arg>
-<arg>${text}</arg>
+<msg time="2025-08-14T15:31:11.513128" level="INFO">Typing text 'admin' into text field 'xpath=//input[@id='id_username']'.</msg>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:18.440322" elapsed="0.072774"/>
-</kw>
-<arg>${SEARCH_ALGEBRA}</arg>
-<status status="PASS" start="2025-08-14T14:10:18.411739" elapsed="0.101790"/>
-</kw>
-<kw name="Apply Filters" owner="loccauhoi">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${BTN_APPLY}</arg>
-<arg>15s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:18.514249" elapsed="0.014040"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${BTN_APPLY}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-08-14T14:10:18.528499" elapsed="0.279255"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-14T14:10:19.108925" level="INFO">Slept 300 milliseconds.</msg>
-<arg>0.3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-14T14:10:18.807953" elapsed="0.301184"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Close Debug Overlay" owner="loccauhoi">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-14T14:10:19.111030" level="INFO">${overlay} = css=.StaticFilesPanel, #djDebug, .djDebug</msg>
-<var>${overlay}</var>
-<arg>css=.StaticFilesPanel, #djDebug, .djDebug</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-14T14:10:19.110685" elapsed="0.000417"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:19.112437" level="INFO">Executing JavaScript:
-return document.querySelector(arguments[0])!==null;css=.StaticFilesPanel, #djDebug, .djDebug
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:19.236196" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-390.png"&gt;&lt;img src="selenium-screenshot-390.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:19.236344" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:19.111629" elapsed="0.125391">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-14T14:10:19.237136" level="INFO">${exists} = False</msg>
-<var>${exists}</var>
-<arg>Execute Javascript</arg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:19.111349" elapsed="0.125805"/>
-</kw>
-<if>
-<branch type="IF" condition="${exists}">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<arg>document.querySelectorAll(arguments[0]).forEach(e=&gt;e.style.display='none');</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:19.237360" elapsed="0.000022"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T14:10:19.237234" elapsed="0.000213"/>
-</branch>
-<status status="PASS" start="2025-08-14T14:10:19.237207" elapsed="0.000273"/>
-</if>
-<status status="PASS" start="2025-08-14T14:10:19.110089" elapsed="0.127449"/>
-</kw>
-<arg>Close Debug Overlay</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-14T14:10:19.109520" elapsed="0.128056"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:19.237922" level="INFO">Clicking element 'xpath=//button[normalize-space()='Apply Filters']'.</msg>
-<msg time="2025-08-14T14:10:20.428450" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-391.png"&gt;&lt;img src="selenium-screenshot-391.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:20.428684" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="submit" class="btn btn-primary"&gt;...&lt;/button&gt; is not clickable at point (1170, 532). Other element would receive the click: &lt;a href="#" title="Static files (174 found, 0 used)" class="StaticFilesPanel"&gt;...&lt;/a&gt;
-  (Session info: chrome=139.0.7258.66); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c5af69]
-	(No symbol) [0x0x7ff6c3c58902]
-	(No symbol) [0x0x7ff6c3c55941]
-	(No symbol) [0x0x7ff6c3c54831]
-	(No symbol) [0x0x7ff6c3c46078]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3c45926]
-	(No symbol) [0x0x7ff6c3c7b350]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>${BTN_APPLY}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-08-14T14:10:19.237777" elapsed="1.194572">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="submit" class="btn btn-primary"&gt;...&lt;/button&gt; is not clickable at point (1170, 532). Other element would receive the click: &lt;a href="#" title="Static files (174 found, 0 used)" class="StaticFilesPanel"&gt;...&lt;/a&gt;
-  (Session info: chrome=139.0.7258.66); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c5af69]
-	(No symbol) [0x0x7ff6c3c58902]
-	(No symbol) [0x0x7ff6c3c55941]
-	(No symbol) [0x0x7ff6c3c54831]
-	(No symbol) [0x0x7ff6c3c46078]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3c45926]
-	(No symbol) [0x0x7ff6c3c7b350]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-14T14:10:20.432577" level="INFO">${clicked} = False</msg>
-<var>${clicked}</var>
-<arg>Click Element</arg>
-<arg>${BTN_APPLY}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:19.237661" elapsed="1.194965"/>
-</kw>
-<if>
-<branch type="IF" condition="not ${clicked}">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:20.434476" level="INFO">Executing JavaScript:
-arguments[0].click();xpath=//button[normalize-space()='Apply Filters']
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:20.565003" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-392.png"&gt;&lt;img src="selenium-screenshot-392.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:20.565169" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>arguments[0].click();</arg>
-<arg>${BTN_APPLY}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:20.433929" elapsed="0.132633">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-14T14:10:20.566765" level="INFO">${js_clicked} = False</msg>
-<var>${js_clicked}</var>
-<arg>Execute Javascript</arg>
-<arg>arguments[0].click();</arg>
-<arg>${BTN_APPLY}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:20.433597" elapsed="0.133208"/>
-</kw>
-<if>
-<branch type="IF" condition="not ${js_clicked}">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:20.567710" level="INFO">Executing JavaScript:
-(function(b){var f=b.closest('form'); if(f){f.submit();}})(arguments[0]);xpath=//button[normalize-space()='Apply Filters']
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:20.725179" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-393.png"&gt;&lt;img src="selenium-screenshot-393.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:20.725370" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>(function(b){var f=b.closest('form'); if(f){f.submit();}})(arguments[0]);</arg>
-<arg>${BTN_APPLY}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:20.567222" elapsed="0.160122">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<status status="FAIL" start="2025-08-14T14:10:20.566944" elapsed="0.160579">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</branch>
-<status status="FAIL" start="2025-08-14T14:10:20.566911" elapsed="0.160697">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</if>
-<status status="FAIL" start="2025-08-14T14:10:20.432773" elapsed="0.294921">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</branch>
-<status status="FAIL" start="2025-08-14T14:10:20.432725" elapsed="0.295037">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</if>
-<kw name="Wait Until Any Elements Visible" owner="loccauhoi">
-<arg>${ROWS}</arg>
-<arg>${NO_DATA}</arg>
-<arg>15s</arg>
-<status status="NOT RUN" start="2025-08-14T14:10:20.727988" elapsed="0.000052"/>
-</kw>
-<status status="FAIL" start="2025-08-14T14:10:18.514039" elapsed="2.214158">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<kw name="Should Have Data" owner="loccauhoi">
-<status status="NOT RUN" start="2025-08-14T14:10:20.728753" elapsed="0.000033"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2025-08-14T14:10:20.851679" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-394.png"&gt;&lt;img src="selenium-screenshot-394.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-14T14:10:20.729227" elapsed="0.122637"/>
-</kw>
-<status status="FAIL" start="2025-08-14T14:10:16.448345" elapsed="4.403756">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-t6" name="QB-VAL-02 - Search không phân biệt hoa thường" line="47">
-<kw name="Go To Question Bank" owner="loccauhoi" type="SETUP">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:20.854317" level="INFO">Clicking element 'xpath=//a[contains(@href,'/questionbank/questions/')]'.</msg>
-<arg>${MENU_QB}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:20.854166" elapsed="2.155549"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${BTN_APPLY}</arg>
-<arg>20s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:23.009962" elapsed="0.012664"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Close Debug Overlay" owner="loccauhoi">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-14T14:10:23.023431" level="INFO">${overlay} = css=.StaticFilesPanel, #djDebug, .djDebug</msg>
-<var>${overlay}</var>
-<arg>css=.StaticFilesPanel, #djDebug, .djDebug</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-14T14:10:23.023289" elapsed="0.000174"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:23.027684" level="INFO">Executing JavaScript:
-return document.querySelector(arguments[0])!==null;css=.StaticFilesPanel, #djDebug, .djDebug
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:23.172271" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-395.png"&gt;&lt;img src="selenium-screenshot-395.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:23.172402" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:23.023746" elapsed="0.149364">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-14T14:10:23.173233" level="INFO">${exists} = False</msg>
-<var>${exists}</var>
-<arg>Execute Javascript</arg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:23.023576" elapsed="0.149677"/>
-</kw>
-<if>
-<branch type="IF" condition="${exists}">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<arg>document.querySelectorAll(arguments[0]).forEach(e=&gt;e.style.display='none');</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:23.173504" elapsed="0.000032"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T14:10:23.173340" elapsed="0.000241"/>
-</branch>
-<status status="PASS" start="2025-08-14T14:10:23.173308" elapsed="0.000314"/>
-</if>
-<status status="PASS" start="2025-08-14T14:10:23.023059" elapsed="0.150618"/>
-</kw>
-<arg>Close Debug Overlay</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-14T14:10:23.022812" elapsed="0.150911"/>
-</kw>
-<status status="PASS" start="2025-08-14T14:10:20.853913" elapsed="2.319860"/>
-</kw>
-<kw name="Set Search Query" owner="loccauhoi">
-<kw name="Clear Element Text" owner="SeleniumLibrary">
-<arg>${SEARCH_INPUT}</arg>
-<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:23.174619" elapsed="0.023143"/>
+<status status="PASS" start="2025-08-14T15:31:11.512811" elapsed="0.087040"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:23.198212" level="INFO">Typing text 'ALGEBRA' into text field 'xpath=//input[contains(@placeholder,'Search') or @name='search' or contains(@aria-label,'Search')]'.</msg>
-<arg>${SEARCH_INPUT}</arg>
-<arg>${text}</arg>
+<msg time="2025-08-14T15:31:11.600338" level="INFO">Typing text 'demoadmin' into text field 'xpath=//input[@id='id_password']'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:23.197950" elapsed="0.075293"/>
+<status status="PASS" start="2025-08-14T15:31:11.600047" elapsed="0.123981"/>
 </kw>
-<arg>${SEARCH_ALGEBRA_UPPER}</arg>
-<status status="PASS" start="2025-08-14T14:10:23.174342" elapsed="0.099100"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:11.724442" level="INFO">Clicking button 'xpath=//button[text()='Đăng nhập']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:31:11.724214" elapsed="0.067441"/>
 </kw>
-<kw name="Apply Filters" owner="loccauhoi">
+<arg>admin</arg>
+<arg>demoadmin</arg>
+<status status="PASS" start="2025-08-14T15:31:02.429756" elapsed="9.362069"/>
+</kw>
+<status status="PASS" start="2025-08-14T15:31:02.429260" elapsed="9.362697"/>
+</kw>
+<test id="s1-t1" name="TC_CB_01 : Thêm câu hỏi bỏ trống các trường dữ liệu" line="9">
+<kw name="Add a new question to the data field" owner="TaoMoiCauHoi">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${BTN_APPLY}</arg>
-<arg>15s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:23.274428" elapsed="0.016353"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${BTN_APPLY}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-08-14T14:10:23.290978" elapsed="0.292065"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-14T14:10:23.883808" level="INFO">Slept 300 milliseconds.</msg>
-<arg>0.3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-14T14:10:23.583212" elapsed="0.300858"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Close Debug Overlay" owner="loccauhoi">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-14T14:10:23.886642" level="INFO">${overlay} = css=.StaticFilesPanel, #djDebug, .djDebug</msg>
-<var>${overlay}</var>
-<arg>css=.StaticFilesPanel, #djDebug, .djDebug</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-14T14:10:23.885985" elapsed="0.000739"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:23.888072" level="INFO">Executing JavaScript:
-return document.querySelector(arguments[0])!==null;css=.StaticFilesPanel, #djDebug, .djDebug
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:24.012733" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-396.png"&gt;&lt;img src="selenium-screenshot-396.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:24.012897" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:23.887281" elapsed="0.126382">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-14T14:10:24.013785" level="INFO">${exists} = False</msg>
-<var>${exists}</var>
-<arg>Execute Javascript</arg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:23.886992" elapsed="0.126814"/>
-</kw>
-<if>
-<branch type="IF" condition="${exists}">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<arg>document.querySelectorAll(arguments[0]).forEach(e=&gt;e.style.display='none');</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:24.014013" elapsed="0.000020"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T14:10:24.013892" elapsed="0.000171"/>
-</branch>
-<status status="PASS" start="2025-08-14T14:10:24.013869" elapsed="0.000222"/>
-</if>
-<status status="PASS" start="2025-08-14T14:10:23.885106" elapsed="0.129021"/>
-</kw>
-<arg>Close Debug Overlay</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-14T14:10:23.884474" elapsed="0.129684"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:24.014464" level="INFO">Clicking element 'xpath=//button[normalize-space()='Apply Filters']'.</msg>
-<msg time="2025-08-14T14:10:25.233965" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-397.png"&gt;&lt;img src="selenium-screenshot-397.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:25.234208" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="submit" class="btn btn-primary"&gt;...&lt;/button&gt; is not clickable at point (1170, 532). Other element would receive the click: &lt;a href="#" title="Static files (174 found, 0 used)" class="StaticFilesPanel"&gt;...&lt;/a&gt;
-  (Session info: chrome=139.0.7258.66); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c5af69]
-	(No symbol) [0x0x7ff6c3c58902]
-	(No symbol) [0x0x7ff6c3c55941]
-	(No symbol) [0x0x7ff6c3c54831]
-	(No symbol) [0x0x7ff6c3c46078]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3c45926]
-	(No symbol) [0x0x7ff6c3c7b350]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>${BTN_APPLY}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-08-14T14:10:24.014330" elapsed="1.221616">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="submit" class="btn btn-primary"&gt;...&lt;/button&gt; is not clickable at point (1170, 532). Other element would receive the click: &lt;a href="#" title="Static files (174 found, 0 used)" class="StaticFilesPanel"&gt;...&lt;/a&gt;
-  (Session info: chrome=139.0.7258.66); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c5af69]
-	(No symbol) [0x0x7ff6c3c58902]
-	(No symbol) [0x0x7ff6c3c55941]
-	(No symbol) [0x0x7ff6c3c54831]
-	(No symbol) [0x0x7ff6c3c46078]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3c45926]
-	(No symbol) [0x0x7ff6c3c7b350]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-14T14:10:25.236240" level="INFO">${clicked} = False</msg>
-<var>${clicked}</var>
-<arg>Click Element</arg>
-<arg>${BTN_APPLY}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:24.014228" elapsed="1.222050"/>
-</kw>
-<if>
-<branch type="IF" condition="not ${clicked}">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:25.237304" level="INFO">Executing JavaScript:
-arguments[0].click();xpath=//button[normalize-space()='Apply Filters']
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:25.372613" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-398.png"&gt;&lt;img src="selenium-screenshot-398.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:25.372958" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>arguments[0].click();</arg>
-<arg>${BTN_APPLY}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:25.236864" elapsed="0.137480">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-14T14:10:25.374747" level="INFO">${js_clicked} = False</msg>
-<var>${js_clicked}</var>
-<arg>Execute Javascript</arg>
-<arg>arguments[0].click();</arg>
-<arg>${BTN_APPLY}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:25.236677" elapsed="0.138151"/>
-</kw>
-<if>
-<branch type="IF" condition="not ${js_clicked}">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:25.376441" level="INFO">Executing JavaScript:
-(function(b){var f=b.closest('form'); if(f){f.submit();}})(arguments[0]);xpath=//button[normalize-space()='Apply Filters']
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:25.522919" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-399.png"&gt;&lt;img src="selenium-screenshot-399.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:25.523181" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>(function(b){var f=b.closest('form'); if(f){f.submit();}})(arguments[0]);</arg>
-<arg>${BTN_APPLY}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:25.375531" elapsed="0.149488">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<status status="FAIL" start="2025-08-14T14:10:25.375018" elapsed="0.150189">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</branch>
-<status status="FAIL" start="2025-08-14T14:10:25.374956" elapsed="0.150335">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</if>
-<status status="FAIL" start="2025-08-14T14:10:25.236412" elapsed="0.289027">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</branch>
-<status status="FAIL" start="2025-08-14T14:10:25.236374" elapsed="0.289162">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</if>
-<kw name="Wait Until Any Elements Visible" owner="loccauhoi">
-<arg>${ROWS}</arg>
-<arg>${NO_DATA}</arg>
-<arg>15s</arg>
-<status status="NOT RUN" start="2025-08-14T14:10:25.525889" elapsed="0.000075"/>
-</kw>
-<status status="FAIL" start="2025-08-14T14:10:23.274029" elapsed="2.252155">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<kw name="Should Have Data" owner="loccauhoi">
-<status status="NOT RUN" start="2025-08-14T14:10:25.526634" elapsed="0.000030"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2025-08-14T14:10:25.658751" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-400.png"&gt;&lt;img src="selenium-screenshot-400.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-14T14:10:25.526937" elapsed="0.131901"/>
-</kw>
-<status status="FAIL" start="2025-08-14T14:10:20.853262" elapsed="4.805890">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-t7" name="QB-VAL-03 - Search ký tự đặc biệt" line="52">
-<kw name="Go To Question Bank" owner="loccauhoi" type="SETUP">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:25.661991" level="INFO">Clicking element 'xpath=//a[contains(@href,'/questionbank/questions/')]'.</msg>
-<arg>${MENU_QB}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:25.661850" elapsed="1.779236"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${BTN_APPLY}</arg>
+<arg>${URL_NEW_QUESTION}</arg>
 <arg>20s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:27.441382" elapsed="0.063785"/>
+<status status="PASS" start="2025-08-14T15:31:11.794264" elapsed="3.450271"/>
 </kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Close Debug Overlay" owner="loccauhoi">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-14T14:10:27.506679" level="INFO">${overlay} = css=.StaticFilesPanel, #djDebug, .djDebug</msg>
-<var>${overlay}</var>
-<arg>css=.StaticFilesPanel, #djDebug, .djDebug</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-14T14:10:27.506348" elapsed="0.000399"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:15.245167" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:31:15.244812" elapsed="0.938323"/>
 </kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:27.507879" level="INFO">Executing JavaScript:
-return document.querySelector(arguments[0])!==null;css=.StaticFilesPanel, #djDebug, .djDebug
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:27.678863" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-401.png"&gt;&lt;img src="selenium-screenshot-401.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:27.679152" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:27.507254" elapsed="0.174167">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-14T14:10:27.681820" level="INFO">${exists} = False</msg>
-<var>${exists}</var>
-<arg>Execute Javascript</arg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:27.506981" elapsed="0.174901"/>
-</kw>
-<if>
-<branch type="IF" condition="${exists}">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<arg>document.querySelectorAll(arguments[0]).forEach(e=&gt;e.style.display='none');</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:27.682384" elapsed="0.000061"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T14:10:27.682091" elapsed="0.000480"/>
-</branch>
-<status status="PASS" start="2025-08-14T14:10:27.682043" elapsed="0.000614"/>
-</if>
-<status status="PASS" start="2025-08-14T14:10:27.505901" elapsed="0.176861"/>
-</kw>
-<arg>Close Debug Overlay</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-14T14:10:27.505462" elapsed="0.177406"/>
-</kw>
-<status status="PASS" start="2025-08-14T14:10:25.661639" elapsed="2.021352"/>
-</kw>
-<kw name="Set Search Query" owner="loccauhoi">
-<kw name="Clear Element Text" owner="SeleniumLibrary">
-<arg>${SEARCH_INPUT}</arg>
-<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:27.684047" elapsed="0.039226"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:27.723793" level="INFO">Typing text '@@@@' into text field 'xpath=//input[contains(@placeholder,'Search') or @name='search' or contains(@aria-label,'Search')]'.</msg>
-<arg>${SEARCH_INPUT}</arg>
-<arg>${text}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T14:10:27.723491" elapsed="0.094941"/>
-</kw>
-<arg>${SEARCH_SPECIAL}</arg>
-<status status="PASS" start="2025-08-14T14:10:27.683660" elapsed="0.134954"/>
-</kw>
-<kw name="Apply Filters" owner="loccauhoi">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${BTN_APPLY}</arg>
-<arg>15s</arg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T14:10:27.819489" elapsed="0.025511"/>
+<status status="PASS" start="2025-08-14T15:31:16.183403" elapsed="0.019372"/>
 </kw>
 <kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${BTN_APPLY}</arg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-08-14T14:10:27.845235" elapsed="0.292762"/>
+<status status="PASS" start="2025-08-14T15:31:16.203002" elapsed="0.294597"/>
+</kw>
+<status status="PASS" start="2025-08-14T15:31:11.794024" elapsed="4.703828"/>
+</kw>
+<doc>TC_CB_01</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-08-14T15:31:11.792602" elapsed="4.705926"/>
+</test>
+<test id="s1-t2" name="TC_CB_02 : Thêm câu hỏi thành công" line="14">
+<kw name="Add new question" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:16.502364" elapsed="0.017075"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:16.519908" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:31:16.519651" elapsed="0.862690"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_COURSE}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:17.382531" elapsed="0.017205"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:17.400174" level="INFO">Selecting options from selection list '//select[@id="id_course"]' by value 29.</msg>
+<arg>${POST_COURSE}</arg>
+<arg>29</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-14T15:31:17.399932" elapsed="0.060524"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_CONTENT}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:17.460655" elapsed="0.015737"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:17.477084" level="INFO">Typing text 'Cấu trúc dữ liệu và giải thuật là gì?' into text field '//textarea[@id="id_content"]'.</msg>
+<arg>${POST_CONTENT}</arg>
+<arg>Cấu trúc dữ liệu và giải thuật là gì?</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:31:17.476690" elapsed="0.150812"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_TYPE}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:17.627722" elapsed="0.021760"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:17.650410" level="INFO">Selecting options from selection list '//select[@id="id_type"]' by value practical.</msg>
+<arg>${POST_TYPE}</arg>
+<arg>practical</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-14T15:31:17.649870" elapsed="0.089151"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_DIFFICULTY}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:17.739272" elapsed="0.015717"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:17.755533" level="INFO">Selecting options from selection list '//select[@id="id_difficulty"]' by value medium.</msg>
+<arg>${POST_DIFFICULTY}</arg>
+<arg>medium</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-14T15:31:17.755229" elapsed="0.056702"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_BLOOM}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:17.812294" elapsed="0.016480"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:17.830134" level="INFO">Selecting options from selection list '//select[@id="id_bloom_level"]' by value apply.</msg>
+<arg>${POST_BLOOM}</arg>
+<arg>apply</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-14T15:31:17.829383" elapsed="0.056407"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_STATUS}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:17.886016" elapsed="0.016722"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:17.903469" level="INFO">Selecting options from selection list '//select[@id="id_status"]' by value inactive.</msg>
+<arg>${POST_STATUS}</arg>
+<arg>inactive</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-14T15:31:17.903049" elapsed="0.057157"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_APPROVAL_STATUS}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:17.960383" elapsed="0.015486"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:17.976277" level="INFO">Selecting options from selection list '//select[@id="id_approval_status"]' by value pending.</msg>
+<arg>${POST_APPROVAL_STATUS}</arg>
+<arg>pending</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-14T15:31:17.976048" elapsed="0.031260"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:18.007552" elapsed="0.013300"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-14T15:31:18.021141" elapsed="0.292145"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-14T14:10:28.439010" level="INFO">Slept 300 milliseconds.</msg>
-<arg>0.3s</arg>
+<msg time="2025-08-14T15:31:28.314587" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-14T14:10:28.138164" elapsed="0.301063"/>
+<status status="PASS" start="2025-08-14T15:31:18.313596" elapsed="10.001182"/>
 </kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Close Debug Overlay" owner="loccauhoi">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-14T14:10:28.440698" level="INFO">${overlay} = css=.StaticFilesPanel, #djDebug, .djDebug</msg>
-<var>${overlay}</var>
-<arg>css=.StaticFilesPanel, #djDebug, .djDebug</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-14T14:10:28.440518" elapsed="0.000217"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:28.442110" level="INFO">Executing JavaScript:
-return document.querySelector(arguments[0])!==null;css=.StaticFilesPanel, #djDebug, .djDebug
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:28.578006" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-402.png"&gt;&lt;img src="selenium-screenshot-402.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:28.578127" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:28.441204" elapsed="0.137650">JavascriptException: Message: javascript error: Unexpected token '.'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-14T14:10:28.578992" level="INFO">${exists} = False</msg>
-<var>${exists}</var>
-<arg>Execute Javascript</arg>
-<arg>return document.querySelector(arguments[0])!==null;</arg>
-<arg>${overlay}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:28.440865" elapsed="0.138147"/>
-</kw>
-<if>
-<branch type="IF" condition="${exists}">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<arg>document.querySelectorAll(arguments[0]).forEach(e=&gt;e.style.display='none');</arg>
-<arg>${overlay}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="NOT RUN" start="2025-08-14T14:10:28.579211" elapsed="0.000020"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T14:10:28.579091" elapsed="0.000168"/>
-</branch>
-<status status="PASS" start="2025-08-14T14:10:28.579070" elapsed="0.000216"/>
-</if>
-<status status="PASS" start="2025-08-14T14:10:28.440092" elapsed="0.139230"/>
-</kw>
-<arg>Close Debug Overlay</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-14T14:10:28.439547" elapsed="0.139804"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:28.579716" level="INFO">Clicking element 'xpath=//button[normalize-space()='Apply Filters']'.</msg>
-<msg time="2025-08-14T14:10:29.776094" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-403.png"&gt;&lt;img src="selenium-screenshot-403.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:29.776313" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="submit" class="btn btn-primary"&gt;...&lt;/button&gt; is not clickable at point (1170, 350). Other element would receive the click: &lt;a href="#" title="Headers" class="HeadersPanel"&gt;...&lt;/a&gt;
-  (Session info: chrome=139.0.7258.66); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c5af69]
-	(No symbol) [0x0x7ff6c3c58902]
-	(No symbol) [0x0x7ff6c3c55941]
-	(No symbol) [0x0x7ff6c3c54831]
-	(No symbol) [0x0x7ff6c3c46078]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3c45926]
-	(No symbol) [0x0x7ff6c3c7b350]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>${BTN_APPLY}</arg>
+<msg time="2025-08-14T15:31:28.315494" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-08-14T14:10:28.579568" elapsed="1.199353">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="submit" class="btn btn-primary"&gt;...&lt;/button&gt; is not clickable at point (1170, 350). Other element would receive the click: &lt;a href="#" title="Headers" class="HeadersPanel"&gt;...&lt;/a&gt;
-  (Session info: chrome=139.0.7258.66); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c5af69]
-	(No symbol) [0x0x7ff6c3c58902]
-	(No symbol) [0x0x7ff6c3c55941]
-	(No symbol) [0x0x7ff6c3c54831]
-	(No symbol) [0x0x7ff6c3c46078]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3c45926]
-	(No symbol) [0x0x7ff6c3c7b350]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
+<status status="PASS" start="2025-08-14T15:31:28.315070" elapsed="1.775965"/>
 </kw>
-<msg time="2025-08-14T14:10:29.779205" level="INFO">${clicked} = False</msg>
-<var>${clicked}</var>
-<arg>Click Element</arg>
-<arg>${BTN_APPLY}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:28.579423" elapsed="1.199832"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:31:35.092185" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:31:30.091236" elapsed="5.001159"/>
 </kw>
-<if>
-<branch type="IF" condition="not ${clicked}">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:29.780608" level="INFO">Executing JavaScript:
-arguments[0].click();xpath=//button[normalize-space()='Apply Filters']
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:29.906716" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-404.png"&gt;&lt;img src="selenium-screenshot-404.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:29.907035" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>arguments[0].click();</arg>
-<arg>${BTN_APPLY}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:29.780031" elapsed="0.128560">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
+<status status="PASS" start="2025-08-14T15:31:16.501719" elapsed="18.590885"/>
 </kw>
-<msg time="2025-08-14T14:10:29.908805" level="INFO">${js_clicked} = False</msg>
-<var>${js_clicked}</var>
-<arg>Execute Javascript</arg>
-<arg>arguments[0].click();</arg>
-<arg>${BTN_APPLY}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T14:10:29.779779" elapsed="0.129068"/>
+<doc>TC_CB_02</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-08-14T15:31:16.500233" elapsed="18.593540"/>
+</test>
+<test id="s1-t3" name="TC_CB_03 : Kiểm tra trường Course" line="18">
+<kw name="Check the Course field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:35.096453" elapsed="0.017760"/>
 </kw>
-<if>
-<branch type="IF" condition="not ${js_clicked}">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T14:10:29.909831" level="INFO">Executing JavaScript:
-(function(b){var f=b.closest('form'); if(f){f.submit();}})(arguments[0]);xpath=//button[normalize-space()='Apply Filters']
-Without any arguments.</msg>
-<msg time="2025-08-14T14:10:30.039416" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-405.png"&gt;&lt;img src="selenium-screenshot-405.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-14T14:10:30.039637" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>(function(b){var f=b.closest('form'); if(f){f.submit();}})(arguments[0]);</arg>
-<arg>${BTN_APPLY}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="FAIL" start="2025-08-14T14:10:29.909309" elapsed="0.131975">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:35.114680" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:31:35.114423" elapsed="1.024551"/>
 </kw>
-<status status="FAIL" start="2025-08-14T14:10:29.909017" elapsed="0.132428">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</branch>
-<status status="FAIL" start="2025-08-14T14:10:29.908965" elapsed="0.132623">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</if>
-<status status="FAIL" start="2025-08-14T14:10:29.779428" elapsed="0.262246">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</branch>
-<status status="FAIL" start="2025-08-14T14:10:29.779388" elapsed="0.262346">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</if>
-<kw name="Wait Until Any Elements Visible" owner="loccauhoi">
-<arg>${ROWS}</arg>
-<arg>${NO_DATA}</arg>
-<arg>15s</arg>
-<status status="NOT RUN" start="2025-08-14T14:10:30.041941" elapsed="0.000049"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_COURSE}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:36.139176" elapsed="0.016497"/>
 </kw>
-<status status="FAIL" start="2025-08-14T14:10:27.819136" elapsed="2.222988">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:36.156429" level="INFO">Selecting options from selection list '//select[@id="id_course"]' by value 29.</msg>
+<arg>${POST_COURSE}</arg>
+<arg>29</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-14T15:31:36.156035" elapsed="0.057626"/>
 </kw>
-<kw name="Should Show No Data" owner="loccauhoi">
-<status status="NOT RUN" start="2025-08-14T14:10:30.042557" elapsed="0.000067"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:36.213866" elapsed="0.012955"/>
 </kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2025-08-14T14:10:30.181327" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-406.png"&gt;&lt;img src="selenium-screenshot-406.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-14T14:10:30.043233" elapsed="0.138225"/>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-14T15:31:36.226998" elapsed="0.287406"/>
 </kw>
-<status status="FAIL" start="2025-08-14T14:10:25.660765" elapsed="4.521000">JavascriptException: Message: javascript error: Unexpected token '}'
-  (Session info: chrome=139.0.7258.66)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6c3e66b25+79621]
-	GetHandleVerifier [0x0x7ff6c3e66b80+79712]
-	(No symbol) [0x0x7ff6c3bfc0ea]
-	(No symbol) [0x0x7ff6c3c03ab1]
-	(No symbol) [0x0x7ff6c3c06e51]
-	(No symbol) [0x0x7ff6c3ca46fb]
-	(No symbol) [0x0x7ff6c3c7b13a]
-	(No symbol) [0x0x7ff6c3ca33d0]
-	(No symbol) [0x0x7ff6c3c7af13]
-	(No symbol) [0x0x7ff6c3c44151]
-	(No symbol) [0x0x7ff6c3c44ee3]
-	GetHandleVerifier [0x0x7ff6c412683d+2962461]
-	GetHandleVerifier [0x0x7ff6c4120b5d+2938685]
-	GetHandleVerifier [0x0x7ff6c413f71d+3064573]
-	GetHandleVerifier [0x0x7ff6c3e80c6e+186446]
-	GetHandleVerifier [0x0x7ff6c3e88a3f+218655]
-	GetHandleVerifier [0x0x7ff6c3e6f914+115956]
-	GetHandleVerifier [0x0x7ff6c3e6fac9+116393]
-	GetHandleVerifier [0x0x7ff6c3e55ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:31:46.515906" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:31:36.514736" elapsed="10.001333"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:46.516619" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:31:46.516312" elapsed="1.043834"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:31:52.561092" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:31:47.560327" elapsed="5.001027"/>
+</kw>
+<status status="PASS" start="2025-08-14T15:31:35.096004" elapsed="17.465629"/>
+</kw>
+<doc>TC_CB_03</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-08-14T15:31:35.094932" elapsed="17.467741"/>
+</test>
+<test id="s1-t4" name="TC_CB_04 : Kiểm tra trường Content" line="22">
+<kw name="Check the Content field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:52.565965" elapsed="0.020329"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:52.586726" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:31:52.586492" elapsed="1.141095"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_CONTENT}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:53.727771" elapsed="0.015287"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:31:53.743586" level="INFO">Typing text 'Cấu trúc dữ liệu và giải thuật là gì?' into text field '//textarea[@id="id_content"]'.</msg>
+<arg>${POST_CONTENT}</arg>
+<arg>Cấu trúc dữ liệu và giải thuật là gì?</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:31:53.743292" elapsed="0.147539"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:31:53.891085" elapsed="0.016513"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-14T15:31:53.907828" elapsed="0.305708"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:32:04.214423" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:31:54.213779" elapsed="10.000829"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:32:04.215118" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:32:04.214845" elapsed="0.877119"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:32:10.092722" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:32:05.092105" elapsed="5.000764"/>
+</kw>
+<status status="PASS" start="2025-08-14T15:31:52.565453" elapsed="17.527508"/>
+</kw>
+<doc>TC_CB_04</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-08-14T15:31:52.564162" elapsed="17.529148"/>
+</test>
+<test id="s1-t5" name="TC_CB_05 : Kiểm tra trường Type" line="27">
+<kw name="Check the Type field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:32:10.095069" elapsed="0.016941"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:32:10.112480" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:32:10.112194" elapsed="0.877294"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_TYPE}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:32:10.989621" elapsed="0.020491"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:32:11.010410" level="INFO">Selecting options from selection list '//select[@id="id_type"]' by value practical.</msg>
+<arg>${POST_TYPE}</arg>
+<arg>practical</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-14T15:32:11.010240" elapsed="0.074146"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:32:11.084519" elapsed="0.018450"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-14T15:32:11.103108" elapsed="0.284795"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:32:21.388970" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:32:11.388100" elapsed="10.001051"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:32:21.389618" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:32:21.389366" elapsed="0.083731"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:32:26.473573" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:32:21.473234" elapsed="5.000520"/>
+</kw>
+<status status="PASS" start="2025-08-14T15:32:10.094856" elapsed="16.379072"/>
+</kw>
+<doc>TC_CB_05</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-08-14T15:32:10.094232" elapsed="16.380160"/>
+</test>
+<test id="s1-t6" name="TC_CB_06 : Kiểm tra trường Difficulty" line="32">
+<kw name="Check the Difficulty field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:32:26.476671" elapsed="0.030290"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:32:26.507485" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:32:26.507138" elapsed="1.016148"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_DIFFICULTY}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:32:27.523600" elapsed="0.027544"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:32:27.551619" level="INFO">Selecting options from selection list '//select[@id="id_difficulty"]' by value medium.</msg>
+<arg>${POST_DIFFICULTY}</arg>
+<arg>medium</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-14T15:32:27.551336" elapsed="0.075506"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:32:27.627067" elapsed="0.020296"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-14T15:32:27.647800" elapsed="0.285569"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:32:37.934229" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:32:27.933508" elapsed="10.000992"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:32:37.934988" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:32:37.934726" elapsed="0.997685"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:32:43.933245" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:32:38.932568" elapsed="5.000849"/>
+</kw>
+<status status="PASS" start="2025-08-14T15:32:26.476305" elapsed="17.457273"/>
+</kw>
+<doc>TC_CB_06</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-08-14T15:32:26.475376" elapsed="17.458693"/>
+</test>
+<test id="s1-t7" name="TC_CB_07 : Kiểm tra trường Bloom" line="37">
+<kw name="Check the Bloom field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:32:43.936847" elapsed="0.020466"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:32:43.957643" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:32:43.957455" elapsed="1.080877"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_BLOOM}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:32:45.039077" elapsed="0.020836"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:32:45.060213" level="INFO">Selecting options from selection list '//select[@id="id_bloom_level"]' by value apply.</msg>
+<arg>${POST_BLOOM}</arg>
+<arg>apply</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-14T15:32:45.060042" elapsed="0.078436"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:32:45.138611" elapsed="0.018939"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-14T15:32:45.157725" elapsed="0.288506"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:32:55.447232" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:32:45.446458" elapsed="10.000870"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:32:55.447635" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:32:55.447461" elapsed="0.911250"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:33:01.359758" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:32:56.358878" elapsed="5.001053"/>
+</kw>
+<status status="PASS" start="2025-08-14T15:32:43.936475" elapsed="17.423576"/>
+</kw>
+<doc>TC_CB_07</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-08-14T15:32:43.935828" elapsed="17.425003"/>
+</test>
+<test id="s1-t8" name="TC_CB_08 : Kiểm tra trường Status" line="42">
+<kw name="Check the Status field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:33:01.362612" elapsed="0.021302"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:33:01.384239" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:33:01.384055" elapsed="1.058860"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_STATUS}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:33:02.443094" elapsed="0.030715"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:33:02.474140" level="INFO">Selecting options from selection list '//select[@id="id_status"]' by value inactive.</msg>
+<arg>${POST_STATUS}</arg>
+<arg>inactive</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-14T15:33:02.473952" elapsed="0.071710"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:33:02.545854" elapsed="0.013217"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-14T15:33:02.559197" elapsed="0.272963"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:33:12.833391" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:33:02.832322" elapsed="10.001209"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:33:12.833901" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:33:12.833720" elapsed="1.075642"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:33:18.910376" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:33:13.909574" elapsed="5.001300"/>
+</kw>
+<status status="PASS" start="2025-08-14T15:33:01.362389" elapsed="17.548889"/>
+</kw>
+<doc>TC_CB_08</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-08-14T15:33:01.361719" elapsed="17.550449"/>
+</test>
+<test id="s1-t9" name="TC_CB_09 : Kiểm tra trường Approval Status" line="47">
+<kw name="Check the Approval Status field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:33:18.915078" elapsed="0.013898"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:33:18.929303" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:33:18.929130" elapsed="0.929548"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_APPROVAL_STATUS}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:33:19.858824" elapsed="0.030377"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:33:19.889492" level="INFO">Selecting options from selection list '//select[@id="id_approval_status"]' by value pending.</msg>
+<arg>${POST_APPROVAL_STATUS}</arg>
+<arg>pending</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-14T15:33:19.889327" elapsed="0.055376"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:33:19.944835" elapsed="0.017069"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-14T15:33:19.962178" elapsed="0.284792"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:33:30.248384" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:33:20.247415" elapsed="10.001186"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:33:30.249332" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:33:30.248925" elapsed="0.944345"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:33:36.194251" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:33:31.193422" elapsed="5.001006"/>
+</kw>
+<status status="PASS" start="2025-08-14T15:33:18.914654" elapsed="17.279938"/>
+</kw>
+<doc>TC_CB_09</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-08-14T15:33:18.913601" elapsed="17.281533"/>
+</test>
+<test id="s1-t10" name="TC_CB_10 : Kiểm tra nút Back to Question Bank" line="52">
+<kw name="Back to Question Bank" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:33:36.197476" elapsed="0.014683"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:33:36.212659" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:33:36.212458" elapsed="1.043639"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_BACK}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:33:37.256263" elapsed="0.025484"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:33:37.282060" level="INFO">Clicking element '//a[contains(@href,"/questionbank/questions") and @class="btn btn-secondary"]'.</msg>
+<arg>${BUTTON_BACK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:33:37.281895" elapsed="2.005177"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:33:42.287752" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:33:39.287213" elapsed="3.000673"/>
+</kw>
+<status status="PASS" start="2025-08-14T15:33:36.197118" elapsed="6.090872"/>
+</kw>
+<doc>TC_CB_10</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-08-14T15:33:36.196383" elapsed="6.092334"/>
+</test>
+<test id="s1-t11" name="TC_CB_11 : Điều hướng trang Thẻ phân loại" line="57">
+<kw name="Manage Tags navigation" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_MANAGE_TAGS}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-14T15:33:42.291258" elapsed="0.016651"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:33:42.308235" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/tags/')]'.</msg>
+<arg>${URL_MANAGE_TAGS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T15:33:42.308079" elapsed="0.829368"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-14T15:33:46.138164" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-14T15:33:43.137585" elapsed="3.000912"/>
+</kw>
+<status status="PASS" start="2025-08-14T15:33:42.290979" elapsed="3.847782"/>
+</kw>
+<doc>TC_CB_11</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-08-14T15:33:42.289869" elapsed="3.849980"/>
+</test>
+<test id="s1-t12" name="TC_CB_12 : Điều hướng trang nhập câu hỏi" line="62">
+<kw name="Import Questions navigation" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-08-14T15:34:16.493544" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-409.png"&gt;&lt;img src="selenium-screenshot-409.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-14T15:34:16.497085" level="FAIL">Element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][3]' not visible after 30 seconds.</msg>
+<arg>${URL_IMPORT_QUESTION}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-08-14T15:33:46.143042" elapsed="30.365255">Element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][3]' not visible after 30 seconds.</status>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${URL_IMPORT_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2025-08-14T15:34:16.508684" elapsed="0.000050"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${URL_IMPORT_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-14T15:34:16.508829" elapsed="0.000017"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-14T15:34:16.508907" elapsed="0.000016"/>
+</kw>
+<status status="FAIL" start="2025-08-14T15:33:46.142655" elapsed="30.367357">Element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][3]' not visible after 30 seconds.</status>
+</kw>
+<doc>TC_CB_12</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="FAIL" start="2025-08-14T15:33:46.141714" elapsed="30.369371">Element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][3]' not visible after 30 seconds.</status>
 </test>
 <kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-08-14T14:10:30.183765" elapsed="2.247628"/>
+<status status="PASS" start="2025-08-14T15:34:16.512892" elapsed="2.181605"/>
 </kw>
-<status status="FAIL" start="2025-08-14T14:09:57.142346" elapsed="35.289206"/>
+<status status="FAIL" start="2025-08-14T15:31:02.128569" elapsed="196.566009"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="7" skip="0">All Tests</stat>
+<stat pass="11" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="11" fail="1" skip="0">honghanh</stat>
+<stat pass="11" fail="1" skip="0">TaoMoiCauHoi</stat>
 </tag>
 <suite>
-<stat name="Loccauhoi" id="s1" pass="0" fail="7" skip="0">Loccauhoi</stat>
+<stat name="Loccauhoi" id="s1" pass="11" fail="1" skip="0">Loccauhoi</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-08-14T14:09:57.138520" level="WARN">Error in file 'D:\iventory_management\KienTruc_University\test\loccauhoi.robot' on line 61: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-08-14T14:09:57.524035" level="ERROR">Error in file 'D:\iventory_management\KienTruc_University\Resource\loccauhoi.resource' on line 3: Importing library 'D:\iventory_management\KienTruc_University\Resource\normalize_helper.py' failed: IndentationError: expected an indented block after function definition on line 1 (normalize_helper.py, line 2)
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  D:\iventory_management\KienTruc_University\Resource
-  C:\Users\ADMIN\AppData\Local\Programs\Python\Python313\Scripts\robot.exe
-  C:\Users\ADMIN\AppData\Local\Programs\Python\Python313\python313.zip
-  C:\Users\ADMIN\AppData\Local\Programs\Python\Python313\DLLs
-  C:\Users\ADMIN\AppData\Local\Programs\Python\Python313\Lib
-  C:\Users\ADMIN\AppData\Local\Programs\Python\Python313
-  C:\Users\ADMIN\AppData\Local\Programs\Python\Python313\Lib\site-packages</msg>
 </errors>
 </robot>
