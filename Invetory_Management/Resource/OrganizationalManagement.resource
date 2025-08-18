@@ -64,7 +64,7 @@ Cancel Add Unit
     Scroll Element Into View    ${Button_Cancel_Add_Unit}
     Click Element                   ${Button_Cancel_Add_Unit}
 
-    Wait Until Element Is Visible    ${Page_Unit}    10s
+    Wait Until Element Is Visible    Quản lý Đơn vị    10s
 
 
 Back To List 
@@ -82,7 +82,7 @@ Back To List
     Execute Javascript    window.scrollBy(0, -100)
     Click Element                   ${Button_Back_To_List}
 
-    Wait Until Element Is Visible    ${Page_Unit}    10s
+    Wait Until Element Is Visible    Quản lý Đơn vị    10s
 
 
  Verify Add To Unit
@@ -115,7 +115,7 @@ Edit Unit "Cancel"
     Scroll Element Into View    ${Button_Cancel_Add_Unit}
     Click Element                   ${Button_Cancel_Add_Unit}
 
-    Wait Until Element Is Visible    ${Page_Unit}    10s
+    Wait Until Element Is Visible    Quản lý Đơn vị    10s
 
 
 Edit Unit "Back to list"
@@ -132,7 +132,7 @@ Edit Unit "Back to list"
     Execute Javascript    window.scrollBy(0, -100)
     Click Element                   ${Button_Back_To_List}
 
-    Wait Until Element Is Visible    ${Page_Unit}    10s
+    Wait Until Element Is Visible    Quản lý Đơn vị    10s
 
 Edit Unit
     Wait Until Element Is Visible    ${Button_Edit_Unit}    10s
@@ -160,7 +160,7 @@ Back To Phong
     Wait Until Element Is Visible    ${Button_Back_To_storage}    10s
     Click Element                   ${Button_Back_To_storage}
 
-    Wait Until Element Is Visible    ${Page_Storage_Room}    10s
+    Wait Until Element Is Visible    Quản lý Phông Lưu trữ    10s
 
 Cancel Add Phong
     Wait Until Element Is Visible    ${Button_Add_Storage}    10s
@@ -170,7 +170,7 @@ Cancel Add Phong
     Scroll Element Into View    ${Button_Cancel_Add_Phong}
     Click Element                   ${Button_Cancel_Add_Phong}
 
-    Wait Until Element Is Visible    ${Page_Storage_Room}    10s
+    Wait Until Element Is Visible    Quản lý Phông Lưu trữ    10s
 
  Verify Add To Phong
     Wait Until Element Is Visible    ${Button_Add_Storage}
@@ -208,7 +208,7 @@ Edit Phong "Cancel"
     Scroll Element Into View    ${Button_Cancel_Add_Phong}
     Click Element                   ${Button_Cancel_Add_Phong}
 
-    Wait Until Element Is Visible    ${Page_Storage_Room}    10s
+    Wait Until Element Is Visible    Quản lý Phông Lưu trữ    10s
 
 Edit Back To Phong
     Wait Until Element Is Visible    ${Button_Edit_Phong}    10s
@@ -218,7 +218,7 @@ Edit Back To Phong
     Wait Until Element Is Visible    ${Button_Back_To_storage}    10s
     Click Element                   ${Button_Back_To_storage}
 
-    Wait Until Element Is Visible    ${Page_Storage_Room}    10s
+    Wait Until Element Is Visible    Quản lý Phông Lưu trữ    10s
 
 Delete Phong
     Wait Until Element Is Visible    ${Button_Delete_Phong}    10s
@@ -239,7 +239,7 @@ Back To Mucluc
     Wait Until Element Is Visible    ${Button_Back_To_Mucluc}    10s
     Click Element                   ${Button_Back_To_Mucluc}
 
-    Wait Until Element Is Visible    ${Page_Profile_Table_Contents}    10s
+    Wait Until Element Is Visible    Quản lý Mục lục hồ sơ    10s
 
 Cancel Add Mucluc
     Wait Until Element Is Visible    ${Button_Add_Mucluc}    10s
@@ -249,7 +249,7 @@ Cancel Add Mucluc
     Scroll Element Into View    ${Button_Cancel_Mucluc}
     Click Element                   ${Button_Cancel_Mucluc}
 
-    Wait Until Element Is Visible    ${Page_Profile_Table_Contents}    10s
+    Wait Until Element Is Visible    Quản lý Mục lục hồ sơ    10s
 
 Verify Add To Mucluc
     Wait Until Element Is Visible    ${Button_Add_Mucluc}    10s
@@ -301,7 +301,7 @@ Edit Mucluc "Cancel"
     Scroll Element Into View    ${Button_Cancel_Mucluc}
     Click Element                   ${Button_Cancel_Mucluc}
 
-    Wait Until Element Is Visible    ${Page_Profile_Table_Contents}    10s
+    Wait Until Element Is Visible    Quản lý Mục lục hồ sơ    10s
 
 Edit Back To Mucluc
     Wait Until Element Is Visible    ${Button_Edit_Mucluc}    10s
@@ -317,7 +317,7 @@ Edit Back To Mucluc
     Press Keys    None    PAGE_UP
     Click Element                   ${Button_Back_To_Mucluc}
 
-    Wait Until Element Is Visible    ${Page_Profile_Table_Contents}    10s
+    Wait Until Element Is Visible    Quản lý Mục lục hồ sơ    10s
 
 Delete Mucluc
     Wait Until Element Is Visible    ${Button_Delete_Mucluc}    10s

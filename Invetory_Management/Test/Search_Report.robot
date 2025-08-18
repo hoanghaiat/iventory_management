@@ -12,18 +12,16 @@ TC042 - Kiểm tra tìm kiếm theo từ khoá hợp lệ
     [Documentation]    TC042
     [Tags]    TuAnh    Search_Report
     Click Search
-    Search Textbox
-    Duyet Tung Dong Bang Chua Tu Khoa    ${keyword}
-    Scroll Element Into View    /html/body/div[3]/div[2]/div[4]/div/div/div[2]/div[2]/h5
-
-    Capture Page Screenshot
-
+    Do Search    Tài liệu
+    Duyet Tung Dong Bang Chua Tu Khoa    Tài liệu
 
 TC043 - Kiểm tra tìm kiếm với từ khoá không tồn tại
     [Documentation]    TC043
     [Tags]    TuAnh    Search_Report
     Click Search
-    Search Wrong Keyword
+    Do Search    abc123
+    # Duyet Tung Dong Bang Chua Tu Khoa    abc123
+    Verify Search Error
 
 TC044 - Kiểm tra tìm kiếm từ khoá khi để trống
     [Documentation]    TC044
@@ -35,12 +33,29 @@ TC045 - Kiểm tra tìm kiếm theo đơn vị
     [Documentation]    TC045
     [Tags]    TuAnh    Search_Report
     Click Search
-    Search DonVi
+    Search DonVi    Ban kiểm soát
 
+TC046 - Kiểm tra tìm kiếm theo phông
+    [Documentation]    TC046
+    [Tags]    TuAnh    Search_Report
+    Click Search
+    Search DonVi and Phong    Chi nhánh Hà Nội    Phông Tài liệu Kế toán
+
+TC047 - Kiểm tra tìm kiếm theo kho
+    [Documentation]    TC047
+    [Tags]    TuAnh    Search_Report
+    Click Search
+    Search Kho    Kho A - Tài liệu chính
+
+TC048 - Kiểm tra tìm kiếm theo giá
+    [Documentation]    TC048
+    [Tags]    TuAnh    Search_Report
+    Click Search
+    Search Kho    Kho A - Tài liệu chính
 TC054 - Kiểm tra bottun "Xoá bộ lọc" sau khi tìm kiếm kết quả
     [Documentation]    TC054
     [Tags]    TuAnh    Search_Report
     Click Search
-    Search Textbox
+    Do Search    Tài liệu
     Clear Filter
 

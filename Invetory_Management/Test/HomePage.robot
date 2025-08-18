@@ -10,36 +10,38 @@ Test Teardown    Close Browser
 TC002 - Kiểm tra hiển thị đúng số lượng "Đơn vị"
     [Documentation]    TC002
     [Tags]    TuAnh    HomePage
-    ${so_trang_chu}=    Get Count From Homepage Box    Đơn vị
-    Log    Số trên Trang chủ: ${so_trang_chu}
-
-    ${so_dong}=    Get Count From Table    ${Item_Unit}    xpath=//table//tbody//tr
-    Log    Số mục trên bảng: ${so_dong}
-
-    Should Be Equal As Integers    ${so_trang_chu}    ${so_dong}    Số không khớp
+    Get And Compare Count    Đơn vị    ${Item_Unit}    Tổng số đơn vị
 
 TC003 - Kiểm tra hiển thị đúng số lượng "Phông lưu trữ"
     [Documentation]    TC003
     [Tags]    TuAnh    HomePage
-    ${so_trang_chu}=    Get Count From Homepage Box    Phông lưu trữ
-    Log    Số trên Trang chủ: ${so_trang_chu}
+    Get And Compare Count    Phông lưu trữ    ${Item_Storage_Room}    xpath=//table//tbody//tr
 
-    ${so_dong}=    Get Count From Table    ${Item_Storage_Room}    xpath=//table//tbody//tr
-    Log    Số mục trên bảng: ${so_dong}
-
-    Should Be Equal As Integers    ${so_trang_chu}    ${so_dong}    Số không khớp
+TC004 - Kiểm tra hiển thị đúng "Mục lục hồ sơ"
+    [Documentation]    TC004
+    [Tags]    TuAnh    HomePage
+    Get And Compare Count    Mục lục hồ sơ    ${Item_Profile_Table_Contents}    Tổng mục lục
 
 TC005 - Kiểm tra hiển thị đúng "Kho lưu trữ"
-    [Documentation]    TC003
+    [Documentation]    TC005
     [Tags]    TuAnh    HomePage
-    ${so_trang_chu}=    Get Count From Homepage Box    Kho lưu trữ
-    Log    Số trên Trang chủ: ${so_trang_chu}
+    Get And Compare Count    Kho lưu trữ    ${Item_Warehouse}    Tổng số kho
 
-    ${so_dong}=    Get Count From Table    ${Item_Warehouse}    xpath=//table//tbody//tr
-    Log    Số mục trên bảng: ${so_dong}
+TC006 - Kiểm tra hiển thị đúng số lượng "Giá kệ"
+    [Documentation]    TC006
+    [Tags]    TuAnh    HomePage
+    Get And Compare Count    Giá kệ    ${Item_shelf}    Tổng số giá
 
-    Should Be Equal As Integers    ${so_trang_chu}    ${so_dong}    Số không khớp
+TC007 - Kiểm tra hiển thị đúng số lượng "Tổng số hộp"
+    [Documentation]    TC007
+    [Tags]    TuAnh    HomePage
+    Get And Compare Count    Tổng số hộp    ${Item_Box}    Tổng số hộp
 
+TC008 - Kiểm tra hiển thị đúng số lượng "Hộp có tài liệu"
+    [Documentation]    TC008
+    [Tags]    TuAnh    HomePage
+    Get And Compare Count    Hộp có tài liệu    ${Item_Box}    Tổng số hộp
+    
 TC010 - Kiểm tra thao tác nhanh “Thêm đơn vị mới”
     [Documentation]    TC010
     [Tags]    TuAnh    HomePage

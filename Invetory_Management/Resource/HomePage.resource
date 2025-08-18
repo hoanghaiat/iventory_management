@@ -39,7 +39,7 @@ ${Form_Add_Document_Search}             //div[@class="page-title" and normalize-
 ${Form_Add_See_Report}                  //div[@class="page-title" and normalize-space()="Hệ thống Quản lý Kho"]
 
 
-${Logout}    //a[@href='/logout' and contains(@class,'btn-outline-danger')]
+${Logout}         //a[@href='/logout' and contains(@class,'btn-outline-danger')]
 ${Logout_Menu}    //a[@href='/logout' and contains(@class,'nav-item')]
 
 ${Item_Unit}                        //a[contains(@href,"/don-vi") and contains(normalize-space(.),"Đơn vị")]
@@ -64,20 +64,45 @@ Login To System
     Input Text    ${password_xpath}    ${PASSWORD}
     Click Button  ${loginbtn_xpath}
     
-Get Count From Homepage Box
-    [Arguments]    ${box_name}
-    ${locator}=    Set Variable    xpath=//div[contains(@class,"stats-card") and .//div[contains(@class,"stat-label") and normalize-space(.)="${box_name}"]]//span[@class="stat-number"]
+*** Keywords ***
+Get And Compare Count
+    [Arguments]    ${box_name}    ${menu_locator}    ${item_box}
+    # Lấy số trên homepage box
+    ${locator}=    Set Variable    xpath=//div[contains(@class,"stats-card") and .//div[contains(@class,"stat-label") and contains(normalize-space(.),"${box_name}")]]//span[@class="stat-number"]
     Wait Until Element Is Visible    ${locator}    ${TimeOut}
-    ${count}=    Get Text    ${locator}
-    ${count}=    Strip String    ${count}
-    [Return]    ${count}
+    ${so_trang_chu}=    Get Text                ${locator}
+    ${so_trang_chu}=    Strip String            ${so_trang_chu}
+    ${so_trang_chu}=    Convert To Integer      ${so_trang_chu}
+    Log    Số trên Trang chủ (${box_name}): ${so_trang_chu}
 
-Get Count From Table
-    [Arguments]    ${menu_locator}    ${row_locator}
+    # Lấy số trong item menu
     Click Element    ${menu_locator}
-    Wait Until Page Contains Element    ${row_locator}
-    ${count}=    Get Element Count    ${row_locator}
-    [Return]    ${count}
+    Wait Until Page Contains    ${item_box}    ${TimeOut}
+    ${item_locator}=    Set Variable    xpath=//div[contains(@class,"stats-card")]//div[normalize-space(.)="${item_box}"]/preceding-sibling::span[@class="stat-number"]
+    Wait Until Element Is Visible    ${item_locator}    ${TimeOut}
+    ${item_count}=    Get Text                ${item_locator}
+    ${item_count}     Strip String            ${item_count}
+    ${item_count}=    Convert To Integer      ${item_count}
+    Log To Console        Số Trang Item (${item_box}): ${item_count}
+
+    # So sánh
+    Should Be Equal As Integers    ${so_trang_chu}    ${item_count}    Số không khớp cho "${box_name}"
+
+
+# Get Count From Homepage Box
+#     [Arguments]    ${box_name}
+#     ${locator}=    Set Variable    xpath=//div[contains(@class,"stats-card") and .//div[contains(@class,"stat-label") and contains(normalize-space(.),"${box_name}")]]//span[@class="stat-number"]
+#     Wait Until Element Is Visible    ${locator}    ${TimeOut}
+#     ${count}=    Get Text    ${locator}
+#     ${count}=    Strip String    ${count}
+#     [Return]    ${count}
+
+# Get Count From Table
+#     [Arguments]    ${menu_locator}    ${row_locator}
+#     Click Element    ${menu_locator}
+#     Wait Until Page Contains Element    ${row_locator}
+#     ${count}=    Get Element Count    ${row_locator}
+#     [Return]    ${count}
 
 Quick Add New Units
     Click Element    ${Quick_Add_New_Unit_xpath}
