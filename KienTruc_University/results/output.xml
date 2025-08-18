@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-15T11:50:48.000978" rpa="false" schemaversion="5">
+<suite id="s1" name="Cauhoicuatoi" source="D:\iventory_management\KienTruc_University\Test\cauhoicuatoi.robot">
+<kw name="Open Browser And Login" owner="cauhoicuatoi" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:50:48.376358" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-15T11:50:48.376112" elapsed="13.168427"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-15T11:51:01.546499" elapsed="0.802354"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INP_USERNAME}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-15T11:51:02.349840" elapsed="0.083390"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:02.433964" level="INFO">Typing text 'lecturer1' into text field 'xpath=//input[@id='id_username']'.</msg>
+<arg>${INP_USERNAME}</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-15T11:51:02.433544" elapsed="0.209280"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:02.644188" level="INFO">Typing text 'demolecturer' into text field 'xpath=//input[@id='id_password']'.</msg>
+<arg>${INP_PASSWORD}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-15T11:51:02.643302" elapsed="0.139454"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:02.783779" level="INFO">Clicking button 'xpath=//button[normalize-space(.)='Đăng nhập']'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-15T11:51:02.783239" elapsed="4.944461"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//body</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-15T11:51:07.728344" elapsed="0.170342"/>
+</kw>
+<status status="PASS" start="2025-08-15T11:50:48.375534" elapsed="19.523723"/>
+</kw>
+<test id="s1-t1" name="QB-FUNC-05 - Chi hien thi cau hoi cua toi" line="9">
+<kw name="Open Question Bank" owner="cauhoicuatoi">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:08.045741" level="INFO">Opening url 'https://demo-clo.minds.vn/en/questionbank/questions/'</msg>
+<arg>${QB_URL_EN}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-15T11:51:08.045382" elapsed="4.406110"/>
+</kw>
+<kw name="Maybe Hide Debug Toolbar" owner="cauhoicuatoi">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:12.696988" level="INFO">Current page contains element 'xpath=//a[@id='djHideToolBarButton']'.</msg>
+<arg>${BTN_HIDE_DEBUG}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-08-15T11:51:12.601015" elapsed="0.096166"/>
+</kw>
+<msg time="2025-08-15T11:51:12.697827" level="INFO">${has} = True</msg>
+<var>${has}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${BTN_HIDE_DEBUG}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-15T11:51:12.474402" elapsed="0.223521"/>
+</kw>
+<if>
+<branch type="IF" condition="${has}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:12.699780" level="INFO">Clicking element 'xpath=//a[@id='djHideToolBarButton']'.</msg>
+<arg>${BTN_HIDE_DEBUG}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-15T11:51:12.699417" elapsed="0.223648"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-15T11:51:13.125797" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-15T11:51:12.923735" elapsed="0.202283"/>
+</kw>
+<status status="PASS" start="2025-08-15T11:51:12.698783" elapsed="0.427516"/>
+</branch>
+<status status="PASS" start="2025-08-15T11:51:12.698528" elapsed="0.427986"/>
+</if>
+<status status="PASS" start="2025-08-15T11:51:12.460096" elapsed="0.666655"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CHECK_MYQ}</arg>
+<arg>7s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-15T11:51:13.127732" elapsed="0.023754"/>
+</kw>
+<msg time="2025-08-15T11:51:13.151836" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${CHECK_MYQ}</arg>
+<arg>7s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-15T11:51:13.127309" elapsed="0.024604"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<msg time="2025-08-15T11:51:13.152614" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>${ok}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-15T11:51:13.152249" elapsed="0.001079"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<arg>${QB_URL_PLAIN}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:13.153729" elapsed="0.000173"/>
+</kw>
+<kw name="Maybe Hide Debug Toolbar" owner="cauhoicuatoi">
+<status status="NOT RUN" start="2025-08-15T11:51:13.154300" elapsed="0.000069"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CHECK_MYQ}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:13.154555" elapsed="0.000050"/>
+</kw>
+<status status="PASS" start="2025-08-15T11:51:08.039813" elapsed="5.115046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHECK_MYQ}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-15T11:51:13.155526" elapsed="0.025952"/>
+</kw>
+<kw name="Clear All Filters" owner="cauhoicuatoi">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:13.227721" level="INFO">Current page contains element 'xpath=(//a[contains(@class,'btn') and contains(@class,'btn-secondary')][contains(.,'Clear') or contains(.,'Xóa')])[1]'.</msg>
+<arg>${BTN_CLEAR}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-08-15T11:51:13.183207" elapsed="0.045036"/>
+</kw>
+<msg time="2025-08-15T11:51:13.228706" level="INFO">${has_clear} = True</msg>
+<var>${has_clear}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${BTN_CLEAR}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-15T11:51:13.182855" elapsed="0.045934"/>
+</kw>
+<if>
+<branch type="IF" condition="${has_clear}">
+<kw name="Safe Click" owner="cauhoicuatoi">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:13.231503" level="INFO">Clicking element 'xpath=(//a[contains(@class,'btn') and contains(@class,'btn-secondary')][contains(.,'Clear') or contains(.,'Xóa')])[1]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-15T11:51:13.231195" elapsed="3.227165"/>
+</kw>
+<msg time="2025-08-15T11:51:16.458776" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-15T11:51:13.230791" elapsed="3.228041"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<msg time="2025-08-15T11:51:16.459411" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>${ok}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-15T11:51:16.459149" elapsed="0.000541"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<arg>Scroll Element Into View</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:16.460290" elapsed="0.000056"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:16.460613" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:16.460801" elapsed="0.000086"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:16.461070" elapsed="0.000117"/>
+</kw>
+<arg>${BTN_CLEAR}</arg>
+<status status="PASS" start="2025-08-15T11:51:13.230172" elapsed="3.231198"/>
+</kw>
+<status status="PASS" start="2025-08-15T11:51:13.228995" elapsed="3.232479"/>
+</branch>
+<branch type="ELSE">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>var f=document.evaluate("//form[.//input[@id='my_questions']]",document,null,XPathResult.FIRST_ORDERED_NODE_TYPE,null).singleNodeValue;if(f){f.reset();}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:16.462200" elapsed="0.000313"/>
+</kw>
+<status status="NOT RUN" start="2025-08-15T11:51:16.461583" elapsed="0.001140"/>
+</branch>
+<status status="PASS" start="2025-08-15T11:51:13.228945" elapsed="3.233840"/>
+</if>
+<kw name="Wait For Results Or Empty" owner="cauhoicuatoi">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${QUESTION_CARD}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-15T11:51:16.464387" elapsed="0.047965"/>
+</kw>
+<msg time="2025-08-15T11:51:16.512660" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${QUESTION_CARD}</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-15T11:51:16.464039" elapsed="0.048693"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<msg time="2025-08-15T11:51:16.513290" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>${ok}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-15T11:51:16.513030" elapsed="0.000410"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${empty}</var>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${EMPTY_STATE}</arg>
+<arg>5s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:16.513689" elapsed="0.000066"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>${empty}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:16.514064" elapsed="0.000064"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<var>${n}</var>
+<arg>${QUESTION_CARD}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:16.514403" elapsed="0.000133"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>${n} == 0</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:16.514765" elapsed="0.000061"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:16.515013" elapsed="0.000057"/>
+</kw>
+<status status="PASS" start="2025-08-15T11:51:16.463262" elapsed="0.051963"/>
+</kw>
+<status status="PASS" start="2025-08-15T11:51:13.182168" elapsed="3.333182"/>
+</kw>
+<kw name="Toggle My Questions" owner="cauhoicuatoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHECK_MYQ}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-15T11:51:16.519511" elapsed="0.079873"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Checkbox Should Be Selected" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:16.600445" level="INFO">Verifying checkbox 'xpath=//input[@id='my_questions']' is selected.</msg>
+<msg time="2025-08-15T11:51:16.798008" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-76.png"&gt;&lt;img src="selenium-screenshot-76.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-15T11:51:16.798816" level="FAIL">Checkbox 'xpath=//input[@id='my_questions']' should have been selected but was not.</msg>
+<arg>${CHECK_MYQ}</arg>
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<status status="FAIL" start="2025-08-15T11:51:16.600058" elapsed="0.209592">Checkbox 'xpath=//input[@id='my_questions']' should have been selected but was not.</status>
+</kw>
+<msg time="2025-08-15T11:51:16.810011" level="INFO">${is_selected} = False</msg>
+<var>${is_selected}</var>
+<arg>Checkbox Should Be Selected</arg>
+<arg>${CHECK_MYQ}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-15T11:51:16.599695" elapsed="0.210375"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:16.812400" level="INFO">Clicking element 'xpath=//input[@id='my_questions']'.</msg>
+<arg>${CHECK_MYQ}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-15T11:51:16.811981" elapsed="0.092302"/>
+</kw>
+<arg>'${state}'=='on' and not ${is_selected}</arg>
+<arg>Click Element</arg>
+<arg>${CHECK_MYQ}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-15T11:51:16.810383" elapsed="0.094046"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${state}'!='on' and ${is_selected}</arg>
+<arg>Click Element</arg>
+<arg>${CHECK_MYQ}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-15T11:51:16.904687" elapsed="0.000615"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-15T11:51:17.106396" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-15T11:51:16.905712" elapsed="0.200918"/>
+</kw>
+<arg>on</arg>
+<status status="PASS" start="2025-08-15T11:51:16.518487" elapsed="0.588387"/>
+</kw>
+<kw name="Apply Filters" owner="cauhoicuatoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_APPLY}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-15T11:51:17.108120" elapsed="0.034483"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:17.143095" level="INFO">Clicking element 'xpath=//button[@type='submit' and contains(@class,'btn')]'.</msg>
+<arg>${BTN_APPLY}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-15T11:51:17.142831" elapsed="0.106849"/>
+</kw>
+<kw name="Wait For Results Or Empty" owner="cauhoicuatoi">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${QUESTION_CARD}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-15T11:51:17.250688" elapsed="2.076135"/>
+</kw>
+<msg time="2025-08-15T11:51:19.327076" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${QUESTION_CARD}</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-15T11:51:17.250439" elapsed="2.076676"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<msg time="2025-08-15T11:51:19.327494" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>${ok}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-15T11:51:19.327320" elapsed="0.000253"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${empty}</var>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${EMPTY_STATE}</arg>
+<arg>5s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:19.327739" elapsed="0.000049"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>${empty}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:19.327976" elapsed="0.000051"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<var>${n}</var>
+<arg>${QUESTION_CARD}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:19.328197" elapsed="0.000038"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>${n} == 0</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:19.328372" elapsed="0.000029"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:19.328521" elapsed="0.000045"/>
+</kw>
+<status status="PASS" start="2025-08-15T11:51:17.250024" elapsed="2.078687"/>
+</kw>
+<status status="PASS" start="2025-08-15T11:51:17.107681" elapsed="2.221132"/>
+</kw>
+<kw name="Checkbox Should Be Selected" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:19.329573" level="INFO">Verifying checkbox 'xpath=//input[@id='my_questions']' is selected.</msg>
+<arg>${CHECK_MYQ}</arg>
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<status status="PASS" start="2025-08-15T11:51:19.329221" elapsed="0.028299"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:19.367331" level="INFO">Current page contains element 'xpath=//div[contains(@class,'question-card')]'.</msg>
+<arg>${QUESTION_CARD}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-08-15T11:51:19.358300" elapsed="0.009122"/>
+</kw>
+<msg time="2025-08-15T11:51:19.367559" level="INFO">${has_card} = True</msg>
+<var>${has_card}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${QUESTION_CARD}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-15T11:51:19.357970" elapsed="0.009613"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:19.540649" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-77.png"&gt;&lt;img src="selenium-screenshot-77.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-15T11:51:19.540827" level="FAIL">Page should have contained element 'xpath=//div[contains(@class,'alert')]' but did not.</msg>
+<arg>${EMPTY_STATE}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="FAIL" start="2025-08-15T11:51:19.367974" elapsed="0.175285">Page should have contained element 'xpath=//div[contains(@class,'alert')]' but did not.</status>
+</kw>
+<msg time="2025-08-15T11:51:19.543423" level="INFO">${is_empty} = False</msg>
+<var>${is_empty}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${EMPTY_STATE}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-15T11:51:19.367822" elapsed="0.175628"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${has_card} or ${is_empty}</arg>
+<arg>Khong thay ket qua hay trang thai rong sau khi bat My Questions</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-08-15T11:51:19.543800" elapsed="0.000353"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-15T11:51:19.695177" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-78.png"&gt;&lt;img src="selenium-screenshot-78.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-15T11:51:19.544739" elapsed="0.150561"/>
+</kw>
+<status status="PASS" start="2025-08-15T11:51:07.900096" elapsed="11.795579"/>
+</test>
+<test id="s1-t2" name="QB-FUNC-06 - Khong co cau hoi cua toi" line="20">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-08-15T11:51:24.995106" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-79.png"&gt;&lt;img src="selenium-screenshot-79.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-15T11:51:24.995398" level="FAIL">Element 'xpath=//input[@id="showOnlyMyQuestions"]' did not appear in 5 seconds.</msg>
+<arg>xpath=//input[@id="showOnlyMyQuestions"]</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2025-08-15T11:51:19.699675" elapsed="5.298919">Element 'xpath=//input[@id="showOnlyMyQuestions"]' did not appear in 5 seconds.</status>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>Element Should Be Visible</arg>
+<arg>Click Element</arg>
+<arg>xpath=//input[@id="showOnlyMyQuestions"]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:24.999078" elapsed="0.000046"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(),"Apply Filters")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:24.999325" elapsed="0.000027"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>No data found</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:24.999491" elapsed="0.000023"/>
+</kw>
+<kw name="Apply Filters" owner="cauhoicuatoi">
+<status status="NOT RUN" start="2025-08-15T11:51:24.999728" elapsed="0.000033"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:24.999974" elapsed="0.000028"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//input[@id="showOnlyMyQuestions"]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:25.000201" elapsed="0.000026"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<var>${n}</var>
+<arg>${QUESTION_CARD}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:25.000371" elapsed="0.000024"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${is_empty}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${EMPTY_STATE}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:25.000560" elapsed="0.000024"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>No data found</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-08-15T11:51:25.001251" elapsed="0.000062"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-15T11:51:25.174098" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-80.png"&gt;&lt;img src="selenium-screenshot-80.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-15T11:51:25.001814" elapsed="0.172416"/>
+</kw>
+<doc>Kiểm tra khi user chưa có câu hỏi, tick "Show only my questions" =&gt; Hiển thị "No data found"</doc>
+<status status="FAIL" start="2025-08-15T11:51:19.698463" elapsed="5.476019">Element 'xpath=//input[@id="showOnlyMyQuestions"]' did not appear in 5 seconds.</status>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-08-15T11:51:25.176230" elapsed="2.391979"/>
+</kw>
+<status status="FAIL" start="2025-08-15T11:50:48.005298" elapsed="39.563030"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Cauhoicuatoi" id="s1" pass="1" fail="1" skip="0">Cauhoicuatoi</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

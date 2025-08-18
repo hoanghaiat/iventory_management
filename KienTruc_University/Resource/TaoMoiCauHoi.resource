@@ -1,4 +1,3 @@
-
 *** Settings ***
 Library    SeleniumLibrary
 Variables   ../variables/locator.py
