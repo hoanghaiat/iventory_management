@@ -1,965 +1,494 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.12.2 on win32)" generated="20250813 15:13:49.465" rpa="false" schemaversion="4">
-<suite id="s1" name="Quiz Tests" source="D:\JAV siu\iventory_management\KienTruc_University\LecturerPage\Test\quiz_tests.robot">
-<kw name="Setup And Open TestsPage" type="SETUP">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${LOGIN_URL}</arg>
+<robot generator="Robot 7.3.2 (Python 3.9.13 on win32)" generated="2025-08-14T18:27:30.043504" rpa="false" schemaversion="5">
+<suite id="s1" name="QuestionBank" source="d:\JAV siu\iventory_management\KienTruc_University\LecturerPage\Test\QuestionBank.robot">
+<kw name="Login As Lecturer" owner="core" type="SETUP">
+<kw name="Set Selenium Options" owner="core">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-14T18:27:30.893369" level="INFO">${opt} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000244EF1934F0&gt;</msg>
+<var>${opt}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-14T18:27:30.884842" elapsed="0.008527"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${HEADLESS}</arg>
+<arg>Call Method</arg>
+<arg>${opt}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-14T18:27:30.900881" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${opt}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-08-14T18:27:30.900881" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${opt}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-08-14T18:27:30.900881" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${opt}</value>
+<status status="PASS" start="2025-08-14T18:27:30.900881" elapsed="0.000000"/>
+</return>
+<msg time="2025-08-14T18:27:30.908889" level="INFO">${opt} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000244EF1934F0&gt;</msg>
+<var>${opt}</var>
+<status status="PASS" start="2025-08-14T18:27:30.884842" elapsed="0.024047"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:30.908889" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
 <arg>${BROWSER}</arg>
+<arg>options=${opt}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20250813 15:13:49.679" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/en/accounts/login/?next=/en/'.</msg>
-<status status="PASS" starttime="20250813 15:13:49.679" endtime="20250813 15:13:56.822"/>
+<status status="PASS" start="2025-08-14T18:27:30.908889" elapsed="5.085516"/>
 </kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20250813 15:13:56.822" endtime="20250813 15:13:56.858"/>
+<status status="PASS" start="2025-08-14T18:27:35.994405" elapsed="0.064917"/>
 </kw>
-<kw name="Set Selenium Speed" library="SeleniumLibrary">
-<arg>0.2 seconds</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20250813 15:13:56.858" endtime="20250813 15:13:56.859"/>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:36.059322" level="INFO">Opening url 'https://demo-clo.minds.vn/en/accounts/login/?next=/en/'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-14T18:27:36.059322" elapsed="2.304881"/>
 </kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${LOC_INPUT_USER}</arg>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOC_USER}</arg>
 <arg>${TO}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250813 15:13:56.859" endtime="20250813 15:13:57.320"/>
+<status status="PASS" start="2025-08-14T18:27:38.364203" elapsed="0.234056"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${LOC_INPUT_USER}</arg>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:38.598259" level="INFO">Typing text 'lecturer1' into text field 'xpath=//input[@name='username' or @id='id_username' or @type='text' or @type='email']'.</msg>
+<arg>${LOC_USER}</arg>
 <arg>${USERNAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20250813 15:13:57.321" level="INFO">Typing text 'lecturer1' into text field '//input[@name='username' or @type='text']'.</msg>
-<status status="PASS" starttime="20250813 15:13:57.320" endtime="20250813 15:13:58.014"/>
+<status status="PASS" start="2025-08-14T18:27:38.598259" elapsed="0.160953"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${LOC_INPUT_PASS}</arg>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:38.767221" level="INFO">Typing password into text field 'xpath=//input[@name='password' or @id='id_password' or @type='password']'.</msg>
+<msg time="2025-08-14T18:27:38.816085" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${LOC_PASS}</arg>
 <arg>${PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20250813 15:13:58.014" level="INFO">Typing text 'demolecturer' into text field '//input[@name='password' or @type='password']'.</msg>
-<status status="PASS" starttime="20250813 15:13:58.014" endtime="20250813 15:13:58.679"/>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T18:27:38.767221" elapsed="0.137400"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${LOC_BTN_LOGIN}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250813 15:13:58.679" level="INFO">Clicking element '//button[@type='submit']'.</msg>
-<status status="PASS" starttime="20250813 15:13:58.679" endtime="20250813 15:14:02.711"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:38.904621" level="INFO">Clicking button 'xpath=(//button[@type='submit'] | //button)[1]'.</msg>
+<arg>${LOC_SUBMIT}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-14T18:27:38.904621" elapsed="3.600839"/>
 </kw>
-<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
-<arg>10x</arg>
-<arg>1s</arg>
-<arg>Hide Overlays</arg>
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:42.512972" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-14T18:27:42.505460" elapsed="0.048058"/>
+</kw>
+<arg>${timeout}</arg>
+<arg>${poll}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
 <doc>Runs the specified keyword and retries if it fails.</doc>
-<kw name="Hide Overlays">
-<kw name="Run Keyword And Ignore Error" library="BuiltIn">
-<arg>Execute JavaScript</arg>
-<arg>const e=document.getElementById('djDebug'); if(e){e.style.display='none';}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<kw name="Execute Javascript" library="SeleniumLibrary">
-<arg>const e=document.getElementById('djDebug'); if(e){e.style.display='none';}</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<msg timestamp="20250813 15:14:02.716" level="INFO">Executing JavaScript:
-const e=document.getElementById('djDebug'); if(e){e.style.display='none';}
+<status status="PASS" start="2025-08-14T18:27:42.505460" elapsed="0.048058"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:42.553518" level="INFO">Executing JavaScript:
+return !!window.jQuery
 Without any arguments.</msg>
-<status status="PASS" starttime="20250813 15:14:02.714" endtime="20250813 15:14:02.950"/>
-</kw>
-<status status="PASS" starttime="20250813 15:14:02.714" endtime="20250813 15:14:02.950"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" library="BuiltIn">
-<arg>Execute JavaScript</arg>
-<arg>document.querySelectorAll('.ps__rail-y,.ps__rail-x').forEach(el=&gt;el.style.pointerEvents='none');</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<kw name="Execute Javascript" library="SeleniumLibrary">
-<arg>document.querySelectorAll('.ps__rail-y,.ps__rail-x').forEach(el=&gt;el.style.pointerEvents='none');</arg>
+<msg time="2025-08-14T18:27:42.577579" level="INFO">${hasjq} = False</msg>
+<var>${hasjq}</var>
+<arg>return !!window.jQuery</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<msg timestamp="20250813 15:14:02.951" level="INFO">Executing JavaScript:
-document.querySelectorAll('.ps__rail-y,.ps__rail-x').forEach(el=&gt;el.style.pointerEvents='none');
+<status status="PASS" start="2025-08-14T18:27:42.553518" elapsed="0.024061"/>
+</kw>
+<if>
+<branch type="IF" condition="${hasjq}">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<arg>${timeout}</arg>
+<arg>${poll}</arg>
+<arg>Execute Javascript</arg>
+<arg>return jQuery.active === 0</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:42.585877" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-14T18:27:42.585877" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-14T18:27:42.585877" elapsed="0.000000"/>
+</if>
+<status status="PASS" start="2025-08-14T18:27:42.505460" elapsed="0.080417"/>
+</kw>
+<kw name="Remove Overlays" owner="core">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:42.585877" level="INFO">Executing JavaScript:
+(function(){try{var ids=['djDebug']; ids.forEach(function(i){var e=document.getElementById(i); if(e) e.remove();});var cls=['djdt','djdt-scroll','modal-backdrop','offcanvas-backdrop','overlay','toast','fade','show'];cls.forEach(function(c){document.querySelectorAll('.'+c).forEach(function(el){el.remove();});});document.body.style.pointerEvents='auto';}catch(e){}})();
 Without any arguments.</msg>
-<status status="PASS" starttime="20250813 15:14:02.950" endtime="20250813 15:14:03.155"/>
-</kw>
-<status status="PASS" starttime="20250813 15:14:02.950" endtime="20250813 15:14:03.155"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" library="BuiltIn">
-<arg>Execute JavaScript</arg>
-<arg>document.querySelectorAll('.modal-backdrop,.toast,.tooltip,.popover').forEach(el=&gt;el.style.display='none');</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<kw name="Execute Javascript" library="SeleniumLibrary">
-<arg>document.querySelectorAll('.modal-backdrop,.toast,.tooltip,.popover').forEach(el=&gt;el.style.display='none');</arg>
+<arg>(function(){</arg>
+<arg>try{</arg>
+<arg>var ids=['djDebug']; ids.forEach(function(i){var e=document.getElementById(i); if(e) e.remove();});</arg>
+<arg>var cls=['djdt','djdt-scroll','modal-backdrop','offcanvas-backdrop','overlay','toast','fade','show'];</arg>
+<arg>cls.forEach(function(c){document.querySelectorAll('.'+c).forEach(function(el){el.remove();});});</arg>
+<arg>document.body.style.pointerEvents='auto';</arg>
+<arg>}catch(e){}</arg>
+<arg>})();</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<msg timestamp="20250813 15:14:03.155" level="INFO">Executing JavaScript:
-document.querySelectorAll('.modal-backdrop,.toast,.tooltip,.popover').forEach(el=&gt;el.style.display='none');
+<status status="PASS" start="2025-08-14T18:27:42.585877" elapsed="0.048802"/>
+</kw>
+<status status="PASS" start="2025-08-14T18:27:42.585877" elapsed="0.048802"/>
+</kw>
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:42.634679" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
 Without any arguments.</msg>
-<status status="PASS" starttime="20250813 15:14:03.155" endtime="20250813 15:14:03.360"/>
-</kw>
-<status status="PASS" starttime="20250813 15:14:03.155" endtime="20250813 15:14:03.360"/>
-</kw>
-<status status="PASS" starttime="20250813 15:14:02.712" endtime="20250813 15:14:03.360"/>
-</kw>
-<status status="PASS" starttime="20250813 15:14:02.712" endtime="20250813 15:14:03.360"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${LOC_MENU_TESTS}</arg>
-<arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250813 15:14:03.360" endtime="20250813 15:14:03.778"/>
-</kw>
-<kw name="Safe JS Click">
-<arg>${LOC_MENU_TESTS}</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250813 15:14:03.778" endtime="20250813 15:14:04.192"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" library="BuiltIn">
-<arg>Scroll Element Into View</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<kw name="Scroll Element Into View" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" starttime="20250813 15:14:04.192" endtime="20250813 15:14:04.875"/>
-</kw>
-<status status="PASS" starttime="20250813 15:14:04.192" endtime="20250813 15:14:04.875"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${status}</var>
-<arg>Click Element</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250813 15:14:04.876" level="INFO">Clicking element '//a[normalize-space()='Bài kiểm tra' or contains(.,'Bài kiểm tra')]'.</msg>
-<status status="PASS" starttime="20250813 15:14:04.875" endtime="20250813 15:14:06.066"/>
-</kw>
-<msg timestamp="20250813 15:14:06.066" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20250813 15:14:04.875" endtime="20250813 15:14:06.066"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>not ${status}</arg>
-<arg>Click By JS</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20250813 15:14:06.066" endtime="20250813 15:14:06.066"/>
-</kw>
-<status status="PASS" starttime="20250813 15:14:03.778" endtime="20250813 15:14:06.066"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${LOC_H1_TITLE}</arg>
-<arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250813 15:14:06.066" endtime="20250813 15:14:06.489"/>
-</kw>
-<status status="PASS" starttime="20250813 15:13:49.678" endtime="20250813 15:14:06.489"/>
-</kw>
-<test id="s1-t1" name="QZ01 - Tiêu đề trang đúng như ảnh" line="102">
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_H1_TITLE}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:14:06.701" level="INFO">Current page contains element '//h1[normalize-space()='Quản lý bài kiểm tra']'.</msg>
-<status status="PASS" starttime="20250813 15:14:06.490" endtime="20250813 15:14:06.701"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:14:07.044" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-30.png"&gt;&lt;img src="selenium-screenshot-30.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:14:06.702" endtime="20250813 15:14:07.044"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="PASS" starttime="20250813 15:14:06.490" endtime="20250813 15:14:07.045"/>
-</test>
-<test id="s1-t2" name="QZ02 - Breadcrumb đúng như ảnh" line="105">
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_BREAD_HOME}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:14:07.260" level="INFO">Current page contains element '//a[normalize-space()='Trang chủ']'.</msg>
-<status status="PASS" starttime="20250813 15:14:07.047" endtime="20250813 15:14:07.260"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_BREAD_CURR}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:14:07.471" level="INFO">Current page contains element '//nav//li[normalize-space()='Quản lý bài kiểm tra'] | //ol[contains(@class,'breadcrumb')]//*[normalize-space()='Quản lý bài kiểm tra']'.</msg>
-<status status="PASS" starttime="20250813 15:14:07.260" endtime="20250813 15:14:07.471"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:14:07.782" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-31.png"&gt;&lt;img src="selenium-screenshot-31.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:14:07.471" endtime="20250813 15:14:07.782"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="PASS" starttime="20250813 15:14:07.046" endtime="20250813 15:14:07.782"/>
-</test>
-<test id="s1-t3" name="QZ03 - Có nút &quot;My Classes&quot;" line="109">
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_BTN_MY_CLASSES}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:14:07.999" level="INFO">Current page contains element '//a[normalize-space()='My Classes']'.</msg>
-<status status="PASS" starttime="20250813 15:14:07.786" endtime="20250813 15:14:07.999"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:14:08.320" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-32.png"&gt;&lt;img src="selenium-screenshot-32.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:14:07.999" endtime="20250813 15:14:08.320"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="PASS" starttime="20250813 15:14:07.784" endtime="20250813 15:14:08.320"/>
-</test>
-<test id="s1-t4" name="QZ04 - Có header &quot;Tests and Assessments&quot;" line="112">
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_CARD_HEADER_TESTS}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:14:09.073" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-33.png"&gt;&lt;img src="selenium-screenshot-33.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20250813 15:14:09.073" level="FAIL">Page should have contained element '//*[self::h2 or self::a][normalize-space()='Tests and Assessments']' but did not.</msg>
-<status status="FAIL" starttime="20250813 15:14:08.321" endtime="20250813 15:14:09.080"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:14:09.430" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-34.png"&gt;&lt;img src="selenium-screenshot-34.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:14:09.080" endtime="20250813 15:14:09.430"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="FAIL" starttime="20250813 15:14:08.321" endtime="20250813 15:14:09.430">Page should have contained element '//*[self::h2 or self::a][normalize-space()='Tests and Assessments']' but did not.</status>
-</test>
-<test id="s1-t5" name="QZ05 - Có đủ các tab đúng chữ" line="115">
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_TAB_ALL}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:14:09.651" level="INFO">Current page contains element '//a[normalize-space()='All']'.</msg>
-<status status="PASS" starttime="20250813 15:14:09.434" endtime="20250813 15:14:09.651"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_TAB_MIDTERM}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:14:09.862" level="INFO">Current page contains element '//a[normalize-space()='Midterm']'.</msg>
-<status status="PASS" starttime="20250813 15:14:09.651" endtime="20250813 15:14:09.862"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_TAB_FINAL}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:14:10.070" level="INFO">Current page contains element '//a[normalize-space()='Final']'.</msg>
-<status status="PASS" starttime="20250813 15:14:09.862" endtime="20250813 15:14:10.070"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_TAB_QUIZ}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:14:10.280" level="INFO">Current page contains element '//a[normalize-space()='Quiz']'.</msg>
-<status status="PASS" starttime="20250813 15:14:10.070" endtime="20250813 15:14:10.280"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_TAB_ASSIGN}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:14:10.494" level="INFO">Current page contains element '//a[normalize-space()='Assignment']'.</msg>
-<status status="PASS" starttime="20250813 15:14:10.280" endtime="20250813 15:14:10.495"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_TAB_PROJECT}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:14:10.709" level="INFO">Current page contains element '//a[normalize-space()='Project']'.</msg>
-<status status="PASS" starttime="20250813 15:14:10.496" endtime="20250813 15:14:10.709"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:14:11.045" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-35.png"&gt;&lt;img src="selenium-screenshot-35.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:14:10.711" endtime="20250813 15:14:11.045"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="PASS" starttime="20250813 15:14:09.432" endtime="20250813 15:14:11.046"/>
-</test>
-<test id="s1-t6" name="QZ06 - Tab All hiển thị thông báo rỗng đúng chữ" line="123">
-<kw name="Click Tab And Verify Empty">
-<arg>${LOC_TAB_ALL}</arg>
-<kw name="Safe JS Click">
-<arg>${TAB_LOCATOR}</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250813 15:14:11.048" endtime="20250813 15:14:11.462"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" library="BuiltIn">
-<arg>Scroll Element Into View</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<kw name="Scroll Element Into View" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" starttime="20250813 15:14:11.462" endtime="20250813 15:14:12.144"/>
-</kw>
-<status status="PASS" starttime="20250813 15:14:11.462" endtime="20250813 15:14:12.144"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${status}</var>
-<arg>Click Element</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250813 15:14:12.145" level="INFO">Clicking element '//a[normalize-space()='All']'.</msg>
-<status status="PASS" starttime="20250813 15:14:12.144" endtime="20250813 15:14:13.225"/>
-</kw>
-<msg timestamp="20250813 15:14:13.225" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20250813 15:14:12.144" endtime="20250813 15:14:13.225"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>not ${status}</arg>
-<arg>Click By JS</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20250813 15:14:13.225" endtime="20250813 15:14:13.225"/>
-</kw>
-<status status="PASS" starttime="20250813 15:14:11.048" endtime="20250813 15:14:13.225"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${LOC_EMPTY_MSG}</arg>
-<arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250813 15:14:13.225" endtime="20250813 15:14:13.642"/>
-</kw>
-<status status="PASS" starttime="20250813 15:14:11.047" endtime="20250813 15:14:13.642"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:14:13.965" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-36.png"&gt;&lt;img src="selenium-screenshot-36.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:14:13.642" endtime="20250813 15:14:13.965"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="PASS" starttime="20250813 15:14:11.046" endtime="20250813 15:14:13.965"/>
-</test>
-<test id="s1-t7" name="QZ07 - Tab Midterm hiển thị thông báo rỗng đúng chữ" line="126">
-<kw name="Click Tab And Verify Empty">
-<arg>${LOC_TAB_MIDTERM}</arg>
-<kw name="Safe JS Click">
-<arg>${TAB_LOCATOR}</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250813 15:14:13.967" endtime="20250813 15:14:14.384"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" library="BuiltIn">
-<arg>Scroll Element Into View</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<kw name="Scroll Element Into View" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" starttime="20250813 15:14:14.384" endtime="20250813 15:14:15.069"/>
-</kw>
-<status status="PASS" starttime="20250813 15:14:14.384" endtime="20250813 15:14:15.069"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${status}</var>
-<arg>Click Element</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250813 15:14:15.070" level="INFO">Clicking element '//a[normalize-space()='Midterm']'.</msg>
-<status status="PASS" starttime="20250813 15:14:15.069" endtime="20250813 15:14:16.190"/>
-</kw>
-<msg timestamp="20250813 15:14:16.190" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20250813 15:14:15.069" endtime="20250813 15:14:16.190"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>not ${status}</arg>
-<arg>Click By JS</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20250813 15:14:16.190" endtime="20250813 15:14:16.190"/>
-</kw>
-<status status="PASS" starttime="20250813 15:14:13.967" endtime="20250813 15:14:16.190"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${LOC_EMPTY_MSG}</arg>
-<arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20250813 15:14:41.879" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-37.png"&gt;&lt;img src="selenium-screenshot-37.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20250813 15:14:41.879" level="FAIL">Element '//*[contains(normalize-space(),'No tests found. Go to one of your classes to create a test.')]' not visible after 25 seconds.</msg>
-<status status="FAIL" starttime="20250813 15:14:16.190" endtime="20250813 15:14:41.880"/>
-</kw>
-<status status="FAIL" starttime="20250813 15:14:13.967" endtime="20250813 15:14:41.881"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:14:42.219" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-38.png"&gt;&lt;img src="selenium-screenshot-38.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:14:41.881" endtime="20250813 15:14:42.219"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="FAIL" starttime="20250813 15:14:13.966" endtime="20250813 15:14:42.219">Element '//*[contains(normalize-space(),'No tests found. Go to one of your classes to create a test.')]' not visible after 25 seconds.</status>
-</test>
-<test id="s1-t8" name="QZ08 - Tab Final hiển thị thông báo rỗng đúng chữ" line="129">
-<kw name="Click Tab And Verify Empty">
-<arg>${LOC_TAB_FINAL}</arg>
-<kw name="Safe JS Click">
-<arg>${TAB_LOCATOR}</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250813 15:14:42.222" endtime="20250813 15:14:42.636"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" library="BuiltIn">
-<arg>Scroll Element Into View</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<kw name="Scroll Element Into View" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" starttime="20250813 15:14:42.636" endtime="20250813 15:14:43.306"/>
-</kw>
-<status status="PASS" starttime="20250813 15:14:42.636" endtime="20250813 15:14:43.307"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${status}</var>
-<arg>Click Element</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250813 15:14:43.308" level="INFO">Clicking element '//a[normalize-space()='Final']'.</msg>
-<status status="PASS" starttime="20250813 15:14:43.307" endtime="20250813 15:14:44.619"/>
-</kw>
-<msg timestamp="20250813 15:14:44.620" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20250813 15:14:43.307" endtime="20250813 15:14:44.620"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>not ${status}</arg>
-<arg>Click By JS</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20250813 15:14:44.620" endtime="20250813 15:14:44.620"/>
-</kw>
-<status status="PASS" starttime="20250813 15:14:42.222" endtime="20250813 15:14:44.620"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${LOC_EMPTY_MSG}</arg>
-<arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20250813 15:15:10.333" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-39.png"&gt;&lt;img src="selenium-screenshot-39.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20250813 15:15:10.334" level="FAIL">Element '//*[contains(normalize-space(),'No tests found. Go to one of your classes to create a test.')]' not visible after 25 seconds.</msg>
-<status status="FAIL" starttime="20250813 15:14:44.621" endtime="20250813 15:15:10.335"/>
-</kw>
-<status status="FAIL" starttime="20250813 15:14:42.222" endtime="20250813 15:15:10.335"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:15:10.689" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-40.png"&gt;&lt;img src="selenium-screenshot-40.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:15:10.336" endtime="20250813 15:15:10.689"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="FAIL" starttime="20250813 15:14:42.221" endtime="20250813 15:15:10.689">Element '//*[contains(normalize-space(),'No tests found. Go to one of your classes to create a test.')]' not visible after 25 seconds.</status>
-</test>
-<test id="s1-t9" name="QZ09 - Tab Quiz hiển thị thông báo rỗng đúng chữ" line="132">
-<kw name="Click Tab And Verify Empty">
-<arg>${LOC_TAB_QUIZ}</arg>
-<kw name="Safe JS Click">
-<arg>${TAB_LOCATOR}</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250813 15:15:10.692" endtime="20250813 15:15:11.111"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" library="BuiltIn">
-<arg>Scroll Element Into View</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<kw name="Scroll Element Into View" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" starttime="20250813 15:15:11.113" endtime="20250813 15:15:11.823"/>
-</kw>
-<status status="PASS" starttime="20250813 15:15:11.111" endtime="20250813 15:15:11.824"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${status}</var>
-<arg>Click Element</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250813 15:15:11.826" level="INFO">Clicking element '//a[normalize-space()='Quiz']'.</msg>
-<msg timestamp="20250813 15:15:13.564" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-41.png"&gt;&lt;img src="selenium-screenshot-41.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20250813 15:15:13.564" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;a href="?test_type=quiz" class="btn btn-sm btn-outline-primary"&gt;...&lt;/a&gt; is not clickable at point (1305, 239). Other element would receive the click: &lt;a href="#" title="Time" class="TimerPanel"&gt;...&lt;/a&gt;
-  (Session info: chrome=139.0.7258.127)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff62ba16b25+79621]
-	GetHandleVerifier [0x0x7ff62ba16b80+79712]
-	(No symbol) [0x0x7ff62b7ac0ea]
-	(No symbol) [0x0x7ff62b80af69]
-	(No symbol) [0x0x7ff62b808902]
-	(No symbol) [0x0x7ff62b805941]
-	(No symbol) [0x0x7ff62b804831]
-	(No symbol) [0x0x7ff62b7f6078]
-	(No symbol) [0x0x7ff62b82b13a]
-	(No symbol) [0x0x7ff62b7f5926]
-	(No symbol) [0x0x7ff62b82b350]
-	(No symbol) [0x0x7ff62b8533d0]
-	(No symbol) [0x0x7ff62b82af13]
-	(No symbol) [0x0x7ff62b7f4151]
-	(No symbol) [0x0x7ff62b7f4ee3]
-	GetHandleVerifier [0x0x7ff62bcd683d+2962461]
-	GetHandleVerifier [0x0x7ff62bcd0b5d+2938685]
-	GetHandleVerifier [0x0x7ff62bcef71d+3064573]
-	GetHandleVerifier [0x0x7ff62ba30c6e+186446]
-	GetHandleVerifier [0x0x7ff62ba38a3f+218655]
-	GetHandleVerifier [0x0x7ff62ba1f914+115956]
-	GetHandleVerifier [0x0x7ff62ba1fac9+116393]
-	GetHandleVerifier [0x0x7ff62ba05ef8+10968]
-	BaseThreadInitThunk [0x0x7ffb73f6259d+29]
-	RtlUserThreadStart [0x0x7ffb75d6af38+40]
-</msg>
-<status status="FAIL" starttime="20250813 15:15:11.824" endtime="20250813 15:15:13.572"/>
-</kw>
-<msg timestamp="20250813 15:15:13.572" level="INFO">${status} = False</msg>
-<status status="PASS" starttime="20250813 15:15:11.824" endtime="20250813 15:15:13.572"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>not ${status}</arg>
-<arg>Click By JS</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Click By JS">
-<arg>${locator}</arg>
-<kw name="Get WebElement" library="SeleniumLibrary">
-<var>${el}</var>
-<arg>${locator}</arg>
-<doc>Returns the first WebElement matching the given ``locator``.</doc>
-<msg timestamp="20250813 15:15:13.785" level="INFO">${el} = &lt;selenium.webdriver.remote.webelement.WebElement (session="54ad3da85508a1ee6d2e6a605630f8cb", element="f.0A54E4932C358981C79898C23853A893.d.C391F34BE1FDCB70ED5FB8355F951AEA.e.155")&gt;</msg>
-<status status="PASS" starttime="20250813 15:15:13.573" endtime="20250813 15:15:13.785"/>
-</kw>
-<kw name="Execute Javascript" library="SeleniumLibrary">
-<arg>arguments[0].click();</arg>
-<arg>${el}</arg>
+<arg>return document.readyState === 'complete'</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<msg timestamp="20250813 15:15:14.148" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-42.png"&gt;&lt;img src="selenium-screenshot-42.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20250813 15:15:14.149" level="FAIL">TypeError: sequence item 1: expected str instance, WebElement found</msg>
-<status status="FAIL" starttime="20250813 15:15:13.786" endtime="20250813 15:15:14.154"/>
+<status status="PASS" start="2025-08-14T18:27:42.634679" elapsed="0.016399"/>
 </kw>
-<status status="FAIL" starttime="20250813 15:15:13.572" endtime="20250813 15:15:14.155"/>
+<arg>${timeout}</arg>
+<arg>${poll}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-14T18:27:42.634679" elapsed="0.016399"/>
 </kw>
-<status status="FAIL" starttime="20250813 15:15:13.572" endtime="20250813 15:15:14.155"/>
-</kw>
-<status status="FAIL" starttime="20250813 15:15:10.691" endtime="20250813 15:15:14.155"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${LOC_EMPTY_MSG}</arg>
-<arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" starttime="20250813 15:15:14.156" endtime="20250813 15:15:14.156"/>
-</kw>
-<status status="FAIL" starttime="20250813 15:15:10.691" endtime="20250813 15:15:14.156"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:15:14.545" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-43.png"&gt;&lt;img src="selenium-screenshot-43.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:15:14.158" endtime="20250813 15:15:14.545"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="FAIL" starttime="20250813 15:15:10.690" endtime="20250813 15:15:14.546">TypeError: sequence item 1: expected str instance, WebElement found</status>
-</test>
-<test id="s1-t10" name="QZ10 - Tab Assignment hiển thị thông báo rỗng đúng chữ" line="135">
-<kw name="Click Tab And Verify Empty">
-<arg>${LOC_TAB_ASSIGN}</arg>
-<kw name="Safe JS Click">
-<arg>${TAB_LOCATOR}</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250813 15:15:14.551" endtime="20250813 15:15:15.069"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" library="BuiltIn">
-<arg>Scroll Element Into View</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<kw name="Scroll Element Into View" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" starttime="20250813 15:15:15.070" endtime="20250813 15:15:15.823"/>
-</kw>
-<status status="PASS" starttime="20250813 15:15:15.069" endtime="20250813 15:15:15.823"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${status}</var>
-<arg>Click Element</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250813 15:15:15.829" level="INFO">Clicking element '//a[normalize-space()='Assignment']'.</msg>
-<msg timestamp="20250813 15:15:17.611" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-44.png"&gt;&lt;img src="selenium-screenshot-44.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20250813 15:15:17.611" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;a href="?test_type=assignment" class="btn btn-sm btn-outline-primary"&gt;...&lt;/a&gt; is not clickable at point (1374, 239). Other element would receive the click: &lt;a href="#" title="Time" class="TimerPanel"&gt;...&lt;/a&gt;
-  (Session info: chrome=139.0.7258.127)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff62ba16b25+79621]
-	GetHandleVerifier [0x0x7ff62ba16b80+79712]
-	(No symbol) [0x0x7ff62b7ac0ea]
-	(No symbol) [0x0x7ff62b80af69]
-	(No symbol) [0x0x7ff62b808902]
-	(No symbol) [0x0x7ff62b805941]
-	(No symbol) [0x0x7ff62b804831]
-	(No symbol) [0x0x7ff62b7f6078]
-	(No symbol) [0x0x7ff62b82b13a]
-	(No symbol) [0x0x7ff62b7f5926]
-	(No symbol) [0x0x7ff62b82b350]
-	(No symbol) [0x0x7ff62b8533d0]
-	(No symbol) [0x0x7ff62b82af13]
-	(No symbol) [0x0x7ff62b7f4151]
-	(No symbol) [0x0x7ff62b7f4ee3]
-	GetHandleVerifier [0x0x7ff62bcd683d+2962461]
-	GetHandleVerifier [0x0x7ff62bcd0b5d+2938685]
-	GetHandleVerifier [0x0x7ff62bcef71d+3064573]
-	GetHandleVerifier [0x0x7ff62ba30c6e+186446]
-	GetHandleVerifier [0x0x7ff62ba38a3f+218655]
-	GetHandleVerifier [0x0x7ff62ba1f914+115956]
-	GetHandleVerifier [0x0x7ff62ba1fac9+116393]
-	GetHandleVerifier [0x0x7ff62ba05ef8+10968]
-	BaseThreadInitThunk [0x0x7ffb73f6259d+29]
-	RtlUserThreadStart [0x0x7ffb75d6af38+40]
-</msg>
-<status status="FAIL" starttime="20250813 15:15:15.824" endtime="20250813 15:15:17.612"/>
-</kw>
-<msg timestamp="20250813 15:15:17.612" level="INFO">${status} = False</msg>
-<status status="PASS" starttime="20250813 15:15:15.824" endtime="20250813 15:15:17.612"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>not ${status}</arg>
-<arg>Click By JS</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Click By JS">
-<arg>${locator}</arg>
-<kw name="Get WebElement" library="SeleniumLibrary">
-<var>${el}</var>
-<arg>${locator}</arg>
-<doc>Returns the first WebElement matching the given ``locator``.</doc>
-<msg timestamp="20250813 15:15:17.820" level="INFO">${el} = &lt;selenium.webdriver.remote.webelement.WebElement (session="54ad3da85508a1ee6d2e6a605630f8cb", element="f.0A54E4932C358981C79898C23853A893.d.C391F34BE1FDCB70ED5FB8355F951AEA.e.156")&gt;</msg>
-<status status="PASS" starttime="20250813 15:15:17.613" endtime="20250813 15:15:17.820"/>
-</kw>
-<kw name="Execute Javascript" library="SeleniumLibrary">
-<arg>arguments[0].click();</arg>
-<arg>${el}</arg>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:42.653086" level="INFO">Executing JavaScript:
+return !!window.jQuery
+Without any arguments.</msg>
+<msg time="2025-08-14T18:27:42.748009" level="INFO">${hasjq} = False</msg>
+<var>${hasjq}</var>
+<arg>return !!window.jQuery</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<msg timestamp="20250813 15:15:18.155" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-45.png"&gt;&lt;img src="selenium-screenshot-45.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20250813 15:15:18.156" level="FAIL">TypeError: sequence item 1: expected str instance, WebElement found</msg>
-<status status="FAIL" starttime="20250813 15:15:17.820" endtime="20250813 15:15:18.156"/>
+<status status="PASS" start="2025-08-14T18:27:42.653086" elapsed="0.094923"/>
 </kw>
-<status status="FAIL" starttime="20250813 15:15:17.612" endtime="20250813 15:15:18.156"/>
+<if>
+<branch type="IF" condition="${hasjq}">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<arg>${timeout}</arg>
+<arg>${poll}</arg>
+<arg>Execute Javascript</arg>
+<arg>return jQuery.active === 0</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:42.748009" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" starttime="20250813 15:15:17.612" endtime="20250813 15:15:18.157"/>
+<status status="NOT RUN" start="2025-08-14T18:27:42.748009" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-14T18:27:42.748009" elapsed="0.000000"/>
+</if>
+<status status="PASS" start="2025-08-14T18:27:42.634679" elapsed="0.113330"/>
 </kw>
-<status status="FAIL" starttime="20250813 15:15:14.550" endtime="20250813 15:15:18.157"/>
+<status status="PASS" start="2025-08-14T18:27:30.884842" elapsed="11.863167"/>
 </kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${LOC_EMPTY_MSG}</arg>
-<arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" starttime="20250813 15:15:18.157" endtime="20250813 15:15:18.157"/>
+<test id="s1-t1" name="TC-QB01 - Truy cập Question Bank" line="11">
+<kw name="Open Question Bank" owner="QuestionBank">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:42.779562" level="INFO">Opening url 'https://demo-clo.minds.vn/en/questionbank/'</msg>
+<arg>${QB_URL_EN}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-14T18:27:42.756023" elapsed="0.669150"/>
 </kw>
-<status status="FAIL" starttime="20250813 15:15:14.550" endtime="20250813 15:15:18.157"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:15:18.487" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-46.png"&gt;&lt;img src="selenium-screenshot-46.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:15:18.157" endtime="20250813 15:15:18.487"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="FAIL" starttime="20250813 15:15:14.549" endtime="20250813 15:15:18.488">TypeError: sequence item 1: expected str instance, WebElement found</status>
-</test>
-<test id="s1-t11" name="QZ11 - Tab Project hiển thị thông báo rỗng đúng chữ" line="138">
-<kw name="Click Tab And Verify Empty">
-<arg>${LOC_TAB_PROJECT}</arg>
-<kw name="Safe JS Click">
-<arg>${TAB_LOCATOR}</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250813 15:15:18.491" endtime="20250813 15:15:18.915"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" library="BuiltIn">
-<arg>Scroll Element Into View</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<kw name="Scroll Element Into View" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" starttime="20250813 15:15:18.915" endtime="20250813 15:15:19.585"/>
-</kw>
-<status status="PASS" starttime="20250813 15:15:18.915" endtime="20250813 15:15:19.585"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${status}</var>
-<arg>Click Element</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250813 15:15:19.586" level="INFO">Clicking element '//a[normalize-space()='Project']'.</msg>
-<msg timestamp="20250813 15:15:21.219" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-47.png"&gt;&lt;img src="selenium-screenshot-47.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20250813 15:15:21.220" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;a href="?test_type=project" class="btn btn-sm btn-outline-primary"&gt;...&lt;/a&gt; is not clickable at point (1450, 239). Other element would receive the click: &lt;a href="#" title="Time" class="TimerPanel"&gt;...&lt;/a&gt;
-  (Session info: chrome=139.0.7258.127)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff62ba16b25+79621]
-	GetHandleVerifier [0x0x7ff62ba16b80+79712]
-	(No symbol) [0x0x7ff62b7ac0ea]
-	(No symbol) [0x0x7ff62b80af69]
-	(No symbol) [0x0x7ff62b808902]
-	(No symbol) [0x0x7ff62b805941]
-	(No symbol) [0x0x7ff62b804831]
-	(No symbol) [0x0x7ff62b7f6078]
-	(No symbol) [0x0x7ff62b82b13a]
-	(No symbol) [0x0x7ff62b7f5926]
-	(No symbol) [0x0x7ff62b82b350]
-	(No symbol) [0x0x7ff62b8533d0]
-	(No symbol) [0x0x7ff62b82af13]
-	(No symbol) [0x0x7ff62b7f4151]
-	(No symbol) [0x0x7ff62b7f4ee3]
-	GetHandleVerifier [0x0x7ff62bcd683d+2962461]
-	GetHandleVerifier [0x0x7ff62bcd0b5d+2938685]
-	GetHandleVerifier [0x0x7ff62bcef71d+3064573]
-	GetHandleVerifier [0x0x7ff62ba30c6e+186446]
-	GetHandleVerifier [0x0x7ff62ba38a3f+218655]
-	GetHandleVerifier [0x0x7ff62ba1f914+115956]
-	GetHandleVerifier [0x0x7ff62ba1fac9+116393]
-	GetHandleVerifier [0x0x7ff62ba05ef8+10968]
-	BaseThreadInitThunk [0x0x7ffb73f6259d+29]
-	RtlUserThreadStart [0x0x7ffb75d6af38+40]
-</msg>
-<status status="FAIL" starttime="20250813 15:15:19.585" endtime="20250813 15:15:21.221"/>
-</kw>
-<msg timestamp="20250813 15:15:21.221" level="INFO">${status} = False</msg>
-<status status="PASS" starttime="20250813 15:15:19.585" endtime="20250813 15:15:21.221"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>not ${status}</arg>
-<arg>Click By JS</arg>
-<arg>${locator}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Click By JS">
-<arg>${locator}</arg>
-<kw name="Get WebElement" library="SeleniumLibrary">
-<var>${el}</var>
-<arg>${locator}</arg>
-<doc>Returns the first WebElement matching the given ``locator``.</doc>
-<msg timestamp="20250813 15:15:21.432" level="INFO">${el} = &lt;selenium.webdriver.remote.webelement.WebElement (session="54ad3da85508a1ee6d2e6a605630f8cb", element="f.0A54E4932C358981C79898C23853A893.d.C391F34BE1FDCB70ED5FB8355F951AEA.e.157")&gt;</msg>
-<status status="PASS" starttime="20250813 15:15:21.222" endtime="20250813 15:15:21.432"/>
-</kw>
-<kw name="Execute Javascript" library="SeleniumLibrary">
-<arg>arguments[0].click();</arg>
-<arg>${el}</arg>
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:43.425173" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<msg timestamp="20250813 15:15:21.764" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-48.png"&gt;&lt;img src="selenium-screenshot-48.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20250813 15:15:21.765" level="FAIL">TypeError: sequence item 1: expected str instance, WebElement found</msg>
-<status status="FAIL" starttime="20250813 15:15:21.432" endtime="20250813 15:15:21.765"/>
+<status status="PASS" start="2025-08-14T18:27:43.425173" elapsed="0.008333"/>
 </kw>
-<status status="FAIL" starttime="20250813 15:15:21.222" endtime="20250813 15:15:21.765"/>
+<arg>${timeout}</arg>
+<arg>${poll}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-14T18:27:43.425173" elapsed="0.008333"/>
 </kw>
-<status status="FAIL" starttime="20250813 15:15:21.221" endtime="20250813 15:15:21.765"/>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:43.441618" level="INFO">Executing JavaScript:
+return !!window.jQuery
+Without any arguments.</msg>
+<msg time="2025-08-14T18:27:43.449544" level="INFO">${hasjq} = False</msg>
+<var>${hasjq}</var>
+<arg>return !!window.jQuery</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-14T18:27:43.433506" elapsed="0.016038"/>
 </kw>
-<status status="FAIL" starttime="20250813 15:15:18.491" endtime="20250813 15:15:21.765"/>
+<if>
+<branch type="IF" condition="${hasjq}">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<arg>${timeout}</arg>
+<arg>${poll}</arg>
+<arg>Execute Javascript</arg>
+<arg>return jQuery.active === 0</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.449544" elapsed="0.000000"/>
 </kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${LOC_EMPTY_MSG}</arg>
+<status status="NOT RUN" start="2025-08-14T18:27:43.449544" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-14T18:27:43.449544" elapsed="0.000000"/>
+</if>
+<status status="PASS" start="2025-08-14T18:27:43.425173" elapsed="0.024371"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="QB Marker Present" owner="QuestionBank">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:43.475641" level="INFO">${loc} = https://demo-clo.minds.vn/en/questionbank/</msg>
+<var>${loc}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2025-08-14T18:27:43.457561" elapsed="0.018080"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-14T18:27:43.479238" level="INFO">${by_url} = True</msg>
+<var>${by_url}</var>
+<arg>'/questionbank/' in '''${loc}'''</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-14T18:27:43.477177" elapsed="0.002061"/>
+</kw>
+<if>
+<branch type="IF" condition="${by_url}">
+<return>
+<value>${True}</value>
+<status status="PASS" start="2025-08-14T18:27:43.480254" elapsed="0.000000"/>
+</return>
+<status status="PASS" start="2025-08-14T18:27:43.479238" elapsed="0.001016"/>
+</branch>
+<status status="PASS" start="2025-08-14T18:27:43.479238" elapsed="0.001016"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${m1}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${QB_BTN_ADD}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.480254" elapsed="0.001016"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${m2}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${QB_BTN_IMPORT}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.481418" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${m3}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${QB_BTN_TAGS}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.481924" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${hdr}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${QB_HDR_ANY}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.481924" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${has_search}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${SEARCH_BOX}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.482934" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${has_table}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${TABLE_ANY}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.482934" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${any}</var>
+<arg>${m1} or ${m2} or ${m3} or ${hdr} or ${has_search} or ${has_table}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.483948" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${any}</value>
+<status status="NOT RUN" start="2025-08-14T18:27:43.483948" elapsed="0.000000"/>
+</return>
+<status status="PASS" start="2025-08-14T18:27:43.457561" elapsed="0.027402"/>
+</kw>
+<msg time="2025-08-14T18:27:43.484963" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>QB Marker Present</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-14T18:27:43.457561" elapsed="0.027402"/>
+</kw>
+<if>
+<branch type="IF" condition="${ok}">
+<return>
+<status status="PASS" start="2025-08-14T18:27:43.485980" elapsed="0.000000"/>
+</return>
+<status status="PASS" start="2025-08-14T18:27:43.484963" elapsed="0.001017"/>
+</branch>
+<status status="PASS" start="2025-08-14T18:27:43.484963" elapsed="0.002046"/>
+</if>
+<kw name="Go To" owner="SeleniumLibrary">
+<arg>${QB_URL_VI}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.488025" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Document Ready" owner="core">
+<status status="NOT RUN" start="2025-08-14T18:27:43.488025" elapsed="0.001164"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${ok2}</var>
+<arg>QB Marker Present</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.490198" elapsed="0.001022"/>
+</kw>
+<if>
+<branch type="IF" condition="${ok2}">
+<return>
+<status status="NOT RUN" start="2025-08-14T18:27:43.493265" elapsed="0.000000"/>
+</return>
+<status status="NOT RUN" start="2025-08-14T18:27:43.492245" elapsed="0.001020"/>
+</branch>
+<status status="NOT RUN" start="2025-08-14T18:27:43.492245" elapsed="0.001020"/>
+</if>
+<kw name="Fail" owner="BuiltIn">
+<arg>Không mở được trang Question Bank.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.494283" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-08-14T18:27:42.756023" elapsed="0.739277"/>
+</kw>
+<kw name="Wait For QB Landed" owner="QuestionBank">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="QB Marker Should Exist" owner="QuestionBank">
+<kw name="QB Marker Present" owner="QuestionBank">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2025-08-14T18:27:43.519839" level="INFO">${loc} = https://demo-clo.minds.vn/en/questionbank/</msg>
+<var>${loc}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2025-08-14T18:27:43.501411" elapsed="0.019445"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-14T18:27:43.525966" level="INFO">${by_url} = True</msg>
+<var>${by_url}</var>
+<arg>'/questionbank/' in '''${loc}'''</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-14T18:27:43.521873" elapsed="0.005108"/>
+</kw>
+<if>
+<branch type="IF" condition="${by_url}">
+<return>
+<value>${True}</value>
+<status status="PASS" start="2025-08-14T18:27:43.527993" elapsed="0.000000"/>
+</return>
+<status status="PASS" start="2025-08-14T18:27:43.526981" elapsed="0.001012"/>
+</branch>
+<status status="PASS" start="2025-08-14T18:27:43.526981" elapsed="0.001012"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${m1}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${QB_BTN_ADD}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.529011" elapsed="0.001105"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${m2}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${QB_BTN_IMPORT}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.530116" elapsed="0.001009"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${m3}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${QB_BTN_TAGS}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.531125" elapsed="0.001023"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${hdr}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${QB_HDR_ANY}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.533258" elapsed="0.001008"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${has_search}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${SEARCH_BOX}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.534266" elapsed="0.001024"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${has_table}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${TABLE_ANY}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.536310" elapsed="0.001022"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${any}</var>
+<arg>${m1} or ${m2} or ${m3} or ${hdr} or ${has_search} or ${has_table}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-08-14T18:27:43.537332" elapsed="0.001020"/>
+</kw>
+<return>
+<value>${any}</value>
+<status status="NOT RUN" start="2025-08-14T18:27:43.538352" elapsed="0.000000"/>
+</return>
+<msg time="2025-08-14T18:27:43.538352" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<status status="PASS" start="2025-08-14T18:27:43.500392" elapsed="0.037960"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${ok}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-08-14T18:27:43.538352" elapsed="0.016007"/>
+</kw>
+<status status="PASS" start="2025-08-14T18:27:43.499372" elapsed="0.054987"/>
+</kw>
 <arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" starttime="20250813 15:15:21.765" endtime="20250813 15:15:21.765"/>
+<arg>${POLL}</arg>
+<arg>QB Marker Should Exist</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-14T18:27:43.497328" elapsed="0.057031"/>
 </kw>
-<status status="FAIL" starttime="20250813 15:15:18.489" endtime="20250813 15:15:21.765"/>
+<status status="PASS" start="2025-08-14T18:27:43.496314" elapsed="0.058045"/>
 </kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-14T18:27:43.820252" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-28.png"&gt;&lt;img src="selenium-screenshot-28.png" width="800px"&gt;&lt;/a&gt;</msg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:15:22.119" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-49.png"&gt;&lt;img src="selenium-screenshot-49.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:15:21.766" endtime="20250813 15:15:22.119"/>
+<status status="PASS" start="2025-08-14T18:27:43.565407" elapsed="0.254845"/>
 </kw>
 <timeout value="3 minutes"/>
-<status status="FAIL" starttime="20250813 15:15:18.489" endtime="20250813 15:15:22.119">TypeError: sequence item 1: expected str instance, WebElement found</status>
+<status status="PASS" start="2025-08-14T18:27:42.748009" elapsed="1.072243"/>
 </test>
-<test id="s1-t12" name="QZ12 - Card &quot;Test Distribution&quot; &amp; tiêu đề biểu đồ đúng chữ" line="141">
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_HDR_DISTRIBUTION}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:15:22.875" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-50.png"&gt;&lt;img src="selenium-screenshot-50.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20250813 15:15:22.875" level="FAIL">Page should have contained element '//a[normalize-space()='Test Distribution']' but did not.</msg>
-<status status="FAIL" starttime="20250813 15:15:22.121" endtime="20250813 15:15:22.877"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_INNER_DISTRIBUTION_TITLE}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20250813 15:15:22.877" endtime="20250813 15:15:22.877"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:15:23.232" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-51.png"&gt;&lt;img src="selenium-screenshot-51.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:15:22.877" endtime="20250813 15:15:23.232"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="FAIL" starttime="20250813 15:15:22.120" endtime="20250813 15:15:23.233">Page should have contained element '//a[normalize-space()='Test Distribution']' but did not.</status>
-</test>
-<test id="s1-t13" name="QZ13 - Legend biểu đồ có đủ 5 nhãn đúng chữ" line="145">
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_LEGEND_MIDTERM}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:15:23.451" level="INFO">Current page contains element '//*[normalize-space()='Midterm']'.</msg>
-<status status="PASS" starttime="20250813 15:15:23.235" endtime="20250813 15:15:23.451"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_LEGEND_FINAL}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:15:23.667" level="INFO">Current page contains element '//*[normalize-space()='Final']'.</msg>
-<status status="PASS" starttime="20250813 15:15:23.451" endtime="20250813 15:15:23.667"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_LEGEND_QUIZ}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:15:23.877" level="INFO">Current page contains element '//*[normalize-space()='Quiz']'.</msg>
-<status status="PASS" starttime="20250813 15:15:23.667" endtime="20250813 15:15:23.877"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_LEGEND_ASSIGN}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:15:24.091" level="INFO">Current page contains element '//*[normalize-space()='Assignment']'.</msg>
-<status status="PASS" starttime="20250813 15:15:23.877" endtime="20250813 15:15:24.093"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_LEGEND_PROJECT}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:15:24.318" level="INFO">Current page contains element '//*[normalize-space()='Project']'.</msg>
-<status status="PASS" starttime="20250813 15:15:24.093" endtime="20250813 15:15:24.318"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:15:24.677" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-52.png"&gt;&lt;img src="selenium-screenshot-52.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:15:24.318" endtime="20250813 15:15:24.678"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="PASS" starttime="20250813 15:15:23.234" endtime="20250813 15:15:24.678"/>
-</test>
-<test id="s1-t14" name="QZ14 - Card &quot;Test Creation Tips&quot; đúng chữ &amp; đủ 4 mục" line="152">
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_HDR_TIPS}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:15:25.437" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-53.png"&gt;&lt;img src="selenium-screenshot-53.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20250813 15:15:25.438" level="FAIL">Page should have contained element '//*[self::h2 or self::a][normalize-space()='Test Creation Tips']' but did not.</msg>
-<status status="FAIL" starttime="20250813 15:15:24.681" endtime="20250813 15:15:25.438"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_TIP1}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20250813 15:15:25.439" endtime="20250813 15:15:25.439"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_TIP2}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20250813 15:15:25.439" endtime="20250813 15:15:25.439"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_TIP3}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20250813 15:15:25.439" endtime="20250813 15:15:25.439"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_TIP4}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20250813 15:15:25.439" endtime="20250813 15:15:25.439"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:15:25.772" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-54.png"&gt;&lt;img src="selenium-screenshot-54.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:15:25.440" endtime="20250813 15:15:25.772"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="FAIL" starttime="20250813 15:15:24.680" endtime="20250813 15:15:25.772">Page should have contained element '//*[self::h2 or self::a][normalize-space()='Test Creation Tips']' but did not.</status>
-</test>
-<test id="s1-t15" name="QZ15 - Nội dung mô tả từng tip bắt đầu đúng như ảnh" line="159">
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_TIP1_DESC_START}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:15:25.985" level="INFO">Current page contains element '//*[starts-with(normalize-space(),'Ensure your test questions target specific CLOs')]'.</msg>
-<status status="PASS" starttime="20250813 15:15:25.774" endtime="20250813 15:15:25.985"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_TIP2_DESC_START}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:15:26.196" level="INFO">Current page contains element '//*[starts-with(normalize-space(),'Include a mix of easy, medium, and hard questions')]'.</msg>
-<status status="PASS" starttime="20250813 15:15:25.985" endtime="20250813 15:15:26.196"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_TIP3_DESC_START}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:15:26.411" level="INFO">Current page contains element '//*[starts-with(normalize-space(),'Develop detailed rubrics that clearly define')]'.</msg>
-<status status="PASS" starttime="20250813 15:15:26.196" endtime="20250813 15:15:26.411"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_TIP4_DESC_START}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:15:26.623" level="INFO">Current page contains element '//*[starts-with(normalize-space(),'After grading, generate test analysis reports')]'.</msg>
-<status status="PASS" starttime="20250813 15:15:26.411" endtime="20250813 15:15:26.623"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:15:26.981" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-55.png"&gt;&lt;img src="selenium-screenshot-55.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:15:26.624" endtime="20250813 15:15:26.981"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="PASS" starttime="20250813 15:15:25.772" endtime="20250813 15:15:26.981"/>
-</test>
-<test id="s1-t16" name="QZ16 - Nhãn nhóm menu trái đúng chữ trong ảnh" line="165">
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_GROUP_TONGQUAN}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20250813 15:15:27.737" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-56.png"&gt;&lt;img src="selenium-screenshot-56.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20250813 15:15:27.737" level="FAIL">Page should have contained element '//*[normalize-space()='TỔNG QUAN']' but did not.</msg>
-<status status="FAIL" starttime="20250813 15:15:26.983" endtime="20250813 15:15:27.738"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_GROUP_QLHT}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20250813 15:15:27.738" endtime="20250813 15:15:27.738"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_GROUP_NHC}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20250813 15:15:27.738" endtime="20250813 15:15:27.738"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_GROUP_DANHGIA}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20250813 15:15:27.738" endtime="20250813 15:15:27.738"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${LOC_MENU_BAI_KIEM_TRA}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20250813 15:15:27.738" endtime="20250813 15:15:27.738"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20250813 15:15:28.069" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-57.png"&gt;&lt;img src="selenium-screenshot-57.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20250813 15:15:27.739" endtime="20250813 15:15:28.069"/>
-</kw>
-<timeout value="3 minutes"/>
-<status status="FAIL" starttime="20250813 15:15:26.982" endtime="20250813 15:15:28.069">Page should have contained element '//*[normalize-space()='TỔNG QUAN']' but did not.</status>
-</test>
-<kw name="Close All Browsers" library="SeleniumLibrary" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20250813 15:15:28.071" endtime="20250813 15:15:30.470"/>
+<status status="PASS" start="2025-08-14T18:27:43.828253" elapsed="7.064355"/>
 </kw>
-<status status="FAIL" starttime="20250813 15:13:49.466" endtime="20250813 15:15:30.470"/>
+<doc>E2E Question Bank (/questionbank/) | TC-QB01 → TC-QB15</doc>
+<status status="PASS" start="2025-08-14T18:27:30.059396" elapsed="20.833212"/>
 </suite>
 <statistics>
 <total>
-<stat pass="7" fail="9" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="7" fail="9" skip="0" id="s1" name="Quiz Tests">Quiz Tests</stat>
+<stat name="QuestionBank" id="s1" pass="1" fail="0" skip="0">QuestionBank</stat>
 </suite>
 </statistics>
 <errors>

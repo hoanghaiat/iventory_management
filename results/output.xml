@@ -1,474 +1,1106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.2 on win32)" generated="2025-08-13T14:36:45.473889" rpa="false" schemaversion="5">
-<suite id="s1" name="Quiz Tests" source="D:\JAV siu\iventory_management\KienTruc_University\LecturerPage\Test\quiz_tests.robot">
-<kw name="Setup And Login" type="SETUP">
+<robot generator="Robot 7.3.2 (Python 3.9.13 on win32)" generated="2025-08-18T16:10:46.278476" rpa="false" schemaversion="5">
+<suite id="s1" name="Clo" source="D:\JAV siu\iventory_management\KienTruc_University\LecturerPage\Test\clo.robot">
+<kw name="Login As Lecturer" owner="core" type="SETUP">
+<kw name="Set Selenium Options" owner="core">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-18T16:10:46.469917" level="INFO">${opt} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001AB60237580&gt;</msg>
+<var>${opt}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-18T16:10:46.469917" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${HEADLESS}</arg>
+<arg>Call Method</arg>
+<arg>${opt}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-18T16:10:46.469917" elapsed="0.000996"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${opt}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-08-18T16:10:46.470913" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${opt}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-08-18T16:10:46.470913" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${opt}</value>
+<status status="PASS" start="2025-08-18T16:10:46.470913" elapsed="0.000000"/>
+</return>
+<msg time="2025-08-18T16:10:46.470913" level="INFO">${opt} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001AB60237580&gt;</msg>
+<var>${opt}</var>
+<status status="PASS" start="2025-08-18T16:10:46.468920" elapsed="0.001993"/>
+</kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:36:45.791217" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/en/accounts/login/?next=/en/'.</msg>
-<arg>${LOGIN_URL}</arg>
+<msg time="2025-08-18T16:10:46.471910" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
 <arg>${BROWSER}</arg>
+<arg>options=${opt}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-13T14:36:45.791217" elapsed="5.704890"/>
+<status status="PASS" start="2025-08-18T16:10:46.470913" elapsed="1.531666"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-08-13T14:36:51.497105" elapsed="0.033741"/>
+<status status="PASS" start="2025-08-18T16:10:48.002579" elapsed="0.024747"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_USER}</arg>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:10:48.028328" level="INFO">Opening url 'https://demo-clo.minds.vn/en/accounts/login/?next=/en/'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-18T16:10:48.028328" elapsed="3.893428"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//input[@name='username']</arg>
 <arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-13T14:36:51.530846" elapsed="0.069080"/>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:10:51.922751" elapsed="0.018007"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:36:51.602917" level="INFO">Typing text 'lecturer1' into text field '//input[@name="username" or @type="text"]'.</msg>
-<arg>${LOC_USER}</arg>
+<msg time="2025-08-18T16:10:51.941754" level="INFO">Typing text 'lecturer1' into text field 'xpath=//input[@name='username']'.</msg>
+<arg>xpath=//input[@name='username']</arg>
 <arg>${USERNAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T14:36:51.600919" elapsed="0.249550"/>
+<status status="PASS" start="2025-08-18T16:10:51.940758" elapsed="0.055960"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:36:51.850469" level="INFO">Typing text 'demolecturer' into text field '//input[@name="password" or @type="password"]'.</msg>
-<arg>${LOC_PASS}</arg>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:10:51.996718" level="INFO">Typing password into text field 'xpath=//input[@name='password']'.</msg>
+<msg time="2025-08-18T16:10:52.018684" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[@name='password']</arg>
 <arg>${PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T14:36:51.850469" elapsed="0.074840"/>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-18T16:10:51.996718" elapsed="0.046529"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:36:51.925309" level="INFO">Clicking button '//button[@type="submit" or @id="login-submit"]'.</msg>
-<arg>${LOC_SUBMIT}</arg>
+<msg time="2025-08-18T16:10:52.044244" level="INFO">Clicking button 'xpath=(//button[@type='submit']|//button)[1]'.</msg>
+<arg>xpath=(//button[@type='submit']|//button)[1]</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T14:36:51.925309" elapsed="2.997492"/>
+<status status="PASS" start="2025-08-18T16:10:52.044244" elapsed="0.049281"/>
 </kw>
-<kw name="Wait For Login Landed">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
-<arg>/en/</arg>
-<arg>10s</arg>
-<doc>Waits until the current URL contains ``expected``.</doc>
-<status status="PASS" start="2025-08-13T14:36:54.922801" elapsed="0.007160"/>
-</kw>
-<msg time="2025-08-13T14:36:54.930961" level="INFO">${ok1} = True</msg>
-<var>${ok1}</var>
-<arg>Wait Until Location Contains</arg>
-<arg>/en/</arg>
-<arg>10s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:36:54.922801" elapsed="0.008160"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_MENU_TESTS}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-13T14:36:54.930961" elapsed="0.029236"/>
-</kw>
-<msg time="2025-08-13T14:36:54.960197" level="INFO">${ok2} = True</msg>
-<var>${ok2}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${LOC_MENU_TESTS}</arg>
-<arg>10s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:36:54.930961" elapsed="0.029236"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:36:55.120306" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-13T14:36:55.120306" level="FAIL">Page should have contained element '//a[contains(@href,"logout") or contains(.,"Logout")]' but did not.</msg>
-<arg>${LOC_LOGOUT}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="FAIL" start="2025-08-13T14:36:54.961198" elapsed="0.162102">Page should have contained element '//a[contains(@href,"logout") or contains(.,"Logout")]' but did not.</status>
-</kw>
-<msg time="2025-08-13T14:36:55.124299" level="INFO">${ok3} = False</msg>
-<var>${ok3}</var>
-<arg>Page Should Contain Element</arg>
-<arg>${LOC_LOGOUT}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:36:54.960197" elapsed="0.164102"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${ok1} and not ${ok2} and not ${ok3}</arg>
-<arg>Handle Login Failure</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-13T14:36:55.124299" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2025-08-13T14:36:54.922801" elapsed="0.201498"/>
-</kw>
-<kw name="Hide Django Debug Toolbar If Present">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:36:55.132299" level="INFO">Current page contains element '//*[@id="djDebug"]'.</msg>
-<arg>//*[@id="djDebug"]</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-08-13T14:36:55.124299" elapsed="0.008000"/>
-</kw>
-<msg time="2025-08-13T14:36:55.132299" level="INFO">${has} = True</msg>
-<var>${has}</var>
-<arg>Page Should Contain Element</arg>
-<arg>//*[@id="djDebug"]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:36:55.124299" elapsed="0.008000"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:36:55.133299" level="INFO">Executing JavaScript:
-const e=document.getElementById("djDebug"); if(e){e.style.display='none';}
+<msg time="2025-08-18T16:10:52.094521" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
 Without any arguments.</msg>
-<arg>const e=document.getElementById("djDebug"); if(e){e.style.display='none';}</arg>
+<arg>return document.readyState === 'complete'</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-08-13T14:36:55.132299" elapsed="0.007045"/>
+<status status="PASS" start="2025-08-18T16:10:52.094521" elapsed="5.009312"/>
 </kw>
-<arg>${has}</arg>
-<arg>Execute JavaScript</arg>
-<arg>const e=document.getElementById("djDebug"); if(e){e.style.display='none';}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-13T14:36:55.132299" elapsed="0.007045"/>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-18T16:10:52.094521" elapsed="5.009312"/>
 </kw>
-<status status="PASS" start="2025-08-13T14:36:55.124299" elapsed="0.015045"/>
+<status status="PASS" start="2025-08-18T16:10:52.093525" elapsed="5.010308"/>
 </kw>
-<status status="PASS" start="2025-08-13T14:36:45.790217" elapsed="9.349127"/>
+<kw name="Remove Overlays" owner="core">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:10:57.107366" level="INFO">Executing JavaScript:
+(function(){try{var ids=['djDebug']; ids.forEach(function(i){var e=document.getElementById(i); if(e) e.remove();});var cls=['djdt','djdt-scroll','modal-backdrop','offcanvas-backdrop','overlay','toast','fade','show','TemplatesPanel'];cls.forEach(function(c){document.querySelectorAll('.'+c).forEach(function(el){el.remove();});});document.querySelectorAll('a.TemplatesPanel').forEach(function(el){el.remove();});document.body.style.pointerEvents='auto';}catch(e){}})();
+Without any arguments.</msg>
+<arg>(function(){</arg>
+<arg>try{</arg>
+<arg>var ids=['djDebug']; ids.forEach(function(i){var e=document.getElementById(i); if(e) e.remove();});</arg>
+<arg>var cls=['djdt','djdt-scroll','modal-backdrop','offcanvas-backdrop','overlay','toast','fade','show','TemplatesPanel'];</arg>
+<arg>cls.forEach(function(c){document.querySelectorAll('.'+c).forEach(function(el){el.remove();});});</arg>
+<arg>document.querySelectorAll('a.TemplatesPanel').forEach(function(el){el.remove();});</arg>
+<arg>document.body.style.pointerEvents='auto';</arg>
+<arg>}catch(e){}</arg>
+<arg>})();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:10:57.106368" elapsed="0.017089"/>
 </kw>
-<test id="s1-t1" name="EX01 - Vào trang Quiz/Tests và chờ danh sách" line="118">
-<kw name="Go To Quiz List">
+<status status="PASS" start="2025-08-18T16:10:57.105337" elapsed="0.019121"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:10:57.126959" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:10:57.126959" elapsed="0.016634"/>
+</kw>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-18T16:10:57.125456" elapsed="0.018137"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:10:46.468920" elapsed="10.674673"/>
+</kw>
+<test id="s1-t1" name="CLO-01 - Mở trang (smoke)" line="12">
+<kw name="Open CLO Page" owner="CLO">
+<kw name="Open CLO By URL" owner="CLO">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:10:57.155115" level="INFO">Opening url 'https://demo-clo.minds.vn/en/reports/clo/'</msg>
+<arg>${URL_CLO}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-18T16:10:57.149135" elapsed="2.684423"/>
+</kw>
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:10:59.835060" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:10:59.835060" elapsed="0.003536"/>
+</kw>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-18T16:10:59.833558" elapsed="0.005038"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:10:59.833558" elapsed="0.005038"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:10:57.148133" elapsed="2.691455"/>
+</kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:36:55.144343" level="INFO">Clicking element '//a[contains(@href,"/tests") or contains(@href,"/assessments") or contains(.,"Bài kiểm tra") or contains(.,"Tests")]'.</msg>
-<arg>${LOC_MENU_TESTS}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T14:36:55.141343" elapsed="0.797984"/>
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:10:59.839588" elapsed="0.010861"/>
 </kw>
-<msg time="2025-08-13T14:36:55.939327" level="INFO">${clicked} = True</msg>
-<var>${clicked}</var>
-<arg>Click Element</arg>
-<arg>${LOC_MENU_TESTS}</arg>
+<status status="PASS" start="2025-08-18T16:10:59.839588" elapsed="0.010861"/>
+</kw>
+<msg time="2025-08-18T16:10:59.850449" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Expect CLO Page Loaded</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:36:55.141343" elapsed="0.797984"/>
+<status status="PASS" start="2025-08-18T16:10:59.839588" elapsed="0.010861"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${clicked}</arg>
-<arg>Go To</arg>
-<arg>${QUIZ_LIST_URL}</arg>
+<arg>not ${ok}</arg>
+<arg>Open CLO By Menu</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-13T14:36:55.939327" elapsed="0.000999"/>
+<status status="PASS" start="2025-08-18T16:10:59.851446" elapsed="0.000000"/>
 </kw>
-<kw name="Wait For Any List Container">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Expect CLO Page Loaded" owner="CLO">
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:37:06.185545" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-13T14:37:06.186547" level="FAIL">Element '//table[contains(@class,"table") or @role="table"]' did not appear in 10 seconds.</msg>
-<arg>${LOC_TABLE}</arg>
+<arg>${CLO_HDR}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="FAIL" start="2025-08-13T14:36:55.941327" elapsed="10.247219">Element '//table[contains(@class,"table") or @role="table"]' did not appear in 10 seconds.</status>
+<status status="PASS" start="2025-08-18T16:10:59.851446" elapsed="0.005787"/>
 </kw>
-<msg time="2025-08-13T14:37:06.188546" level="INFO">${ok1} = False</msg>
-<var>${ok1}</var>
-<arg>Wait Until Page Contains Element</arg>
-<arg>${LOC_TABLE}</arg>
-<arg>10s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:36:55.941327" elapsed="10.247219"/>
+<status status="PASS" start="2025-08-18T16:10:59.851446" elapsed="0.005787"/>
 </kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:37:16.397006" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-13T14:37:16.398005" level="FAIL">Element '//ul[contains(@class,"list") or @role="list"] | //div[contains(@class,"list")]' did not appear in 10 seconds.</msg>
-<arg>${LOC_LIST}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="FAIL" start="2025-08-13T14:37:06.188546" elapsed="10.209459">Element '//ul[contains(@class,"list") or @role="list"] | //div[contains(@class,"list")]' did not appear in 10 seconds.</status>
-</kw>
-<msg time="2025-08-13T14:37:16.398005" level="INFO">${ok2} = False</msg>
-<var>${ok2}</var>
-<arg>Wait Until Page Contains Element</arg>
-<arg>${LOC_LIST}</arg>
-<arg>10s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:37:06.188546" elapsed="10.209459"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${LOC_CARDS}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-08-13T14:37:16.399005" elapsed="0.008002"/>
-</kw>
-<msg time="2025-08-13T14:37:16.408006" level="INFO">${ok3} = True</msg>
-<var>${ok3}</var>
-<arg>Wait Until Page Contains Element</arg>
-<arg>${LOC_CARDS}</arg>
-<arg>10s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:37:16.399005" elapsed="0.009001"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${LOC_GRID}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-08-13T14:37:16.408006" elapsed="0.009239"/>
-</kw>
-<msg time="2025-08-13T14:37:16.417245" level="INFO">${ok4} = True</msg>
-<var>${ok4}</var>
-<arg>Wait Until Page Contains Element</arg>
-<arg>${LOC_GRID}</arg>
-<arg>10s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:37:16.408006" elapsed="0.009239"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Return From Keyword" owner="BuiltIn">
-<msg time="2025-08-13T14:37:16.417245" level="INFO">Returning from the enclosing user keyword.</msg>
-<doc>Returns from the enclosing user keyword.</doc>
-<status status="PASS" start="2025-08-13T14:37:16.417245" elapsed="0.000999"/>
-</kw>
-<arg>${ok1} or ${ok2} or ${ok3} or ${ok4}</arg>
-<arg>Return From Keyword</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-13T14:37:16.417245" elapsed="0.000999"/>
-</kw>
-<kw name="Try Switch To Inner Iframe And Wait List">
-<status status="NOT RUN" start="2025-08-13T14:37:16.418244" elapsed="0.000000"/>
-</kw>
-<kw name="Return From Keyword" owner="BuiltIn">
-<doc>Returns from the enclosing user keyword.</doc>
-<status status="NOT RUN" start="2025-08-13T14:37:16.418244" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2025-08-13T14:36:55.940326" elapsed="20.477918"/>
-</kw>
-<status status="PASS" start="2025-08-13T14:36:55.141343" elapsed="21.276901"/>
+<status status="PASS" start="2025-08-18T16:10:57.146140" elapsed="2.711093"/>
 </kw>
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2025-08-13T14:37:16.545957" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-18T16:11:00.115067" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6280.png"&gt;&lt;img src="selenium-screenshot-6280.png" width="800px"&gt;&lt;/a&gt;</msg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-13T14:37:16.418244" elapsed="0.127713"/>
+<status status="PASS" start="2025-08-18T16:10:59.858233" elapsed="0.256834"/>
 </kw>
 <timeout value="3 minutes"/>
-<status status="PASS" start="2025-08-13T14:36:55.140343" elapsed="21.406614"/>
+<status status="PASS" start="2025-08-18T16:10:57.143593" elapsed="2.972717"/>
 </test>
-<test id="s1-t2" name="EX02 - Lấy tiêu đề item từ UI" line="122">
-<kw name="Go To Quiz List">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:37:16.548957" level="INFO">Clicking element '//a[contains(@href,"/tests") or contains(@href,"/assessments") or contains(.,"Bài kiểm tra") or contains(.,"Tests")]'.</msg>
-<arg>${LOC_MENU_TESTS}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T14:37:16.548957" elapsed="0.858551"/>
+<test id="s1-t2" name="CLO-02 - Mở trực tiếp URL" line="15">
+<kw name="Open CLO Page" owner="CLO">
+<kw name="Open CLO By URL" owner="CLO">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:00.119621" level="INFO">Opening url 'https://demo-clo.minds.vn/en/reports/clo/'</msg>
+<arg>${URL_CLO}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-18T16:11:00.118625" elapsed="0.642251"/>
 </kw>
-<msg time="2025-08-13T14:37:17.408510" level="INFO">${clicked} = True</msg>
-<var>${clicked}</var>
-<arg>Click Element</arg>
-<arg>${LOC_MENU_TESTS}</arg>
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:00.767744" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:11:00.764248" elapsed="0.029933"/>
+</kw>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-18T16:11:00.763247" elapsed="0.030934"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:00.762247" elapsed="0.032930"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:00.117625" elapsed="0.677552"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:00.798678" elapsed="0.017006"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:00.797678" elapsed="0.018006"/>
+</kw>
+<msg time="2025-08-18T16:11:00.816687" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Expect CLO Page Loaded</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:37:16.548957" elapsed="0.859553"/>
+<status status="PASS" start="2025-08-18T16:11:00.795680" elapsed="0.021007"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${clicked}</arg>
-<arg>Go To</arg>
-<arg>${QUIZ_LIST_URL}</arg>
+<arg>not ${ok}</arg>
+<arg>Open CLO By Menu</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-13T14:37:17.408510" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-18T16:11:00.817681" elapsed="0.000999"/>
 </kw>
-<kw name="Wait For Any List Container">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Expect CLO Page Loaded" owner="CLO">
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:37:27.619694" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-13T14:37:27.619694" level="FAIL">Element '//table[contains(@class,"table") or @role="table"]' did not appear in 10 seconds.</msg>
-<arg>${LOC_TABLE}</arg>
+<arg>${CLO_HDR}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="FAIL" start="2025-08-13T14:37:17.408510" elapsed="10.212182">Element '//table[contains(@class,"table") or @role="table"]' did not appear in 10 seconds.</status>
+<status status="PASS" start="2025-08-18T16:11:00.818680" elapsed="0.015510"/>
 </kw>
-<msg time="2025-08-13T14:37:27.620692" level="INFO">${ok1} = False</msg>
-<var>${ok1}</var>
-<arg>Wait Until Page Contains Element</arg>
-<arg>${LOC_TABLE}</arg>
-<arg>10s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:37:17.408510" elapsed="10.212182"/>
+<status status="PASS" start="2025-08-18T16:11:00.818680" elapsed="0.016508"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:00.117625" elapsed="0.717563"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-18T16:11:01.083357" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6281.png"&gt;&lt;img src="selenium-screenshot-6281.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-18T16:11:00.836692" elapsed="0.246665"/>
+</kw>
+<timeout value="3 minutes"/>
+<status status="PASS" start="2025-08-18T16:11:00.116310" elapsed="0.968043"/>
+</test>
+<test id="s1-t3" name="CLO-03 - Ô tìm kiếm hiển thị và nhập được" line="18">
+<kw name="Open CLO Page" owner="CLO">
+<kw name="Open CLO By URL" owner="CLO">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:01.086852" level="INFO">Opening url 'https://demo-clo.minds.vn/en/reports/clo/'</msg>
+<arg>${URL_CLO}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-18T16:11:01.086852" elapsed="0.570884"/>
+</kw>
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:01.659726" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:11:01.658727" elapsed="0.009459"/>
+</kw>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-18T16:11:01.658727" elapsed="0.009459"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:01.657736" elapsed="0.010450"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:01.086852" elapsed="0.581334"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Expect CLO Page Loaded" owner="CLO">
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:37:37.804250" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-13T14:37:37.804250" level="FAIL">Element '//ul[contains(@class,"list") or @role="list"] | //div[contains(@class,"list")]' did not appear in 10 seconds.</msg>
-<arg>${LOC_LIST}</arg>
+<arg>${CLO_HDR}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="FAIL" start="2025-08-13T14:37:27.620692" elapsed="10.184558">Element '//ul[contains(@class,"list") or @role="list"] | //div[contains(@class,"list")]' did not appear in 10 seconds.</status>
+<status status="PASS" start="2025-08-18T16:11:01.669185" elapsed="0.013463"/>
 </kw>
-<msg time="2025-08-13T14:37:37.805250" level="INFO">${ok2} = False</msg>
-<var>${ok2}</var>
-<arg>Wait Until Page Contains Element</arg>
-<arg>${LOC_LIST}</arg>
-<arg>10s</arg>
+<status status="PASS" start="2025-08-18T16:11:01.669185" elapsed="0.014459"/>
+</kw>
+<msg time="2025-08-18T16:11:01.683644" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Expect CLO Page Loaded</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:37:27.620692" elapsed="10.184558"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${LOC_CARDS}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.805250" elapsed="0.004999"/>
-</kw>
-<msg time="2025-08-13T14:37:37.811250" level="INFO">${ok3} = True</msg>
-<var>${ok3}</var>
-<arg>Wait Until Page Contains Element</arg>
-<arg>${LOC_CARDS}</arg>
-<arg>10s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.805250" elapsed="0.006000"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${LOC_GRID}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.811250" elapsed="0.005154"/>
-</kw>
-<msg time="2025-08-13T14:37:37.816404" level="INFO">${ok4} = True</msg>
-<var>${ok4}</var>
-<arg>Wait Until Page Contains Element</arg>
-<arg>${LOC_GRID}</arg>
-<arg>10s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.811250" elapsed="0.005154"/>
+<status status="PASS" start="2025-08-18T16:11:01.669185" elapsed="0.014459"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Return From Keyword" owner="BuiltIn">
-<msg time="2025-08-13T14:37:37.816404" level="INFO">Returning from the enclosing user keyword.</msg>
-<doc>Returns from the enclosing user keyword.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.816404" elapsed="0.000000"/>
-</kw>
-<arg>${ok1} or ${ok2} or ${ok3} or ${ok4}</arg>
-<arg>Return From Keyword</arg>
+<arg>not ${ok}</arg>
+<arg>Open CLO By Menu</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.816404" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-18T16:11:01.683644" elapsed="0.001504"/>
 </kw>
-<kw name="Try Switch To Inner Iframe And Wait List">
-<status status="NOT RUN" start="2025-08-13T14:37:37.816404" elapsed="0.000000"/>
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:01.686182" elapsed="0.008168"/>
 </kw>
-<kw name="Return From Keyword" owner="BuiltIn">
-<doc>Returns from the enclosing user keyword.</doc>
-<status status="NOT RUN" start="2025-08-13T14:37:37.816404" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-18T16:11:01.685148" elapsed="0.010197"/>
 </kw>
-<status status="PASS" start="2025-08-13T14:37:17.408510" elapsed="20.408894"/>
+<status status="PASS" start="2025-08-18T16:11:01.085853" elapsed="0.609492"/>
 </kw>
-<status status="PASS" start="2025-08-13T14:37:16.547961" elapsed="21.269443"/>
+<kw name="Search CLO Reports" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:07.126856" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6282.png"&gt;&lt;img src="selenium-screenshot-6282.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-18T16:11:07.126856" level="FAIL">Element 'xpath=//input[@type='search' or @name='q']' did not appear in 5 seconds.</msg>
+<arg>${CLO_SEARCH_ANY}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2025-08-18T16:11:01.696845" elapsed="5.432209">Element 'xpath=//input[@type='search' or @name='q']' did not appear in 5 seconds.</status>
 </kw>
-<kw name="Get Titles From UI">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${CLO_SEARCH_ANY}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-18T16:11:07.129054" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value" owner="SeleniumLibrary">
+<var>${val}</var>
+<arg>${CLO_SEARCH_ANY}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-18T16:11:07.129054" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${val}</arg>
+<arg>${text}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2025-08-18T16:11:07.129054" elapsed="0.000000"/>
+</kw>
+<arg>abc</arg>
+<status status="FAIL" start="2025-08-18T16:11:01.695847" elapsed="5.434204">Element 'xpath=//input[@type='search' or @name='q']' did not appear in 5 seconds.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-18T16:11:07.348460" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6283.png"&gt;&lt;img src="selenium-screenshot-6283.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-18T16:11:07.130051" elapsed="0.218409"/>
+</kw>
+<timeout value="3 minutes"/>
+<status status="FAIL" start="2025-08-18T16:11:01.085350" elapsed="6.263110">Element 'xpath=//input[@type='search' or @name='q']' did not appear in 5 seconds.</status>
+</test>
+<test id="s1-t4" name="CLO-04 - Banner rỗng HOẶC thấy section trang" line="22">
+<kw name="Open CLO Page" owner="CLO">
+<kw name="Open CLO By URL" owner="CLO">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:07.351450" level="INFO">Opening url 'https://demo-clo.minds.vn/en/reports/clo/'</msg>
+<arg>${URL_CLO}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-18T16:11:07.350454" elapsed="0.596769"/>
+</kw>
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:07.951629" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:11:07.949635" elapsed="0.013518"/>
+</kw>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-18T16:11:07.948639" elapsed="0.014514"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:07.947223" elapsed="0.015930"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:07.350454" elapsed="0.612699"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:07.967165" elapsed="0.017970"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:07.966168" elapsed="0.018967"/>
+</kw>
+<msg time="2025-08-18T16:11:07.986172" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Expect CLO Page Loaded</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-18T16:11:07.964627" elapsed="0.021545"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${ok}</arg>
+<arg>Open CLO By Menu</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-18T16:11:07.986172" elapsed="0.001003"/>
+</kw>
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:07.988544" elapsed="0.013668"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:07.987175" elapsed="0.015037"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:07.350454" elapsed="0.651758"/>
+</kw>
+<kw name="Expect Empty Banner Or Page Section" owner="CLO">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:08.345088" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6284.png"&gt;&lt;img src="selenium-screenshot-6284.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-18T16:11:08.346651" level="FAIL">Page should have contained element 'xpath=//div[contains(@class,'alert') and contains(.,'No CLO')]' but did not.</msg>
+<arg>${CLO_EMPTY_BANNER}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="FAIL" start="2025-08-18T16:11:08.003207" elapsed="0.344531">Page should have contained element 'xpath=//div[contains(@class,'alert') and contains(.,'No CLO')]' but did not.</status>
+</kw>
+<status status="FAIL" start="2025-08-18T16:11:08.003207" elapsed="0.344531">Page should have contained element 'xpath=//div[contains(@class,'alert') and contains(.,'No CLO')]' but did not.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-18T16:11:08.568579" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6285.png"&gt;&lt;img src="selenium-screenshot-6285.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-18T16:11:08.348736" elapsed="0.219843"/>
+</kw>
+<timeout value="3 minutes"/>
+<status status="FAIL" start="2025-08-18T16:11:07.349457" elapsed="1.219122">Page should have contained element 'xpath=//div[contains(@class,'alert') and contains(.,'No CLO')]' but did not.</status>
+</test>
+<test id="s1-t5" name="CLO-05 - Nút My Classes điều hướng đúng" line="26">
+<kw name="Open CLO Page" owner="CLO">
+<kw name="Open CLO By URL" owner="CLO">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:08.570571" level="INFO">Opening url 'https://demo-clo.minds.vn/en/reports/clo/'</msg>
+<arg>${URL_CLO}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-18T16:11:08.570571" elapsed="0.537093"/>
+</kw>
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:09.108661" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:11:09.107664" elapsed="0.005979"/>
+</kw>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-18T16:11:09.107664" elapsed="0.005979"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:09.107664" elapsed="0.005979"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:08.569575" elapsed="0.544068"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:09.115146" elapsed="0.012008"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:09.115146" elapsed="0.012008"/>
+</kw>
+<msg time="2025-08-18T16:11:09.128161" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Expect CLO Page Loaded</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-18T16:11:09.113643" elapsed="0.014518"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${ok}</arg>
+<arg>Open CLO By Menu</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-18T16:11:09.128161" elapsed="0.000000"/>
+</kw>
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:09.129151" elapsed="0.004988"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:09.128161" elapsed="0.006972"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:08.569575" elapsed="0.565558"/>
+</kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:37:37.825404" level="INFO">Current page contains element '(//table[contains(@class,"table") or @role="table"])//tr[position()&gt;1]//td[1]//a | (//ul[contains(@class,"list") or @role="list"] | //div[contains(@class,"list")])//li//a | (//div[contains(@class,"card")] | //section[contains(@class,"card")])//a | (//div[contains(@class,"grid")] | //div[contains(@class,"row") and .//div[contains(@class,"col")]])//a'.</msg>
-<arg>${LOC_ROW_LINKS}</arg>
+<msg time="2025-08-18T16:11:09.390864" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6286.png"&gt;&lt;img src="selenium-screenshot-6286.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-18T16:11:09.391861" level="FAIL">Page should have contained element 'xpath=//a[contains(.,'My Classes')]' but did not.</msg>
+<arg>${CLO_MY_CLASSES}</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.817404" elapsed="0.008999"/>
+<status status="FAIL" start="2025-08-18T16:11:09.135637" elapsed="0.256224">Page should have contained element 'xpath=//a[contains(.,'My Classes')]' but did not.</status>
 </kw>
-<msg time="2025-08-13T14:37:37.826403" level="INFO">${has} = True</msg>
-<var>${has}</var>
+<msg time="2025-08-18T16:11:09.391861" level="INFO">${has_btn} = False</msg>
+<var>${has_btn}</var>
 <arg>Page Should Contain Element</arg>
-<arg>${LOC_ROW_LINKS}</arg>
+<arg>${CLO_MY_CLASSES}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.817404" elapsed="0.008999"/>
+<status status="PASS" start="2025-08-18T16:11:09.135133" elapsed="0.256728"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${has}</arg>
-<arg>Log Url And Title And Html</arg>
+<arg>${has_btn}</arg>
+<arg>Safe Click</arg>
+<arg>${CLO_MY_CLASSES}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.826403" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-18T16:11:09.391861" elapsed="0.000996"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${has}</arg>
-<arg>Return From Keyword</arg>
-<arg>@{EMPTY}</arg>
+<arg>${has_btn}</arg>
+<arg>Wait Until Document Ready</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.826403" elapsed="0.000000"/>
-</kw>
-<kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:37:37.831565" level="INFO">${els} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="18dc16c4ca0978367d809b2c5dd667f7", element="f.39DE075AF89FEB9267B7C5ED9D983A53.d.E8009987432A3CC0436FC6DC19EE8E8F.e.122")&gt;, &lt;selenium.webdri...</msg>
-<var>${els}</var>
-<arg>${LOC_ROW_LINKS}</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.826403" elapsed="0.005162"/>
-</kw>
-<kw name="Create List" owner="BuiltIn">
-<msg time="2025-08-13T14:37:37.832565" level="INFO">${titles} = []</msg>
-<var>${titles}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.831565" elapsed="0.001000"/>
-</kw>
-<for flavor="IN">
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-08-13T14:37:37.843660" level="INFO">${t} = All</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.832565" elapsed="0.011095"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-13T14:37:37.845659" level="FAIL">Evaluating expression 'All.strip()' failed: NameError: name 'All' is not defined nor importable as module</msg>
-<var>${t}</var>
-<arg>${t}.strip()</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="FAIL" start="2025-08-13T14:37:37.843660" elapsed="0.001999">Evaluating expression 'All.strip()' failed: NameError: name 'All' is not defined nor importable as module</status>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${titles}</arg>
-<arg>${t}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="NOT RUN" start="2025-08-13T14:37:37.845659" elapsed="0.000000"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="18dc16c4ca0978367d809b2c5dd667f7", element="f.39DE075AF89FEB9267B7C5ED9D983A53.d.E8009987432A3CC0436FC6DC19EE8E8F.e.122")&gt;</var>
-<status status="FAIL" start="2025-08-13T14:37:37.832565" elapsed="0.013094">Evaluating expression 'All.strip()' failed: NameError: name 'All' is not defined nor importable as module</status>
-</iter>
-<var>${el}</var>
-<value>@{els}</value>
-<status status="FAIL" start="2025-08-13T14:37:37.832565" elapsed="0.013094">Evaluating expression 'All.strip()' failed: NameError: name 'All' is not defined nor importable as module</status>
-</for>
-<kw name="Return From Keyword" owner="BuiltIn">
-<arg>${titles}</arg>
-<doc>Returns from the enclosing user keyword.</doc>
-<status status="NOT RUN" start="2025-08-13T14:37:37.845659" elapsed="0.000000"/>
-</kw>
-<var>${ui_titles}</var>
-<status status="FAIL" start="2025-08-13T14:37:37.817404" elapsed="0.028255">Evaluating expression 'All.strip()' failed: NameError: name 'All' is not defined nor importable as module</status>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${len(${ui_titles})}==0</arg>
-<arg>Skip</arg>
-<arg>Không có dữ liệu hoặc locator chưa khớp UI</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-08-13T14:37:37.846658" elapsed="0.000000"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>UI titles: ${ui_titles}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-08-13T14:37:37.846658" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-18T16:11:09.392857" elapsed="0.000996"/>
 </kw>
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2025-08-13T14:37:37.974424" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-18T16:11:09.603392" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6287.png"&gt;&lt;img src="selenium-screenshot-6287.png" width="800px"&gt;&lt;/a&gt;</msg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.846658" elapsed="0.128767"/>
+<status status="PASS" start="2025-08-18T16:11:09.393853" elapsed="0.210536"/>
 </kw>
 <timeout value="3 minutes"/>
-<status status="FAIL" start="2025-08-13T14:37:16.547961" elapsed="21.427464">Evaluating expression 'All.strip()' failed: NameError: name 'All' is not defined nor importable as module</status>
+<status status="PASS" start="2025-08-18T16:11:08.569575" elapsed="1.034814"/>
+</test>
+<test id="s1-t6" name="CLO-06 - 3 card hiển thị" line="32">
+<kw name="Open CLO Page" owner="CLO">
+<kw name="Open CLO By URL" owner="CLO">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:09.606471" level="INFO">Opening url 'https://demo-clo.minds.vn/en/reports/clo/'</msg>
+<arg>${URL_CLO}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-18T16:11:09.606471" elapsed="0.649580"/>
+</kw>
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:10.258508" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:11:10.257511" elapsed="0.005978"/>
+</kw>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-18T16:11:10.257511" elapsed="0.005978"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:10.256051" elapsed="0.008438"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:09.605385" elapsed="0.659104"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:10.265989" elapsed="0.009497"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:10.265486" elapsed="0.010000"/>
+</kw>
+<msg time="2025-08-18T16:11:10.276513" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Expect CLO Page Loaded</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-18T16:11:10.264489" elapsed="0.012024"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${ok}</arg>
+<arg>Open CLO By Menu</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-18T16:11:10.277515" elapsed="0.000000"/>
+</kw>
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:10.279515" elapsed="0.005981"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:10.278519" elapsed="0.006977"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:09.605385" elapsed="0.680111"/>
+</kw>
+<kw name="Has Any Card" owner="CLO">
+<return>
+<value>False</value>
+<status status="PASS" start="2025-08-18T16:11:10.285496" elapsed="0.000000"/>
+</return>
+<status status="PASS" start="2025-08-18T16:11:10.285496" elapsed="0.000000"/>
+</kw>
+<kw name="Expect All Cards Visible" owner="CLO">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:10.501670" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6288.png"&gt;&lt;img src="selenium-screenshot-6288.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-18T16:11:10.502618" level="FAIL">Page should have contained element 'xpath=//*[contains(.,'Performance Tracking')]' but did not.</msg>
+<arg>${CARD_TRACKING}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="FAIL" start="2025-08-18T16:11:10.286892" elapsed="0.215726">Page should have contained element 'xpath=//*[contains(.,'Performance Tracking')]' but did not.</status>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>${CARD_PLO}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2025-08-18T16:11:10.502618" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>${CARD_GAP}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2025-08-18T16:11:10.502618" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-08-18T16:11:10.285496" elapsed="0.217122">Page should have contained element 'xpath=//*[contains(.,'Performance Tracking')]' but did not.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-18T16:11:10.708403" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6289.png"&gt;&lt;img src="selenium-screenshot-6289.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-18T16:11:10.503622" elapsed="0.205778"/>
+</kw>
+<timeout value="3 minutes"/>
+<status status="FAIL" start="2025-08-18T16:11:09.605385" elapsed="1.104015">Page should have contained element 'xpath=//*[contains(.,'Performance Tracking')]' but did not.</status>
+</test>
+<test id="s1-t7" name="CLO-07 - Click Performance Tracking" line="37">
+<kw name="Open CLO Page" owner="CLO">
+<kw name="Open CLO By URL" owner="CLO">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:10.711440" level="INFO">Opening url 'https://demo-clo.minds.vn/en/reports/clo/'</msg>
+<arg>${URL_CLO}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-18T16:11:10.711440" elapsed="0.772180"/>
+</kw>
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:11.485124" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:11:11.485124" elapsed="0.005022"/>
+</kw>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-18T16:11:11.483620" elapsed="0.006526"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:11.483620" elapsed="0.007525"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:10.711440" elapsed="0.779705"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:11.493138" elapsed="0.008413"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:11.492137" elapsed="0.009414"/>
+</kw>
+<msg time="2025-08-18T16:11:11.501551" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Expect CLO Page Loaded</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-18T16:11:11.491145" elapsed="0.010406"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${ok}</arg>
+<arg>Open CLO By Menu</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-18T16:11:11.501551" elapsed="0.001002"/>
+</kw>
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:11.502553" elapsed="0.006647"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:11.502553" elapsed="0.007645"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:10.710455" elapsed="0.799743"/>
+</kw>
+<kw name="Pass Execution" owner="BuiltIn">
+<msg time="2025-08-18T16:11:11.511193" level="INFO">Execution passed with message:
+Skip → không tính fail</msg>
+<arg>Skip → không tính fail</arg>
+<doc>Skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="PASS" start="2025-08-18T16:11:11.510198" elapsed="0.000995">Skip → không tính fail</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-18T16:11:11.740998" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6290.png"&gt;&lt;img src="selenium-screenshot-6290.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-18T16:11:11.511193" elapsed="0.229805"/>
+</kw>
+<timeout value="3 minutes"/>
+<status status="PASS" start="2025-08-18T16:11:10.710455" elapsed="1.030543">Skip → không tính fail</status>
+</test>
+<test id="s1-t8" name="CLO-08 - Click PLO Alignment" line="41">
+<kw name="Open CLO Page" owner="CLO">
+<kw name="Open CLO By URL" owner="CLO">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:11.743497" level="INFO">Opening url 'https://demo-clo.minds.vn/en/reports/clo/'</msg>
+<arg>${URL_CLO}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-18T16:11:11.741995" elapsed="0.565523"/>
+</kw>
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:12.310507" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:11:12.308514" elapsed="0.010012"/>
+</kw>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-18T16:11:12.308514" elapsed="0.010012"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:12.308514" elapsed="0.010012"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:11.741995" elapsed="0.576531"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:12.320518" elapsed="0.008196"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:12.320518" elapsed="0.009187"/>
+</kw>
+<msg time="2025-08-18T16:11:12.329705" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Expect CLO Page Loaded</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-18T16:11:12.319520" elapsed="0.010185"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${ok}</arg>
+<arg>Open CLO By Menu</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-18T16:11:12.329705" elapsed="0.000000"/>
+</kw>
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:12.330701" elapsed="0.006665"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:12.330701" elapsed="0.006665"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:11.741995" elapsed="0.595371"/>
+</kw>
+<kw name="Pass Execution" owner="BuiltIn">
+<msg time="2025-08-18T16:11:12.338364" level="INFO">Execution passed with message:
+Skip → không tính fail</msg>
+<arg>Skip → không tính fail</arg>
+<doc>Skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="PASS" start="2025-08-18T16:11:12.338364" elapsed="0.000000">Skip → không tính fail</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-18T16:11:12.587973" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6291.png"&gt;&lt;img src="selenium-screenshot-6291.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-18T16:11:12.339362" elapsed="0.248611"/>
+</kw>
+<timeout value="3 minutes"/>
+<status status="PASS" start="2025-08-18T16:11:11.741995" elapsed="0.847298">Skip → không tính fail</status>
+</test>
+<test id="s1-t9" name="CLO-09 - Click Gap Analysis" line="45">
+<kw name="Open CLO Page" owner="CLO">
+<kw name="Open CLO By URL" owner="CLO">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:12.592286" level="INFO">Opening url 'https://demo-clo.minds.vn/en/reports/clo/'</msg>
+<arg>${URL_CLO}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-18T16:11:12.592286" elapsed="0.737754"/>
+</kw>
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:13.332034" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:11:13.331038" elapsed="0.007669"/>
+</kw>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-18T16:11:13.331038" elapsed="0.007669"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:13.330040" elapsed="0.009663"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:12.591289" elapsed="0.748414"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:13.340702" elapsed="0.015701"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:13.339703" elapsed="0.017697"/>
+</kw>
+<msg time="2025-08-18T16:11:13.357400" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Expect CLO Page Loaded</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-18T16:11:13.339703" elapsed="0.018878"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${ok}</arg>
+<arg>Open CLO By Menu</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-18T16:11:13.358581" elapsed="0.000999"/>
+</kw>
+<kw name="Expect CLO Page Loaded" owner="CLO">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CLO_HDR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:13.362570" elapsed="0.008642"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:13.360578" elapsed="0.011624"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:12.591289" elapsed="0.780913"/>
+</kw>
+<kw name="Pass Execution" owner="BuiltIn">
+<msg time="2025-08-18T16:11:13.373204" level="INFO">Execution passed with message:
+Skip → không tính fail</msg>
+<arg>Skip → không tính fail</arg>
+<doc>Skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="PASS" start="2025-08-18T16:11:13.372202" elapsed="0.001002">Skip → không tính fail</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-18T16:11:13.619949" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6292.png"&gt;&lt;img src="selenium-screenshot-6292.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-18T16:11:13.374200" elapsed="0.245749"/>
+</kw>
+<timeout value="3 minutes"/>
+<status status="PASS" start="2025-08-18T16:11:12.590293" elapsed="1.030648">Skip → không tính fail</status>
+</test>
+<test id="s1-t10" name="CLO-10 - Chưa login" line="49">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-08-18T16:11:13.623930" elapsed="6.341190"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:19.966119" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/en/reports/clo/'.</msg>
+<arg>${URL_CLO}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-18T16:11:19.966119" elapsed="3.203473"/>
+</kw>
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:23.171585" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:11:23.170600" elapsed="0.005492"/>
+</kw>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-18T16:11:23.170600" elapsed="0.005492"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:23.169592" elapsed="0.006500"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-08-18T16:11:23.176092" elapsed="6.224538"/>
+</kw>
+<kw name="Login As Lecturer" owner="core">
+<kw name="Set Selenium Options" owner="core">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-18T16:11:29.402635" level="INFO">${opt} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001AB60B4BDF0&gt;</msg>
+<var>${opt}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-18T16:11:29.401667" elapsed="0.000968"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${HEADLESS}</arg>
+<arg>Call Method</arg>
+<arg>${opt}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-18T16:11:29.402635" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${opt}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-08-18T16:11:29.402635" elapsed="0.000956"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${opt}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-08-18T16:11:29.403591" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${opt}</value>
+<status status="PASS" start="2025-08-18T16:11:29.403591" elapsed="0.000000"/>
+</return>
+<msg time="2025-08-18T16:11:29.403591" level="INFO">${opt} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001AB60B4BDF0&gt;</msg>
+<var>${opt}</var>
+<status status="PASS" start="2025-08-18T16:11:29.401667" elapsed="0.001924"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:29.405148" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${opt}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-18T16:11:29.404644" elapsed="1.377846"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-18T16:11:30.783487" elapsed="0.048370"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:30.834106" level="INFO">Opening url 'https://demo-clo.minds.vn/en/accounts/login/?next=/en/'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-18T16:11:30.833107" elapsed="1.361188"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//input[@name='username']</arg>
+<arg>${TO}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-18T16:11:32.195293" elapsed="0.013509"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:32.210797" level="INFO">Typing text 'lecturer1' into text field 'xpath=//input[@name='username']'.</msg>
+<arg>xpath=//input[@name='username']</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-18T16:11:32.208802" elapsed="0.109021"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:32.319817" level="INFO">Typing password into text field 'xpath=//input[@name='password']'.</msg>
+<msg time="2025-08-18T16:11:32.349289" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[@name='password']</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-18T16:11:32.318819" elapsed="0.071787"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:32.392599" level="INFO">Clicking button 'xpath=(//button[@type='submit']|//button)[1]'.</msg>
+<arg>xpath=(//button[@type='submit']|//button)[1]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-18T16:11:32.390606" elapsed="0.074848"/>
+</kw>
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:32.467620" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:11:32.466624" elapsed="0.004983"/>
+</kw>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-18T16:11:32.466624" elapsed="0.004983"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:32.465454" elapsed="0.007150"/>
+</kw>
+<kw name="Remove Overlays" owner="core">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:32.473600" level="INFO">Executing JavaScript:
+(function(){try{var ids=['djDebug']; ids.forEach(function(i){var e=document.getElementById(i); if(e) e.remove();});var cls=['djdt','djdt-scroll','modal-backdrop','offcanvas-backdrop','overlay','toast','fade','show','TemplatesPanel'];cls.forEach(function(c){document.querySelectorAll('.'+c).forEach(function(el){el.remove();});});document.querySelectorAll('a.TemplatesPanel').forEach(function(el){el.remove();});document.body.style.pointerEvents='auto';}catch(e){}})();
+Without any arguments.</msg>
+<arg>(function(){</arg>
+<arg>try{</arg>
+<arg>var ids=['djDebug']; ids.forEach(function(i){var e=document.getElementById(i); if(e) e.remove();});</arg>
+<arg>var cls=['djdt','djdt-scroll','modal-backdrop','offcanvas-backdrop','overlay','toast','fade','show','TemplatesPanel'];</arg>
+<arg>cls.forEach(function(c){document.querySelectorAll('.'+c).forEach(function(el){el.remove();});});</arg>
+<arg>document.querySelectorAll('a.TemplatesPanel').forEach(function(el){el.remove();});</arg>
+<arg>document.body.style.pointerEvents='auto';</arg>
+<arg>}catch(e){}</arg>
+<arg>})();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:11:32.472604" elapsed="0.004504"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:32.472604" elapsed="0.004504"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-18T16:11:32.478107" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-18T16:11:32.478107" elapsed="0.002990"/>
+</kw>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-18T16:11:32.477108" elapsed="0.003989"/>
+</kw>
+<status status="PASS" start="2025-08-18T16:11:29.401667" elapsed="3.079430"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-18T16:11:35.550219" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6293.png"&gt;&lt;img src="selenium-screenshot-6293.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-18T16:11:32.481097" elapsed="3.070122"/>
+</kw>
+<timeout value="3 minutes"/>
+<status status="PASS" start="2025-08-18T16:11:13.621938" elapsed="21.929281"/>
 </test>
 <kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-08-13T14:37:37.976426" elapsed="2.200177"/>
+<status status="PASS" start="2025-08-18T16:11:35.552215" elapsed="6.231039"/>
 </kw>
-<status status="FAIL" start="2025-08-13T14:36:45.475134" elapsed="54.702468"/>
+<doc>Test trang "Báo cáo CLO" cho Lecturer.</doc>
+<status status="FAIL" start="2025-08-18T16:10:46.280147" elapsed="55.504111"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="1" skip="0">All Tests</stat>
+<stat pass="7" fail="3" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Quiz Tests" id="s1" pass="1" fail="1" skip="0">Quiz Tests</stat>
+<stat name="Clo" id="s1" pass="7" fail="3" skip="0">Clo</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-08-18T16:10:46.465554" level="WARN">Error in file 'D:\JAV siu\iventory_management\KienTruc_University\LecturerPage\Resource\CLO.resource' on line 47: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>

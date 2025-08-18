@@ -1,0 +1,10 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+  "robot.python.executable": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+  "robot.language-server.python": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+  "robot.language-server.args": ["--log-level", "DEBUG"],
+  "files.associations": {
+    "*.robot": "robotframework",
+    "*.resource": "robotframework"
+  }
+}
