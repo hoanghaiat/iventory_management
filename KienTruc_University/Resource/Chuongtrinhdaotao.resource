@@ -16,6 +16,8 @@ ${MESSAGE_UNIQUE}    Course code is unique
 ${CLOS}    CLOs
 ${EXPECTED_MESSAGE_CLO}    CLO created successfully!
 ${TITLE_CLO_DETAIL}    CLO Details
+${EXPECTED_MESSAGE_UPDATE_CLO}    CLO updated successfully!
+${TITLE_ADD_CLO}    Create New CLO
 *** Keywords ***
 Handle Advertise
     ${check}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${BOX_ADVERTISE}    5s
@@ -497,3 +499,278 @@ View Edit CLOs
     Wait Until Element Is Visible    ${TITLE_PAGE_EDIT_CLOS}    30s
     ${page_title}=    Get Text    ${TITLE_PAGE_EDIT_CLOS}
     Should Be Equal    ${page_title}    Edit CLO
+View Map PLO
+    Wait Until Element Is Visible    ${URL_PLO}    30s
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_PLO}
+    Wait Until Element Is Visible    ${TITLE_PLO}    30s
+    ${page_title}=    Get Text    ${TITLE_PLO}
+    Should Be Equal    ${page_title}    Map CLO to PLO
+
+Create Mapping PLOs
+    [Arguments]    ${Plo}    ${MappingPlo}
+    Wait Until Element Is Visible    ${SELECT_PLO}    30s
+    Scroll Element Into View    ${SELECT_PLO}
+    Select From List By Label    ${SELECT_PLO}    ${Plo}
+    Wait Until Element Is Visible    ${SELECT_MAPPING_PLO}    30s
+    Scroll Element Into View    ${SELECT_MAPPING_PLO}
+    Select From List By Label    ${SELECT_MAPPING_PLO}    ${MappingPlo}
+    Wait Until Element Is Visible    ${CREATE_MAPPING_BTN}    30s
+    Scroll Element Into View    ${CREATE_MAPPING_BTN}
+    Wait Until Keyword Succeeds    30s    1s    Click Button    ${CREATE_MAPPING_BTN}
+    Wait Until Element Is Visible    ${ACTUAL_MESSAGE_MAPPING}    30s
+    ${actual_message_mapping}=    Get Text    ${ACTUAL_MESSAGE_MAPPING}
+    Should Be Equal    ${actual_message_mapping}    PLO-CLO Mapping created successfully!
+
+Click The Button Edit CLOs
+    Wait Until Element Is Visible    ${URL_EDIT_CLO}    30s
+    Scroll Element Into View    ${URL_EDIT_CLO}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_EDIT_CLO}
+Fill Out The CLO Edit Form
+    [Arguments]    ${Clocode}    ${Description}    ${Category}    ${Level}    ${Weight}    ${Assessmentmethod}
+    Wait Until Element Is Visible    ${INPUT_CLO_CODE}    30s
+    Scroll Element Into View    ${INPUT_CLO_CODE}
+    Input Text    ${INPUT_CLO_CODE}    ${Clocode}
+    
+    Wait Until Element Is Visible    ${TEXTAREA_DESCRIPTION_CLO}    30s
+    Scroll Element Into View    ${TEXTAREA_DESCRIPTION_CLO}
+    Input Text    ${TEXTAREA_DESCRIPTION_CLO}    ${Description}
+    
+    
+    Wait Until Element Is Visible    ${SELECT_CATEGORY_CLO}    30s
+    Scroll Element Into View    ${SELECT_CATEGORY_CLO}
+    Select From List By Label   ${SELECT_CATEGORY_CLO}    ${Category}
+    
+    Wait Until Element Is Visible    ${SELECT_LEVEL_CLO}    30s
+    Scroll Element Into View    ${SELECT_LEVEL_CLO}
+    Select From List By Label    ${SELECT_LEVEL_CLO}    ${Level}
+    
+    Wait Until Element Is Visible    ${INPUT_WEIGHT_CLO}    30s
+    Scroll Element Into View    ${INPUT_WEIGHT_CLO}
+    Input Text   ${INPUT_WEIGHT_CLO}    ${Weight}
+    
+    Wait Until Element Is Visible    ${SELECT_ASSESSMENT_METHOD}    30s
+    Scroll Element Into View    ${SELECT_ASSESSMENT_METHOD}
+    Select From List By Label    ${SELECT_ASSESSMENT_METHOD}    ${Assessmentmethod}
+  
+Click The Button Edit CLO
+    Wait Until Element Is Visible    ${EDIT_CLOS_BTN}    30s
+    Scroll Element Into View    ${EDIT_CLOS_BTN}
+    Wait Until Keyword Succeeds    30s    1s    Click Button    ${EDIT_CLOS_BTN}
+
+Verify Message CLO Edit Results 
+    Wait Until Element Is Visible    ${MESSAGE_UPDATE_CLOS}    30s
+    ${message_up_clos}=    Get Text    ${MESSAGE_UPDATE_CLOS}
+    Should Be Equal    ${message_up_clos}    ${EXPECTED_MESSAGE_UPDATE_CLO}
+Verify CLO Edit Results  
+    [Arguments]    ${clocodeup}    ${categoryup}   ${levelup}    ${weightup}    ${descriptionup}    ${assessmentmethodup}
+    Wait Until Element Is Visible    ${ACTUAL_UPDATE_CLOCODE_CLOS}    30s
+    Scroll Element Into View    ${ACTUAL_UPDATE_CLOCODE_CLOS}
+    ${actual_code_up}=    Get Text    ${ACTUAL_UPDATE_CLOCODE_CLOS}
+    Wait Until Element Is Visible    ${ACTUAL_UPDATE_CATEGORY_CLOS}    30s
+    Scroll Element Into View    ${ACTUAL_UPDATE_CATEGORY_CLOS}
+    ${actual_category_up}=    Get Text    ${ACTUAL_UPDATE_CATEGORY_CLOS}
+    Scroll Element Into View    ${ACTUAL_UPDATE_LEVEL_CLOS}    
+    ${actual_level_up}=    Get Text    ${ACTUAL_UPDATE_LEVEL_CLOS}
+    Wait Until Element Is Visible    ${ACTUAL_UPDATE_WEIGHT_CLOS}    30s
+    ${actual_weight_up}=    Get Text    ${ACTUAL_UPDATE_WEIGHT_CLOS}
+    Wait Until Element Is Visible    ${ACTUAL_UPDATE_DESCRIPTION_CLOS}    30s
+    Scroll Element Into View    ${ACTUAL_UPDATE_DESCRIPTION_CLOS}
+    ${actual_description_up}=    Get Text    ${ACTUAL_UPDATE_DESCRIPTION_CLOS}
+    Wait Until Element Is Visible    ${ACTUAL_UPDATE_ASSESSMENT_CLOS}    30s
+    Scroll Element Into View    ${ACTUAL_UPDATE_ASSESSMENT_CLOS}
+    ${actual_assessmentmethod_up}=    Get Text    ${ACTUAL_UPDATE_ASSESSMENT_CLOS}
+    ##Verify
+    Should Be Equal    ${actual_code_up}    ${clocodeup}
+    Should Be Equal    ${actual_category_up}    ${categoryup}
+    Should Be Equal    ${actual_level_up}    ${levelup}
+    Should Be Equal    ${actual_weight_up}    ${weightup}
+    Should Be Equal    ${actual_description_up}    ${descriptionup}
+    Should Be Equal    ${actual_assessmentmethod_up}    ${assessmentmethodup}
+    
+Verify Message CLO Edit Results With Clo Code Duplication
+    Page Should Contain    Clo code is unique
+Click The Button Quick ADD CLO
+    Wait Until Element Is Visible    ${URL_ADD_CLO_QUICK}    30s
+    Scroll Element Into View    ${URL_ADD_CLO_QUICK}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_ADD_CLO_QUICK}
+Verify Title Page CLo
+    Page Should Contain    ${TITLE_ADD_CLO}
+
+Click The Button ADD Chapter
+    Wait Until Element Is Visible    ${URL_ADD_CHAPTER}    30s
+    Scroll Element Into View    ${URL_ADD_CHAPTER}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_ADD_CHAPTER}
+Verify Title Page Add Chapter
+    Page Should Contain    Thêm chương mới
+
+Fill Out The ADD Chapter Form
+    [Arguments]    ${chapternumber}    ${chaptertitle}    ${chapterdescription}    ${chapterleaning}    ${chaptertime}    ${chapterteaching}    
+    Wait Until Element Is Visible    ${INPUT_CHAPTER_NUMBER}    30s
+    Scroll Element Into View    ${INPUT_CHAPTER_NUMBER}
+    Input Text    ${INPUT_CHAPTER_NUMBER}    ${chapternumber}
+    Wait Until Element Is Visible    ${INPUT_CHAPTER_TITLE}    30s
+    Scroll Element Into View    ${INPUT_CHAPTER_TITLE}
+    Input Text    ${INPUT_CHAPTER_TITLE}    ${chaptertitle}
+    Wait Until Element Is Visible    ${TEXTAREA_CHAPTER_DESCRIPTION}    30s
+    Scroll Element Into View    ${TEXTAREA_CHAPTER_DESCRIPTION}
+    Input Text    ${TEXTAREA_CHAPTER_DESCRIPTION}    ${chapterdescription}
+    Wait Until Element Is Visible    ${TEXTAREA_CHAPTER_LEARNING}    30s
+    Scroll Element Into View    ${TEXTAREA_CHAPTER_LEARNING}
+    Input Text    ${TEXTAREA_CHAPTER_LEARNING}    ${chapterleaning}
+    Wait Until Element Is Visible    ${INPUT_CHAPTER_TIME}    30s
+    Scroll Element Into View    ${INPUT_CHAPTER_TIME}
+    Input Text    ${INPUT_CHAPTER_TIME}   ${chaptertime}
+    Wait Until Element Is Visible    ${TEXTAREA_CHAPTER_TEACHING_METHOD}    30s
+    Scroll Element Into View    ${TEXTAREA_CHAPTER_TEACHING_METHOD}
+    Input Text    ${TEXTAREA_CHAPTER_TEACHING_METHOD}    ${chapterteaching}
+
+Click The Button ADD 
+    Wait Until Element Is Visible    ${CREATE_CHAPTER_BTN}    30s
+    Scroll Element Into View    ${CREATE_CHAPTER_BTN}
+    Wait Until Keyword Succeeds    30s    1s    Click Button    ${CREATE_CHAPTER_BTN}
+Click The Button Exit Chapter
+    Wait Until Element Is Visible    ${URL_EXIT_CHAPTER}    30s
+    Scroll Element Into View    ${URL_EXIT_CHAPTER}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_EXIT_CHAPTER}
+
+Verify Page When Number0
+    Page Should Contain    Số lương phải lớn hơn 0
+
+Fill Out Form Title Chapter Blank
+    [Arguments]    ${chapternumber}    ${chapterdescription}    ${chapterleaning}    ${chaptertime}    ${chapterteaching}    
+    Wait Until Element Is Visible    ${INPUT_CHAPTER_NUMBER}    30s
+    Scroll Element Into View    ${INPUT_CHAPTER_NUMBER}
+    Input Text    ${INPUT_CHAPTER_NUMBER}    ${chapternumber}
+    
+    Wait Until Element Is Visible    ${TEXTAREA_CHAPTER_DESCRIPTION}    30s
+    Scroll Element Into View    ${TEXTAREA_CHAPTER_DESCRIPTION}
+    Input Text    ${TEXTAREA_CHAPTER_DESCRIPTION}    ${chapterdescription}
+    Wait Until Element Is Visible    ${TEXTAREA_CHAPTER_LEARNING}    30s
+    Scroll Element Into View    ${TEXTAREA_CHAPTER_LEARNING}
+    Input Text    ${TEXTAREA_CHAPTER_LEARNING}    ${chapterleaning}
+    Wait Until Element Is Visible    ${INPUT_CHAPTER_TIME}    30s
+    Scroll Element Into View    ${INPUT_CHAPTER_TIME}
+    Input Text    ${INPUT_CHAPTER_TIME}   ${chaptertime}
+    Wait Until Element Is Visible    ${TEXTAREA_CHAPTER_TEACHING_METHOD}    30s
+    Scroll Element Into View    ${TEXTAREA_CHAPTER_TEACHING_METHOD}
+    Input Text    ${TEXTAREA_CHAPTER_TEACHING_METHOD}    ${chapterteaching}
+
+Verify Page When Title Blank
+    Page Should Contain    Tiêu đề chương không được để trống
+
+Click The Button Add Test
+    Wait Until Element Is Visible    ${URL_ADD_TEST}    30s
+    Scroll Element Into View    ${URL_ADD_TEST}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_ADD_TEST}
+
+Verify Page Test
+    Page Should Contain    Thêm đánh giá mới
+
+Fill Our The Test Form
+    [Arguments]    ${name}    ${type}    ${percentage}    ${description}    ${format}    ${minutes}    ${totalmarks}    ${method}    ${criteria}    ${date}    ${location}    ${status}
+    Wait Until Element Is Visible    ${INPUT_TEST_NAME}    30s
+    Scroll Element Into View    ${INPUT_TEST_NAME}
+    Input Text    ${INPUT_TEST_NAME}    ${name}
+    Wait Until Element Is Visible    ${SELECT_TEST_TYPE}    30s
+    Scroll Element Into View    ${SELECT_TEST_TYPE}
+    Select From List By Label    ${SELECT_TEST_TYPE}    ${type}
+    Wait Until Element Is Visible    ${INPUT_TEST_PERCENTAGE}    30s
+    Scroll Element Into View    ${INPUT_TEST_PERCENTAGE}
+    Input Text    ${INPUT_TEST_PERCENTAGE}    ${percentage}
+    Wait Until Element Is Visible    ${TEXTAREA_TEST_DESCRIPTION}    30s
+    Scroll Element Into View    ${TEXTAREA_TEST_DESCRIPTION}
+    Input Text    ${TEXTAREA_TEST_DESCRIPTION}    ${description}
+    Wait Until Element Is Visible    ${SELECT_TEST_FORMAT}    30s
+    Scroll Element Into View    ${SELECT_TEST_FORMAT}    
+    Select From List By Label    ${SELECT_TEST_FORMAT}    ${format}
+    Wait Until Element Is Visible    ${INPUT_TEST_MINUTES}    30s
+    Scroll Element Into View    ${INPUT_TEST_MINUTES}
+    Input Text    ${INPUT_TEST_MINUTES}    ${minutes}
+    Scroll Element Into View    ${INPUT_TEST_TOTAL_MARKS}
+    Input Text    ${INPUT_TEST_TOTAL_MARKS}    ${totalmarks}
+    Scroll Element Into View    ${TEXTAREA_TEST_METHOD}
+    Input Text    ${TEXTAREA_TEST_METHOD}    ${method}
+    Scroll Element Into View    ${TEXTAREA_TEST_CRITERIA}
+    Input Text    ${TEXTAREA_TEST_CRITERIA}    ${criteria}
+    
+    Scroll Element Into View    ${INPUT_TEST_DATE}
+
+    Input Text    ${INPUT_TEST_DATE}    ${date}
+
+    Scroll Element Into View    ${INPUT_TEST_LOCATION}    
+    Input Text    ${INPUT_TEST_LOCATION}    ${location}
+    Scroll Element Into View    ${SELECT_TEST_STATUS}
+    Select From List By Label    ${SELECT_TEST_STATUS}    ${status}
+
+Click The Button Create Test
+    Wait Until Element Is Visible    ${CREATE_TEST_BTN}    30s
+    Scroll Element Into View    ${CREATE_TEST_BTN}
+    Wait Until Keyword Succeeds    30s    1s    Click Button    ${CREATE_TEST_BTN}
+
+Click The Button Exit Create Test
+    Wait Until Element Is Visible    ${URL_EXIT_TEST}    30s
+    Scroll Element Into View    ${URL_EXIT_TEST}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_EXIT_TEST}
+
+Verify Page When Form Create Test Blank Information
+    Page Should Contain    Vui lòng điền đầy đủ thông tin
+
+Click The Button Course 
+    Handle Advertise
+    Wait Until Element Is Visible    ${URL_COURSE}    30s
+    Wait Until Element Is Visible    ${NAME_COURSE}    30s
+    ${namecourse}=    Get Text    ${NAME_COURSE}
+
+    Scroll Element Into View    ${URL_COURSE}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_COURSE}
+    Wait Until Element Is Visible    ${ACTUAL_PAGE_COURSE}    30s
+    ${actualcourse}=    Get Text    ${ACTUAL_PAGE_COURSE}
+    Should Contain    ${actualcourse}    ${namecourse}
+Click The Button ADD Course
+    Wait Until Element Is Visible    ${URL_ADD_COURSE}    30s
+    Scroll Element Into View    ${URL_ADD_COURSE}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_ADD_COURSE}
+    Wait Until Element Is Visible    ${ACTUAL_ADD_COURSE}    30s
+    ${actualadd}=    Get Text    ${ACTUAL_ADD_COURSE}
+    Should Be Equal    ${actualadd}    Create New Course
+
+Click The Button Back to Program
+    Wait Until Element Is Visible    ${URL_BACK_TO_PROGRAM}    30s
+    Scroll Element Into View    ${URL_BACK_TO_PROGRAM}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_BACK_TO_PROGRAM}
+    ${actualprogarm}=    Get Text    //h1[@class="content-title"]
+    Should Be Equal    ${actualprogarm}    Quản lý chương trình
+
+
+Click The Button Infomation Course
+    Wait Until Element Is Visible    ${URL_COURSE_INFO}    30s
+    Wait Until Element Is Visible    ${CODE_COURSE}    30s
+    Wait Until Element Is Visible    ${NAME_COURSE}    30s
+    ${codecourse}=    Get Text    ${CODE_COURSE}
+    ${namecourse}=    Get Text    ${NAME_COURSE}
+    Scroll Element Into View    ${URL_COURSE_INFO}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_COURSE_INFO}
+    Wait Until Element Is Visible    ${ACTUAL_COURSE_INFO}    30s
+    ${actualinfo}=    Get Text    ${ACTUAL_COURSE_INFO}
+    Should Contain    ${actualinfo}    ${codecourse}
+    Should Contain    ${actualinfo}    ${namecourse}
+
+Click The Button Edit Course
+    Wait Until Element Is Visible    ${URL_EDIT_COURSES}    30s
+    Scroll Element Into View    ${URL_EDIT_COURSES}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_EDIT_COURSES}
+    Page Should Contain    Edit Course
+
+Click The Button CLOs
+    Wait Until Element Is Visible    ${URL_CLOS}    30s
+    Wait Until Element Is Visible    ${CODE_COURSE}    30s
+    Wait Until Element Is Visible    ${NAME_COURSE}    30s
+    ${codecourse}=    Get Text    ${CODE_COURSE}
+    ${namecourse}=    Get Text    ${NAME_COURSE}
+    Scroll Element Into View    ${URL_CLOS}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_CLOS}
+    Wait Until Element Is Visible    ${ACTUAL_COURSE_INFO}    30s
+    ${actualinfo}=    Get Text    ${ACTUAL_COURSE_INFO}
+    Should Contain    ${actualinfo}    CLOs
+    Should Contain    ${actualinfo}    ${codecourse}
+    Should Contain    ${actualinfo}    ${namecourse}
