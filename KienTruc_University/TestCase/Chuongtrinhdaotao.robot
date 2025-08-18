@@ -6,7 +6,7 @@ Resource    ../Resource/TrangChu.resource
 Test Setup    Login To System Success   
 
 *** Variables ***
-${Clocode}    CLO0001
+${Clocode}    CLO1
 ${Clocodeexist}    CLO01
 ${Description_Clo}    CLOss
 ${Categoty_Clo}    Skill
@@ -36,7 +36,7 @@ ${Test_Minutes}    90
 ${Test_Total_Marks}    100
 ${Test_Method}    Bài kiểm tra
 ${Test_Criteria}    Kết quả
-${Test_Date}    18-08-2025 08:23 AM
+${Test_Date}    18/08/025 08:23
 ${Test_Location}    Trường ĐH Kiến Trúc ĐN
 ${Test_Status}    Planned
 *** Test Cases ***
@@ -89,9 +89,9 @@ TC-PG-07: Tạo PLO thành công
     [Documentation]    TC-PG-07
     [Tags]    Phương Ly     Thông tin chi tiết chương trình đào tạo
     Open Create PLO Form
-    Fill In Valid PLO Information    13145    kiến thức    Skill    Apply    2024
+    Fill In Valid PLO Information    1400156    kiến thức    Skill    Apply    2024
     Submit Forms
-    Verify Success Message Is Displayed    13145
+    Verify Success Message Is Displayed    1400156
     
 
 TC-PG-08: Kiểm tra thao tác hủy tạo PLO
@@ -124,16 +124,16 @@ TC-PG-11: Kiểm tra thao tác tạo học phần mới thành công
     [Documentation]    TC-PG-11
     [Tags]    Phương Ly     Thông tin chi tiết chương trình đào tạo
     Open Create Course Form
-    Fill In Valid Course Information    CNTT01    Kiểm thử phần mềm    3    Kiểm thử chất lượng phần mềm    Mandatory    Updating
+    Fill In Valid Course Information    CNTT05    Kiểm thử phần mềm    3    Kiểm thử chất lượng phần mềm    Mandatory    Updating
     Submit Course Form
-    Verify Course Creation Success    CNTT01    Kiểm thử phần mềm    3    Mandatory    Updating
+    Verify Course Creation Success    CNTT05    Kiểm thử phần mềm    3    Mandatory    Updating
 
 
 TC-PG-12: Kiểm tra thao tác tạo học phần mới khi để trống thông tin
     [Documentation]    TC-PG-12
     [Tags]    Phương Ly     Thông tin chi tiết chương trình đào tạo
     Open PLO Page
-    Click Create Button
+    Submit Course Form
     Verify Course Creation Error  
 
 
@@ -219,7 +219,6 @@ TC-PG-23: Tạo CLO mới thành công
     Click The Button To View Course Details
     Click The Button View CLOs
     Open Operation With Add CLO Button
-    Click The Button Create CLO
     Fill Out The CLO Creation Form   ${Clocode}    ${Description_Clo}    ${Categoty_Clo}    ${Level_Clo}    ${Weight_Clo}    ${Assessmentmethod_Clo}
     Click The Button Create CLO
     Verify New CLO Creation Results    ${Clocode}    ${Description_Clo}    ${Categoty_Clo}    ${Level_Clo}    ${Weight_Clo}
@@ -278,7 +277,7 @@ TC-PG-29: Thực hiện thao tác chỉnh sửa thành công
     Verify Required Field Warning
     Click The Button To View Course Details
     Click The Button View CLOs
-    Click The Button Edit CLO
+    View Edit CLOs
     Fill Out The CLO Edit Form    ${Clocode_up}    ${Description_up_Clo}    ${Categoty_up_Clo}    ${Level_up_Clo}    ${Weight_up_Clo}    ${Assessmentmethod_up_Clo}
     Click The Button Edit CLO
     Verify Message CLO Edit Results 
@@ -292,7 +291,7 @@ TC-PG-30: Thực hiện thao tác chỉnh sửa với CLo code đã tồn tại
     Verify Required Field Warning
     Click The Button To View Course Details
     Click The Button View CLOs
-    Click The Button Edit CLO
+    View Edit CLOs
     Fill Out The CLO Edit Form    ${Clocode}    ${Description_up_Clo}    ${Categoty_up_Clo}    ${Level_up_Clo}    ${Weight_up_Clo}    ${Assessmentmethod_up_Clo}
     Click The Button Edit CLO
     Verify Message CLO Edit Results With Clo Code Duplication
@@ -313,7 +312,7 @@ TC-PG-32: Map CLO to PLo thành công
     Click The Button To View Course Details
     Click The Button View CLOs
     View Map PLO
-    Create Mapping PLOs    Công nghệ thông tin - f    Low
+    Create Mapping PLOs    Công nghệ thông tin - 1400156    Medium
 
 TC-PG-33: Kiểm tra thao tác Thêm Clo
     [Documentation]    TC-PG-33
@@ -427,26 +426,26 @@ TC-PG-44: Kiểm tra thao tác thêm khóa học
     Click The Button ADD Course
     
 TC-PG-45: Kiểm tra thao tác Back to Program
-    [Documentation]    TC-PG-44
+    [Documentation]    TC-PG-45
     [Tags]    Phương Ly     Thao tác trong danh sách khóa học
     Open Program List
     Click The Button Course 
     Click The Button Back to Program
     
 TC-PG-46: Chi tiết khóa học
-    [Documentation]    TC-PG-44
+    [Documentation]    TC-PG-46
     [Tags]    Phương Ly     Thao tác trong danh sách khóa học
     Open Program List
     Click The Button Course 
     Click The Button Infomation Course
 TC-PG-47: Thao tác chỉnh sửa
-    [Documentation]    TC-PG-44
+    [Documentation]    TC-PG-47
     [Tags]    Phương Ly     Thao tác trong danh sách khóa học
     Open Program List
     Click The Button Course 
     Click The Button Edit Course
 TC-PG-48: Thao tác CLOs
-    [Documentation]    TC-PG-44
+    [Documentation]    TC-PG-48
     [Tags]    Phương Ly     Thao tác trong danh sách khóa học
     Open Program List
     Click The Button Course 

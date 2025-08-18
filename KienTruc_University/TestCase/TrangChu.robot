@@ -7,7 +7,7 @@ Test Setup    Login To System Success
 #TC-DB-01: Các thành phần trong trang chủ
 
 
-TC-DB-02: Tạo chương trình mới
+TC-DB-01: Tạo chương trình mới
     [Documentation]    TC-DB-02
     [Tags]    Phương Ly     Thao tác nhanh
     Wait And Click Quick Operation

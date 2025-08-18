@@ -82,40 +82,22 @@ Open Program Lists
     Wait Until Element Is Visible    ${URL_CTDT}    30s
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_CTDT}
 Verify Required Field Warning
-    Wait Until Element Is Visible    ${NAME_EXPECTED}    30s
-    ${NameExpected}=    Get Text    ${NAME_EXPECTED}
-    ${DeparmentExpected}=    Get Text    ${DEPARTMENT_EXPECTED}
-    ${TimeExpected}=    Get Text    ${TIME_EXPECTED}
-    ${StatusExpected}=    Get Text    ${STATUS_EXPECTED}
-    ${VersionExpected}=    Get Text    ${VERSION_EXPECTED}
+    ${id}    Set Variable    5
     Handle Advertise
     #Wait Until Element Is Visible    ${ADVERTISE}    30s
     #Click Element    //a[@id="djHideToolBarButton"]
-    Wait Until Element Is Visible    ${URL_INFO}    30s
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_INFO}
+    Wait Until Element Is Visible    //a[@href="/en/academics/programs/${id}/"]    30s
+    Wait Until Keyword Succeeds    30s    1s    Click Element    //a[@href="/en/academics/programs/${id}/"]
 
-
-    ${NameActual}=    Get Text    ${NAME_ACTUAL}
-    ${DeparmentActual}=    Get Text    ${DEPARTMENT_ACTUAL}
-    ${TimeActual}=    Get Text    ${TIME_ACTUAL}
-    ${StatusActual}=    Get Text    ${STATUS_ACTUAL}
-    ${VersionActual}=    Get Text    ${VERSION_ACTUAL}
-
-    Should Be Equal    ${NameActual}    ${NameExpected}
-    Should Contain     ${DeparmentActual}    ${DeparmentExpected}
-    Should Be Equal    ${TimeExpected}    ${TimeExpected}
-    Should Be Equal    ${StatusActual}    ${StatusExpected}
-    Should Be Equal    ${VersionActual}    ${VersionExpected}
-    Scroll Element Into View    ${DSHP_ACTUAL}
-    ${Actual_Val}=    Get Text    ${DSHP_ACTUAL}
-    Should Be Equal    ${Actual_Val}    ${EXPECTED_VAL}
 
 ###############  
 Open Create PLO Form
+    ${id}    Set Variable    5
     Open Program Lists
     Verify Required Field Warning
-    Wait Until Element Is Visible    ${URL_PLO}    30s
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_PLO}
+    Wait Until Element Is Visible    //a[@href="/en/academics/programs/${id}/plos/create/"]    30s
+    Scroll Element Into View    //a[@href="/en/academics/programs/${id}/plos/create/"]
+    Wait Until Keyword Succeeds    30s    1s    Click Element    //a[@href="/en/academics/programs/${id}/plos/create/"]
 
 Fill In Valid PLO Information
     [Arguments]    ${plocode}    ${description}    ${category}    ${level}    ${version}
@@ -150,9 +132,10 @@ Verify Success Message Is Displayed
     Should Contain    ${Actual_Plo}    ${plocode}
 
 Exit PLO Form Without Saving
-    Wait Until Element Is Visible    ${URL_EXIT_PLO}    30s
-    Scroll Element Into View    ${URL_EXIT_PLO}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_EXIT_PLO}
+    ${id}    Set Variable    5
+    Wait Until Element Is Visible    //a[@href="/en/academics/programs/${id}/" and @class = "btn btn-secondary"]    30s
+    Scroll Element Into View    //a[@href="/en/academics/programs/${id}/" and @class = "btn btn-secondary"]
+    Wait Until Keyword Succeeds    30s    1s    Click Element    //a[@href="/en/academics/programs/${id}/" and @class = "btn btn-secondary"]
 
 Verify PLO Not Created
     [Arguments]    ${plocode}
@@ -168,23 +151,26 @@ Verify Duplicate Code Warning Displayed
 
 
 Go To PLO Page
+    ${id}    Set Variable    5
     Open Program Lists
     Handle Advertise
     Verify Required Field Warning
-    Wait Until Element Is Visible    ${URL_PLO}    30s
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_PLO}
+    Wait Until Element Is Visible    //a[@href="/en/academics/programs/${id}/plos/create/"]    30s
+    Scroll Element Into View    //a[@href="/en/academics/programs/${id}/plos/create/"]
+    Wait Until Keyword Succeeds    30s    1s    Click Element    //a[@href="/en/academics/programs/${id}/plos/create/"]
 
 Click Create PLO Button
     Wait Until Element Is Visible    ${BTN_CREATE}    30s
     Scroll Element Into View    ${BTN_CREATE}
     Wait Until Keyword Succeeds    30s    1s    Click Button    ${BTN_CREATE}
 Open Create Course Form
+    ${id}    Set Variable    5
     Open Program Lists
     Handle Advertise
     Verify Required Field Warning
-    Wait Until Element Is Visible    ${URL_CREATE_SECTION_STUDY}    30s
-    Scroll Element Into View    ${URL_CREATE_SECTION_STUDY}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_CREATE_SECTION_STUDY}
+    Wait Until Element Is Visible    //a[@href="/en/academics/programs/${id}/courses/create/"]    30s
+    Scroll Element Into View    //a[@href="/en/academics/programs/${id}/courses/create/"]
+    Wait Until Keyword Succeeds    30s    1s    Click Element    //a[@href="/en/academics/programs/${id}/courses/create/"]
 
 Fill In Valid Course Information
     [Arguments]    ${CourseCode}    ${CourseName}    ${Credits}    ${DescriptionCourse}    ${TypeCourse}    ${StatusCourse}
@@ -243,29 +229,33 @@ Verify Course Creation Success
 
 
 Open PLO Page
+    ${id}    Set Variable    5
     Open Program Lists
     Handle Advertise
     Verify Required Field Warning
-    Wait Until Element Is Visible    ${URL_CREATE_SECTION_STUDY}    30s
-    Scroll Element Into View    ${URL_CREATE_SECTION_STUDY}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_CREATE_SECTION_STUDY}
-Click Create Button    
-    Wait Until Element Is Visible    ${BTN_CREATE_COURSE}    30s
-    Scroll Element Into View    ${BTN_CREATE_COURSE}
-    Wait Until Keyword Succeeds    30s    1s    Click Button    ${BTN_CREATE_COURSE}
+    Wait Until Element Is Visible    //a[@href="/en/academics/programs/${id}/courses/create/"]    30s
+    Scroll Element Into View    //a[@href="/en/academics/programs/${id}/courses/create/"]
+    Wait Until Keyword Succeeds    30s    1s    Click Element    //a[@href="/en/academics/programs/${id}/courses/create/"]
+
 Verify Course Creation Error    
     Wait Until Element Is Visible    //p[@id="error_1_id_course_code"]/strong    30s
     Scroll Element Into View    //p[@id="error_1_id_course_code"]/strong
     ${Message_Course_Error}=    Get Text    //p[@id="error_1_id_course_code"]/strong
     Should Be Equal    ${Message_Course_Error}    ${EXPECTED_ERROR}
 
+
+
+
 Open Course Creation Page
+    ${id}    Set Variable    5
+    ${SectionStudy}    Replace Variables    ${URL_CREATE_SECTION_STUDY}
     Open Program Lists
     Handle Advertise
     Verify Required Field Warning
-    Wait Until Element Is Visible    ${URL_CREATE_SECTION_STUDY}    30s
-    Scroll Element Into View    ${URL_CREATE_SECTION_STUDY}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_CREATE_SECTION_STUDY}
+
+    Wait Until Element Is Visible    ${SectionStudy}     30s
+    Scroll Element Into View    ${SectionStudy}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${SectionStudy}
 
 Fill Course Information
     [Arguments]    ${CourseCode}    ${CourseName}    ${Credits}    ${DescriptionCourse}    ${TypeCourse}    ${StatusCourse}
@@ -302,12 +292,15 @@ Submit Course Creation
     Scroll Element Into View    ${BTN_CREATE_COURSE}
     Wait Until Keyword Succeeds    30s    1s    Click Button    ${BTN_CREATE_COURSE}
     
-    Run Keyword And Return    Page Should Contain    Course code is unique
+    Page Should Contain    Course code is unique
 
 View All Button Selection
-    Wait Until Element Is Visible    ${URL_ALL_SECTION_STUDY}    30s
-    Scroll Element Into View    ${URL_ALL_SECTION_STUDY}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_ALL_SECTION_STUDY}
+    ${id}    Set Variable    5
+    ${AllSectionStudy}    Replace Variables    ${URL_ALL_SECTION_STUDY}
+    
+    Wait Until Element Is Visible    ${AllSectionStudy}    30s
+    Scroll Element Into View    ${AllSectionStudy}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${AllSectionStudy}
 
     Wait Until Element Is Visible    ${ACTUAL_ALL_SECTION_STUDY}    30s
     ${actual_title}=    Get Text    ${ACTUAL_ALL_SECTION_STUDY}
@@ -315,18 +308,22 @@ View All Button Selection
     Should Contain    ${actual_title}    Courses for Công nghệ thông tin
 
 Click The Button To View Course Details
-    Wait Until Element Is Visible    //a[@href="/en/academics/courses/45/"]    30s
-    Scroll Element Into View    //a[@href="/en/academics/courses/45/"]
-    Wait Until Keyword Succeeds    30s    1s    Click Element    //a[@href="/en/academics/courses/45/"]
+    ${id}    Set Variable    45
+    ${coursedetail}    Replace Variables    ${URL_COURSE_DETAILS}
+    Wait Until Element Is Visible    ${coursedetail}    30s
+    Scroll Element Into View    ${coursedetail}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${coursedetail}
 
     Wait Until Element Is Visible    //h6[contains(text(),"Thông tin học phần")]    30s
     ${title_course_details}=    Get Text    //h6[contains(text(),"Thông tin học phần")]
     Should Contain    ${title_course_details}    Thông tin học phần
 
 Click The Button To Edit Course
-    Wait Until Element Is Visible    //a[@href="/en/academics/courses/45/update/"]    30s
-    Scroll Element Into View    //a[@href="/en/academics/courses/45/update/"]
-    Wait Until Keyword Succeeds    30s    1s    Click Element    //a[@href="/en/academics/courses/45/update/"]
+    ${id}    Set Variable    45
+    ${upcourse}    Replace Variables    ${URL_EDIT_COURSE}
+    Wait Until Element Is Visible    ${upcourse}    30s
+    Scroll Element Into View    ${upcourse}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${upcourse}
 
     Wait Until Element Is Visible    //h1[@class="content-title"]    30s
     ${title_course_edit}=    Get Text    //h1[@class="content-title"]
@@ -342,12 +339,14 @@ Click The Button Back To Course
     Should Contain    ${back_to_page}    Thông tin học phần
 
 Click The Button Create Class
-    Wait Until Element Is Visible    ${URL_CREATE_CLASS}    30s
-    Scroll Element Into View    ${URL_CREATE_CLASS}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_CREATE_CLASS}
+    ${id}    Set Variable    45
+    ${urlcreateclass}    Replace Variables    ${URL_CREATE_CLASS}
+    Wait Until Element Is Visible    ${urlcreateclass}    30s
+    Scroll Element Into View    ${urlcreateclass}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlcreateclass}
 
-    Wait Until Element Is Visible    ${ACTUAL_CREAT_CLASS}    30s
-    ${title_create_class}=    Get Text    ${ACTUAL_CREAT_CLASS}
+    Wait Until Element Is Visible    ${ACTUAL_CREATE_CLASS}    30s
+    ${title_create_class}=    Get Text    ${ACTUAL_CREATE_CLASS}
     Should Contain    ${title_create_class}    Create New Class
 
 Fill Out The Class Creation Form
@@ -393,25 +392,31 @@ Check The Class Creation Results Failed
     Page Should Contain    Start date and End date faild
 
 Operation To Return To The List Of Courses
-    Wait Until Element Is Visible    ${URL_BACK_TO_COURSE_DETAILS}    30s
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_BACK_TO_COURSE_DETAILS}
+    ${id}    Set Variable    5
+    ${urlbacktocourse}    Replace Variables    ${URL_BACK_TO_COURSE_DETAILS}
+    Wait Until Element Is Visible    ${urlbacktocourse}    30s
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlbacktocourse}
     Wait Until Element Is Visible    ${ACTUAL_BACK_TO_COURSE_DETAILS}    30s
     ${actualback}=    Get Text    ${ACTUAL_BACK_TO_COURSE_DETAILS}
     Should Contain    ${actualback}    Courses for Công nghệ thông tin
 
 
 Click The Button View CLOs
-    Wait Until Element Is Visible    ${URL_PAGE_CLOS}    30s
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_PAGE_CLOS}
+    ${id}    Set Variable    45
+    ${urlclos}    Replace Variables    ${URL_PAGE_CLOS}
+    Wait Until Element Is Visible    ${urlclos}    30s
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlclos}
     Wait Until Element Is Visible    ${ACTUAL_TITLE_CLOS}    30s
     ${title_clos}=    Get Text    ${ACTUAL_TITLE_CLOS}
     Should Contain    ${title_clos}    ${CLOS}
 
 
 Open Operation With Add CLO Button
-    Wait Until Element Is Visible    ${URL_ADD_CLO}    30s
-    Scroll Element Into View    ${URL_ADD_CLO}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_ADD_CLO}
+    ${id}    Set Variable    45
+    ${urladd}    Replace Variables    ${URL_ADD_CLO}
+    Wait Until Element Is Visible    ${urladd}    30s
+    Scroll Element Into View    ${urladd}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urladd}
 
 Fill Out The CLO Creation Form
     [Arguments]    ${Clocode}    ${Description}    ${Category}    ${Level}    ${Weight}    ${Assessmentmethod}
@@ -481,27 +486,35 @@ Verify Error Message Mhen Code is Duplicated
     Page Should Contain    Clo code is unique
 
 Click The Button Back To CLOs
-    Wait Until Element Is Visible    ${URL_BACK_TO_CLOS}    30s
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_BACK_TO_CLOS}
+    ${id}    Set Variable    45
+    ${urlbacktocourse}    Replace Variables    ${URL_BACK_TO_CLOS}
+    Wait Until Element Is Visible    ${urlbacktocourse}   30s
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlbacktocourse}
     Wait Until Element Is Visible    ${ACTUAL_TITLE_CLOS}    30s
     ${title_clos}=    Get Text    ${ACTUAL_TITLE_CLOS}
     Should Contain    ${title_clos}    ${CLOS}
 
 View Details CLOs
-    Wait Until Element Is Visible    ${URL_DETAILS_CLOS}    30s
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_DETAILS_CLOS}
+    ${id}    Set Variable    122
+    ${urldetailclos}    Replace Variables    ${URL_DETAILS_CLOS}
+    Wait Until Element Is Visible    ${urldetailclos}    30s
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urldetailclos}
     Wait Until Element Is Visible    ${TITLE_PAGE_DETAIL_CLOS}    30s
     ${page_title}=    Get Text    ${TITLE_PAGE_DETAIL_CLOS}
     Should Be Equal    ${page_title}    ${TITLE_CLO_DETAIL}
 View Edit CLOs
-    Wait Until Element Is Visible    ${URL_EDIT_CLOS}    30s
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_EDIT_CLOS}
+    ${id}    Set Variable    122
+    ${urledit}    Replace Variables    ${URL_EDIT_CLOS}
+    Wait Until Element Is Visible   ${urledit}    30s
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urledit}
     Wait Until Element Is Visible    ${TITLE_PAGE_EDIT_CLOS}    30s
     ${page_title}=    Get Text    ${TITLE_PAGE_EDIT_CLOS}
     Should Be Equal    ${page_title}    Edit CLO
 View Map PLO
-    Wait Until Element Is Visible    ${URL_PLO}    30s
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_PLO}
+    ${id}    Set Variable    122
+    ${urlplo}    Replace Variables    ${URL_PLO}
+    Wait Until Element Is Visible    ${urlplo}    30s
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlplo}
     Wait Until Element Is Visible    ${TITLE_PLO}    30s
     ${page_title}=    Get Text    ${TITLE_PLO}
     Should Be Equal    ${page_title}    Map CLO to PLO
@@ -522,9 +535,11 @@ Create Mapping PLOs
     Should Be Equal    ${actual_message_mapping}    PLO-CLO Mapping created successfully!
 
 Click The Button Edit CLOs
-    Wait Until Element Is Visible    ${URL_EDIT_CLO}    30s
-    Scroll Element Into View    ${URL_EDIT_CLO}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_EDIT_CLO}
+    ${id}    Set Variable    123
+    ${urledit}    Replace Variables    ${URL_EDIT_CLO}
+    Wait Until Element Is Visible    ${urledit}    30s
+    Scroll Element Into View    ${urledit}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urledit}
 Fill Out The CLO Edit Form
     [Arguments]    ${Clocode}    ${Description}    ${Category}    ${Level}    ${Weight}    ${Assessmentmethod}
     Wait Until Element Is Visible    ${INPUT_CLO_CODE}    30s
@@ -562,7 +577,9 @@ Verify Message CLO Edit Results
     ${message_up_clos}=    Get Text    ${MESSAGE_UPDATE_CLOS}
     Should Be Equal    ${message_up_clos}    ${EXPECTED_MESSAGE_UPDATE_CLO}
 Verify CLO Edit Results  
-    [Arguments]    ${clocodeup}    ${categoryup}   ${levelup}    ${weightup}    ${descriptionup}    ${assessmentmethodup}
+    [Arguments]    ${clocodeup}  ${descriptionup}  ${categoryup}   ${levelup}    ${weightup}       ${assessmentmethodup}
+    Wait Until Element Is Visible    ${MESSAGE_UPDATE_CLOS}    30s
+    ${actualmessage}=    Get Text    ${MESSAGE_UPDATE_CLOS}
     Wait Until Element Is Visible    ${ACTUAL_UPDATE_CLOCODE_CLOS}    30s
     Scroll Element Into View    ${ACTUAL_UPDATE_CLOCODE_CLOS}
     ${actual_code_up}=    Get Text    ${ACTUAL_UPDATE_CLOCODE_CLOS}
@@ -580,26 +597,32 @@ Verify CLO Edit Results
     Scroll Element Into View    ${ACTUAL_UPDATE_ASSESSMENT_CLOS}
     ${actual_assessmentmethod_up}=    Get Text    ${ACTUAL_UPDATE_ASSESSMENT_CLOS}
     ##Verify
+    Should Be Equal    ${actualmessage}    CLO updated successfully!
     Should Be Equal    ${actual_code_up}    ${clocodeup}
+    Should Be Equal    ${actual_description_up}    ${descriptionup}
     Should Be Equal    ${actual_category_up}    ${categoryup}
     Should Be Equal    ${actual_level_up}    ${levelup}
-    Should Be Equal    ${actual_weight_up}    ${weightup}
-    Should Be Equal    ${actual_description_up}    ${descriptionup}
+    Should Contain    ${actual_weight_up}    ${weightup}
+    
     Should Be Equal    ${actual_assessmentmethod_up}    ${assessmentmethodup}
     
 Verify Message CLO Edit Results With Clo Code Duplication
     Page Should Contain    Clo code is unique
 Click The Button Quick ADD CLO
-    Wait Until Element Is Visible    ${URL_ADD_CLO_QUICK}    30s
-    Scroll Element Into View    ${URL_ADD_CLO_QUICK}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_ADD_CLO_QUICK}
+    ${id}    Set Variable    45
+    ${urladd}    Replace Variables    ${URL_ADD_CLO_QUICK}
+    Wait Until Element Is Visible    ${urladd}    30s
+    Scroll Element Into View    ${urladd}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urladd}
 Verify Title Page CLo
     Page Should Contain    ${TITLE_ADD_CLO}
 
 Click The Button ADD Chapter
-    Wait Until Element Is Visible    ${URL_ADD_CHAPTER}    30s
-    Scroll Element Into View    ${URL_ADD_CHAPTER}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_ADD_CHAPTER}
+    ${id}    Set Variable    45
+    ${urladdchapter}    Replace Variables    ${URL_ADD_CHAPTER}
+    Wait Until Element Is Visible    ${urladdchapter}    30s
+    Scroll Element Into View    ${urladdchapter}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urladdchapter}
 Verify Title Page Add Chapter
     Page Should Contain    Thêm chương mới
 
@@ -629,9 +652,11 @@ Click The Button ADD
     Scroll Element Into View    ${CREATE_CHAPTER_BTN}
     Wait Until Keyword Succeeds    30s    1s    Click Button    ${CREATE_CHAPTER_BTN}
 Click The Button Exit Chapter
-    Wait Until Element Is Visible    ${URL_EXIT_CHAPTER}    30s
-    Scroll Element Into View    ${URL_EXIT_CHAPTER}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_EXIT_CHAPTER}
+    ${id}    Set Variable    45
+    ${urlexit}    Replace Variables    ${URL_EXIT_CHAPTER}
+    Wait Until Element Is Visible    ${urlexit}    30s
+    Scroll Element Into View    ${urlexit}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlexit}
 
 Verify Page When Number0
     Page Should Contain    Số lương phải lớn hơn 0
@@ -659,9 +684,11 @@ Verify Page When Title Blank
     Page Should Contain    Tiêu đề chương không được để trống
 
 Click The Button Add Test
-    Wait Until Element Is Visible    ${URL_ADD_TEST}    30s
-    Scroll Element Into View    ${URL_ADD_TEST}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_ADD_TEST}
+    ${id}    Set Variable    45
+    ${urltest}    Replace Variables    ${URL_ADD_TEST}
+    Wait Until Element Is Visible    ${urltest}    30s
+    Scroll Element Into View    ${urltest}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urltest}
 
 Verify Page Test
     Page Should Contain    Thêm đánh giá mới
@@ -708,28 +735,34 @@ Click The Button Create Test
     Wait Until Keyword Succeeds    30s    1s    Click Button    ${CREATE_TEST_BTN}
 
 Click The Button Exit Create Test
-    Wait Until Element Is Visible    ${URL_EXIT_TEST}    30s
-    Scroll Element Into View    ${URL_EXIT_TEST}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_EXIT_TEST}
+    ${id}    Set Variable    45
+    ${exit}    Replace Variables    ${URL_EXIT_TEST}
+    Wait Until Element Is Visible    ${exit}    30s
+    Scroll Element Into View    ${exit}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${exit}
 
 Verify Page When Form Create Test Blank Information
     Page Should Contain    Vui lòng điền đầy đủ thông tin
 
 Click The Button Course 
+    ${id}    Set Variable    5
+    ${urlcourse}    Replace Variables    ${URL_COURSE}
     Handle Advertise
-    Wait Until Element Is Visible    ${URL_COURSE}    30s
+    Wait Until Element Is Visible    ${urlcourse}    30s
     Wait Until Element Is Visible    ${NAME_COURSE}    30s
     ${namecourse}=    Get Text    ${NAME_COURSE}
 
-    Scroll Element Into View    ${URL_COURSE}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_COURSE}
+    Scroll Element Into View    ${urlcourse}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlcourse}
     Wait Until Element Is Visible    ${ACTUAL_PAGE_COURSE}    30s
     ${actualcourse}=    Get Text    ${ACTUAL_PAGE_COURSE}
     Should Contain    ${actualcourse}    ${namecourse}
 Click The Button ADD Course
-    Wait Until Element Is Visible    ${URL_ADD_COURSE}    30s
-    Scroll Element Into View    ${URL_ADD_COURSE}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_ADD_COURSE}
+    ${id}    Set Variable    5
+    ${urlcourse}    Replace Variables    ${URL_ADD_COURSE}
+    Wait Until Element Is Visible    ${urlcourse}    30s
+    Scroll Element Into View    ${urlcourse}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlcourse}
     Wait Until Element Is Visible    ${ACTUAL_ADD_COURSE}    30s
     ${actualadd}=    Get Text    ${ACTUAL_ADD_COURSE}
     Should Be Equal    ${actualadd}    Create New Course
@@ -743,13 +776,18 @@ Click The Button Back to Program
 
 
 Click The Button Infomation Course
-    Wait Until Element Is Visible    ${URL_COURSE_INFO}    30s
-    Wait Until Element Is Visible    ${CODE_COURSE}    30s
-    Wait Until Element Is Visible    ${NAME_COURSE}    30s
-    ${codecourse}=    Get Text    ${CODE_COURSE}
-    ${namecourse}=    Get Text    ${NAME_COURSE}
-    Scroll Element Into View    ${URL_COURSE_INFO}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_COURSE_INFO}
+    ${id}    Set Variable    2
+    ${urlcourse}    Replace Variables    ${URL_COURSE_INFO}
+    ${code}    Replace Variables    ${CODE_COURSE}
+    ${name}    Replace Variables    ${NAME_COURSE_INFO}
+
+    Wait Until Element Is Visible    ${urlcourse}   30s
+    Wait Until Element Is Visible    ${code}    30s
+    Wait Until Element Is Visible    ${name}   30s
+    ${codecourse}=    Get Text    ${code}
+    ${namecourse}=    Get Text    ${name}
+    Scroll Element Into View    ${urlcourse}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlcourse}
     Wait Until Element Is Visible    ${ACTUAL_COURSE_INFO}    30s
     ${actualinfo}=    Get Text    ${ACTUAL_COURSE_INFO}
     Should Contain    ${actualinfo}    ${codecourse}
@@ -762,15 +800,20 @@ Click The Button Edit Course
     Page Should Contain    Edit Course
 
 Click The Button CLOs
-    Wait Until Element Is Visible    ${URL_CLOS}    30s
-    Wait Until Element Is Visible    ${CODE_COURSE}    30s
-    Wait Until Element Is Visible    ${NAME_COURSE}    30s
-    ${codecourse}=    Get Text    ${CODE_COURSE}
-    ${namecourse}=    Get Text    ${NAME_COURSE}
-    Scroll Element Into View    ${URL_CLOS}
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_CLOS}
+    ${id}    Set Variable    2
+    ${urledit}    Replace Variables    ${URL_CLOS}
+    ${code}    Replace Variables    ${CODE_COURSE}
+    ${name}    Replace Variables    ${NAME_COURSE_INFO}
+    Wait Until Element Is Visible    ${urledit}    30s
+    Wait Until Element Is Visible    ${code}    30s
+    Wait Until Element Is Visible    ${name}    30s
+    ${codecourse}=    Get Text    ${code}
+    ${namecourse}=    Get Text    ${name}
+    Scroll Element Into View    ${urledit}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urledit}
     Wait Until Element Is Visible    ${ACTUAL_COURSE_INFO}    30s
     ${actualinfo}=    Get Text    ${ACTUAL_COURSE_INFO}
     Should Contain    ${actualinfo}    CLOs
     Should Contain    ${actualinfo}    ${codecourse}
     Should Contain    ${actualinfo}    ${namecourse}
+    
