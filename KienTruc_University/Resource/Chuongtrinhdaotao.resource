@@ -57,16 +57,13 @@ Verify Search Results Contain Keyword
         ${text}=    Get Text    ${el}
         Append To List    ${list}    ${text}
     END
-    ${found}=    Set Variable    False
+
     ${lower_keyword}=    Convert To Lowercase    ${keyword}
     FOR    ${text}    IN    @{list}
         ${lower_text}=    Convert To Lowercase    ${text}
-        IF    '${lower_keyword}' in '${lower_text}'
-            ${found}=    Set Variable    True
-            Exit For Loop
-        END
+        Should Contain    ${lower_text}    ${lower_keyword}
     END
-    Should Be True    ${found}
+
 
 Verify No Search Results
     Wait Until Element Is Visible    ${ACTUAL_SEARCH_NOT}    30s

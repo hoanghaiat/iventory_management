@@ -179,3 +179,32 @@ ACTUAL_TYPE_COURSE = '//div[@class="mb-3"][1]//div/span[1]'
 ACTUAL_STATUS_COURSE  = '//div[@class="mb-3"][1]//div/span[last()]'
 
 UPDATE_COURSE_BTN = '//button[@class="btn btn-primary"]'
+
+####Lớp học
+URL_CLASS = '//a[@href="/en/academics/classes/"]'
+URL_CREATE_PAGE_CLASS = '//a[@href="/en/academics/courses/" and @class="btn btn-primary"]'
+URL_COURSES_PAGE_CLASS = '//a[@href="/en/academics/courses/" and @class="btn btn-secondary"]'
+
+SELECT_SEMESTER = '//select[@id="semester"]'
+SELECT_ACADEMIC_YEAR = '//select[@id="academic_year"]'
+SELECT_STATUS = '//select[@id="status"]'
+INPUT_SEARCH_CLASS = '//input[@id="query"]'
+SEARCH_CLASS_BTN = '//button[@class="btn btn-primary"]'
+EXPECTED_SEARCH_CLASS= '//table[contains(@class,"table-hover")]//tbody/tr/td[${id}]'
+EXPECTED_STATUS_SEARCH_CLASS= '//table[contains(@class,"table-hover")]//tbody/tr/td[last()-1]/span'
+
+EXPECTED_CODE_CLASS_INFO = '//table[@class="table table-bordered table-hover"]//tbody/tr[${id}]/td[1]'
+EXPECTED_NAME_CLASS_INFO = '//table[@class="table table-bordered table-hover"]//tbody/tr[${id}]/td[2]'
+EXPECTED_SEMESTER_CLASS_INFO = '//table[@class="table table-bordered table-hover"]//tbody/tr[${id}]/td[3]'
+EXPECTED_YEARS_CLASS_INFO = '//table[@class="table table-bordered table-hover"]//tbody/tr[${id}]/td[4]'
+URL_CLASS_INFO = '//table[@class="table table-bordered table-hover"]//tbody/tr[${id}]/td[last()]//a[last()-1]'
+
+ACTUAL_CODE_CLASS = '//h5[@class="text-primary"]'
+ACTUAL_SEMESTER_CLASS = '//p[@class="text-muted mb-2"]'
+CREATE_CONTENT_BTN = '//button[@class="btn btn-success dropdown-toggle"]'
+URL_VIEW = '//a[@href="/en/academics/classes/${id}/"]'
+URL_TEST ='//a[@href="/en/assessment/classes/${id}/tests/"]'
+URL_BACK_LIST = '//a[@class="btn btn-secondary"]'
+URL_VIEW_ALL_CLO = '//a[@href="/en/academics/courses/${id}/clos/"]'
+URL_ADD_CONTENT = '//a[@class="btn btn-sm btn-success"]'
+URL_ADD_ASS = '//a[@class="btn btn-sm btn-warning"]'
