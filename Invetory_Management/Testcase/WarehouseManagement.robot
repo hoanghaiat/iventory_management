@@ -2,6 +2,7 @@
 Library    SeleniumLibrary
 Resource    ../Resource/WarehouseManagement.resource
 Resource    ../Resource/Login.resource
+Variables    ../Variables/locator.py
 Test Setup    Login To System
 Task Teardown    Close Browser
 
@@ -28,9 +29,10 @@ WH_003 - Kiểm tra trường diện tích không chấp nhận giá trị âm
     [Tags]    Thu Uyên    Kho lưu trữ
     Navigate to Warehouse Storage
     Click Add Storage Button
-    Add Storage    KHO_E    Kho E - Lưu trữ phụ    Tầng 4, Tòa nhà chính    -200    950
+    Add Storage    KHO_H    Kho H - Lưu trữ phụ    Tầng 4, Tòa nhà chính    -200    950
     Click Save Button
-    Wait Until Page Contains    Diện tích phải >= 0
+    Scroll Element Into View    locator=${storage_area_input}
+    Wait Until Page Contains    Diện tích phải >= 0    timeout=10s
 WH_004 - Kiểm tra nút “Hủy bỏ” hoạt động đúng
     [Documentation]    WH_004
     [Tags]    Thu Uyên    Kho lưu trữ
@@ -196,16 +198,14 @@ RK_015 - Kiểm tra liên kết “Xem hộp trong giá” khi giá có 0 hộp
     [Documentation]    Kiểm tra khi rack không có hộp nào
     [Tags]    Thu Uyên    Giá kệ
     Open Rack Management
-    Click Edit Rack Icon - 1    10    
-    View Boxes In Rack - 1  10    0
-
+    Click Edit Rack Icon - 1    11
+    View Boxes In Rack - 1  11    0
 RK_016 - Kiểm tra lọc danh sách hộp theo giá kệ có chứa hộp
     [Documentation]    Kiểm tra khi rack có 3 hộp
     [Tags]    Thu Uyên    Giá kệ
     Open Rack Management
     Click Edit Rack Icon - 1    1    
     View Boxes In Rack - 1   1    3
-
 RK_017 - Kiểm tra liên kết "Xem kho chứa"
     [Documentation]    RK_017
     [Tags]    Thu Uyên    Giá kệ
@@ -276,7 +276,6 @@ BX_009 - Kiểm tra xuất excel Báo cáo Hộp lưu trữ
     [Tags]    Thu Uyên    Hộp lưu trữ
     Open Storage Box Management
     Export Excel - Box Report
-    Capture Page Screenshot
 BX_010 - Kiểm tra cập nhật hộp lưu trữ thành công
     [Documentation]    BX_010
     [Tags]    Thu Uyên    Hộp lưu trữ

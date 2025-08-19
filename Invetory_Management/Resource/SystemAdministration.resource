@@ -1,52 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-
-*** Variables ***
-# Admin Page Elements
-${admin_page}           xpath=//a[@href='/admin']
-${card_user_detail}         xpath=//a[@href='/admin/users' and contains(@class,'card-footer')]
-${card_unit_detail}         xpath=//a[@href='/don-vi' and contains(@class,'card-footer')]
-${card_storage_detail}      xpath=//a[@href='/phong' and contains(@class,'card-footer')]
-${card_catalog_detail}      xpath=//a[@href='/muc-luc' and contains(@class,'card-footer')]
-${link_user_management}     xpath=//a[@href='/admin/users' and contains(@class,'list-group-item')]
-${link_system_logs}         xpath=//a[@href='/admin/logs' and contains(@class,'list-group-item')]
-
-# Account Management Elements
-${account_management_page}        xpath=//a[@href='/admin/users']
-${add_acc_btn}                    //a[@href='/admin/users/add'and contains(@class,'btn btn-primary')]
-${addacc_username_xpath}          xpath=//input[@id='username' and contains(@class,'form-control-lg')]
-${addacc_email_xpath}             xpath=//input[@id='email' and contains(@class,'form-control-lg')]
-${addacc_password_xpath}          xpath=//input[@id='password' and contains(@class,'form-control-lg')]
-${addacc_confirm_password_xpath}  xpath=//input[@id='confirm_password' and contains(@class,'form-control-lg')]
-${addacc_submit_btn_xpath}        xpath=//input[@id='submit' and contains(@class,'btn-success')]      
-
-${view_account_details}    xpath=//a[@href='/admin/users/7/permissions' and contains(@class,'btn btn-outline-info')]
-${dashboard_link}          xpath=//a[@href='/admin' and contains(@class,'btn btn-outline-secondary')]
-${select_per_page}         xpath=//*[@id="per-page-select"]
-
-${edit_icon}                 xpath=//a[@href='/admin/users/11/edit' and contains(@class,'btn btn-outline-primary')]
-${editacc_email_xpath}       xpath=//input[@id='email' and contains(@class,'form-control')]
-${name_input_xpath}          xpath=//input[@id='username' and contains(@class,'form-control')]
-${update_button}             xpath=//input[@id='submit' and contains(@class,'btn btn-primary btn-lg')]
-${cancel_button}             xpath=//a[@href="/admin/users" and contains(@class,'btn btn-outline-secondary btn-lg')]
-${view_permission_button}    xpath=//a[@href="/admin/users/11/permissions" and contains(@class,'btn btn-outline-info btn-lg')]
-${edit_permission_button}   xpath=//a[@href="/admin/users/11/edit" and contains(@class,'btn btn-primary')]
-
-${key_icon}                       xpath=//a[@href="/admin/users/11/change-password" and contains(@class,'btn btn-outline-warning')]
-${new_password_input}             xpath=//input[@id='new_password' and contains(@class,'form-control')]
-${confirm_new_password_input}     xpath=//input[@id='confirm_password' and contains(@class,'form-control')]
-${confirm_button}                xpath=//input[@id='submit' and contains(@class,'btn btn-warning')]
-${cancelbtn}                    xpath=//a[@href="/admin/users" and contains(@class,'btn btn-secondary')]
-${acc_to_change}                user4
-
-# System Log Page Elements
-${system_log_page}              xpath=//a[@href="/admin/logs" and contains(@class,'nav-item')]
-${log_type_dropdown}            xpath=//select[@id='log_type' and contains(@class,'form-select form-select-sm')]
-${filter_button}                xpath=//button[@type='submit' and contains(@class,'btn btn-primary btn-sm')]
-${row_dropdown}                 xpath=//select[@name='per_page' and contains(@class,'form-select form-select-sm')]
-${back_to_admin_page}           xpath=//a[@href="/admin" and contains(@class,'btn btn-outline-secondary me-2')]
-${refresh_logs_button}          xpath=//button[@class='btn btn-outline-primary' and contains(.,'Làm mới')]
-
+Variables    ../Variables/locator.py
 
 *** Keywords ***
 # Admin Page
@@ -114,23 +68,23 @@ Click Edit Icon
 Clear Required Field Email
     Scroll Element Into View    ${editacc_email_xpath}
     Clear Element Text    ${editacc_email_xpath}
-    Scroll Element Into View    ${update_button}
-    Click Element    ${update_button}
+    Scroll Element Into View    ${acc_update_button}
+    Click Element    ${acc_update_button}
     Wait Until Page Contains    Email là bắt buộc    timeout=10s
 Update Successfully
     [Arguments]    ${new_name}
     Wait Until Element Is Visible    ${name_input_xpath}    5s
     Clear Element Text    ${name_input_xpath}
     Input Text    ${name_input_xpath}    ${new_name}
-    Scroll Element Into View    ${update_button}
-    Click Element    ${update_button}
+    Scroll Element Into View    ${acc_update_button}
+    Click Element    ${acc_update_button}
     Wait Until Page Contains  Tài khoản ${new_name} đã được cập nhật
 Cancel Edit
     Wait Until Element Is Visible    ${name_input_xpath}    5s
     Clear Element Text    ${name_input_xpath}
     Input Text    ${name_input_xpath}    user5
-    Scroll Element Into View    ${cancel_button}
-    Click Element    ${cancel_button}
+    Scroll Element Into View    ${acc_cancel_button}
+    Click Element    ${acc_cancel_button}
 View Permissions
     Scroll Element Into View    ${view_permission_button}
     Click Element    ${view_permission_button}

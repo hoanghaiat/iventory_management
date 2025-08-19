@@ -2,6 +2,7 @@
 Library    SeleniumLibrary
 Resource    ../Resource/SystemAdministration.resource
 Resource    ../Resource/Login.resource
+Variables    ../Variables/locator.py
 Test Setup    Login To System
 Test Teardown    Close Browser
 
@@ -31,30 +32,25 @@ AD_004 - Điều hướng đến trang quản lý phông lưu trữ
     Navigate to Fonds Management
     Open Admin Page
     Navigate to Fonds Management
- 
 AD_005 - Điều hướng đến trang quản lý mục lục hồ sơ
     [Documentation]    AD_005
     [Tags]    Thu Uyên    Trang quản trị
     Open Admin Page
     Navigate to Catalog Management
-   
 AD_006 - Điều hướng từ liên kết "Quản lý tài khoản người dùng" đến quản lý tài khoản
     [Documentation]    AD_006
     [Tags]    Thu Uyên    Trang quản trị
     Open Admin Page
     Navigate from User Menu to Account Management
-   
 AD_007 - Điều hướng đến trang nhật ký hệ thống
     [Documentation]    AD_007
     [Tags]    Thu Uyên    Trang quản trị
     Open Admin Page
     Navigate to System Logs
-  
 ACC_01 - Mở trang quản lý tài khoản
     [Documentation]    ACC_01
     [Tags]    Thu Uyên    Quản lý tài khoản
     Open Account Management 
-  
 ACC_02 - Thêm tài khoản hợp lệ
     [Documentation]    ACC_02
     [Tags]    Thu Uyên    Quản lý tài khoản
@@ -72,7 +68,6 @@ ACC_03 - Thêm tài khoản thiếu trường bắt buộc
     Wait Until Page Contains    Email là bắt buộc             timeout=10s
     Wait Until Page Contains    Mật khẩu là bắt buộc          timeout=10s
     Wait Until Page Contains    Xác nhận mật khẩu là bắt buộc  timeout=10s
-   
 ACC_04 - Thêm tài khoản khi xác nhận mật khẩu không khớp
     [Documentation]    ACC_04
     [Tags]    Thu Uyên    Quản lý tài khoản
@@ -81,15 +76,13 @@ ACC_04 - Thêm tài khoản khi xác nhận mật khẩu không khớp
     Add Account    user5   user5@warehouse.vn   password123   password456
     Scroll Element Into View    ${addacc_submit_btn_xpath}
     Wait Until Page Contains    Mật khẩu xác nhận không khớp    timeout=10s
-    
 ACC_05 - Thêm tài khoản khi tên đăng nhập đã tồn tại
     [Documentation]    ACC_05
     [Tags]    Thu Uyên    Quản lý tài khoản
     Open Account Management
     Click Add Account Button
-    Add Account    user3   user3@warehouse.vn   password123   password123
+    Add Account    user3   user@warehouse.vn   password123   password123
     Wait Until Page Contains    Tên đăng nhập đã tồn tại   timeout=10s
-
 ACC_06 - Thêm tài khoản khi email không đúng định dạng
     [Documentation]    ACC_06
     [Tags]    Thu Uyên    Quản lý tài khoản
@@ -122,8 +115,7 @@ ACC_11 - Chỉnh sửa tài khoản
     [Documentation]    ACC_11
     [Tags]    Thu Uyên    Quản lý tài khoản
     Open Account Management
-    Click Edit Icon
-    Capture Page Screenshot
+    Click Edit Icon 
 ACC_12 - Xóa trường bắt buộc Email khi sửa tài khoản
     [Documentation]    ACC_12
     [Tags]    Thu Uyên    Quản lý tài khoản
@@ -131,14 +123,12 @@ ACC_12 - Xóa trường bắt buộc Email khi sửa tài khoản
     Click Edit Icon
     Clear Required Field Email
     Wait Until Page Contains    Email là bắt buộc    timeout=10s
-    Scroll Element Into View    ${update_button}
-    Capture Page Screenshot
 ACC_13 - Cập nhật tài khoản thành công
     [Documentation]    ACC_13
     [Tags]    Thu Uyên    Quản lý tài khoản
     Open Account Management
     Click Edit Icon
-    Update Successfully    user4
+    Update Successfully    user3
 ACC_14 - Hủy bỏ chỉnh sửa
     [Documentation]    ACC_14
     [Tags]    Thu Uyên    Quản lý tài khoản
@@ -186,7 +176,6 @@ ACC_20 - Thay đổi mật khẩu không khớp
     Click Key Icon (Change Password)
     Change Password    newpassword123   differentpassword
     Wait Until Page Contains    Mật khẩu xác nhận không khớp  timeout=15s
-    Capture Page Screenshot
 ACC_21 - Mật khẩu quá ngắn
     [Documentation]    ACC_21
     [Tags]    Thu Uyên    Quản lý tài khoản
@@ -252,7 +241,6 @@ SL_008 - Kiểm tra nút "Quay lại trang quản trị"
     [Tags]    Thu Uyên   Nhật ký hệ thống
     Open System Logs
     Back to Admin Page
-    Capture Page Screenshot
 SL_009 - Kiểm tra nút "Làm mới" dữ liệu log
     [Documentation]    SL_009
     [Tags]    Thu Uyên   Nhật ký hệ thống
