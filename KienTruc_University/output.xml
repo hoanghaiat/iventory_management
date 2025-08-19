@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.3 on win32)" generated="2025-08-13T10:37:33.564461" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.12.3 on win32)" generated="2025-08-19T13:46:04.222409" rpa="false" schemaversion="5">
 <suite id="s1" name="Chuongtrinh" source="D:\Git\iventory_management\KienTruc_University\Test\chuongtrinh.robot">
 <test id="s1-t1" name="Login" line="7">
 <kw name="Login To System" owner="Chuongtrinhdaotao">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-13T10:37:34.363670" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/'.</msg>
+<msg time="2025-08-19T13:46:04.625376" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/'.</msg>
 <arg>${URL}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-13T10:37:34.363670" elapsed="5.735984"/>
+<status status="PASS" start="2025-08-19T13:46:04.625376" elapsed="4.503884"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${USERNAME_INPUT}</arg>
 <arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-13T10:37:40.099654" elapsed="0.117708"/>
+<status status="PASS" start="2025-08-19T13:46:09.129260" elapsed="0.043132"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-13T10:37:40.217874" level="INFO">Typing text 'lecturer1' into text field 'xpath=//input[@id='id_username']'.</msg>
+<msg time="2025-08-19T13:46:09.173389" level="INFO">Typing text 'lecturer1' into text field 'xpath=//input[@id='id_username']'.</msg>
 <arg>${USERNAME_INPUT}</arg>
 <arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T10:37:40.217874" elapsed="0.783419"/>
+<status status="PASS" start="2025-08-19T13:46:09.172392" elapsed="0.114941"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-13T10:37:41.001293" level="INFO">Typing text 'demolecturer' into text field 'xpath=//input[@id='id_password']'.</msg>
+<msg time="2025-08-19T13:46:09.288528" level="INFO">Typing text 'demolecturer' into text field 'xpath=//input[@id='id_password']'.</msg>
 <arg>${PASSWORD_INPUT}</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T10:37:41.001293" elapsed="0.345358"/>
+<status status="PASS" start="2025-08-19T13:46:09.287333" elapsed="0.076650"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-13T10:37:41.347973" level="INFO">Clicking button 'xpath=//button[text()='Đăng nhập']'.</msg>
+<msg time="2025-08-19T13:46:09.363983" level="INFO">Clicking button 'xpath=//button[text()='Đăng nhập']'.</msg>
 <arg>${LOGIN_BUTTON}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T10:37:41.347470" elapsed="4.197618"/>
+<status status="PASS" start="2025-08-19T13:46:09.363983" elapsed="5.084065"/>
 </kw>
 <kw name="Location Should Contain" owner="SeleniumLibrary">
-<msg time="2025-08-13T10:37:45.601203" level="INFO">Current location contains 'https://demo-clo.minds.vn/'.</msg>
+<msg time="2025-08-19T13:46:14.460670" level="INFO">Current location contains 'https://demo-clo.minds.vn/'.</msg>
 <arg>https://demo-clo.minds.vn/</arg>
 <doc>Verifies that the current URL contains ``expected``.</doc>
-<status status="PASS" start="2025-08-13T10:37:45.546085" elapsed="0.055118"/>
+<status status="PASS" start="2025-08-19T13:46:14.448048" elapsed="0.012622"/>
 </kw>
 <arg>lecturer1</arg>
 <arg>demolecturer</arg>
-<status status="PASS" start="2025-08-13T10:37:34.361845" elapsed="11.239358"/>
+<status status="PASS" start="2025-08-19T13:46:04.625376" elapsed="9.835294"/>
 </kw>
-<status status="PASS" start="2025-08-13T10:37:34.360682" elapsed="11.248017"/>
+<status status="PASS" start="2025-08-19T13:46:04.624150" elapsed="9.836520"/>
 </test>
 <test id="s1-t2" name="TC_PR_001" line="9">
 <kw name="Search Program In Training" owner="Chuongtrinhdaotao">
@@ -54,149 +54,507 @@
 <arg>${Menu_ProGram}</arg>
 <arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-13T10:37:45.643779" elapsed="0.172504"/>
+<status status="PASS" start="2025-08-19T13:46:14.462663" elapsed="0.017955"/>
 </kw>
 <kw name="Scroll Element Into View" owner="SeleniumLibrary">
 <arg>${Menu_ProGram}</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-08-13T10:37:45.816283" elapsed="0.332979"/>
+<status status="PASS" start="2025-08-19T13:46:14.480618" elapsed="0.305714"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-13T10:37:46.150767" level="INFO">Clicking element '//a[@href='/en/academics/programs/']'.</msg>
+<msg time="2025-08-19T13:46:14.787333" level="INFO">Clicking element '//a[@href='/en/academics/programs/']'.</msg>
 <arg>${Menu_ProGram}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T10:37:46.149262" elapsed="0.927077"/>
+<status status="PASS" start="2025-08-19T13:46:14.786332" elapsed="0.721615"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${TXT_SEARCH}</arg>
 <arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-13T10:37:47.076339" elapsed="0.096638"/>
+<status status="PASS" start="2025-08-19T13:46:15.507947" elapsed="0.037993"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-13T10:37:47.173979" level="INFO">Typing text 'Khoa Luan' into text field '//input[@name='q']'.</msg>
+<msg time="2025-08-19T13:46:15.545940" level="INFO">Typing text 'Khoa Luan' into text field '//input[@name='q']'.</msg>
 <arg>${TXT_SEARCH}</arg>
 <arg>${INPUT_KEYWORD}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T10:37:47.173979" elapsed="0.226323"/>
+<status status="PASS" start="2025-08-19T13:46:15.545940" elapsed="0.182790"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-13T10:37:47.401303" level="INFO">Clicking element '//button[i[contains(@class,'fa-search')]]'.</msg>
+<msg time="2025-08-19T13:46:15.728730" level="INFO">Clicking element '//button[i[contains(@class,'fa-search')]]'.</msg>
 <arg>${BTN_SEARCH}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T10:37:47.400302" elapsed="1.081254"/>
+<status status="PASS" start="2025-08-19T13:46:15.728730" elapsed="0.132025"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>${INPUT_KEYWORD}</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-08-13T10:37:48.482713" elapsed="0.063755"/>
+<status status="PASS" start="2025-08-19T13:46:15.860755" elapsed="0.917491"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-13T10:37:48.546973" level="INFO">Clicking element '//a[@href='/en/academics/programs/']'.</msg>
+<msg time="2025-08-19T13:46:16.779255" level="INFO">Clicking element '//a[@href='/en/academics/programs/']'.</msg>
 <arg>${Menu_ProGram}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T10:37:48.546468" elapsed="0.985399"/>
+<status status="PASS" start="2025-08-19T13:46:16.778246" elapsed="0.705465"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${TXT_SEARCH}</arg>
 <arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-13T10:37:49.531867" elapsed="0.061495"/>
+<status status="PASS" start="2025-08-19T13:46:17.484216" elapsed="0.023853"/>
 </kw>
 <kw name="Clear Element Text" owner="SeleniumLibrary">
 <arg>${TXT_SEARCH}</arg>
 <doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T10:37:49.594359" elapsed="0.081242"/>
+<status status="PASS" start="2025-08-19T13:46:17.508069" elapsed="0.025314"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-13T10:37:49.677336" level="INFO">Clicking element '//button[i[contains(@class,'fa-search')]]'.</msg>
+<msg time="2025-08-19T13:46:17.533383" level="INFO">Clicking element '//button[i[contains(@class,'fa-search')]]'.</msg>
 <arg>${BTN_SEARCH}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T10:37:49.676831" elapsed="0.188824"/>
+<status status="PASS" start="2025-08-19T13:46:17.533383" elapsed="0.683946"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>All Programs</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-08-13T10:37:49.866653" elapsed="0.842008"/>
+<status status="PASS" start="2025-08-19T13:46:18.218706" elapsed="0.019814"/>
 </kw>
 <arg>Khoa Luan</arg>
-<status status="PASS" start="2025-08-13T10:37:45.643779" elapsed="5.064882"/>
+<status status="PASS" start="2025-08-19T13:46:14.461666" elapsed="3.778265"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-13T10:37:55.722725" level="INFO">Slept 5 seconds.</msg>
+<msg time="2025-08-19T13:46:23.241701" level="INFO">Slept 5 seconds.</msg>
 <arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-13T10:37:50.709662" elapsed="5.013063"/>
+<status status="PASS" start="2025-08-19T13:46:18.239931" elapsed="5.001770"/>
 </kw>
 <doc>TC_PR_001</doc>
 <tag>Dat Huy Search</tag>
-<status status="PASS" start="2025-08-13T10:37:45.612687" elapsed="10.118383"/>
+<status status="PASS" start="2025-08-19T13:46:14.461666" elapsed="8.781034"/>
 </test>
-<test id="s1-t3" name="TC_002" line="14">
+<test id="s1-t3" name="TC_PR_003" line="14">
 <kw name="Click Next Page" owner="Chuongtrinhdaotao">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${CLICK_NEXT}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-13T10:37:55.760070" elapsed="0.100016"/>
+<status status="PASS" start="2025-08-19T13:46:23.244693" elapsed="0.050626"/>
 </kw>
 <kw name="Scroll Element Into View" owner="SeleniumLibrary">
 <arg>${CLICK_NEXT}</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-08-13T10:37:55.860086" elapsed="0.368226"/>
+<status status="PASS" start="2025-08-19T13:46:23.295319" elapsed="0.300114"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-13T10:37:57.230100" level="INFO">Slept 1 second.</msg>
+<msg time="2025-08-19T13:46:24.595866" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-13T10:37:56.228312" elapsed="1.001788"/>
+<status status="PASS" start="2025-08-19T13:46:23.595433" elapsed="1.000433"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-13T10:37:57.231100" level="INFO">Clicking element '//a[@class='page-link' and text()='2']'.</msg>
+<msg time="2025-08-19T13:46:24.596913" level="INFO">Clicking element '//a[@class='page-link' and text()='2']'.</msg>
 <arg>${CLICK_NEXT}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-13T10:37:57.230100" elapsed="1.518366"/>
+<status status="PASS" start="2025-08-19T13:46:24.595866" elapsed="0.765786"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//li[@class='page-item active']/a[text()='2']</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-13T10:37:58.749927" elapsed="0.049623"/>
+<status status="PASS" start="2025-08-19T13:46:25.361652" elapsed="0.045032"/>
 </kw>
 <kw name="Location Should Contain" owner="SeleniumLibrary">
-<msg time="2025-08-13T10:37:58.808793" level="INFO">Current location contains 'page=2'.</msg>
+<msg time="2025-08-19T13:46:25.410472" level="INFO">Current location contains 'page=2'.</msg>
 <arg>page=2</arg>
 <doc>Verifies that the current URL contains ``expected``.</doc>
-<status status="PASS" start="2025-08-13T10:37:58.799550" elapsed="0.009243"/>
+<status status="PASS" start="2025-08-19T13:46:25.406684" elapsed="0.003788"/>
 </kw>
-<status status="PASS" start="2025-08-13T10:37:55.760070" elapsed="3.048723"/>
+<status status="PASS" start="2025-08-19T13:46:23.244693" elapsed="2.165779"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-13T10:38:04.029712" level="INFO">Slept 5 seconds.</msg>
+<msg time="2025-08-19T13:46:30.410682" level="INFO">Slept 5 seconds.</msg>
 <arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-13T10:37:58.809790" elapsed="5.220918"/>
+<status status="PASS" start="2025-08-19T13:46:25.410472" elapsed="5.000210"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-13T10:38:04.081515" elapsed="4.397345"/>
+<kw name="Click Previous Page" owner="Chuongtrinhdaotao">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CLICK_PREVIOUS}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T13:46:30.411865" elapsed="0.022944"/>
 </kw>
-<doc>TC_002</doc>
-<tag>Dat Huy Click Next Page</tag>
-<status status="PASS" start="2025-08-13T10:37:55.751805" elapsed="12.727055"/>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${CLICK_PREVIOUS}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-19T13:46:30.436129" elapsed="0.294137"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-19T13:46:31.732329" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-19T13:46:30.731340" elapsed="1.000989"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:46:31.732329" level="INFO">Clicking element '//li[@class='page-item']/a[@aria-label='Previous']'.</msg>
+<arg>${CLICK_PREVIOUS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:46:31.732329" elapsed="0.688763"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//li[@class='page-item active']/a[text()='1']</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T13:46:32.422314" elapsed="0.041413"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:46:32.473524" level="INFO">Current location contains 'page=1'.</msg>
+<arg>page=1</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-08-19T13:46:32.465138" elapsed="0.008386"/>
+</kw>
+<status status="PASS" start="2025-08-19T13:46:30.411865" elapsed="2.061659"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-19T13:46:37.474818" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-19T13:46:32.473524" elapsed="5.001294"/>
+</kw>
+<doc>TC_PR_003</doc>
+<tag>Dat Huy Click Next/Previous Page</tag>
+<status status="PASS" start="2025-08-19T13:46:23.243696" elapsed="14.232167"/>
 </test>
-<status status="PASS" start="2025-08-13T10:37:33.566463" elapsed="34.915062"/>
+<test id="s1-t4" name="TC_PR_005" line="21">
+<kw name="View Program" owner="Chuongtrinhdaotao">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Menu_ProGram}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T13:46:37.478093" elapsed="0.023476"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:46:37.501569" level="INFO">Clicking element '//a[@href='/en/academics/programs/']'.</msg>
+<arg>${Menu_ProGram}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:46:37.501569" elapsed="0.741231"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_VIEW_PROGRAM}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T13:46:38.242800" elapsed="0.026783"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BTN_VIEW_PROGRAM}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-19T13:46:38.270578" elapsed="0.293416"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:46:38.565073" level="INFO">Clicking element '//a[contains(@class,'btn-info') and @href='/en/academics/programs/20/']'.</msg>
+<arg>${BTN_VIEW_PROGRAM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:46:38.563994" elapsed="0.984675"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:46:39.564576" level="INFO">Current location contains '/en/academics/programs/20/'.</msg>
+<arg>/en/academics/programs/20/</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-08-19T13:46:39.549715" elapsed="0.014861"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-19T13:46:41.564794" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-19T13:46:39.564576" elapsed="2.000218"/>
+</kw>
+<status status="PASS" start="2025-08-19T13:46:37.476877" elapsed="4.087917"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-19T13:46:46.566300" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-19T13:46:41.566104" elapsed="5.000196"/>
+</kw>
+<doc>TC_PR_005</doc>
+<tag>Dat Huy View Program</tag>
+<status status="PASS" start="2025-08-19T13:46:37.476877" elapsed="9.090500"/>
+</test>
+<test id="s1-t5" name="TC_PR_006" line="26">
+<kw name="Coppy_Program" owner="Chuongtrinhdaotao">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_COPPY_PROGRAM}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T13:46:46.570334" elapsed="0.043028"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BTN_COPPY_PROGRAM}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-19T13:46:46.614467" elapsed="0.283469"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${BTN_COPPY_PROGRAM}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-08-19T13:46:46.897936" elapsed="0.019986"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:46:46.917922" level="INFO">Clicking button '//button[@data-bs-target='#duplicateProgramModal']'.</msg>
+<arg>${BTN_COPPY_PROGRAM}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:46:46.917922" elapsed="0.048839"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//div[@id='duplicateProgramModal']</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T13:46:46.966761" elapsed="0.244977"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:46:47.248446" level="INFO">Element '//div[@id='duplicateProgramModal']' is displayed.</msg>
+<arg>//div[@id='duplicateProgramModal']</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T13:46:47.211738" elapsed="0.037708"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_SUBMIT}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T13:46:47.249954" elapsed="0.030161"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${BTN_SUBMIT}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-08-19T13:46:47.280115" elapsed="0.029672"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:46:47.311253" level="INFO">Clicking button '//button[contains(.,'Xác nhận sao chép') and .//i[contains(@class,'fa-copy')]]'.</msg>
+<arg>${BTN_SUBMIT}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:46:47.311253" elapsed="0.084300"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:46:50.628031" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
+<arg>${BTN_PRO}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T13:46:47.395553" elapsed="3.462901"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:46:50.859662" level="INFO">Clicking element '//li[contains(@class,'breadcrumb-item')]/a[contains(text(),'Quản lý chương trình')]'.</msg>
+<arg>${BTN_PRO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:46:50.858454" elapsed="0.838287"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>All Programs</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-19T13:46:51.696741" elapsed="0.038838"/>
+</kw>
+<status status="PASS" start="2025-08-19T13:46:46.569324" elapsed="5.167730"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-19T13:46:56.737262" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-19T13:46:51.737054" elapsed="5.000208"/>
+</kw>
+<doc>TC_PR_006</doc>
+<tag>Dat Huy View Coppy Program</tag>
+<status status="PASS" start="2025-08-19T13:46:46.568319" elapsed="10.170981"/>
+</test>
+<test id="s1-t6" name="TC_PR_007" line="31">
+<kw name="View Course" owner="Chuongtrinhdaotao">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_VIEW_COURSE}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T13:46:56.741433" elapsed="0.037380"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BTN_VIEW_COURSE}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-19T13:46:56.778813" elapsed="0.274635"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:46:57.054482" level="INFO">Clicking element '//a[contains(@class,'btn-success') and @href='/en/academics/programs/20/courses/']'.</msg>
+<arg>${BTN_VIEW_COURSE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:46:57.054482" elapsed="0.922128"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:46:57.981022" level="INFO">Current location contains '/en/academics/programs/20/courses/'.</msg>
+<arg>/en/academics/programs/20/courses/</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-08-19T13:46:57.976610" elapsed="0.004412"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-19T13:46:59.981239" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-19T13:46:57.981022" elapsed="2.000217"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_BACK_PROGRAM}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T13:46:59.981239" elapsed="0.023401"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BTN_BACK_PROGRAM}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-19T13:47:00.004640" elapsed="0.278103"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:47:00.283745" level="INFO">Clicking element '//a[@href='/en/academics/programs/20/']'.</msg>
+<arg>${BTN_BACK_PROGRAM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:47:00.283745" elapsed="0.890015"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:47:01.179806" level="INFO">Current location contains '/en/academics/programs/20/'.</msg>
+<arg>/en/academics/programs/20/</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-08-19T13:47:01.173760" elapsed="0.006046"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-19T13:47:02.180173" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-19T13:47:01.179806" elapsed="1.000367"/>
+</kw>
+<status status="PASS" start="2025-08-19T13:46:56.741433" elapsed="5.438740"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-19T13:47:07.181939" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-19T13:47:02.180173" elapsed="5.001766"/>
+</kw>
+<doc>TC_PR_007</doc>
+<tag>Dat Huy View Course</tag>
+<status status="PASS" start="2025-08-19T13:46:56.740302" elapsed="10.441637"/>
+</test>
+<test id="s1-t7" name="TC_PR_008" line="36">
+<kw name="Create Course" owner="Chuongtrinhdaotao">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_CREATE_STUDYSECTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T13:47:07.183380" elapsed="0.026787"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BTN_CREATE_STUDYSECTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-19T13:47:07.211172" elapsed="0.280724"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:47:07.492909" level="INFO">Clicking element '//a[@href='/en/academics/programs/20/courses/create/']'.</msg>
+<arg>${BTN_CREATE_STUDYSECTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:47:07.491896" elapsed="0.982553"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_COURSE_CODE}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T13:47:08.475445" elapsed="0.017627"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:47:08.493072" level="INFO">Typing text '10' into text field '//input[@id='id_course_code']'.</msg>
+<arg>${INPUT_COURSE_CODE}</arg>
+<arg>10</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:47:08.493072" elapsed="0.054366"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:47:08.547438" level="INFO">Typing text 'huy' into text field '//input[@id='id_course_name']'.</msg>
+<arg>${INPUT_COURSE_NAME}</arg>
+<arg>huy</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:47:08.547438" elapsed="0.104489"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:47:08.653015" level="INFO">Typing text '2' into text field '//input[@name='credits']'.</msg>
+<arg>${INPUT_COURSE_CREDIT}</arg>
+<arg>2</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:47:08.651927" elapsed="0.079529"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:47:08.735446" level="INFO">Typing text 'nono' into text field '//textarea[@name='description']'.</msg>
+<arg>${INPUT_COURSE_DESCRIPTION}</arg>
+<arg>nono</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:47:08.731456" elapsed="0.068849"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:47:08.803294" level="INFO">Selecting options from selection list '(//select[@name='type'])[1]' by value mandatory.</msg>
+<arg>${SELECT_TYPE}</arg>
+<arg>mandatory</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-19T13:47:08.802298" elapsed="0.040581"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:47:08.842879" level="INFO">Selecting options from selection list '//select[@id='id_status']' by value active.</msg>
+<arg>${SELECT_STATUS}</arg>
+<arg>active</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-19T13:47:08.842879" elapsed="0.031991"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:47:08.876301" level="INFO">Clicking element '//select[@id='id_prerequisite_courses']/option[@value='4']'.</msg>
+<arg>${SELECT_Prerequisitecourses}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:47:08.874870" elapsed="0.032721"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:47:08.907591" level="INFO">Clicking element '//select[@id='id_program']/option[@value='4']'.</msg>
+<arg>${SELECT_PROGRAM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:47:08.907591" elapsed="0.022782"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BTN_CREATE_COURSE}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-19T13:47:08.930373" elapsed="0.284810"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-19T13:47:09.215183" level="INFO">Clicking button '//button[@type='submit' and contains(.,'Create Course')]'.</msg>
+<arg>${BTN_CREATE_COURSE}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T13:47:09.215183" elapsed="1.902752"/>
+</kw>
+<status status="PASS" start="2025-08-19T13:47:07.183380" elapsed="3.934555"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-19T13:47:16.119699" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-19T13:47:11.119024" elapsed="5.000675"/>
+</kw>
+<doc>TC_PR_008</doc>
+<tag>Dat Huy Create Course</tag>
+<status status="PASS" start="2025-08-19T13:47:07.181939" elapsed="8.937760"/>
+</test>
+<status status="PASS" start="2025-08-19T13:46:04.224485" elapsed="71.897250"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">Dat Huy Click Next Page</stat>
+<stat pass="1" fail="0" skip="0">Dat Huy Click Next/Previous Page</stat>
+<stat pass="1" fail="0" skip="0">Dat Huy Create Course</stat>
 <stat pass="1" fail="0" skip="0">Dat Huy Search</stat>
+<stat pass="1" fail="0" skip="0">Dat Huy View Coppy Program</stat>
+<stat pass="1" fail="0" skip="0">Dat Huy View Course</stat>
+<stat pass="1" fail="0" skip="0">Dat Huy View Program</stat>
 </tag>
 <suite>
-<stat name="Chuongtrinh" id="s1" pass="3" fail="0" skip="0">Chuongtrinh</stat>
+<stat name="Chuongtrinh" id="s1" pass="7" fail="0" skip="0">Chuongtrinh</stat>
 </suite>
 </statistics>
 <errors>

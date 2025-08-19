@@ -13,9 +13,23 @@ Menu_Ques="//a[@href='/en/questionbank/questions/' and contains(@class,'menu-ite
 Menu_HOME="//a[@href='/en/' and contains(@class,'menu-item')]"
 #chuontrinhdaotao
 Menu_ProGram="//a[@href='/en/academics/programs/']"
-#timkiem
+BTN_PRO="//li[contains(@class,'breadcrumb-item')]/a[contains(text(),'Quản lý chương trình')]" 
+BTN_VIEW_PROGRAM="//a[contains(@class,'btn-info') and @href='/en/academics/programs/20/']"
+BTN_VIEW_COURSE="//a[contains(@class,'btn-success') and @href='/en/academics/programs/20/courses/']"
 BTN_SEARCH="//button[i[contains(@class,'fa-search')]]"
-#tukhoa
 TXT_SEARCH="//input[@name='q']"
-#click chuyen trang
 CLICK_NEXT="//a[@class='page-link' and text()='2']"
+CLICK_PREVIOUS="//li[@class='page-item']/a[@aria-label='Previous']"
+BTN_COPPY_PROGRAM="//button[@data-bs-target='#duplicateProgramModal']"
+BTN_SUBMIT="//button[contains(.,'Xác nhận sao chép') and .//i[contains(@class,'fa-copy')]]"
+BTN_CREATE_STUDYSECTION="//a[@href='/en/academics/programs/20/courses/create/']"
+INPUT_COURSE_CODE="//input[@id='id_course_code']"
+INPUT_COURSE_NAME="//input[@id='id_course_name']"
+INPUT_COURSE_CREDIT="//input[@name='credits']"
+INPUT_COURSE_DESCRIPTION="//textarea[@name='description']"
+SELECT_TYPE="(//select[@name='type'])[1]"
+SELECT_STATUS="//select[@id='id_status']"
+SELECT_Prerequisitecourses="//select[@id='id_prerequisite_courses']/option[@value='4']"
+SELECT_PROGRAM="//select[@id='id_program']/option[@value='4']"
+BTN_CREATE_COURSE="//button[@type='submit' and contains(.,'Create Course')]"
+BTN_BACK_PROGRAM="//a[@href='/en/academics/programs/20/']"
