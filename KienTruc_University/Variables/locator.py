@@ -122,6 +122,38 @@ ACTIVE='//span[@class="badge bg-success"]'
 COMPLETED='//span[@class="badge bg-secondary"]'
 UPDATED='//span[@class="badge bg-warning"]'
 
-VIEW_CLOC_BTN ='//a[@href="/en/academics/courses/50/clos/"]'
+# VIEW_CLOC_BTN ='//a[@href="/en/academics/courses/50/clos/"]'
+VIEW_CLOC_BTN = '(//a[contains(@href, "/clos/")])[1]'
 EDIT_COURSE='//a[@href="/en/academics/courses/50/update/"]'
 VIEW_DETAIL_COURSE_BTN='//a[@href="/en/academics/courses/50/"]'
+
+ADD_CLO_BTN ='//a[@href="/en/academics/courses/58/clos/create/"]'
+CLO_CREATE_TITLE ='//h1[@class="content-title"]'
+BACK_TO_CLOS_BTN='//a[@href="/en/academics/courses/58/clos/"]'
+
+COURSE_DROP ='//select[@id="id_course"]'
+CLO_CODE='//input[@id="id_clo_code"]'
+DESCRIPTION_CLO ='//textarea[@id="id_description"]'
+CATEGORY_CLO_DROP='//select[@id="id_category"]'
+LEVEL_CLO_DROP='//select[@id="id_level"]'
+WEIGHT_CLO='//input[@id="id_weight"]'
+ASSESSMENT_METHOD_DROP='//select[@id="id_assessment_method"]'
+CREATE_CLO_BTN='//button[@class="btn btn-primary"]'
+SUCCESS_CLO_MESSAGE ='//div[@class="alert alert-success alert-dismissible fade show"]'
+ERROR_CREATE_CLO_MESSAGES = {
+    "course": "//strong[contains(text(),'This field is required')]",
+    "clo code": "//strong[contains(text(),'This field is required')]",
+    "description": "//strong[contains(text(),'This field is required')]",
+    "category": "//strong[contains(text(),'This field is required')]",
+    "level": "//strong[contains(text(),'This field is required')]",
+    "weight": "//strong[contains(text(),'This field is required')]",
+    "assessment method": "//strong[contains(text(),'This field is required')]",
+}  
+WARNING_MESSAGE_WEIGHT='//p[@id="error_1_id_weight"]'
+EDIT_CLO_BTN='//a[contains(@href, "/en/academics/clos/") and contains(@href, "/update/")][1]'
+PLO_BTN='//a[contains(@href, "/en/academics/clos/") and contains(@href, "/plo-mapping/create/")]'
+CLO_TITLE='//h1[@class="content-title"]'
+UPDATE_CLO_BTN='//button[@class="btn btn-primary"]'
+UPDATE_CLO_SUCCESS_MES='//div[@class="alert alert-success alert-dismissible fade show"]'
+ERROR_INVALID_MESS='//p[@id="error_1_id_weight"]'
+BACK_TO_CLOS ='//a[@class="btn btn-secondary"]'

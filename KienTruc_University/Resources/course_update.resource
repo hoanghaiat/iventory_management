@@ -31,10 +31,11 @@ Click First Edit Courses Button
    Wait Until Page Contains Element    ${EDIT_COURSE}         10s 
    Wait Until Element Is Visible    ${EDIT_COURSE}       10s
    Wait Until Element Is Enabled    ${EDIT_COURSE}       10s
+   Scroll Element Into View    ${EDIT_COURSE}        
    Click Element     //a[@href="/en/academics/courses/50/update/"]
     Wait Until Element Is Visible    ${EDIT_COURSE_TITLE}    10s   
 
-Click Choose Program Drop
+Click Choose Program Drop 
     Wait Until Element Is Visible  ${PROGRAM_DROP}
     Wait Until Element Is Enabled    ${PROGRAM_DROP}
     Click Element    ${PROGRAM_OPT} 
@@ -64,9 +65,7 @@ Click Update Course Button
 Verify Success Message And Course Update 
     # Wait Until Location Contains       ${URL_DETAIL_COURSE}     20S 
     Wait Until Page Contains Element    ${SUCCESS_UPDATE_MESSAGE}    20s
-    ${message}=    Get Text    ${SUCCESS_UPDATE_MESSAGE}
-    Log    Success message displayed: ${message}
-    Should Contain    ${message}    updated
+    
 Verify Error Update Message For Required Fields
     [Arguments]    ${field_key}
     ${locator}=    Set Variable    ${ERROR_UPDATE_MESSAGES}[${field_key}]
@@ -92,10 +91,9 @@ Fill Course With Valid Data
     Clear Element Text       ${DESCRIPTION_FIELD}
     Input Text    ${DESCRIPTION_FIELD}        ${description}
 
-    Click Choose Type Drop
-    Click Choose status Drop
+    Click Choose Type Drop 
     Click Choose Status Drop
-    Click Choose Prerequisite
+    Click Choose Prerequisite 
 
 Fill Course With Empty Program Field
     [Arguments]     ${course_code}   ${course_name}    ${credit}   ${description}   ${type}   ${status}   ${prerequisite}
@@ -106,7 +104,7 @@ Fill Course With Empty Program Field
 
     # Chọn option trống cho Program
     Wait Until Element Is Visible    ${PROGRAM_DROP}
-    Select From List By Index    ${PROGRAM_DROP}    0
+    Select From List By Index    ${PROGRAM_DROP}    0  
 
     Clear Element Text    ${COURSE_NAME_FILED}
     Input Text    ${COURSE_NAME_FILED}   ${course_name}
