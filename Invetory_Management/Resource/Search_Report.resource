@@ -1,22 +1,9 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    Collections
 Resource    ../Resource/HomePage.resource
-
-*** Variables ***
-${Search_Textbox}            //input[@id="keyword"]
-
-${Button_Search}            //button[@type="submit" and contains(normalize-space(.),"Tìm kiếm")]
-${Button_Clear_Filter}      //button[contains(@class, "btn-secondary") and contains(normalize-space(.), "Xóa bộ lọc")]
-
-${DonVi_Dropdown}    //select[@id="don_vi_select"]
-${Phong_Dropdown}    //select[@id="phong_select"]
-${Kho_Dropdown}      //select[@id="kho_select"]
-${Gia_Dropdown}      //select[@id="gia_id"]
-
-
-*** Keywords ***
-*** Settings ***
-Library    SeleniumLibrary
+Resource    ../Resource/OrganizationalManagement.resource
+Variables    ../Variables/locator.py
 
 *** Keywords ***
 Duyet Tung Dong Bang Chua Tu Khoa
@@ -42,15 +29,16 @@ Duyet Tung Dong Ket Qua
         Should Contain    ${text}    ${keyword}    Dòng không chứa từ khóa "${keyword}"
     END
 
-Duyet Tung Dong Bang Chua Nhieu Tu Khoa
-    [Arguments]    ${keyword1}    ${keyword2}
+Duyet Tung Dong Chua Nhieu Tu Khoa
+    [Arguments]    @{keywords}
+    ${pattern}=    Catenate    SEPARATOR=|    @{keywords}
     ${rows}=    Get WebElements    xpath=//table//tbody//tr
     FOR    ${row}    IN    @{rows}
         ${text}=    Get Text    ${row}
         Log    Nội dung dòng: ${text}
-        Should Contain    ${text}    ${keyword1}    Dòng không chứa từ khóa "${keyword1}"
-        Should Contain    ${text}    ${keyword2}    Dòng không chứa từ khóa "${keyword2}"
+        Should Match Regexp    ${text}    (?i).*(${pattern}).*
     END
+
 Do Search
     [Arguments]    ${keyword}
     Click Element    ${Search_Textbox}
@@ -71,8 +59,8 @@ Search Textbox Blank
 
 Search DonVi
     [Arguments]    ${don_vi}
-    Wait Until Element Is Visible    ${DonVi_Dropdown}    10s
-    Select From List By Label    ${DonVi_Dropdown}    ${don_vi}
+    Wait Until Element Is Visible    ${Dropdown_DonVi}    10s
+    Select From List By Label    ${Dropdown_DonVi}    ${don_vi}
 
     Wait Until Element Is Visible    ${Button_Search}    10s
     Scroll Element Into View    ${Button_Search}
@@ -83,12 +71,12 @@ Search DonVi
 
 Search DonVi and Phong 
     [Arguments]    ${DV}    ${phong}
-    Wait Until Element Is Visible    ${DonVi_Dropdown}    10s
-    Select From List By Label    ${DonVi_Dropdown}    ${DV}
-    Wait Until Element Is Visible    ${Phong_Dropdown}    10s
-    Wait Until Element Contains    ${Phong_Dropdown}    ${phong}    10s 
-    Scroll Element Into View    ${Phong_Dropdown}
-    Select From List By Label    ${Phong_Dropdown}    ${phong}
+    Wait Until Element Is Visible    ${Dropdown_DonVi}    10s
+    Select From List By Label    ${Dropdown_DonVi}    ${DV}
+    Wait Until Element Is Visible    ${Dropdown_Phong}    10s
+    Wait Until Element Contains    ${Dropdown_Phong}    ${phong}    10s 
+    Scroll Element Into View    ${Dropdown_Phong}
+    Select From List By Label    ${Dropdown_Phong}    ${phong}
 
     Wait Until Element Is Visible    ${Button_Search}    10s
     Scroll Element Into View    ${Button_Search}
@@ -96,13 +84,13 @@ Search DonVi and Phong
 
     Wait Until Element Is Visible    xpath=//table    10s
     Scroll Element Into View    xpath=//table
-    Duyet Tung Dong Bang Chua Nhieu Tu Khoa    ${DV}    ${phong}
+    Duyet Tung Dong Chua Nhieu Tu Khoa    ${DV}    ${phong}
 
 Search Kho
     [Arguments]    ${kho}
-    Wait Until Element Is Visible    ${Kho_Dropdown}    10s
-    Scroll Element Into View    ${Kho_Dropdown}
-    Select From List By Label    ${Kho_Dropdown}    ${kho}
+    Wait Until Element Is Visible    ${Dropdown_Kho}    10s
+    Scroll Element Into View    ${Dropdown_Kho}
+    Select From List By Label    ${Dropdown_Kho}    ${kho}
 
     Wait Until Element Is Visible    ${Button_Search}    10s
     Scroll Element Into View    ${Button_Search}
@@ -111,23 +99,130 @@ Search Kho
     Wait Until Element Is Visible    xpath=//table    10s
     Duyet Tung Dong Bang Chua Tu Khoa    ${kho}
 Search Gia        
-    [Arguments]    ${gia}
-    Wait Until Element Is Visible    ${Gia_Dropdown}    10s
-    Scroll Element Into View    ${Gia_Dropdown}
-    Select From List By Label    ${Gia_Dropdown}    ${gia}
+    [Arguments]    ${donvi}    ${phong}    ${kho}    ${gia}
+    Wait Until Element Is Visible    ${Dropdown_DonVi}    10s
+    Select From List By Label    ${Dropdown_DonVi}    ${donvi}
+
+    Wait Until Element Is Visible    ${Dropdown_Phong}    10s
+    Wait Until Element Contains    ${Dropdown_Phong}    ${phong}    10s 
+    Scroll Element Into View    ${Dropdown_Phong}
+    Select From List By Label    ${Dropdown_Phong}    ${phong}
+
+    Wait Until Element Is Visible    ${Dropdown_Kho}    10s
+    Wait Until Element Contains    ${Dropdown_Kho}    ${kho}    10s
+    Select From List By Label    ${Dropdown_Kho}    ${kho}
+
+    Wait Until Element Is Visible    ${Dropdown_Gia}    10s
+    Wait Until Element Contains    ${Dropdown_Gia}    ${gia}    10s
+    Select From List By Label    ${Dropdown_Gia}    ${gia}
 
     Wait Until Element Is Visible    ${Button_Search}    10s
     Scroll Element Into View    ${Button_Search}
     Click Button    ${Button_Search}
 
     Wait Until Element Is Visible    xpath=//table    10s
-    Duyet Tung Dong Bang Chua Tu Khoa    ${gia}
-     
+    Duyet Tung Dong Chua Nhieu Tu Khoa    ${donvi}    ${phong}    ${kho}    ${gia}
+
+Search key and Unit
+    [Arguments]    ${keyword}    ${donvi}
+    Click Element    ${Search_Textbox}
+    Input Text    ${Search_Textbox}    ${keyword}
+
+    Wait Until Element Is Visible    ${Dropdown_DonVi}    10s
+    Select From List By Label    ${Dropdown_DonVi}    ${donvi}  
+
+    Wait Until Element Is Visible    ${Button_Search}    10s
+    Scroll Element Into View         ${Button_Search}
+    Click Button    ${Button_Search}
+
+    Wait Until Element Is Visible    xpath=//table    10s
+    Duyet Tung Dong Chua Nhieu Tu Khoa    ${keyword}    ${donvi}
+
+Search key and Unit and Phong
+    [Arguments]    ${keyword}    ${donvi}    ${phong}
+    Click Element    ${Search_Textbox}
+    Input Text    ${Search_Textbox}    ${keyword}
+
+    Wait Until Element Is Visible    ${Dropdown_DonVi}    10s
+    Select From List By Label    ${Dropdown_DonVi}    ${donvi}  
+
+    Wait Until Element Is Visible    ${Dropdown_Phong}    10s
+    Wait Until Element Contains    ${Dropdown_Phong}    ${phong}    10s 
+    Scroll Element Into View    ${Dropdown_Phong}
+    Select From List By Label    ${Dropdown_Phong}    ${phong}
+
+    Wait Until Element Is Visible    ${Button_Search}    10s
+    Scroll Element Into View         ${Button_Search}
+    Click Button    ${Button_Search}
+
+    Wait Until Element Is Visible    xpath=//table    10s
+    Duyet Tung Dong Chua Nhieu Tu Khoa    ${keyword}    ${donvi}    ${phong}
+
+Search key and Kho
+    [Arguments]    ${keyword}    ${kho}
+    Click Element    ${Search_Textbox}
+    Input Text    ${Search_Textbox}    ${keyword}
+
+    Wait Until Element Is Visible    ${Dropdown_Kho}    10s
+    Select From List By Label    ${Dropdown_Kho}    ${kho}  
+
+    Wait Until Element Is Visible    ${Button_Search}    10s
+    Scroll Element Into View         ${Button_Search}
+    Click Button    ${Button_Search}
+
+    Wait Until Element Is Visible    xpath=//table    10s
+    Duyet Tung Dong Chua Nhieu Tu Khoa    ${keyword}    ${kho}
+
+Search key and Gia
+    [Arguments]    ${keyword}    ${kho}    ${gia}
+    Click Element    ${Search_Textbox}
+    Input Text    ${Search_Textbox}    ${keyword}
+
+    Wait Until Element Is Visible    ${Dropdown_Kho}    10s
+    Select From List By Label    ${Dropdown_Kho}    ${kho}  
+
+    Wait Until Element Is Visible    ${Dropdown_Gia}    10s
+    Wait Until Element Contains    ${Dropdown_Gia}    ${gia}    10s
+    Select From List By Label    ${Dropdown_Gia}    ${gia}
+
+    Wait Until Element Is Visible    ${Button_Search}    10s
+    Scroll Element Into View         ${Button_Search}
+    Click Button    ${Button_Search}
+
+    Wait Until Element Is Visible    xpath=//table    10s
+    Duyet Tung Dong Chua Nhieu Tu Khoa    ${keyword}    ${kho}    ${gia}
+
+Search All
+    [Arguments]    ${keyword}    ${donvi}    ${phong}    ${kho}    ${gia}
+    Click Element    ${Search_Textbox}
+    Input Text    ${Search_Textbox}    ${keyword}
+
+    Wait Until Element Is Visible    ${Dropdown_DonVi}    10s
+    Select From List By Label    ${Dropdown_DonVi}    ${donvi}  
+
+    Wait Until Element Is Visible    ${Dropdown_Phong}    10s
+    Wait Until Element Contains    ${Dropdown_Phong}    ${phong}    10s 
+    Scroll Element Into View    ${Dropdown_Phong}
+    Select From List By Label    ${Dropdown_Phong}    ${phong}
+
+    Wait Until Element Is Visible    ${Dropdown_Kho}    10s
+    Select From List By Label    ${Dropdown_Kho}    ${kho}  
+
+    Wait Until Element Is Visible    ${Dropdown_Gia}    10s
+    Wait Until Element Contains    ${Dropdown_Gia}    ${gia}    10s
+    Select From List By Label    ${Dropdown_Gia}    ${gia}
+
+    Wait Until Element Is Visible    ${Button_Search}    10s
+    Scroll Element Into View         ${Button_Search}
+    Click Button    ${Button_Search}
+
+    Wait Until Element Is Visible    xpath=//table    10s
+    Duyet Tung Dong Chua Nhieu Tu Khoa    ${keyword}    ${donvi}    ${phong}    ${kho}    ${gia}
+
 Clear Filter
     Wait Until Element Is Visible    ${Button_Clear_Filter}    10s
     Scroll Element Into View         ${Button_Clear_Filter}
     Click Element                   ${Button_Clear_Filter}
     Wait Until Page Contains    Tìm kiếm thông tin trong hệ thống
-
 
 

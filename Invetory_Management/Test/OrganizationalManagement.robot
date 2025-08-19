@@ -2,12 +2,18 @@
 Library    SeleniumLibrary
 Resource    ../Resource/HomePage.resource
 Resource    ../Resource/OrganizationalManagement.resource
+Variables    ../Variables/locator.py
 Test Setup    Login To System
 Test Teardown    Close Browser
-*** Variables ***
 
 *** Test Cases ***
 #Don vi
+TC058 - Kiểm tra chọn số lượng hiển thị bản ghi
+    [Documentation]    TC058
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Unit
+    Hien thi so ban ghi    5
+
 TC059 - Kiểm tra huỷ bỏ khi thêm đơn vị mới
     [Documentation]    TC059
     [Tags]    TuAnh    OrganizationalManagement
@@ -50,6 +56,12 @@ TC065 - Kiểm tra xoá đơn vị
     Click Unit
     Delete Unit
 
+TC067 - Kiểm tra chọn số lượng hiển thị bản ghi
+    [Documentation]    TC067
+    [Tags]    TuAnh    OrganizationalManagement
+    Click Storage Room
+    Hien thi so ban ghi    5
+
 #Phong don vi
 TC068 - Kiểm tra huỷ bỏ khi thêm phông mới
     [Documentation]    TC068
@@ -67,7 +79,7 @@ TC070 - Kiểm tra thêm mới phông lưu trữ
     [Documentation]    TC070
     [Tags]    TuAnh    OrganizationalManagement
     Click Storage Room
-    Verify Add To Phong
+    Verify Add To Phong    Ban kiểm soát chỉnh sửa
 
 TC071 - Kiểm tra chỉnh sửa phông lưu trữ
     [Documentation]    TC071
@@ -97,7 +109,7 @@ TC077 - Kiểm tra tìm kiếm phông lưu trữ lọc theo "Lọc theo đơn v�
     [Documentation]    TC077
     [Tags]    TuAnh    OrganizationalManagement
     Click Storage Room
-    Filter Phong
+    Filter Phong    Chi nhánh TP.HCM
 
 #Muc luc ho so
 TC078 - Kiểm tra huỷ bỏ khi thêm mục lục mới
@@ -116,7 +128,7 @@ TC080 - Kiểm tra thêm mục lục mới
     [Documentation]    TC080
     [Tags]    TuAnh    OrganizationalManagement
     Click Profile Table of Contents
-    Verify Add To Mucluc
+    Verify Add To Mucluc    Chi nhánh TP.HCM    Phông Hồ sơ Nhân sự
 
 TC081 - Kiểm tra chỉnh sửa mục lục
     [Documentation]    TC081
@@ -146,13 +158,13 @@ TC086 - Kiểm tra tìm kiếm mục lục hồ sơ lọc theo "Đơn vị"
     [Documentation]    TC086
     [Tags]    TuAnh    OrganizationalManagement
     Click Profile Table of Contents
-    Filter Phong_Donvi
+    Filter Phong_Donvi    Chi nhánh TP.HCM
 
 TC087 - Kiểm tra tìm kiếm mục lục hồ sơ lọc theo "Đơn vị" và "Phông"
     [Documentation]    TC087
     [Tags]    TuAnh    OrganizationalManagement
     Click Profile Table of Contents
-    Filter Phong_Donvi2
+    Filter Phong_Donvi2    Chi nhánh TP.HCM    Phông Hồ sơ Nhân sự
 
 TC088 - Thêm Đơn vị mới để trống Mã đơn vị
     [Documentation]    TC088
@@ -164,20 +176,20 @@ TC089 - Thêm Đơn vị mới bỏ tróng Mã đơn vị và Tên đơn vị
     [Documentation]    TC089
     [Tags]    TuAnh    OrganizationalManagement
     Click Unit
-    Add Unit and ID_Name Unit Blank
+    Add Unit and ID_Name Unit Blank    
 
 TC090 - Thêm Phông lưu trữ mới để trống Tên Phông
     [Documentation]    TC090
     [Tags]    TuAnh    OrganizationalManagement
     Click Storage Room
-    Add Phong but Name Phong Blank
+    Add Phong but Name Phong Blank    Ban kiểm soát chỉnh sửa
     Verify Field Is Focused    ${Input_Name_Phong}
 
 TC091 - Thêm Phông lưu trữ mới để trống Đơn vịị
     [Documentation]    TC091
     [Tags]    TuAnh    OrganizationalManagement
     Click Storage Room
-    Add Phong but Unit Blank
+    Add Phong but Unit Blank    
     
 TC092 - Thêm mục lục hồ sơ bỏ trống mã mục lục
     [Documentation]    TC092
@@ -191,11 +203,11 @@ TC093 - Thêm mục lục hồ sơ mới bỏ trống đơn vị
     [Tags]    TuAnh    OrganizationalManagement
     Click Profile Table of Contents
     Add Mucluc Unit Blank
-    Verify Field Is Focused    ${Dropdown_Mucluc}
+    Verify Field Is Focused    ${Dropdown_DonVi}
 
 TC094 - Thêm mục mục hồ sơ mới bỏ trống tên mục lục
     [Documentation]    TC093
     [Tags]    TuAnh    OrganizationalManagement
     Click Profile Table of Contents
-    Add Mucluc but Name MucLuc Blank
+    Add Mucluc but Name MucLuc Blank    Chi nhánh TP.HCM    Phông Hồ sơ Nhân sự
     Verify Field Is Focused    ${Input_Name_Mucluc}
