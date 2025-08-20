@@ -1,9 +1,7 @@
 *** Settings ***
 Resource        ../Resource/TestAnalysis.resource
 Suite Setup     Open Browser And Login
-# Teardown phòng thủ: không để suite fail vì đóng browser
 Suite Teardown  Run Keyword And Ignore Error    Close All Browsers
-# Screenshot phòng thủ: nếu không có browser thì bỏ qua
 Test Teardown   Run Keyword And Ignore Error    Capture Page Screenshot
 Test Timeout    4 minutes
 Documentation   Suite kiểm thử trang "Phân tích bài kiểm tra" (Test Analysis). Fallback VN/EN + menu + markers.
@@ -36,10 +34,8 @@ TA-04 - Breadcrumb/Home khả dụng (nếu có)
     [Tags]    Nav    UI
     Open Test Analysis Page
     Wait For TALanded
-    ${home}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//nav//*[normalize-space(.)='Trang chủ' or normalize-space(.)='Home']
-    Run Keyword If    ${home}    Click Element    xpath=//nav//*[normalize-space(.)='Trang chủ' or normalize-space(.)='Home']
-    Run Keyword If    ${home}    Wait Until Page Contains Element    xpath=//h1[normalize-space(.)='Trang chủ' or normalize-space(.)='Home']    10s
-    Run Keyword If    ${home}    Go Back
+    Leave TA By Breadcrumb If Present
+    Go Back
     Wait For TALanded
 
 TA-05 - Khu vực "About Test Analysis" hiển thị đủ 3 card

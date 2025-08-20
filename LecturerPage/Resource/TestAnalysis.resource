@@ -42,7 +42,7 @@ Open Browser And Login
     Wait Until Page Contains Element    xpath=//a[contains(@href,'/questionbank') or contains(@href,'/test-analysis') or contains(@href,'/dashboard')]    30s
 
 Open Test Analysis Page
-    [Documentation]  Điều hướng chắc tới trang Test Analysis (thử VN/EN, nếu chưa thì bấm menu).
+    [Documentation]  Điều hướng chắn tới trang Test Analysis (thử VN/EN, nếu chưa thì bấm menu).
     Go To    ${BASE_URL}/vi/test-analysis
     ${ok}=   Run Keyword And Return Status    Wait For TALanded    8s
     IF    not ${ok}
@@ -93,6 +93,18 @@ Assert Url Matches
     ${url}=    Get Location
     Should Match Regexp    ${url}    ${pattern}
 
+# --- Breadcrumb/Home: rời trang TA nếu có breadcrumb ---
+Leave TA By Breadcrumb If Present
+    ${has}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//nav//*[normalize-space(.)='Trang chủ' or normalize-space(.)='Home']
+    IF    not ${has}    RETURN    END
+    Safe Click    xpath=//nav//*[normalize-space(.)='Trang chủ' or normalize-space(.)='Home']
+    Wait Until Keyword Succeeds    20x    0.5s    _Not TA Url
+
+_Not TA Url
+    ${url}=    Get Location
+    Should Not Contain    ${url}    test-analysis
+
+# --- Safe Click chung ---
 Safe Click
     [Arguments]    ${locator}
     ${ok}=    Run Keyword And Return Status    Click Element    ${locator}

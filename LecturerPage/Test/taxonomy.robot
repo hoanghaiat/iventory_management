@@ -2,53 +2,49 @@
 Resource        ../Resource/core.resource
 Resource        ../Resource/taxonomy.resource
 Library         SeleniumLibrary
-Library         RequestsLibrary
+Library         String
 
 Suite Setup     Login As Lecturer
 Suite Teardown  Close All Browsers
 Test Teardown   Capture Page Screenshot
-Test Timeout    2 minutes
-Documentation   Test trang "Taxonomy (Thẻ phân loại)" cho Lecturer.
+Test Timeout    3 minutes
+Documentation   Test “chuẩn” cho trang Thẻ phân loại (kỳ vọng hoạt động bình thường; gặp lỗi phải FAIL).
 
 *** Test Cases ***
-TX-SM01 - Mở trang qua menu
-    Open Taxonomy By Menu
-    Expect Template Error
+TX-OK01 - Mở trang qua menu
+    Open Taxonomy Page (menu first)
 
-TX-SM02 - Mở trực tiếp URL
-    Open Taxonomy By URL
-    Expect Template Error
+TX-OK02 - Mở trực tiếp URL
+    Open Taxonomy Page (direct)
 
-TX-SM03 - Kiểm tra HTTP status
-    Create Session    clo    ${BASE_URL}
-    ${resp}=    Get Request    clo    /en/questionbank/tags/
-    Should Be Equal As Integers    ${resp.status_code}    500
+TX-OK03 - Tạo thẻ mới (Active)
+    Open Taxonomy Page (direct)
+    ${name}=    Generate Random String    8    [LOWER]
+    ${name}=    Set Variable    TAG-${name}
+    Create Tag (name, status)    ${name}    Active
+    [Teardown]    Delete Tag (soft)    ${name}
 
-TX-ERR01 - Nội dung lỗi template
-    Open Taxonomy By URL
-    Page Should Contain    ${ERR_FILENAME}
+TX-OK04 - Tìm kiếm theo tên
+    Open Taxonomy Page (direct)
+    ${name}=    Generate Random String    6    [LOWER]
+    ${name}=    Set Variable    TAG-${name}
+    Create Tag (name, status)    ${name}    Active
+    Search Tag By Name           ${name}
+    Row By Name Should Exist     ${name}
+    [Teardown]    Delete Tag (soft)    ${name}
 
-TX-AUTH01 - Chặn truy cập khi chưa login
-    Close All Browsers
-    Open Browser    ${URL_TAXONOMY}    ${BROWSER}
-    Location Should Contain    login
-    Close All Browsers
-    Login As Lecturer
+TX-OK05 - Đổi trạng thái sang Inactive
+    Open Taxonomy Page (direct)
+    ${name}=    Generate Random String    6    [LOWER]
+    ${name}=    Set Variable    TAG-${name}
+    Create Tag (name, status)    ${name}    Active
+    Edit Tag Status To           ${name}    Inactive
+    Search Tag By Name           ${name}
+    Row By Name Should Exist     ${name}
+    [Teardown]    Delete Tag (soft)    ${name}
 
-TX-NAV01 - Menu có mục Thẻ phân loại
-    Page Should Contain Element    ${LOC_TAGS_MENU}
-
-TX-I18N01 - Kiểm tra route đa ngôn ngữ
-    Go To    ${BASE_URL}/vi/questionbank/tags/
-    Expect Template Error
-    Go To    ${BASE_URL}/en/questionbank/tags/
-    Expect Template Error
-
-TX-REPRO01 - Refresh vẫn lỗi
-    Open Taxonomy By URL
-    Reload Page
-    Expect Template Error
-
-TX-LOG01 - Capture bằng chứng lỗi
-    Open Taxonomy By URL
-    Capture Page Screenshot
+TX-OK06 - UI phải không chứa lỗi template
+    Open Taxonomy Page (direct)
+    Page Should Not Contain    TemplateDoesNotExist
+    Page Should Not Contain    questionbank/tag_list.html
+    Page Should Not Contain    questionbank/questiontag_list.html
