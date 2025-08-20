@@ -78,9 +78,27 @@ FILTER_PROJECT = '//div[@class="btn-group"]/a[normalize-space(text())="Project"]
 # BaoCaoCLO
 URL_REPORT_CLO = "//div[@class='menu-section']//a[contains(@href, '/reports/clo-reports/')]"
 
+# LopHoc
+# Menu - Lớp học
+MENU_CLASS = "//a[@href='/en/academics/classes/' and contains(normalize-space(.), 'Lớp học')]"
 
 
 
+H_LOGIN   = "id=id_username"
+P_LOGIN   = "id=id_password"
+BTN_LOGIN = "xpath=//button[normalize-space(.)='Đăng nhập' or normalize-space(.)='Login']"
 
+DASHBOARD_H1 = "xpath=//h1[contains(normalize-space(.),'Dashboard') or contains(normalize-space(.),'Trang chủ')]"
+SIDEBAR      = "xpath=//aside | //nav[contains(@class,'sidebar') or contains(@class,'menu')]"
 
+MENU_LOPHOC_TEXT = "xpath=(//aside|//nav)//a[.//span[normalize-space(.)='Lớp học' or normalize-space(.)='Classes']]"
+MENU_LOPHOC_HREF = "xpath=(//aside|//nav)//a[contains(@href,'/classes') and not(contains(@href,'/classroom'))]"
+MENU_LOPHOC_SPAN = "xpath=(//span[normalize-space(.)='Lớp học' or normalize-space(.)='Classes'])[1]"
+
+SEMESTER_SEL = "id=semester"
+
+FILTER_PANEL = "xpath=//section//*[contains(@class,'filter') or contains(., 'Filter') or contains(., 'Bộ lọc')][1]"
+TABLE_ROWS   = "xpath=//table[contains(@class,'table') or contains(@class,'data')]//tbody/tr"
+
+MENU_LOPHOC = "xpath=//a[contains(@href,'/classes') or .//span[normalize-space(.)='Lớp học' or normalize-space(.)='Classes']]"
 
