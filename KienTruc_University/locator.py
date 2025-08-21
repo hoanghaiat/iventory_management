@@ -198,6 +198,7 @@ EXPECTED_NAME_CLASS_INFO = '//table[@class="table table-bordered table-hover"]//
 EXPECTED_SEMESTER_CLASS_INFO = '//table[@class="table table-bordered table-hover"]//tbody/tr[${id}]/td[3]'
 EXPECTED_YEARS_CLASS_INFO = '//table[@class="table table-bordered table-hover"]//tbody/tr[${id}]/td[4]'
 URL_CLASS_INFO = '//table[@class="table table-bordered table-hover"]//tbody/tr[${id}]/td[last()]//a[last()-1]'
+URL_CLASS_TESTS = '//table[@class="table table-bordered table-hover"]//tbody/tr[${id}]/td[last()]//a[last()]'
 
 ACTUAL_CODE_CLASS = '//h5[@class="text-primary"]'
 ACTUAL_SEMESTER_CLASS = '//p[@class="text-muted mb-2"]'
@@ -208,3 +209,15 @@ URL_BACK_LIST = '//a[@class="btn btn-secondary"]'
 URL_VIEW_ALL_CLO = '//a[@href="/en/academics/courses/${id}/clos/"]'
 URL_ADD_CONTENT = '//a[@class="btn btn-sm btn-success"]'
 URL_ADD_ASS = '//a[@class="btn btn-sm btn-warning"]'
+URL_TESTS = '//a[@href="/en/assessment/classes/${id}/tests/"]'
+URL_BACK_TO_CLASS = '//a[@class="btn btn-secondary"]'
+URL_CREATE_TEST= '//a[@class="btn btn-primary"]'
+#Form Create Test
+SELECT_TEST_TYPE_TEST = '//select[@id="id_test_type"]'
+INPUT_TEST_NAME_TEST = '//input[@id="id_test_name"]'
+TEXTAREA_TEST_DESCRIPTION_TEST = '//textarea[@id="id_description"]'
+INPUT_DURATION_TEST = '//input[@id="id_duration"]'
+INPUT_WEIGHT_TEST = '//input[@id="id_weight"]'
+INPUT_TIME_TEST = '//input[@id="id_test_date"]'
+CREATE_TEST_AND_CONTINUE_BTN = '//button[@class="btn btn-primary"]'
+

@@ -176,3 +176,67 @@ Click The Button Add Assessment
     Wait Until Element Is Visible    ${TITLE_PAGE}    30s
     ${title}=    Get Text    ${TITLE_PAGE}
     Should Be Equal    ${title}    Thêm đánh giá mới
+
+Click The Button Tests And Verify 
+    ${id}    Set Variable    2
+    ${urltests}    Replace Variables    ${URL_CLASS_TESTS}
+    ${code}    Replace Variables    ${EXPECTED_CODE_CLASS_INFO}
+    ${semester}    Replace Variables    ${EXPECTED_SEMESTER_CLASS_INFO}
+    ${year}    Replace Variables    ${EXPECTED_YEARS_CLASS_INFO}
+    Wait Until Element Is Visible    ${code}    30s
+    ${codeex}=    Get Text    ${code}
+    ${semesterex}=    Get Text    ${semester}
+    ${yearex}=    Get Text    ${year}
+    Wait Until Element Is Visible    ${urltests}    30s
+    Scroll Element Into View    ${urltests}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urltests}
+    RETURN    ${codeex}    ${semesterex}    ${yearex}
+Verify Page Redirection Result
+    [Arguments]    ${code}    ${semester}    ${year}
+    Wait Until Element Is Visible    ${TITLE_PAGE}    30s
+    ${actual}=    Get Text    ${TITLE_PAGE}
+    Should Contain    ${actual}    ${code}
+    Should Contain    ${actual}    ${semester}
+    Should Contain    ${actual}    ${year}
+Click The Button Tests
+    ${id}    Set Variable    5
+    ${urltesst}    Replace Variables    ${URL_TESTS}
+    Wait Until Element Is Visible    ${urltesst}    30s
+    Scroll Element Into View    ${urltesst}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${urltesst}
+Click The Button Back To Class And Verify
+   
+    Wait Until Element Is Visible    ${URL_BACK_TO_CLASS}    30s
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_BACK_TO_CLASS}
+    Page Should Contain    Chi tiết lớp học
+
+Click The Button Create Class And Verify Results
+    Wait Until Element Is Visible    ${URL_CREATE_TEST}    30s
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_CREATE_TEST}
+    Wait Until Element Is Visible    ${TITLE_PAGE}    30s
+    ${actual}=    Get Text    ${TITLE_PAGE}
+    Should Be Equal    ${actual}    Create New Test
+Fill In Create Test Form
+    [Arguments]    ${testtype}    ${testname}    ${description}    ${duration}    ${weight}    ${time}
+    Wait Until Element Is Visible    ${SELECT_TEST_TYPE_TEST}    30s
+    Scroll Element Into View    ${SELECT_TEST_TYPE_TEST}
+    Select From List By Label    ${SELECT_TEST_TYPE_TEST}    ${testtype}
+    Scroll Element Into View    ${INPUT_TEST_NAME_TEST}    
+    Input Text    ${INPUT_TEST_NAME_TEST}    ${testname}
+    Scroll Element Into View    ${TEXTAREA_TEST_DESCRIPTION_TEST}    
+    Input Text    ${TEXTAREA_TEST_DESCRIPTION_TEST}    ${description}
+    Scroll Element Into View    ${INPUT_DURATION_TEST}
+    Input Text    ${INPUT_DURATION_TEST}    ${duration}
+    Input Text    ${INPUT_WEIGHT_TEST}    ${weight}
+    Scroll Element Into View    ${INPUT_TIME_TEST}
+    Execute JavaScript    document.getElementById("id_test_date").value = "2025-08-21T13:30"
+    #Input Text    ${INPUT_TIME_TEST}    ${time}
+Click The Button Create Test And Continue
+    Wait Until Element Is Visible    ${CREATE_TEST_AND_CONTINUE_BTN}    30s
+    Scroll Element Into View    ${CREATE_TEST_AND_CONTINUE_BTN}
+    Wait Until Keyword Succeeds    30s    1s    Click Button    ${CREATE_TEST_AND_CONTINUE_BTN}
+    
+Verify Results Create Test 
+    Page Should Contain    Create Test Successfully!
+Verify Results When Information Blank
+    Page Should Contain    This field is required.

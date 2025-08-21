@@ -390,6 +390,7 @@ TC-PG-40: Thêm bài kiểm tra thành công
     Click The Button Add Test
     Fill Our The Test Form    ${Test_Namee}    ${Test_Type}    ${Test_Percentage}    ${Test_Description}    ${Test_Format}    ${Test_Minutes}    ${Test_Total_Marks}    ${Test_Method}    ${Test_Criteria}    ${Test_Date}    ${Test_Location}    ${Test_Status}
     Click The Button Create Test
+    Verify Results Create Assessment
 
 
    

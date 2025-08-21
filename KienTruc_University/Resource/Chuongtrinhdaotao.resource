@@ -718,8 +718,8 @@ Fill Our The Test Form
     Input Text    ${TEXTAREA_TEST_CRITERIA}    ${criteria}
     
     Scroll Element Into View    ${INPUT_TEST_DATE}
-
-    Input Text    ${INPUT_TEST_DATE}    ${date}
+    Execute JavaScript    document.getElementById("id_assessment_date").value = "2025-08-21T13:30"
+    #Input Text    ${INPUT_TEST_DATE}    ${date}
 
     Scroll Element Into View    ${INPUT_TEST_LOCATION}    
     Input Text    ${INPUT_TEST_LOCATION}    ${location}
@@ -737,7 +737,8 @@ Click The Button Exit Create Test
     Wait Until Element Is Visible    ${exit}    30s
     Scroll Element Into View    ${exit}
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${exit}
-
+Verify Results Create Assessment 
+    Page Should Contain    Create Assessment Successfully!
 Verify Page When Form Create Test Blank Information
     Page Should Contain    Vui lòng điền đầy đủ thông tin
 

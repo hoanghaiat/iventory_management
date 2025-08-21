@@ -13,6 +13,12 @@ ${STATUS}    All Statuses
 ${KEYWORD}    phần mềm
 ${SEMESTER_SUMMER}    Summer
 ${STATUS_ONGOING}    Ongoing
+${TEST_TYPE}    Midterm Exam
+${TEST_NAMES}    Test QC
+${TEST_DESCRIPTION}    Kiểm tra
+${TEST_DURATION}    90
+${TEST_WEIGHT}    50
+${TEST_TIME}    2025-08-21T93:30
 *** Test Cases ***
 TC-CL-01: Danh sách lớp học
     [Documentation]    TC-CL-01
@@ -64,45 +70,88 @@ TC-CL-07: Thông tin chi tiết lớp học
     Verify The Page
     ${CODE}    ${NAME}    ${SEMESTER}    ${YEAR}=    Click The Button View Information Class
     Verify The Information View Class    ${CODE}    ${NAME}    ${SEMESTER}    ${YEAR}
-TC-CL-08: Thao tác tạo nội dung buổi học tự động
+TC-CL-08: Thao tác bài kiểm tra
     [Documentation]    TC-CL-08
-    [Tags]    PhuongLy    Thông tin lớp học
-    Open Class List
-    Verify The Page
-    
-TC-CL-11: Thao tác bài kiểm tra
-    [Documentation]    TC-CL-11
     [Tags]    PhuongLy    Thông tin lớp học
     Open Class List
     Verify The Page
     Click The Button View
     Click The Button Test
-TC-CL-12: Thao tác quay lại
-    [Documentation]    TC-CL-12
+TC-CL-09: Thao tác quay lại
+    [Documentation]    TC-CL-09
     [Tags]    PhuongLy    Thông tin lớp học
     Open Class List
     Verify The Page
     Click The Button View
     Click The Button Back To List
-TC-CL-13: Thao tác Xem tất cả CLO
-    [Documentation]    TC-CL-13
+TC-CL-10: Thao tác Xem tất cả CLO
+    [Documentation]    TC-CL-10
     [Tags]    PhuongLy    Thông tin lớp học
     Open Class List
     Verify The Page
     Click The Button View
     Click The Button View All CLOs
 
-TC-CL-14: Thao tác thêm nội dung
-    [Documentation]    TC-CL-14
+TC-CL-11: Thao tác thêm nội dung
+    [Documentation]    TC-CL-11
     [Tags]    PhuongLy    Thông tin lớp học
     Open Class List
     Verify The Page
     Click The Button View
     Click The Button Add Content
-TC-CL-15: Thao tác thêm đánh giá
-    [Documentation]    TC-CL-15
+TC-CL-12: Thao tác thêm đánh giá
+    [Documentation]    TC-CL-12
     [Tags]    PhuongLy    Thông tin lớp học
     Open Class List
     Verify The Page
     Click The Button View
     Click The Button Add Assessment
+TC-CL-13: Thông tin chi tiết bài kiểm tra
+    [Documentation]    TC-CL-13
+    [Tags]    PhuongLy    Thông tin bài kiểm tra
+    Open Class List
+    Verify The Page
+    ${code}    ${semester}    ${year}=    Click The Button Tests And Verify
+    Verify Page Redirection Result    ${code}    ${semester}    ${year}
+    
+TC-CL-14: Thao tác quay lại lớp học
+    [Documentation]    TC-CL-14
+    [Tags]    PhuongLy    Thông tin bài kiểm tra
+    Open Class List
+    Verify The Page
+   ${code}    ${semester}    ${year}=    Click The Button Tests And Verify
+    Verify Page Redirection Result    ${code}    ${semester}    ${year}
+    
+    Click The Button Back To Class And Verify
+TC-CL-15: Thao tác bài kiểm tra
+    [Documentation]    TC-CL-15
+    [Tags]    PhuongLy    Thông tin bài kiểm tra
+    Open Class List
+    Verify The Page
+    ${code}    ${semester}    ${year}=    Click The Button Tests And Verify
+    Verify Page Redirection Result    ${code}    ${semester}    ${year}
+    Click The Button Create Class And Verify Results
+    
+TC-CL-16: Tạo bài kiểm tra thành công
+    [Documentation]    TC-CL-16
+    [Tags]    PhuongLy    Thông tin bài kiểm tra
+    Open Class List
+    Verify The Page
+    ${code}    ${semester}    ${year}=    Click The Button Tests And Verify
+    Verify Page Redirection Result    ${code}    ${semester}    ${year}
+    Click The Button Create Class And Verify Results
+    Fill In Create Test Form    ${TEST_TYPE}    ${TEST_NAMES}    ${TEST_DESCRIPTION}    ${TEST_DURATION}    ${TEST_WEIGHT}    ${TEST_TIME}
+    Click The Button Create Test And Continue
+    Verify Results Create Test 
+    
+TC-CL-17: Tạo bài kiểm tra trống tất cả thông tin
+    [Documentation]    TC-CL-17
+    [Tags]    PhuongLy    Thông tin bài kiểm tra
+    Open Class List
+    Verify The Page
+    ${code}    ${semester}    ${year}=    Click The Button Tests And Verify
+    Verify Page Redirection Result    ${code}    ${semester}    ${year}
+    Click The Button Create Class And Verify Results
+    Click The Button Create Test And Continue
+    Verify Results When Information Blank
+    
