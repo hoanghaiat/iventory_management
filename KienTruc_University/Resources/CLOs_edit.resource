@@ -40,7 +40,6 @@ Click Edit CLOs Button
     Scroll Element Into View          ${edit_clo_locator}
     Click Element                     ${edit_clo_locator} 
 
-
 Click Update Clo Button 
     Wait Until Element Is Visible    ${UPDATE_CLO_BTN}   10s
     Wait Until Element Is Enabled    ${UPDATE_CLO_BTN}     10s 
@@ -85,7 +84,7 @@ Click Home Link
     Select From List By Value        ${LEVEL_CLO_DROP}        apply
     Clear Element Text               ${WEIGHT_CLO}
     Input Text                       ${WEIGHT_CLO}           0.03
-    Select From List By Value        ${ASSESSMENT_METHOD_DROP}    exam
+    Select From List By Value        ${ASSESSMENT_METHOD_DROP}    exam 
 
 Fill Update CLO With Empty Course Fields
     Wait Until Element Is Visible    ${CLO_CODE}    10s
