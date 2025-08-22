@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation     Test suite - Program Tab (TC_PP_01 -> TC_PP_11)
 Library           SeleniumLibrary
+Library             String
 Resource          ../resources/program_UI.resource
 Variables         ../variables/locator.py
 
@@ -100,3 +101,61 @@ Verify user can view detail course page successfully
     Click First Program Courses Button
     Page Should Contain    ${prog_name}
     Click View CLOs Button In Course Page
+   
+# Search Program 
+
+TC Search With Valid Keyword
+    [Documentation]        TC_PS_01
+    [Tags]           Thu Phuong    Search 
+    Go To Programs Page
+    Perform Search    Block chain
+    Verify Search Result Exists   Block chain 
+TC Search With Empty Keyword
+    [Documentation]        TC_PS_02
+    [Tags]           Thu Phuong    Search 
+    Go To Programs Page
+    Click Element    ${SEARCH_BTN}  
+    Wait Until Page Contains Element    ${RESULT_TABLE}  
+TC Search With Keyword Not in List Program 
+    [Documentation]  TC_PS_03 
+    [Tags]           Thu Phuong    Search 
+    Go To Programs Page
+    Perform Search    59 công nghệ 
+    Verify Search No Result 
+TC Search With Special Characters Keyword 
+    [Documentation]  TC_PS_04
+    [Tags]           Thu Phuong    Search 
+    Go To Programs Page
+    Perform Search    @# 
+    Verify Search No Result
+TC Search With Valid Data In Course of Program 
+    [Documentation]  TC_PS_05
+    [Tags]           Thu Phuong    Search 
+    Go To Programs Page
+    Click First Program Courses Button 
+    Perform Search    block chain cơ bản 
+    Verify Search Result Exists    block chain cơ bản 
+TC Search With Empty Data In Course of Program 
+    [Documentation]  TC_PS_06
+    [Tags]           Thu Phuong    Search 
+    Go To Programs Page
+    Click First Program Courses Button 
+    Click Element    ${SEARCH_BTN}
+    Wait Until Page Contains Element    ${RESULT_TABLE} 
+
+TC Search With Keyword Not in List Course 
+    [Documentation]  TC_PS_07
+    [Tags]           Thu Phuong    Search 
+    Go To Programs Page
+    Click First Program Courses Button
+    Perform Search    artificial intelligence 
+    Verify Search No Result
+TC Search With Special Characters Keyword 
+    [Documentation]  TC_PS_08
+    [Tags]           Thu Phuong    Search 
+    Go To Programs Page
+    Click First Program Courses Button
+    Perform Search    @# 
+    Click Add One Link in Course
+    Wait Until Page Contains Element    ${CREATE_COURSE_FORM}
+    

@@ -38,7 +38,11 @@ MENU_PROGRAMS = "xpath=//a[contains(.,'Chương trình đào tạo') or contains
 
 # Program list page
 PROGRAMS_PAGE_TITLE = "xpath=//h1|//h2|//h3"
-SEARCH_BOX_PROGRAMS = "xpath=//input[@placeholder='Search programs...' or contains(@placeholder,'Search')]"
+SEARCH_BOX ='//input[@name="q"]'
+SEARCH_BTN='//button[@class="btn btn-primary"]'
+RESULT_TABLE='//div[@class="card-body"]'
+RESULT_TITLE='//table//td'
+ADD_ONE_LINK="//a[contains(@href, '/programs/') and contains(@href, '/courses/create/') and text()='Add one?']"
 PROGRAMS_TABLE_ROWS = "xpath=//table//tbody//tr"
 
 # First program row
@@ -61,7 +65,7 @@ FIRST_COURSE_VIEW_BTN = "xpath=(//table//tbody//tr)[1]//a[contains(@class,'btn')
 CREATE_COURSE_FORM = "xpath=/html/body/div[3]/div[2]/div/div/div/div[2]"
 
 # Generic messages
-NO_RESULT_TEXT_PROGRAMS = "No programs found"
+NO_RESULT_TEXT_PROGRAMS = '//div[@class="alert alert-info"]'
 NO_RESULT_TEXT_COURSES = "No courses found"
 
 SEE_ALL_BTN = "xpath=/html/body/div[3]/div[2]/div[3]/div/div/div[1]/div/a"
@@ -185,3 +189,4 @@ CLO_SETTING_TITLE='//h1[@class="h3 mb-0 text-gray-800"]'
 EDIT_EVALUATE_TITLE='//div[@class="d-flex justify-content-between align-items-center mb-4"]'
 ERROR_DELETE_TITLE='//h5[@class="mb-0"]'
 ADD_EVALUATE_TITLE='//h1[@class="content-title"]'
+
