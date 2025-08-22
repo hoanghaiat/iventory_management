@@ -157,3 +157,31 @@ UPDATE_CLO_BTN='//button[@class="btn btn-primary"]'
 UPDATE_CLO_SUCCESS_MES='//div[@class="alert alert-success alert-dismissible fade show"]'
 ERROR_INVALID_MESS='//p[@id="error_1_id_weight"]'
 BACK_TO_CLOS ='//a[@class="btn btn-secondary"]'
+COURSE_TITLE='//h1[@class="content-title"]'
+PLO_TITLE='//h1[@class="content-title"]'
+ADD_MAPPING_BTN ='//a[@class="btn btn-sm btn-primary"]'
+CREATE_ONE_LINK='//a[@class="alert-link"]'
+PLO_BTN='//a[@class="btn btn-success"]'
+PLO_DROP='//select[@id="id_plo"]'
+MAPPING_LEVEL_DROP='//select[@id="id_mapping_level"]'
+CREATE_MAPPING_BTN='//button[@class="btn btn-primary"]' 
+ERROR_CREATE_PLO_MESSAGES = {
+    "plo": "//strong[contains(text(),'This field is required')]",
+    "mapping": "//strong[contains(text(),'This field is required')]"
+}
+
+EDIT_COURSE_VN="(//a[contains(@href, '/courses/') and contains(@href, '/update/') and contains(@class, 'btn-primary')])"
+VIEW_CLOs=" (//a[contains(@href, '/courses/') and contains(@href, '/clos/') and contains(@class, 'btn-success')])"
+CREATE_CLASS = "(//a[contains(@href, '/classes/create/') and contains(@class, 'btn-info')])"
+BACK_TO_LIST_COURSE="(//a[contains(@href, '/programs/') and contains(@href, '/courses/') and contains(@class, 'btn-secondary')])"
+ADD_CLOS_BTN="(//a[contains(@href, '/courses/') and contains(@href, '/clos/create')])"
+ADD_CHAPTER_BTN="(//a[contains(@href, '/courses/') and contains(@href, '/contents/create')])"
+ADD_EXAM_BTN=" (//a[contains(@href, '/courses/') and contains(@href, '/assessments/create')])"
+CREATE_CLASS_BTN=" (//a[contains(@href, '/courses/') and contains(@href, '/classes/create')])"
+CREATE_CLASS_TITLE='//h1[@class="content-title"]'
+ADD_CHAPTER_TITLE='//h1[@class="content-title"]' 
+SETTING_BTN='//a[@class="btn btn-outline-secondary btn-sm ms-2"]'
+CLO_SETTING_TITLE='//h1[@class="h3 mb-0 text-gray-800"]'
+EDIT_EVALUATE_TITLE='//div[@class="d-flex justify-content-between align-items-center mb-4"]'
+ERROR_DELETE_TITLE='//h5[@class="mb-0"]'
+ADD_EVALUATE_TITLE='//h1[@class="content-title"]'
