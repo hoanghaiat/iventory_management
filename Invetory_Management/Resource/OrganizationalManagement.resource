@@ -4,7 +4,6 @@ Resource    ../Resource/HomePage.resource
 Resource    ../Resource/Search_Report.resource
 Variables    ../Variables/locator.py
 
-
 *** Keywords ***
 #Don vi
 Hien thi so ban ghi

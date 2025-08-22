@@ -13,7 +13,6 @@ Login To System
     Input Text    ${password_xpath}    ${PASSWORD}
     Click Button  ${loginbtn_xpath}
     
-*** Keywords ***
 Get And Compare Count
     [Arguments]    ${box_name}    ${menu_locator}    ${item_box}
     # Lấy số trên homepage box
@@ -155,30 +154,30 @@ Click Logout menu
     Wait Until Element Is Visible    ${username_xpath}    10s
 
 Close menu
-    Wait Until Element Is Visible    ${QLKho}    10s
+    Wait Until Page Contains    Quản lý Kho    10s
     Click Element    ${SideBar}
     Wait Until Element Is Not Visible    ${QLKho}    10s
 
 Close QLToChuc
-    Wait Until Element Is Visible    ${QLKho}    10s
+    Wait Until Page Contains    Quản lý Kho    10s
     Click Element    ${QLToChuc}
     Wait Until Element Is Not Visible    ${Item_Unit}    10s
 
 Close QLKho2
-    Wait Until Element Is Visible    ${QLKho}    10s
+    Wait Until Page Contains    Quản lý Kho    10s
     Click Element    ${QLKho2}
     Wait Until Element Is Not Visible    ${Item_Warehouse}    10s
 
 Close Search_Report
-    Wait Until Element Is Visible    ${QLKho}    10s
+    Wait Until Page Contains    Quản lý Kho    10s
     Click Element    ${Search_Report}
     Wait Until Element Is Not Visible    ${Item_Search}    10s
 
 Close QTHeThong
-    Wait Until Element Is Visible    ${QLKHO}    10s
+    Wait Until Page Contains    Quản lý Kho    10s
     Click Element    ${QTHeThong}
     Wait Until Element Is Not Visible    ${Item_Admin_Page}    10s
 Close CaNhan
-    Wait Until Element Is Visible    ${QLKho}    10s
+    Wait Until Page Contains    Quản lý Kho    10s
     Click Element    ${CaNhan}
     Wait Until Element Is Not Visible    ${Item_Interface}    10s

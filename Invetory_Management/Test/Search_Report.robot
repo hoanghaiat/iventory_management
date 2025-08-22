@@ -86,4 +86,3 @@ TC054 - Kiểm tra bottun "Xoá bộ lọc" sau khi tìm kiếm kết quả
     Click Search
     Do Search    Tài liệu
     Clear Filter
-

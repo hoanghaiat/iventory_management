@@ -4,7 +4,6 @@ Library    String
 Resource    ../Resource/HomePage.resource
 Test Setup    Login To System
 Test Teardown    Close Browser
-*** Variables ***
 
 *** Test Cases ***
 TC002 - Kiểm tra hiển thị đúng số lượng "Đơn vị"

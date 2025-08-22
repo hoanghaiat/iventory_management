@@ -224,5 +224,3 @@ Clear Filter
     Scroll Element Into View         ${Button_Clear_Filter}
     Click Element                   ${Button_Clear_Filter}
     Wait Until Page Contains    Tìm kiếm thông tin trong hệ thống
-
-
