@@ -13,22 +13,23 @@ ${TABLE_ANY}    xpath=(//table | //div[contains(@class,'table')])[1]
 
 *** Keywords ***
 Open Question Bank
+    # Thử EN -> VI; chỉ Fail khi cả hai đều không vào được
     Go To    ${QB_URL_EN}
     Wait Until Document Ready
-    ${ok}=    Run Keyword And Return Status    QB Marker Present
+    ${ok}=    Run Keyword And Return Status    Wait For QB Landed    20s
     IF    ${ok}
         RETURN
     END
     Go To    ${QB_URL_VI}
     Wait Until Document Ready
-    ${ok2}=   Run Keyword And Return Status    QB Marker Present
+    ${ok2}=   Run Keyword And Return Status    Wait For QB Landed    20s
     IF    ${ok2}
         RETURN
     END
-    Fail    Không mở được trang Question Bank.
+    Fail    Không mở được trang Question Bank qua cả EN và VI.
 
-QB Marker Present
-    ${loc}=    Get Location
+QB Markers Present Check
+    ${loc}=       Get Location
     ${by_url}=    Evaluate    '/questionbank/' in '''${loc}'''
     IF    ${by_url}
         RETURN    ${True}
@@ -41,9 +42,11 @@ QB Marker Present
     ${any}=   Evaluate    ${m1} or ${m2} or ${m3} or ${hdr} or ${tbl}
     RETURN    ${any}
 
-QB Marker Should Exist
-    ${ok}=    QB Marker Present
-    Should Be True    ${ok}
+Assert QB Markers Present
+    ${ok}=    QB Markers Present Check
+    Should Be True    ${ok}    Question Bank markers not visible
 
 Wait For QB Landed
-    Wait Until Keyword Succeeds    50 times    ${POLL}    QB Marker Should Exist
+    [Arguments]    ${timeout}=50s
+    # Retry đến khi marker sẵn sàng; ${POLL} khai báo trong core.resource (ví dụ 0.25s)
+    Wait Until Keyword Succeeds    ${timeout}    ${POLL}    Assert QB Markers Present

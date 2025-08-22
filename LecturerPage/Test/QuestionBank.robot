@@ -10,7 +10,10 @@ Documentation   20 TC kiểm thử bộ lọc Question Bank theo UI (ổn địn
 
 *** Test Cases ***
 TC-F01 - Trạng thái mặc định
-    Go To Question Bank
+    [Documentation]    TC_QB_F01
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     ${ok_apply}=    Run Keyword And Return Status    Page Should Contain Element    ${BTN_APPLY}
     ${ok_clear}=    Run Keyword And Return Status    Page Should Contain Element    ${BTN_CLEAR}
     ${ok_course}=   Run Keyword And Return Status    Page Should Contain Element    ${SEL_COURSE}
@@ -21,67 +24,100 @@ TC-F01 - Trạng thái mặc định
     Assert Some Results Or EmptyOk
 
 TC-F02 - Lọc theo Course
-    Go To Question Bank
+    [Documentation]    TC_QB_F02
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Course        CS301: Cơ sở dữ liệu
     Apply Filters
     Assert Some Results Or EmptyOk
 
 TC-F03 - Lọc theo CLO
-    Go To Question Bank
+    [Documentation]    TC_QB_F03
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set CLO           CLO1: Hiểu
     Apply Filters
     Assert Some Results Or EmptyOk
 
 TC-F04 - Lọc theo Question Type
-    Go To Question Bank
+    [Documentation]    TC_QB_F04
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Question Type    Multiple Choice
     Apply Filters
     Assert Some Results Or EmptyOk
 
 TC-F05 - Lọc theo Difficulty
-    Go To Question Bank
+    [Documentation]    TC_QB_F05
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Difficulty       Easy
     Apply Filters
     Assert Some Results Or EmptyOk
 
 TC-F06 - Lọc theo Bloom Level
-    Go To Question Bank
+    [Documentation]    TC_QB_F06
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Bloom Level      Analyze
     Apply Filters
     Assert Some Results Or EmptyOk
 
 TC-F07 - Lọc theo Status
-    Go To Question Bank
+    [Documentation]    TC_QB_F07
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Status           Active
     Apply Filters
     Assert Some Results Or EmptyOk
 
 TC-F08 - Lọc theo Approval Status
-    Go To Question Bank
+    [Documentation]    TC_QB_F08
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Approval Status  Approved
     Apply Filters
     Assert Some Results Or EmptyOk
 
 TC-F09 - Lọc theo Tag
-    Go To Question Bank
+    [Documentation]    TC_QB_F09
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Tag              Lập trình
     Apply Filters
     Assert Some Results Or EmptyOk
 
 TC-F10 - Search Query 'Java'
-    Go To Question Bank
+    [Documentation]    TC_QB_F10
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Search Query     Java
     Apply Filters
     Assert Some Results Or EmptyOk
 
 TC-F11 - Search Query ký tự đặc biệt
-    Go To Question Bank
+    [Documentation]    TC_QB_F11
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Search Query     !@#$$%
     Apply Filters
     Assert Some Results Or EmptyOk
 
 TC-F12 - Tổ hợp Course + Type + Approved
-    Go To Question Bank
+    [Documentation]    TC_QB_F12
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Course           CS201: Cấu trúc dữ liệu và giải thuật
     Set Question Type    Multiple Choice
     Set Approval Status  Approved
@@ -89,7 +125,10 @@ TC-F12 - Tổ hợp Course + Type + Approved
     Assert Some Results Or EmptyOk
 
 TC-F13 - My Questions = ON/OFF
-    Go To Question Bank
+    [Documentation]    TC_QB_F13
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Toggle My Questions    True
     Apply Filters
     Assert Some Results Or EmptyOk
@@ -98,7 +137,10 @@ TC-F13 - My Questions = ON/OFF
     Assert Some Results Or EmptyOk
 
 TC-F14 - Clear Filters khôi phục mặc định
-    Go To Question Bank
+    [Documentation]    TC_QB_F14
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Question Type    Essay
     Set Difficulty       Hard
     Set Search Query     abc
@@ -114,7 +156,10 @@ TC-F14 - Clear Filters khôi phục mặc định
     Assert Some Results Or EmptyOk
 
 TC-F15 - Phân trang giữ filter (nếu có trang 2)
-    Go To Question Bank
+    [Documentation]    TC_QB_F15
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Question Type    Multiple Choice
     Apply Filters
     ${has_p2}=    Run Keyword And Return Status    Page Should Contain Element    ${PAGINATION_2_LOCAL}
@@ -124,7 +169,10 @@ TC-F15 - Phân trang giữ filter (nếu có trang 2)
     Page Should Contain Element    ${SEL_QTYPE}
 
 TC-F16 - Sắp xếp sau khi lọc
-    Go To Question Bank
+    [Documentation]    TC_QB_F16
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Difficulty       Medium
     Apply Filters
     ${has_time}=    Run Keyword And Return Status    Page Should Contain Element    ${COL_TIME_LOCAL}
@@ -136,7 +184,10 @@ TC-F16 - Sắp xếp sau khi lọc
     Page Should Contain Element    ${COL_TIME_LOCAL}
 
 TC-F17 - Refresh giữ/khôi phục filter
-    Go To Question Bank
+    [Documentation]    TC_QB_F17
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Bloom Level      Remember
     Apply Filters
     Reload Page
@@ -146,7 +197,10 @@ TC-F17 - Refresh giữ/khôi phục filter
     Should Be True    ${ok1} or ${ok2}
 
 TC-F18 - Tổ hợp không có dữ liệu
-    Go To Question Bank
+    [Documentation]    TC_QB_F18
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Course           CS301: Cơ sở dữ liệu
     Set Question Type    Practical
     Set Tag              Kinh tế học
@@ -160,7 +214,10 @@ TC-F18 - Tổ hợp không có dữ liệu
     END
 
 TC-F19 - Hiệu năng Apply Filters (≤ 3s)
-    Go To Question Bank
+    [Documentation]    TC_QB_F19
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Course           CS201: Cấu trúc dữ liệu và giải thuật
     ${t0}=    Evaluate    __import__('time').time()
     Apply Filters
@@ -169,11 +226,14 @@ TC-F19 - Hiệu năng Apply Filters (≤ 3s)
     Should Be True    ${dt} <= 3.0
 
 TC-F20 - Đa ngôn ngữ EN → VI
-    Go To Question Bank
+    [Documentation]    TC_QB_F20
+    [Tags]    SIU TOMY    Interface    Question Bank Filters
+    Open Question Bank
+    Wait For QB Landed
     Set Question Type    Multiple Choice
     Apply Filters
     Go To    ${QB_URL_VI}
     Wait For QB Landed
     ${ok_apply}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//button[contains(.,'Áp dụng') or contains(.,'Apply')]
-    ${ok_clear}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//button[contains(.,'Xóa') or contains(.,'Clear') or contains(.,'Làm mới') or contains(.,'Reset')]
+    ${ok_clear}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//button[contains(.,'Xóa') or contains(.,'Clear') or contains(.,'Làm moới') or contains(.,'Reset')]
     Should Be True    ${ok_apply} or ${ok_clear}

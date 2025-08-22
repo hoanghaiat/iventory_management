@@ -7,12 +7,20 @@ Test Teardown   Capture Page Screenshot
 Test Timeout    3 minutes
 Documentation   Test trang "Create New Question" cho Lecturer.
 
+*** Variables ***
+${OWNER}    SIU TOMY
+${MODULE}   Interface
+
 *** Test Cases ***
 TC-C01 - Mở trang Tạo câu hỏi
+    [Documentation]    TC_QC_01
+    [Tags]    ${MODULE}    ${OWNER}    SIU TOMY
     Open Question Create (direct)
-    QC Marker Should Exist
+    Wait For QC Landed
 
 TC-C02 - Kiểm tra đủ control bắt buộc
+    [Documentation]    TC_QC_02
+    [Tags]    ${MODULE}    ${OWNER}    SIU TOMY
     Open Question Create (direct)
     ${has_type}=      Run Keyword And Return Status    Page Should Contain Element    ${QC_SEL_TYPE}
     ${has_diff}=      Run Keyword And Return Status    Page Should Contain Element    ${QC_SEL_DIFFICULTY}
@@ -25,7 +33,10 @@ TC-C02 - Kiểm tra đủ control bắt buộc
     Should Be True    ${all_ok}
 
 TC-C03 - Tạo câu hỏi tối thiểu (MCQ/Easy/Remember)
+    [Documentation]    TC_QC_03
+    [Tags]    ${MODULE}    ${OWNER}    SIU TOMY
     Open Question Create (direct)
+    Wait For QC Landed
     QC Set Course First
     QC Set Type         Multiple Choice
     QC Set Difficulty   Easy
@@ -34,7 +45,10 @@ TC-C03 - Tạo câu hỏi tối thiểu (MCQ/Easy/Remember)
     QC Submit (soft)
 
 TC-C04 - Loại Essay / Medium / Analyze
+    [Documentation]    TC_QC_04
+    [Tags]    ${MODULE}    ${OWNER}    SIU TOMY
     Open Question Create (direct)
+    Wait For QC Landed
     QC Set Course First
     QC Set Type         Essay
     QC Set Difficulty   Medium
@@ -43,7 +57,10 @@ TC-C04 - Loại Essay / Medium / Analyze
     QC Submit (soft)
 
 TC-C05 - Practical / Hard / Apply
+    [Documentation]    TC_QC_05
+    [Tags]    ${MODULE}    ${OWNER}    SIU TOMY
     Open Question Create (direct)
+    Wait For QC Landed
     QC Set Course First
     QC Set Type         Practical
     QC Set Difficulty   Hard
@@ -52,7 +69,10 @@ TC-C05 - Practical / Hard / Apply
     QC Submit (soft)
 
 TC-C06 - True/False
+    [Documentation]    TC_QC_06
+    [Tags]    ${MODULE}    ${OWNER}    SIU TOMY
     Open Question Create (direct)
+    Wait For QC Landed
     QC Set Course First
     QC Set Type         True/False
     QC Set Difficulty   Easy
@@ -61,7 +81,10 @@ TC-C06 - True/False
     QC Submit (soft)
 
 TC-C07 - Short Answer
+    [Documentation]    TC_QC_07
+    [Tags]    ${MODULE}    ${OWNER}    SIU TOMY
     Open Question Create (direct)
+    Wait For QC Landed
     QC Set Course First
     QC Set Type         Short Answer
     QC Set Difficulty   Medium
@@ -70,7 +93,10 @@ TC-C07 - Short Answer
     QC Submit (soft)
 
 TC-C08 - Matching
+    [Documentation]    TC_QC_08
+    [Tags]    ${MODULE}    ${OWNER}    SIU TOMY
     Open Question Create (direct)
+    Wait For QC Landed
     QC Set Course First
     QC Set Type         Matching
     QC Set Difficulty   Medium
@@ -79,7 +105,10 @@ TC-C08 - Matching
     QC Submit (soft)
 
 TC-C09 - Nội dung dài 1.000 ký tự
+    [Documentation]    TC_QC_09
+    [Tags]    ${MODULE}    ${OWNER}    SIU TOMY
     Open Question Create (direct)
+    Wait For QC Landed
     QC Set Course First
     QC Set Type         Multiple Choice
     QC Set Difficulty   Medium
@@ -89,7 +118,10 @@ TC-C09 - Nội dung dài 1.000 ký tự
     QC Submit (soft)
 
 TC-C10 - Ký tự đặc biệt trong Content
+    [Documentation]    TC_QC_10
+    [Tags]    ${MODULE}    ${OWNER}    SIU TOMY
     Open Question Create (direct)
+    Wait For QC Landed
     QC Set Course First
     QC Set Type         Essay
     QC Set Difficulty   Medium
@@ -98,23 +130,31 @@ TC-C10 - Ký tự đặc biệt trong Content
     QC Submit (soft)
 
 TC-C11 - Đổi Status = Inactive
+    [Documentation]    TC_QC_11
+    [Tags]    ${MODULE}    ${OWNER}    SIU TOMY
     Open Question Create (direct)
+    Wait For QC Landed
     QC Set Status (any inactive)
     QC Submit (soft)
 
 TC-C12 - Approval = Rejected
+    [Documentation]    TC_QC_12
+    [Tags]    ${MODULE}    ${OWNER}    SIU TOMY
     Open Question Create (direct)
+    Wait For QC Landed
     QC Set Approval (rejected)
     QC Submit (soft)
 
 TC-C13 - Làm mới trang vẫn giữ control
+    [Documentation]    TC_QC_13
+    [Tags]    ${MODULE}    ${OWNER}    SIU TOMY
     Open Question Create (direct)
     Reload Page
     core.Wait Until Document Ready
-    ${ok}=    Wait For QC Landed
-    Should Be True    ${ok}
+    Wait For QC Landed
 
 TC-C14 - Đa ngôn ngữ EN → VI (mở trực tiếp)
+    [Documentation]    TC_QC_14
+    [Tags]    ${MODULE}    ${OWNER}    SIU TOMY
     Go To    ${QC_URL_VI}
-    ${ok}=    Wait For QC Landed
-    Should Be True    ${ok}
+    Wait For QC Landed

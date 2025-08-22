@@ -1,35 +1,38 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    String
 
 *** Variables ***
-${BASE_URL}          https://demo-clo.minds.vn
-${BROWSER}           chrome
-${USERNAME}          lecturer1
-${PASSWORD}          demolecturer
+${BASE_URL}           https://demo-clo.minds.vn
+${BROWSER}            chrome
+
+# Demo account
+${USERNAME}           lecturer1
+${PASSWORD}           demolecturer
 
 # ===== Login locators (EN/VN) =====
-${H_LOGIN}           xpath=//form//input[@id="id_username"]
-${P_LOGIN}           xpath=//form//input[@id="id_password"]
-${BTN_LOGIN}         xpath=//button[normalize-space(.)="Đăng nhập" or normalize-space(.)="Login"]
+${H_LOGIN}            xpath=//form//input[@id="id_username"]
+${P_LOGIN}            xpath=//form//input[@id="id_password"]
+${BTN_LOGIN}          xpath=//button[normalize-space(.)="Đăng nhập" or normalize-space(.)="Login"]
 
 # ===== Menu & markers cho Test Analysis =====
-${TA_MENU}           xpath=//a[contains(@href,'test-analysis') or contains(normalize-space(.),'Phân tích bài kiểm tra') or contains(normalize-space(.),'Test Analysis')]
-${TA_MARK_H1}        xpath=//h1[normalize-space(.)='Phân tích bài kiểm tra' or normalize-space(.)='Test Analysis']
-${TA_MARK_SEARCH}    css:input[placeholder*="Search test analyses"]
-${TA_MARK_ABOUT}     xpath=//h2[contains(normalize-space(.),'About')]
-${TA_MARK_EMPTY}     xpath=//*[contains(normalize-space(.),'No test analyses found.')]
+${TA_MENU}            xpath=//a[contains(@href,'test-analysis') or contains(normalize-space(.),'Phân tích bài kiểm tra') or contains(normalize-space(.),'Test Analysis')]
+${TA_MARK_H1}         xpath=//h1[normalize-space(.)='Phân tích bài kiểm tra' or normalize-space(.)='Test Analysis']
+${TA_MARK_SEARCH}     css:input[placeholder*="Search test analyses"]
+${TA_MARK_ABOUT}      xpath=//h2[contains(normalize-space(.),'About')]
+${TA_MARK_EMPTY}      xpath=//*[contains(normalize-space(.),'No test analyses found.')]
 
 # ===== Controls & Cards =====
-${TA_SEARCH_INPUT}   css:input[placeholder*="Search test analyses"]
-${TA_SEARCH_BTN}     xpath=//button[.//i[contains(@class,'search')] or contains(normalize-space(.),'Search')]
-${TA_CARD_PERF}      xpath=//*[self::a or self::div][.//text()[contains(.,'Performance Statistics')]]
-${TA_CARD_ITEM}      xpath=//*[self::a or self::div][.//text()[contains(.,'Item Analysis')]]
-${TA_CARD_CLO}       xpath=//*[self::a or self::div][.//text()[contains(.,'CLO Achievement')]]
+${TA_SEARCH_INPUT}    css:input[placeholder*="Search test analyses"]
+${TA_SEARCH_BTN}      xpath=//button[.//i[contains(@class,'search')] or contains(normalize-space(.),'Search')]
+${TA_CARD_PERF}       xpath=//*[self::a or self::div][.//text()[contains(.,'Performance Statistics')]]
+${TA_CARD_ITEM}       xpath=//*[self::a or self::div][.//text()[contains(.,'Item Analysis')]]
+${TA_CARD_CLO}        xpath=//*[self::a or self::div][.//text()[contains(.,'CLO Achievement')]]
 
 # ===== URL pattern sau khi click (mềm) =====
-${URL_TA_PERF}       regexp:.*/test-analysis(/.*)?/performance|.*/test-analysis/performance
-${URL_TA_ITEM}       regexp:.*/test-analysis(/.*)?/items|.*/test-analysis/items
-${URL_TA_CLO}        regexp:.*/test-analysis(/.*)?/clo|.*/test-analysis/clo
+${URL_TA_PERF}        regexp:.*/test-analysis(/.*)?/performance|.*/test-analysis/performance
+${URL_TA_ITEM}        regexp:.*/test-analysis(/.*)?/items|.*/test-analysis/items
+${URL_TA_CLO}         regexp:.*/test-analysis(/.*)?/clo|.*/test-analysis/clo
 
 *** Keywords ***
 Open Browser And Login
@@ -42,7 +45,7 @@ Open Browser And Login
     Wait Until Page Contains Element    xpath=//a[contains(@href,'/questionbank') or contains(@href,'/test-analysis') or contains(@href,'/dashboard')]    30s
 
 Open Test Analysis Page
-    [Documentation]  Điều hướng chắn tới trang Test Analysis (thử VN/EN, nếu chưa thì bấm menu).
+    [Documentation]    Điều hướng chắc tới trang Test Analysis (thử VI → EN, nếu chưa thì bấm menu).
     Go To    ${BASE_URL}/vi/test-analysis
     ${ok}=   Run Keyword And Return Status    Wait For TALanded    8s
     IF    not ${ok}
@@ -93,22 +96,26 @@ Assert Url Matches
     ${url}=    Get Location
     Should Match Regexp    ${url}    ${pattern}
 
-# --- Breadcrumb/Home: rời trang TA nếu có breadcrumb ---
 Leave TA By Breadcrumb If Present
     ${has}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//nav//*[normalize-space(.)='Trang chủ' or normalize-space(.)='Home']
-    IF    not ${has}    RETURN    END
+    IF    not ${has}    RETURN
     Safe Click    xpath=//nav//*[normalize-space(.)='Trang chủ' or normalize-space(.)='Home']
-    Wait Until Keyword Succeeds    20x    0.5s    _Not TA Url
+    Wait Until Keyword Succeeds    20x    0.5s    Assert Not TA Url
 
-_Not TA Url
+Assert Not TA Url
     ${url}=    Get Location
     Should Not Contain    ${url}    test-analysis
 
-# --- Safe Click chung ---
 Safe Click
     [Arguments]    ${locator}
     ${ok}=    Run Keyword And Return Status    Click Element    ${locator}
-    IF    not ${ok}
-        ${el}=    Get WebElement    ${locator}
-        Execute Javascript    arguments[0].click();    ${el}
-    END
+    IF    ${ok}    RETURN
+    Run Keyword And Ignore Error    Scroll Element Into View    ${locator}
+    ${ok2}=   Run Keyword And Return Status    Click Element    ${locator}
+    IF    ${ok2}   RETURN
+    ${xp}=    Replace String Using Regexp    ${locator}    ^xpath=    ${EMPTY}
+    Execute Javascript
+    ...    var xp = arguments[0];
+    ...    var el = document.evaluate(xp, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    ...    if (el) { try { el.scrollIntoView({block:'center'}); } catch(e){} el.click(); }
+    ...    ${xp}

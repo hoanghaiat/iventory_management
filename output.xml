@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.9.13 on win32)" generated="2025-08-14T18:27:30.043504" rpa="false" schemaversion="5">
-<suite id="s1" name="QuestionBank" source="d:\JAV siu\iventory_management\KienTruc_University\LecturerPage\Test\QuestionBank.robot">
+<robot generator="Robot 7.3.2 (Python 3.9.13 on win32)" generated="2025-08-22T10:20:37.485351" rpa="false" schemaversion="5">
+<suite id="s1" name="QuestionCreate" source="d:\JAV siu\iventory_management\KienTruc_University\LecturerPage\Test\QuestionCreate.robot">
 <kw name="Login As Lecturer" owner="core" type="SETUP">
 <kw name="Set Selenium Options" owner="core">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-14T18:27:30.893369" level="INFO">${opt} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000244EF1934F0&gt;</msg>
+<msg time="2025-08-22T10:20:37.761371" level="INFO">${opt} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001A8F140ED60&gt;</msg>
 <var>${opt}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys, selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-14T18:27:30.884842" elapsed="0.008527"/>
+<status status="PASS" start="2025-08-22T10:20:37.755859" elapsed="0.008359"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${HEADLESS}</arg>
@@ -18,477 +18,629 @@
 <arg>add_argument</arg>
 <arg>--headless=new</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-14T18:27:30.900881" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-22T10:20:37.764218" elapsed="0.000000"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${opt}</arg>
 <arg>add_argument</arg>
 <arg>--disable-gpu</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-08-14T18:27:30.900881" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-22T10:20:37.764218" elapsed="0.000000"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${opt}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-08-14T18:27:30.900881" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-22T10:20:37.764218" elapsed="0.000000"/>
 </kw>
 <return>
 <value>${opt}</value>
-<status status="PASS" start="2025-08-14T18:27:30.900881" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-22T10:20:37.764218" elapsed="0.000000"/>
 </return>
-<msg time="2025-08-14T18:27:30.908889" level="INFO">${opt} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000244EF1934F0&gt;</msg>
+<msg time="2025-08-22T10:20:37.764218" level="INFO">${opt} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001A8F140ED60&gt;</msg>
 <var>${opt}</var>
-<status status="PASS" start="2025-08-14T18:27:30.884842" elapsed="0.024047"/>
+<status status="PASS" start="2025-08-22T10:20:37.755859" elapsed="0.008359"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:30.908889" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<msg time="2025-08-22T10:20:37.764218" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 <arg>options=${opt}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-14T18:27:30.908889" elapsed="5.085516"/>
+<status status="PASS" start="2025-08-22T10:20:37.764218" elapsed="2.538755"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-08-14T18:27:35.994405" elapsed="0.064917"/>
+<status status="PASS" start="2025-08-22T10:20:40.303971" elapsed="0.049001"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:36.059322" level="INFO">Opening url 'https://demo-clo.minds.vn/en/accounts/login/?next=/en/'</msg>
+<msg time="2025-08-22T10:20:40.355529" level="INFO">Opening url 'https://demo-clo.minds.vn/en/accounts/login/?next=/en/'</msg>
 <arg>${LOGIN_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-08-14T18:27:36.059322" elapsed="2.304881"/>
+<status status="PASS" start="2025-08-22T10:20:40.354022" elapsed="1.600470"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_USER}</arg>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//input[@name='username']</arg>
 <arg>${TO}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-14T18:27:38.364203" elapsed="0.234056"/>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-22T10:20:41.954492" elapsed="0.024926"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:38.598259" level="INFO">Typing text 'lecturer1' into text field 'xpath=//input[@name='username' or @id='id_username' or @type='text' or @type='email']'.</msg>
-<arg>${LOC_USER}</arg>
+<msg time="2025-08-22T10:20:41.980418" level="INFO">Typing text 'lecturer1' into text field 'xpath=//input[@name='username']'.</msg>
+<arg>xpath=//input[@name='username']</arg>
 <arg>${USERNAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T18:27:38.598259" elapsed="0.160953"/>
+<status status="PASS" start="2025-08-22T10:20:41.979418" elapsed="0.094698"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:38.767221" level="INFO">Typing password into text field 'xpath=//input[@name='password' or @id='id_password' or @type='password']'.</msg>
-<msg time="2025-08-14T18:27:38.816085" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${LOC_PASS}</arg>
+<msg time="2025-08-22T10:20:42.075702" level="INFO">Typing password into text field 'xpath=//input[@name='password']'.</msg>
+<msg time="2025-08-22T10:20:42.131236" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[@name='password']</arg>
 <arg>${PASSWORD}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T18:27:38.767221" elapsed="0.137400"/>
+<status status="PASS" start="2025-08-22T10:20:42.075117" elapsed="0.124456"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:38.904621" level="INFO">Clicking button 'xpath=(//button[@type='submit'] | //button)[1]'.</msg>
-<arg>${LOC_SUBMIT}</arg>
+<msg time="2025-08-22T10:20:42.201337" level="INFO">Clicking button 'xpath=(//button[@type='submit']|//button)[1]'.</msg>
+<arg>xpath=(//button[@type='submit']|//button)[1]</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-14T18:27:38.904621" elapsed="3.600839"/>
+<status status="PASS" start="2025-08-22T10:20:42.200834" elapsed="3.282164"/>
 </kw>
 <kw name="Wait Until Document Ready" owner="core">
 <kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:42.512972" level="INFO">Executing JavaScript:
+<msg time="2025-08-22T10:20:45.492614" level="INFO">Executing JavaScript:
 return document.readyState === 'complete'
 Without any arguments.</msg>
 <arg>return document.readyState === 'complete'</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-08-14T18:27:42.505460" elapsed="0.048058"/>
+<status status="PASS" start="2025-08-22T10:20:45.488056" elapsed="0.022458"/>
 </kw>
-<arg>${timeout}</arg>
-<arg>${poll}</arg>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
 <arg>Execute Javascript</arg>
 <arg>return document.readyState === 'complete'</arg>
 <doc>Runs the specified keyword and retries if it fails.</doc>
-<status status="PASS" start="2025-08-14T18:27:42.505460" elapsed="0.048058"/>
+<status status="PASS" start="2025-08-22T10:20:45.482998" elapsed="0.027516"/>
 </kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:42.553518" level="INFO">Executing JavaScript:
-return !!window.jQuery
-Without any arguments.</msg>
-<msg time="2025-08-14T18:27:42.577579" level="INFO">${hasjq} = False</msg>
-<var>${hasjq}</var>
-<arg>return !!window.jQuery</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-08-14T18:27:42.553518" elapsed="0.024061"/>
-</kw>
-<if>
-<branch type="IF" condition="${hasjq}">
-<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
-<arg>${timeout}</arg>
-<arg>${poll}</arg>
-<arg>Execute Javascript</arg>
-<arg>return jQuery.active === 0</arg>
-<doc>Runs the specified keyword and retries if it fails.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:42.585877" elapsed="0.000000"/>
-</kw>
-<status status="NOT RUN" start="2025-08-14T18:27:42.585877" elapsed="0.000000"/>
-</branch>
-<status status="PASS" start="2025-08-14T18:27:42.585877" elapsed="0.000000"/>
-</if>
-<status status="PASS" start="2025-08-14T18:27:42.505460" elapsed="0.080417"/>
+<status status="PASS" start="2025-08-22T10:20:45.482998" elapsed="0.027516"/>
 </kw>
 <kw name="Remove Overlays" owner="core">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:42.585877" level="INFO">Executing JavaScript:
-(function(){try{var ids=['djDebug']; ids.forEach(function(i){var e=document.getElementById(i); if(e) e.remove();});var cls=['djdt','djdt-scroll','modal-backdrop','offcanvas-backdrop','overlay','toast','fade','show'];cls.forEach(function(c){document.querySelectorAll('.'+c).forEach(function(el){el.remove();});});document.body.style.pointerEvents='auto';}catch(e){}})();
+<msg time="2025-08-22T10:20:45.513520" level="INFO">Executing JavaScript:
+(function(){try{var ids=['djDebug']; ids.forEach(function(i){var e=document.getElementById(i); if(e) e.remove();});var cls=['djdt','djdt-scroll','modal-backdrop','offcanvas-backdrop','overlay','toast','fade','show','TemplatesPanel'];cls.forEach(function(c){document.querySelectorAll('.'+c).forEach(function(el){el.remove();});});document.querySelectorAll('a.TemplatesPanel').forEach(function(el){el.remove();});document.body.style.pointerEvents='auto';}catch(e){}})();
 Without any arguments.</msg>
 <arg>(function(){</arg>
 <arg>try{</arg>
 <arg>var ids=['djDebug']; ids.forEach(function(i){var e=document.getElementById(i); if(e) e.remove();});</arg>
-<arg>var cls=['djdt','djdt-scroll','modal-backdrop','offcanvas-backdrop','overlay','toast','fade','show'];</arg>
+<arg>var cls=['djdt','djdt-scroll','modal-backdrop','offcanvas-backdrop','overlay','toast','fade','show','TemplatesPanel'];</arg>
 <arg>cls.forEach(function(c){document.querySelectorAll('.'+c).forEach(function(el){el.remove();});});</arg>
+<arg>document.querySelectorAll('a.TemplatesPanel').forEach(function(el){el.remove();});</arg>
 <arg>document.body.style.pointerEvents='auto';</arg>
 <arg>}catch(e){}</arg>
 <arg>})();</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-08-14T18:27:42.585877" elapsed="0.048802"/>
+<status status="PASS" start="2025-08-22T10:20:45.510514" elapsed="0.029796"/>
 </kw>
-<status status="PASS" start="2025-08-14T18:27:42.585877" elapsed="0.048802"/>
+<status status="PASS" start="2025-08-22T10:20:45.510514" elapsed="0.039424"/>
 </kw>
-<kw name="Wait Until Document Ready" owner="core">
 <kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:42.634679" level="INFO">Executing JavaScript:
+<msg time="2025-08-22T10:20:45.553364" level="INFO">Executing JavaScript:
 return document.readyState === 'complete'
 Without any arguments.</msg>
 <arg>return document.readyState === 'complete'</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-08-14T18:27:42.634679" elapsed="0.016399"/>
+<status status="PASS" start="2025-08-22T10:20:45.552230" elapsed="0.013950"/>
 </kw>
-<arg>${timeout}</arg>
-<arg>${poll}</arg>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
 <arg>Execute Javascript</arg>
 <arg>return document.readyState === 'complete'</arg>
 <doc>Runs the specified keyword and retries if it fails.</doc>
-<status status="PASS" start="2025-08-14T18:27:42.634679" elapsed="0.016399"/>
+<status status="PASS" start="2025-08-22T10:20:45.551100" elapsed="0.015080"/>
 </kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:42.653086" level="INFO">Executing JavaScript:
-return !!window.jQuery
-Without any arguments.</msg>
-<msg time="2025-08-14T18:27:42.748009" level="INFO">${hasjq} = False</msg>
-<var>${hasjq}</var>
-<arg>return !!window.jQuery</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-08-14T18:27:42.653086" elapsed="0.094923"/>
+<status status="PASS" start="2025-08-22T10:20:37.755859" elapsed="7.810321"/>
 </kw>
-<if>
-<branch type="IF" condition="${hasjq}">
-<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
-<arg>${timeout}</arg>
-<arg>${poll}</arg>
-<arg>Execute Javascript</arg>
-<arg>return jQuery.active === 0</arg>
-<doc>Runs the specified keyword and retries if it fails.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:42.748009" elapsed="0.000000"/>
+<test id="s1-t1" name="TC-C01 - Mở trang Tạo câu hỏi" line="15">
+<kw name="Open Question Create (direct)" owner="QuestionCreate">
+<kw name="Normalize Base Url" owner="QuestionCreate">
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-08-22T10:20:45.579481" level="INFO">${b} = https://demo-clo.minds.vn</msg>
+<var>${b}</var>
+<arg>${BASE_URL}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-08-22T10:20:45.573626" elapsed="0.006216"/>
 </kw>
-<status status="NOT RUN" start="2025-08-14T18:27:42.748009" elapsed="0.000000"/>
-</branch>
-<status status="PASS" start="2025-08-14T18:27:42.748009" elapsed="0.000000"/>
-</if>
-<status status="PASS" start="2025-08-14T18:27:42.634679" elapsed="0.113330"/>
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2025-08-22T10:20:45.590429" level="INFO">${b} = https://demo-clo.minds.vn</msg>
+<var>${b}</var>
+<arg>${b}</arg>
+<arg>/+$</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-08-22T10:20:45.585888" elapsed="0.005542"/>
 </kw>
-<status status="PASS" start="2025-08-14T18:27:30.884842" elapsed="11.863167"/>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-08-22T10:20:45.595439" level="INFO">${BASE} = https://demo-clo.minds.vn</msg>
+<arg>${BASE}</arg>
+<arg>${b}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-08-22T10:20:45.592426" elapsed="0.004067"/>
 </kw>
-<test id="s1-t1" name="TC-QB01 - Truy cập Question Bank" line="11">
-<kw name="Open Question Bank" owner="QuestionBank">
+<status status="PASS" start="2025-08-22T10:20:45.569543" elapsed="0.027086"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-22T10:20:45.600828" level="INFO">${ts} = 1755832845</msg>
+<var>${ts}</var>
+<arg>__import__('time').time().__int__()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-22T10:20:45.597500" elapsed="0.004325"/>
+</kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:42.779562" level="INFO">Opening url 'https://demo-clo.minds.vn/en/questionbank/'</msg>
-<arg>${QB_URL_EN}</arg>
+<msg time="2025-08-22T10:20:45.606144" level="INFO">Opening url 'https://demo-clo.minds.vn/en/questionbank/questions/create/?_=1755832845'</msg>
+<arg>${BASE}/en/questionbank/questions/create/?_=${ts}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-08-14T18:27:42.756023" elapsed="0.669150"/>
+<status status="PASS" start="2025-08-22T10:20:45.602822" elapsed="0.981317"/>
 </kw>
+<kw name="QC Wait Until Document Ready" owner="QuestionCreate">
 <kw name="Wait Until Document Ready" owner="core">
 <kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:43.425173" level="INFO">Executing JavaScript:
+<msg time="2025-08-22T10:20:46.590244" level="INFO">Executing JavaScript:
 return document.readyState === 'complete'
 Without any arguments.</msg>
 <arg>return document.readyState === 'complete'</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-08-14T18:27:43.425173" elapsed="0.008333"/>
+<status status="PASS" start="2025-08-22T10:20:46.587793" elapsed="0.019912"/>
 </kw>
-<arg>${timeout}</arg>
-<arg>${poll}</arg>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
 <arg>Execute Javascript</arg>
 <arg>return document.readyState === 'complete'</arg>
 <doc>Runs the specified keyword and retries if it fails.</doc>
-<status status="PASS" start="2025-08-14T18:27:43.425173" elapsed="0.008333"/>
+<status status="PASS" start="2025-08-22T10:20:46.584139" elapsed="0.023566"/>
 </kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:43.441618" level="INFO">Executing JavaScript:
-return !!window.jQuery
-Without any arguments.</msg>
-<msg time="2025-08-14T18:27:43.449544" level="INFO">${hasjq} = False</msg>
-<var>${hasjq}</var>
-<arg>return !!window.jQuery</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-08-14T18:27:43.433506" elapsed="0.016038"/>
+<status status="PASS" start="2025-08-22T10:20:46.584139" elapsed="0.023566"/>
+</kw>
+<status status="PASS" start="2025-08-22T10:20:46.584139" elapsed="0.023566"/>
+</kw>
+<kw name="Ensure Logged In" owner="QuestionCreate">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:46.801420" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-22T10:20:46.802418" level="FAIL">Page should have contained element 'xpath=//form//input[@id="id_username"]' but did not.</msg>
+<arg>xpath=//form//input[@id="id_username"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="FAIL" start="2025-08-22T10:20:46.607705" elapsed="0.199481">Page should have contained element 'xpath=//form//input[@id="id_username"]' but did not.</status>
+</kw>
+<msg time="2025-08-22T10:20:46.808189" level="INFO">${need} = False</msg>
+<var>${need}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//form//input[@id="id_username"]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-22T10:20:46.607705" elapsed="0.200484"/>
 </kw>
 <if>
-<branch type="IF" condition="${hasjq}">
-<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
-<arg>${timeout}</arg>
-<arg>${poll}</arg>
-<arg>Execute Javascript</arg>
-<arg>return jQuery.active === 0</arg>
-<doc>Runs the specified keyword and retries if it fails.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.449544" elapsed="0.000000"/>
+<branch type="IF" condition="${need}">
+<kw name="Login As Lecturer" owner="core">
+<status status="NOT RUN" start="2025-08-22T10:20:46.809185" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-08-14T18:27:43.449544" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-22T10:20:46.808189" elapsed="0.000996"/>
 </branch>
-<status status="PASS" start="2025-08-14T18:27:43.449544" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-22T10:20:46.808189" elapsed="0.000996"/>
 </if>
-<status status="PASS" start="2025-08-14T18:27:43.425173" elapsed="0.024371"/>
+<status status="PASS" start="2025-08-22T10:20:46.607705" elapsed="0.201480"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="QB Marker Present" owner="QuestionBank">
+<kw name="Wait For QC Landed" owner="QuestionCreate">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Assert QC Landed Once" owner="QuestionCreate">
+<kw name="QC Wait Until Document Ready" owner="QuestionCreate">
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:46.818140" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-22T10:20:46.815150" elapsed="0.009555"/>
+</kw>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-22T10:20:46.814150" elapsed="0.011707"/>
+</kw>
+<status status="PASS" start="2025-08-22T10:20:46.813542" elapsed="0.012315"/>
+</kw>
+<status status="PASS" start="2025-08-22T10:20:46.812525" elapsed="0.013332"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:46.985020" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-22T10:20:46.985020" level="FAIL">Page should have contained text 'Page not found' but did not.</msg>
+<arg>Page not found</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2025-08-22T10:20:46.826506" elapsed="0.159655">Page should have contained text 'Page not found' but did not.</status>
+</kw>
+<msg time="2025-08-22T10:20:46.986161" level="INFO">${is404a} = False</msg>
+<var>${is404a}</var>
+<arg>Page Should Contain</arg>
+<arg>Page not found</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-22T10:20:46.826506" elapsed="0.159655"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:47.124853" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-22T10:20:47.125851" level="FAIL">Page should have contained text '404' but did not.</msg>
+<arg>404</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2025-08-22T10:20:46.987159" elapsed="0.138692">Page should have contained text '404' but did not.</status>
+</kw>
+<msg time="2025-08-22T10:20:47.126848" level="INFO">${is404b} = False</msg>
+<var>${is404b}</var>
+<arg>Page Should Contain</arg>
+<arg>404</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-22T10:20:46.987159" elapsed="0.139689"/>
+</kw>
+<if>
+<branch type="IF" condition="${is404a} or ${is404b}">
 <kw name="Get Location" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:43.475641" level="INFO">${loc} = https://demo-clo.minds.vn/en/questionbank/</msg>
-<var>${loc}</var>
+<var>${u}</var>
 <doc>Returns the current browser window URL.</doc>
-<status status="PASS" start="2025-08-14T18:27:43.457561" elapsed="0.018080"/>
+<status status="NOT RUN" start="2025-08-22T10:20:47.127844" elapsed="0.000000"/>
 </kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-14T18:27:43.479238" level="INFO">${by_url} = True</msg>
-<var>${by_url}</var>
-<arg>'/questionbank/' in '''${loc}'''</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-14T18:27:43.477177" elapsed="0.002061"/>
+<kw name="Fail" owner="BuiltIn">
+<arg>404: ${u}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-08-22T10:20:47.128964" elapsed="0.000000"/>
 </kw>
-<if>
-<branch type="IF" condition="${by_url}">
-<return>
-<value>${True}</value>
-<status status="PASS" start="2025-08-14T18:27:43.480254" elapsed="0.000000"/>
-</return>
-<status status="PASS" start="2025-08-14T18:27:43.479238" elapsed="0.001016"/>
+<status status="NOT RUN" start="2025-08-22T10:20:47.126848" elapsed="0.002116"/>
 </branch>
-<status status="PASS" start="2025-08-14T18:27:43.479238" elapsed="0.001016"/>
+<status status="PASS" start="2025-08-22T10:20:47.126848" elapsed="0.002116"/>
 </if>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${m1}</var>
-<arg>Page Should Contain Element</arg>
-<arg>${QB_BTN_ADD}</arg>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:47.137812" level="INFO">Current location contains '/questionbank/questions/create'.</msg>
+<arg>/questionbank/questions/create</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.129963" elapsed="0.007849"/>
+</kw>
+<msg time="2025-08-22T10:20:47.137812" level="INFO">${on_path} = True</msg>
+<var>${on_path}</var>
+<arg>Location Should Contain</arg>
+<arg>/questionbank/questions/create</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.480254" elapsed="0.001016"/>
+<status status="PASS" start="2025-08-22T10:20:47.128964" elapsed="0.008848"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${m2}</var>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:47.146552" level="INFO">Current page contains element 'xpath=//button[@type='submit' or contains(.,'Create Question') or contains(.,'Tạo câu hỏi')]'.</msg>
+<arg>${QC_BTN_SUBMIT}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.139290" elapsed="0.007262"/>
+</kw>
+<msg time="2025-08-22T10:20:47.146552" level="INFO">${has_submit} = True</msg>
+<var>${has_submit}</var>
 <arg>Page Should Contain Element</arg>
-<arg>${QB_BTN_IMPORT}</arg>
+<arg>${QC_BTN_SUBMIT}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.481418" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-22T10:20:47.137812" elapsed="0.008740"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${m3}</var>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:47.158861" level="INFO">Current page contains element 'xpath=(//label[contains(.,'Type') or contains(.,'Loại')]//following::*[self::select or @role='combobox'])[1]'.</msg>
+<arg>${QC_SEL_TYPE}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.146552" elapsed="0.012309"/>
+</kw>
+<msg time="2025-08-22T10:20:47.158861" level="INFO">${has_type} = True</msg>
+<var>${has_type}</var>
 <arg>Page Should Contain Element</arg>
-<arg>${QB_BTN_TAGS}</arg>
+<arg>${QC_SEL_TYPE}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.481924" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-22T10:20:47.146552" elapsed="0.012309"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${hdr}</var>
-<arg>Page Should Contain Element</arg>
-<arg>${QB_HDR_ANY}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.481924" elapsed="0.000000"/>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:47.190364" level="INFO">Current page contains element 'xpath=(//label[contains(.,'Course') or contains(.,'Môn')]//following::*[self::select or @role='combobox'])[1]'.</msg>
+<arg>${QC_SEL_COURSE}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.158861" elapsed="0.031503"/>
 </kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${has_search}</var>
+<msg time="2025-08-22T10:20:47.190364" level="INFO">${has_course} = True</msg>
+<var>${has_course}</var>
 <arg>Page Should Contain Element</arg>
-<arg>${SEARCH_BOX}</arg>
+<arg>${QC_SEL_COURSE}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.482934" elapsed="0.000000"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${has_table}</var>
-<arg>Page Should Contain Element</arg>
-<arg>${TABLE_ANY}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.482934" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-22T10:20:47.158861" elapsed="0.031503"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<var>${any}</var>
-<arg>${m1} or ${m2} or ${m3} or ${hdr} or ${has_search} or ${has_table}</arg>
+<msg time="2025-08-22T10:20:47.193898" level="INFO">${ok_any} = True</msg>
+<var>${ok_any}</var>
+<arg>${on_path} or ${has_submit} or ${has_type} or ${has_course}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.483948" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-22T10:20:47.190364" elapsed="0.003534"/>
 </kw>
-<return>
-<value>${any}</value>
-<status status="NOT RUN" start="2025-08-14T18:27:43.483948" elapsed="0.000000"/>
-</return>
-<status status="PASS" start="2025-08-14T18:27:43.457561" elapsed="0.027402"/>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${ok_any}</arg>
+<arg>Not on Create page yet</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.194823" elapsed="0.000000"/>
 </kw>
-<msg time="2025-08-14T18:27:43.484963" level="INFO">${ok} = True</msg>
+<status status="PASS" start="2025-08-22T10:20:46.812304" elapsed="0.382519"/>
+</kw>
+<arg>8x</arg>
+<arg>500ms</arg>
+<arg>Assert QC Landed Once</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-22T10:20:46.811253" elapsed="0.383570"/>
+</kw>
+<msg time="2025-08-22T10:20:47.194823" level="INFO">${st} = True</msg>
+<var>${st}</var>
+<arg>Wait Until Keyword Succeeds</arg>
+<arg>8x</arg>
+<arg>500ms</arg>
+<arg>Assert QC Landed Once</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-22T10:20:46.810230" elapsed="0.384593"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${st}</arg>
+<arg>Not on Create page yet</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.194823" elapsed="0.024144"/>
+</kw>
+<status status="PASS" start="2025-08-22T10:20:46.810230" elapsed="0.408737"/>
+</kw>
+<msg time="2025-08-22T10:20:47.218967" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
-<arg>QB Marker Present</arg>
+<arg>Wait For QC Landed</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-14T18:27:43.457561" elapsed="0.027402"/>
+<status status="PASS" start="2025-08-22T10:20:46.809185" elapsed="0.409782"/>
 </kw>
 <if>
-<branch type="IF" condition="${ok}">
-<return>
-<status status="PASS" start="2025-08-14T18:27:43.485980" elapsed="0.000000"/>
-</return>
-<status status="PASS" start="2025-08-14T18:27:43.484963" elapsed="0.001017"/>
-</branch>
-<status status="PASS" start="2025-08-14T18:27:43.484963" elapsed="0.002046"/>
-</if>
-<kw name="Go To" owner="SeleniumLibrary">
-<arg>${QB_URL_VI}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.488025" elapsed="0.000000"/>
+<branch type="IF" condition="not ${ok}">
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="NOT RUN" start="2025-08-22T10:20:47.218967" elapsed="0.000000"/>
 </kw>
-<kw name="Wait Until Document Ready" owner="core">
-<status status="NOT RUN" start="2025-08-14T18:27:43.488025" elapsed="0.001164"/>
+<kw name="QC Wait Until Document Ready" owner="QuestionCreate">
+<status status="NOT RUN" start="2025-08-22T10:20:47.218967" elapsed="0.000000"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <var>${ok2}</var>
-<arg>QB Marker Present</arg>
+<arg>Wait For QC Landed</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.490198" elapsed="0.001022"/>
+<status status="NOT RUN" start="2025-08-22T10:20:47.218967" elapsed="0.000000"/>
 </kw>
 <if>
-<branch type="IF" condition="${ok2}">
-<return>
-<status status="NOT RUN" start="2025-08-14T18:27:43.493265" elapsed="0.000000"/>
-</return>
-<status status="NOT RUN" start="2025-08-14T18:27:43.492245" elapsed="0.001020"/>
+<branch type="IF" condition="not ${ok2}">
+<kw name="Go To" owner="SeleniumLibrary">
+<arg>${BASE}/vi/questionbank/questions/create/?_=${ts}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" start="2025-08-22T10:20:47.218967" elapsed="0.000000"/>
+</kw>
+<kw name="QC Wait Until Document Ready" owner="QuestionCreate">
+<status status="NOT RUN" start="2025-08-22T10:20:47.218967" elapsed="0.000000"/>
+</kw>
+<kw name="Ensure Logged In" owner="QuestionCreate">
+<status status="NOT RUN" start="2025-08-22T10:20:47.218967" elapsed="0.000000"/>
+</kw>
+<kw name="Wait For QC Landed" owner="QuestionCreate">
+<status status="NOT RUN" start="2025-08-22T10:20:47.218967" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-22T10:20:47.218967" elapsed="0.000000"/>
 </branch>
-<status status="NOT RUN" start="2025-08-14T18:27:43.492245" elapsed="0.001020"/>
+<status status="NOT RUN" start="2025-08-22T10:20:47.218967" elapsed="0.000000"/>
 </if>
-<kw name="Fail" owner="BuiltIn">
-<arg>Không mở được trang Question Bank.</arg>
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.494283" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-22T10:20:47.218967" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-22T10:20:47.218967" elapsed="0.000000"/>
+</if>
+<status status="PASS" start="2025-08-22T10:20:45.569543" elapsed="1.649424"/>
 </kw>
-<status status="PASS" start="2025-08-14T18:27:42.756023" elapsed="0.739277"/>
-</kw>
-<kw name="Wait For QB Landed" owner="QuestionBank">
+<kw name="Wait For QC Landed" owner="QuestionCreate">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
-<kw name="QB Marker Should Exist" owner="QuestionBank">
-<kw name="QB Marker Present" owner="QuestionBank">
-<kw name="Get Location" owner="SeleniumLibrary">
-<msg time="2025-08-14T18:27:43.519839" level="INFO">${loc} = https://demo-clo.minds.vn/en/questionbank/</msg>
-<var>${loc}</var>
-<doc>Returns the current browser window URL.</doc>
-<status status="PASS" start="2025-08-14T18:27:43.501411" elapsed="0.019445"/>
+<kw name="Assert QC Landed Once" owner="QuestionCreate">
+<kw name="QC Wait Until Document Ready" owner="QuestionCreate">
+<kw name="Wait Until Document Ready" owner="core">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:47.253404" level="INFO">Executing JavaScript:
+return document.readyState === 'complete'
+Without any arguments.</msg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.242882" elapsed="0.011043"/>
 </kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-14T18:27:43.525966" level="INFO">${by_url} = True</msg>
-<var>${by_url}</var>
-<arg>'/questionbank/' in '''${loc}'''</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-14T18:27:43.521873" elapsed="0.005108"/>
+<arg>40 times</arg>
+<arg>${POLL}</arg>
+<arg>Execute Javascript</arg>
+<arg>return document.readyState === 'complete'</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.242882" elapsed="0.011043"/>
+</kw>
+<status status="PASS" start="2025-08-22T10:20:47.242882" elapsed="0.011043"/>
+</kw>
+<status status="PASS" start="2025-08-22T10:20:47.242063" elapsed="0.011862"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:47.439026" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-22T10:20:47.440022" level="FAIL">Page should have contained text 'Page not found' but did not.</msg>
+<arg>Page not found</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2025-08-22T10:20:47.253925" elapsed="0.187094">Page should have contained text 'Page not found' but did not.</status>
+</kw>
+<msg time="2025-08-22T10:20:47.441019" level="INFO">${is404a} = False</msg>
+<var>${is404a}</var>
+<arg>Page Should Contain</arg>
+<arg>Page not found</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.253925" elapsed="0.187094"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:47.613637" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-22T10:20:47.613637" level="FAIL">Page should have contained text '404' but did not.</msg>
+<arg>404</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2025-08-22T10:20:47.443013" elapsed="0.171762">Page should have contained text '404' but did not.</status>
+</kw>
+<msg time="2025-08-22T10:20:47.614775" level="INFO">${is404b} = False</msg>
+<var>${is404b}</var>
+<arg>Page Should Contain</arg>
+<arg>404</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.442017" elapsed="0.172758"/>
 </kw>
 <if>
-<branch type="IF" condition="${by_url}">
-<return>
-<value>${True}</value>
-<status status="PASS" start="2025-08-14T18:27:43.527993" elapsed="0.000000"/>
-</return>
-<status status="PASS" start="2025-08-14T18:27:43.526981" elapsed="0.001012"/>
+<branch type="IF" condition="${is404a} or ${is404b}">
+<kw name="Get Location" owner="SeleniumLibrary">
+<var>${u}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="NOT RUN" start="2025-08-22T10:20:47.616771" elapsed="0.000246"/>
+</kw>
+<kw name="Fail" owner="BuiltIn">
+<arg>404: ${u}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-08-22T10:20:47.617017" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-22T10:20:47.615775" elapsed="0.002286"/>
 </branch>
-<status status="PASS" start="2025-08-14T18:27:43.526981" elapsed="0.001012"/>
+<status status="PASS" start="2025-08-22T10:20:47.615775" elapsed="0.002286"/>
 </if>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${m1}</var>
-<arg>Page Should Contain Element</arg>
-<arg>${QB_BTN_ADD}</arg>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:47.626905" level="INFO">Current location contains '/questionbank/questions/create'.</msg>
+<arg>/questionbank/questions/create</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.619056" elapsed="0.007849"/>
+</kw>
+<msg time="2025-08-22T10:20:47.626905" level="INFO">${on_path} = True</msg>
+<var>${on_path}</var>
+<arg>Location Should Contain</arg>
+<arg>/questionbank/questions/create</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.529011" elapsed="0.001105"/>
+<status status="PASS" start="2025-08-22T10:20:47.618061" elapsed="0.008844"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${m2}</var>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:47.626905" level="INFO">Current page contains element 'xpath=//button[@type='submit' or contains(.,'Create Question') or contains(.,'Tạo câu hỏi')]'.</msg>
+<arg>${QC_BTN_SUBMIT}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.626905" elapsed="0.000000"/>
+</kw>
+<msg time="2025-08-22T10:20:47.626905" level="INFO">${has_submit} = True</msg>
+<var>${has_submit}</var>
 <arg>Page Should Contain Element</arg>
-<arg>${QB_BTN_IMPORT}</arg>
+<arg>${QC_BTN_SUBMIT}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.530116" elapsed="0.001009"/>
+<status status="PASS" start="2025-08-22T10:20:47.626905" elapsed="0.010341"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${m3}</var>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:47.639770" level="INFO">Current page contains element 'xpath=(//label[contains(.,'Type') or contains(.,'Loại')]//following::*[self::select or @role='combobox'])[1]'.</msg>
+<arg>${QC_SEL_TYPE}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.637767" elapsed="0.002003"/>
+</kw>
+<msg time="2025-08-22T10:20:47.639770" level="INFO">${has_type} = True</msg>
+<var>${has_type}</var>
 <arg>Page Should Contain Element</arg>
-<arg>${QB_BTN_TAGS}</arg>
+<arg>${QC_SEL_TYPE}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.531125" elapsed="0.001023"/>
+<status status="PASS" start="2025-08-22T10:20:47.637246" elapsed="0.002524"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${hdr}</var>
-<arg>Page Should Contain Element</arg>
-<arg>${QB_HDR_ANY}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.533258" elapsed="0.001008"/>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-08-22T10:20:47.661970" level="INFO">Current page contains element 'xpath=(//label[contains(.,'Course') or contains(.,'Môn')]//following::*[self::select or @role='combobox'])[1]'.</msg>
+<arg>${QC_SEL_COURSE}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.639770" elapsed="0.022200"/>
 </kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${has_search}</var>
+<msg time="2025-08-22T10:20:47.661970" level="INFO">${has_course} = True</msg>
+<var>${has_course}</var>
 <arg>Page Should Contain Element</arg>
-<arg>${SEARCH_BOX}</arg>
+<arg>${QC_SEL_COURSE}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.534266" elapsed="0.001024"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${has_table}</var>
-<arg>Page Should Contain Element</arg>
-<arg>${TABLE_ANY}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.536310" elapsed="0.001022"/>
+<status status="PASS" start="2025-08-22T10:20:47.639770" elapsed="0.022200"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<var>${any}</var>
-<arg>${m1} or ${m2} or ${m3} or ${hdr} or ${has_search} or ${has_table}</arg>
+<msg time="2025-08-22T10:20:47.661970" level="INFO">${ok_any} = True</msg>
+<var>${ok_any}</var>
+<arg>${on_path} or ${has_submit} or ${has_type} or ${has_course}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="NOT RUN" start="2025-08-14T18:27:43.537332" elapsed="0.001020"/>
-</kw>
-<return>
-<value>${any}</value>
-<status status="NOT RUN" start="2025-08-14T18:27:43.538352" elapsed="0.000000"/>
-</return>
-<msg time="2025-08-14T18:27:43.538352" level="INFO">${ok} = True</msg>
-<var>${ok}</var>
-<status status="PASS" start="2025-08-14T18:27:43.500392" elapsed="0.037960"/>
+<status status="PASS" start="2025-08-22T10:20:47.661970" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
-<arg>${ok}</arg>
+<arg>${ok_any}</arg>
+<arg>Not on Create page yet</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-08-14T18:27:43.538352" elapsed="0.016007"/>
+<status status="PASS" start="2025-08-22T10:20:47.661970" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-08-14T18:27:43.499372" elapsed="0.054987"/>
+<status status="PASS" start="2025-08-22T10:20:47.241536" elapsed="0.429940"/>
 </kw>
-<arg>${TO}</arg>
-<arg>${POLL}</arg>
-<arg>QB Marker Should Exist</arg>
+<arg>8x</arg>
+<arg>500ms</arg>
+<arg>Assert QC Landed Once</arg>
 <doc>Runs the specified keyword and retries if it fails.</doc>
-<status status="PASS" start="2025-08-14T18:27:43.497328" elapsed="0.057031"/>
+<status status="PASS" start="2025-08-22T10:20:47.233528" elapsed="0.437948"/>
 </kw>
-<status status="PASS" start="2025-08-14T18:27:43.496314" elapsed="0.058045"/>
+<msg time="2025-08-22T10:20:47.671476" level="INFO">${st} = True</msg>
+<var>${st}</var>
+<arg>Wait Until Keyword Succeeds</arg>
+<arg>8x</arg>
+<arg>500ms</arg>
+<arg>Assert QC Landed Once</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.233528" elapsed="0.437948"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${st}</arg>
+<arg>Not on Create page yet</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-08-22T10:20:47.671476" elapsed="0.003243"/>
+</kw>
+<status status="PASS" start="2025-08-22T10:20:47.233528" elapsed="0.441191"/>
 </kw>
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2025-08-14T18:27:43.820252" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-28.png"&gt;&lt;img src="selenium-screenshot-28.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-22T10:20:47.796314" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-14T18:27:43.565407" elapsed="0.254845"/>
+<status status="PASS" start="2025-08-22T10:20:47.674719" elapsed="0.122737"/>
 </kw>
+<doc>TC_QC_01</doc>
+<tag>Interface</tag>
+<tag>SIU TOMY</tag>
 <timeout value="3 minutes"/>
-<status status="PASS" start="2025-08-14T18:27:42.748009" elapsed="1.072243"/>
+<status status="PASS" start="2025-08-22T10:20:45.566180" elapsed="2.232276"/>
 </test>
 <kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-08-14T18:27:43.828253" elapsed="7.064355"/>
+<status status="PASS" start="2025-08-22T10:20:47.799450" elapsed="6.307481"/>
 </kw>
-<doc>E2E Question Bank (/questionbank/) | TC-QB01 → TC-QB15</doc>
-<status status="PASS" start="2025-08-14T18:27:30.059396" elapsed="20.833212"/>
+<doc>Test trang "Create New Question" cho Lecturer.</doc>
+<status status="PASS" start="2025-08-22T10:20:37.493342" elapsed="16.613589"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">Interface</stat>
+<stat pass="1" fail="0" skip="0">SIU TOMY</stat>
 </tag>
 <suite>
-<stat name="QuestionBank" id="s1" pass="1" fail="0" skip="0">QuestionBank</stat>
+<stat name="QuestionCreate" id="s1" pass="1" fail="0" skip="0">QuestionCreate</stat>
 </suite>
 </statistics>
 <errors>
