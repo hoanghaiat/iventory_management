@@ -33,8 +33,5 @@ Login To System
         Log Source
         Fail    Login failed: Vẫn ở trang login. Kiểm tra username/password hoặc locator.
     END
-
-    # Điều hướng sang trang tạo câu hỏi (nếu cần)
-    Go To    ${URL}/en/questionbank/questions/add/
-    Wait Until Element Is Visible    ${BUTTON_CREATE_QUESTION}    20s
+ 
 

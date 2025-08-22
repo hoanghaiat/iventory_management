@@ -32,35 +32,32 @@ TC_CB_05 : Kiểm tra trường Type
 
 TC_CB_06 : Kiểm tra trường Difficulty
     [Documentation]    TC_CB_06
-    [Tags]    AnhTuyet    TaoMoiCauHoi
+    [Tags]    honghanh    TaoMoiCauHoi
     Check the Difficulty field
 
 TC_CB_07 : Kiểm tra trường Bloom
     [Documentation]    TC_CB_07
-    [Tags]    AnhTuyet    TaoMoiCauHoi
+    [Tags]    honghanh    TaoMoiCauHoi
     Check the Bloom field
 
 TC_CB_08 : Kiểm tra trường Status
     [Documentation]    TC_CB_08
-    [Tags]    AnhTuyet    TaoMoiCauHoi
+    [Tags]    honghanh    TaoMoiCauHoi
     Check the Status field
 
 TC_CB_09 : Kiểm tra trường Approval Status
     [Documentation]    TC_CB_09
-    [Tags]    AnhTuyet    TaoMoiCauHoi
+    [Tags]    honghanh    TaoMoiCauHoi
     Check the Approval Status field
 
 TC_CB_10 : Kiểm tra nút Back to Question Bank
     [Documentation]    TC_CB_10
-    [Tags]    AnhTuyet    TaoMoiCauHoi
+    [Tags]    honghanh    TaoMoiCauHoi
     Back to Question Bank
 
 TC_CB_11 : Điều hướng trang Thẻ phân loại
     [Documentation]    TC_CB_11
-    [Tags]    AnhTuyet    TaoMoiCauHoi
+    [Tags]    honghanh    TaoMoiCauHoi
     Manage Tags navigation
 
-TC_CB_12 : Điều hướng trang nhập câu hỏi
-    [Documentation]    TC_CB_12
-    [Tags]    AnhTuyet    TaoMoiCauHoi
-    Import Questions navigation
+

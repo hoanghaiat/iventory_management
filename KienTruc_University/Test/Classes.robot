@@ -46,7 +46,7 @@ CLF-COMB-SEARCH-01 - Lọc theo Semester + AY + Status + Search và bấm Tìm
     Wait Table Has Rows     10s
 
     # Nếu không có year cụ thể (chỉ All Years) thì bỏ qua assert Year
-    Run Keyword If    '${yr_for_assert}'==''
-    ...    Table Rows Should Match    Summer    ${EMPTY}           Ongoing    Nhập môn lập trình
-    ...  ELSE
-    ...    Table Rows Should Match    Summer    ${yr_for_assert}   Ongoing    Nhập môn lập trình
+   Run Keyword If    '${yr_for_assert}'==''
+...    Table Rows Should Match    Summer    ${EMPTY}    Ongoing    Nhập môn lập trình
+...    ELSE    Table Rows Should Match    Summer    ${yr_for_assert}    Ongoing    Nhập môn lập trình
+
