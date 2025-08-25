@@ -54,45 +54,7 @@ Search Course
     Wait Until Element Is Visible   ${BTN_PROGRAM}    10s
     Click Element                    ${BTN_PROGRAM}
     Sleep                           2s
-View and create Clo
-    [Arguments]    ${ITEM_COURSE}
-    Wait Until Element Is Visible   ${ITEM_COURSE}    30s
-    Click Element                    ${ITEM_COURSE}
-    Sleep                            2s
-    Wait Until Element Is Visible   ${VIEW_CLO}    30s
-    Click Element                    ${VIEW_CLO}
-    Sleep                            2s
-    Wait Until Element Is Visible   ${BTN_CREATE_CLO}    10s
-    Click Element                    ${BTN_CREATE_CLO}
-    Sleep                            2s
-    Wait Until Element Is Visible   ${INPUT_CLO_CODE}    10s
-    Input Text                       ${INPUT_CLO_CODE}    CLO002
-    Input Text                       ${CLO_DESCRIPTION}    day la dathuy
-    Input Text                       ${INPUT_CLO_WEIGHT}    10
-    Select From List By Value    ${SELECT_CLO_CATEGORY}    skill
-    Select From List By Value    ${SELECT_CLO_LEVEL}    apply
-    Select From List By Value    ${SELECT_ASSESSMENT_CLO}    exam
-    Scroll Element Into View         ${CREATE_CLO}
-    Wait Until Element Is Visible   ${CREATE_CLO}    30s
-    Click Element                    ${CREATE_CLO}
-    Sleep                            2s
-Edit Clo
-    Wait Until Element Is Visible   ${VIEW_CLO}    30s
-    Click Element                    ${VIEW_CLO}
-    Sleep                            2s
-    Wait Until Element Is Visible   ${EDIT_CLO}    30s
-    Click Element                    ${EDIT_CLO}
-    Sleep                            2s
-    Wait Until Element Is Visible   ${INPUT_CLO_CODE}    10s
-    Input Text                       ${INPUT_CLO_CODE}    CLO003
-    Input Text                       ${CLO_DESCRIPTION}    day la dathuy huhu
-    Input Text                       ${INPUT_CLO_WEIGHT}    01
-    Select From List By Value        ${SELECT_CLO_CATEGORY}    knowledge
-    Select From List By Value        ${SELECT_CLO_LEVEL}    understand
-    Select From List By Value        ${SELECT_ASSESSMENT_CLO}    project
-    Scroll Element Into View         ${UPDATE_CLO}
-    Wait Until Element Is Visible   ${UPDATE_CLO}    30s
-    Click Element                    ${UPDATE_CLO}
+
     
 
     

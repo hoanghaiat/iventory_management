@@ -56,3 +56,12 @@ INPUT_CLO_WEIGHT="//input[@id='id_weight']"
 SELECT_ASSESSMENT_CLO="//select[@id='id_assessment_method']"
 EDIT_CLO="//a[@href='/en/academics/clos/229/update/' and contains(@class,'btn-primary')]"
 UPDATE_CLO="//button[@type='submit' and contains(.,'Update CLO')]"
+#lophoc
+ITEM_CLASS="//a[contains(.,'Lớp học')]"
+SELECT_SEMESTER="//select[@id='semester']"
+SELECT_ACADEMICYEAR="//select[@id='academic_year']"
+SELECT_STATUS="//select[@id='status']"
+INPUT_SEARCH_CLASS="//input[@name='q']"
+BTN_SEARCH_CLASS="//button[i[contains(@class,'fa-search')]]"
+BTN_CREATE_CLASS="//a[@href='/en/academics/courses/' and contains(.,'Create Class')]"
+

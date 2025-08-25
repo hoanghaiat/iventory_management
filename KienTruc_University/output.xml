@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.3 on win32)" generated="2025-08-25T11:35:06.352385" rpa="false" schemaversion="5">
+<suite id="s1" name="Lophoc" source="D:\Git\iventory_management\KienTruc_University\Test\lophoc.robot">
+<test id="s1-t1" name="Login" line="7">
+<kw name="Login To System" owner="LopHoc">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-25T11:35:06.639190" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-25T11:35:06.638192" elapsed="4.098180"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_INPUT}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-25T11:35:10.737369" elapsed="0.027728"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-25T11:35:10.765599" level="INFO">Typing text 'lecturer1' into text field 'xpath=//input[@id='id_username']'.</msg>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T11:35:10.765599" elapsed="0.133791"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-25T11:35:10.900391" level="INFO">Typing text 'demolecturer' into text field 'xpath=//input[@id='id_password']'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T11:35:10.899390" elapsed="0.089984"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-25T11:35:10.991367" level="INFO">Clicking button 'xpath=//button[text()='Đăng nhập']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T11:35:10.989374" elapsed="2.915461"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-25T11:35:13.917141" level="INFO">Current location contains 'https://demo-clo.minds.vn/'.</msg>
+<arg>https://demo-clo.minds.vn/</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-08-25T11:35:13.904835" elapsed="0.012306"/>
+</kw>
+<arg>lecturer1</arg>
+<arg>demolecturer</arg>
+<status status="PASS" start="2025-08-25T11:35:06.638192" elapsed="7.278949"/>
+</kw>
+<status status="PASS" start="2025-08-25T11:35:06.637188" elapsed="7.279953"/>
+</test>
+<test id="s1-t2" name="TC_Cl_001" line="9">
+<kw name="View Class" owner="LopHoc">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ITEM_CLASS}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-25T11:35:13.918148" elapsed="0.034088"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${ITEM_CLASS}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-25T11:35:13.952236" elapsed="0.309829"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-25T11:35:14.263062" level="INFO">Clicking element '//a[contains(.,'Lớp học')]'.</msg>
+<arg>${ITEM_CLASS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T11:35:14.262065" elapsed="0.790834"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-25T11:35:17.054619" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-25T11:35:15.052899" elapsed="2.001720"/>
+</kw>
+<status status="PASS" start="2025-08-25T11:35:13.918148" elapsed="3.136471"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-25T11:35:22.055268" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-25T11:35:17.055129" elapsed="5.001266"/>
+</kw>
+<doc>TC_CL_001</doc>
+<tag>Dat Huy View Class</tag>
+<status status="PASS" start="2025-08-25T11:35:13.918148" elapsed="8.139351"/>
+</test>
+<test id="s1-t3" name="TC_CL_002" line="14">
+<kw name="Search Class" owner="LopHoc">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SELECT_SEMESTER}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-25T11:35:22.061406" elapsed="0.029140"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-25T11:35:22.091626" level="INFO">Selecting options from selection list '//select[@id='semester']' by value Summer.</msg>
+<arg>${SELECT_SEMESTER}</arg>
+<arg>Summer</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-25T11:35:22.090546" elapsed="0.071426"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-08-25T11:35:22.163110" level="INFO">Selecting options from selection list '//select[@id='academic_year']' by label All Years.</msg>
+<arg>${SELECT_ACADEMICYEAR}</arg>
+<arg>All Years</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-08-25T11:35:22.163110" elapsed="0.070031"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-08-25T11:35:22.233141" level="INFO">Selecting options from selection list '//select[@id='status']' by value ongoing.</msg>
+<arg>${SELECT_STATUS}</arg>
+<arg>ongoing</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-08-25T11:35:22.233141" elapsed="0.047951"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-25T11:35:22.281092" level="INFO">Typing text 'cs101' into text field '//input[@name='q']'.</msg>
+<arg>${INPUT_SEARCH_CLASS}</arg>
+<arg>cs101</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T11:35:22.281092" elapsed="0.062478"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-25T11:35:22.343570" level="INFO">Clicking element '//button[i[contains(@class,'fa-search')]]'.</msg>
+<arg>${BTN_SEARCH_CLASS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-25T11:35:22.343570" elapsed="0.071585"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${INPUT_KEYWORD}</arg>
+<arg>10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-25T11:35:22.416474" elapsed="0.999963"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-25T11:35:25.417693" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-25T11:35:23.416437" elapsed="2.001256"/>
+</kw>
+<arg>cs101</arg>
+<status status="PASS" start="2025-08-25T11:35:22.060005" elapsed="3.357688"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-25T11:35:30.418007" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-25T11:35:25.417693" elapsed="5.000314"/>
+</kw>
+<doc>TC_CL_002</doc>
+<tag>Dat Huy Search Class</tag>
+<status status="PASS" start="2025-08-25T11:35:22.058996" elapsed="8.360057"/>
+</test>
+<status status="PASS" start="2025-08-25T11:35:06.353646" elapsed="24.066527"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Dat Huy Search Class</stat>
+<stat pass="1" fail="0" skip="0">Dat Huy View Class</stat>
+</tag>
+<suite>
+<stat name="Lophoc" id="s1" pass="3" fail="0" skip="0">Lophoc</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
