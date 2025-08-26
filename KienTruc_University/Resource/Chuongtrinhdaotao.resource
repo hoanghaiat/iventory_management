@@ -7,17 +7,17 @@ Variables    ../locator.py
 Resource    ../Resource/DangNhap.resource
 
 *** Variables ***
-${EXPECTED_TITLE}    Quản lý chương trình
-${EXPECTED_SEARCH_NOT}    No programs found.
-${EXPECTED_VAL}    Danh sách Học phần
-${EXPECTED_SUCCESS}    Course created successfully!
-${EXPECTED_ERROR}    This field is required.
-${MESSAGE_UNIQUE}    Course code is unique
-${CLOS}    CLOs
-${EXPECTED_MESSAGE_CLO}    CLO created successfully!
-${TITLE_CLO_DETAIL}    CLO Details
-${EXPECTED_MESSAGE_UPDATE_CLO}    CLO updated successfully!
-${TITLE_ADD_CLO}    Create New CLO
+#${EXPECTED_TITLE}    Quản lý chương trình
+#${EXPECTED_SEARCH_NOT}    No programs found.
+#${EXPECTED_VAL}    Danh sách Học phần
+#${EXPECTED_SUCCESS}    Course created successfully!
+#${EXPECTED_ERROR}    This field is required.
+#${MESSAGE_UNIQUE}    Course code is unique
+#${CLOS}    CLOs
+#${EXPECTED_MESSAGE_CLO}    CLO created successfully!
+#${TITLE_CLO_DETAIL}    CLO Details
+#${EXPECTED_MESSAGE_UPDATE_CLO}    CLO updated successfully!
+#${TITLE_ADD_CLO}    Create New CLO
 *** Keywords ***
 Handle Advertise
     ${check}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${BOX_ADVERTISE}    5s
@@ -30,6 +30,7 @@ Open Program List
     Wait Until Element Is Visible    ${URL_CTDT}    30s
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_CTDT}
 Verify Page Title
+    ${EXPECTED_TITLE}    Set Variable    Quản lý chương trình
     Wait Until Element Is Visible    ${TITLE_PAGE}    30s
     ${actual_title}=    Get Text    ${TITLE_PAGE}
     Should Be Equal    ${actual_title}    ${EXPECTED_TITLE}
@@ -66,6 +67,7 @@ Verify Search Results Contain Keyword
 
 
 Verify No Search Results
+    ${EXPECTED_SEARCH_NOT}    Set Variable    No programs found.
     Wait Until Element Is Visible    ${ACTUAL_SEARCH_NOT}    30s
     ${actual}=    Get Text    ${ACTUAL_SEARCH_NOT}
     Should Be Equal    ${actual}    ${EXPECTED_SEARCH_NOT}
@@ -199,6 +201,7 @@ Submit Course Form
     Wait Until Keyword Succeeds    30s    1s    Click Button    ${BTN_CREATE_COURSE}
 
 Verify Course Creation Success
+    ${EXPECTED_SUCCESS}    Set Variable    Course created successfully!
     [Arguments]    ${CourseCode}    ${CourseName}    ${Credits}    ${TypeCourse}    ${StatusCourse}
     Wait Until Element Is Visible    ${MESSAGE_ACTUAL_COURSE}    30s
     ${Actual_Course_Message}=    Get Text    ${MESSAGE_ACTUAL_COURSE}
@@ -234,7 +237,8 @@ Open PLO Page
     Scroll Element Into View    //a[@href="/en/academics/programs/${id}/courses/create/"]
     Wait Until Keyword Succeeds    30s    1s    Click Element    //a[@href="/en/academics/programs/${id}/courses/create/"]
 
-Verify Course Creation Error    
+Verify Course Creation Error 
+    ${EXPECTED_ERROR}    Set Variable    This field is required.   
     Wait Until Element Is Visible    //p[@id="error_1_id_course_code"]/strong    30s
     Scroll Element Into View    //p[@id="error_1_id_course_code"]/strong
     ${Message_Course_Error}=    Get Text    //p[@id="error_1_id_course_code"]/strong
@@ -401,6 +405,7 @@ Operation To Return To The List Of Courses
 Click The Button View CLOs
     ${id}    Set Variable    45
     ${urlclos}    Replace Variables    ${URL_PAGE_CLOS}
+    ${CLOS}    Set Variable    CLOs
     Wait Until Element Is Visible    ${urlclos}    30s
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlclos}
     Wait Until Element Is Visible    ${ACTUAL_TITLE_CLOS}    30s
@@ -448,6 +453,7 @@ Click The Button Create CLO
     Wait Until Keyword Succeeds    30s    1s    Click Button    ${CREATE_CLO_BTN}
 
 Verify New CLO Creation Results
+    ${EXPECTED_MESSAGE_CLO}    Set Variable    CLO created successfully!
     [Arguments]    ${Clocode}    ${Description}    ${Category}    ${Level}    ${Weight}
     Wait Until Element Is Visible    ${ACTUAL_MESSAGE_CLO}    30s
     ${actual_message_clo}=    Get Text    ${ACTUAL_MESSAGE_CLO}
@@ -485,6 +491,7 @@ Verify Error Message Mhen Code is Duplicated
 Click The Button Back To CLOs
     ${id}    Set Variable    45
     ${urlbacktocourse}    Replace Variables    ${URL_BACK_TO_CLOS}
+    ${CLOS}    Set Variable    CLOs
     Wait Until Element Is Visible    ${urlbacktocourse}   30s
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlbacktocourse}
     Wait Until Element Is Visible    ${ACTUAL_TITLE_CLOS}    30s
@@ -494,6 +501,7 @@ Click The Button Back To CLOs
 View Details CLOs
     ${id}    Set Variable    122
     ${urldetailclos}    Replace Variables    ${URL_DETAILS_CLOS}
+    ${TITLE_CLO_DETAIL}    Set Variable    CLO Details
     Wait Until Element Is Visible    ${urldetailclos}    30s
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urldetailclos}
     Wait Until Element Is Visible    ${TITLE_PAGE_DETAIL_CLOS}    30s
@@ -570,6 +578,7 @@ Click The Button Edit CLO
     Wait Until Keyword Succeeds    30s    1s    Click Button    ${EDIT_CLOS_BTN}
 
 Verify Message CLO Edit Results 
+    ${EXPECTED_MESSAGE_UPDATE_CLO}    Set Variable    CLO updated successfully!
     Wait Until Element Is Visible    ${MESSAGE_UPDATE_CLOS}    30s
     ${message_up_clos}=    Get Text    ${MESSAGE_UPDATE_CLOS}
     Should Be Equal    ${message_up_clos}    ${EXPECTED_MESSAGE_UPDATE_CLO}
@@ -612,6 +621,7 @@ Click The Button Quick ADD CLO
     Scroll Element Into View    ${urladd}
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urladd}
 Verify Title Page CLo
+    ${TITLE_ADD_CLO}    Set Variable    Create New CLO
     Page Should Contain    ${TITLE_ADD_CLO}
 
 Click The Button ADD Chapter

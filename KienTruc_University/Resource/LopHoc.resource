@@ -9,9 +9,9 @@ Resource    ../Resource/HocPhan.resource
 
 
 *** Variables ***
-${ACTUAL_TITLE_CLASS}    Quản lý lớp học
-${TITLE_CREATE_CLASS}    Create New Class
-${TITLE_COURSES}    All Courses
+#${ACTUAL_TITLE_CLASS}    Quản lý lớp học
+#${TITLE_CREATE_CLASS}    Create New Class
+#${TITLE_COURSES}    All Courses
 *** Keywords ***
 Handle Advertise
     ${check}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${BOX_ADVERTISE}    5s
@@ -24,17 +24,20 @@ Open Class List
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_CLASS}
     Handle Advertise
 Verify The Page
+    ${ACTUAL_TITLE_CLASS}    Set Variable    Quản lý lớp học
     Wait Until Element Is Visible    ${TITLE_PAGE}    30s
     ${title}=    Get Text    ${TITLE_PAGE}
     Should Be Equal    ${title}    ${ACTUAL_TITLE_CLASS}
 
 Click The Button Create Class In Page Class
+    ${TITLE_CREATE_CLASS}    Set Variable    Create New Class
     Wait Until Element Is Visible    ${URL_CREATE_PAGE_CLASS}    30s
     Scroll Element Into View    ${URL_CREATE_PAGE_CLASS}
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_CREATE_PAGE_CLASS}
     Page Should Contain    ${TITLE_CREATE_CLASS}
 
 Click The Button Courses In Page Class
+    ${TITLE_COURSES}    Set Variable    All Courses
     Wait Until Element Is Visible    ${URL_COURSES_PAGE_CLASS}    30s
     Scroll Element Into View    ${URL_COURSES_PAGE_CLASS}
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_COURSES_PAGE_CLASS}
