@@ -41,13 +41,13 @@ ${Test_Location}    Trường ĐH Kiến Trúc ĐN
 ${Test_Status}    Planned
 *** Test Cases ***
 
-TC-PG-01: Danh sách chương trình 
+Danh sách chương trình 
     [Documentation]    TC-PG-01
     [Tags]    Phương Ly     Danh sách chương trình đào tạo
     Open Program List
     Verify Page Title
 
-TC-PG-02: Tìm kiếm với từ khóa tồn tại viết thường
+Tìm kiếm với từ khóa tồn tại viết thường
     [Documentation]    TC-PG-02
     [Tags]    Phương Ly     Tìm kiếm chương trình đào tạo hợp lệ
     Open Program Page
@@ -55,21 +55,21 @@ TC-PG-02: Tìm kiếm với từ khóa tồn tại viết thường
     Click Search Button
     Verify Search Results Contain Keyword    Phần mềm
 
-TC-PG-03: Tìm kiếm với từ khóa tồn tại viết khoa
+Tìm kiếm với từ khóa tồn tại viết khoa
     [Documentation]    TC-PG-03
     [Tags]    Phương Ly     Tìm kiếm chương trình đào tạo hợp lệ
     Open Program Page
     Enter Search Keyword    PHẦN MỀM
     Click Search Button
     Verify Search Results Contain Keyword    PHẦN MỀM
-TC-PG-04: Tìm kiếm với từ khóa không tồn tại
+Tìm kiếm với từ khóa không tồn tại
     [Documentation]    TC-PG-04
     [Tags]    Phương Ly     Tìm kiếm chương trình đào tạo không hợp lệ
     Open Program Page
     Enter Search Keyword    Kinh tế
     Click Search Button
     Verify No Search Results
-TC-PG-05: Không nhập từ khóa tìm kiếm
+Không nhập từ khóa tìm kiếm
     [Documentation]    TC-PG-05
     [Tags]    Phương Ly     Tìm kiếm chương trình đào tạo không hợp lệ
     Open Program Page
@@ -78,14 +78,14 @@ TC-PG-05: Không nhập từ khóa tìm kiếm
 
 
 
-TC-PG-06: Thông tin chi tiết chương trình
+Thông tin chi tiết chương trình
     [Documentation]    TC-PG-06
     [Tags]    Phương Ly     Kiểm tra thông tin chi tiết của chương trình
     Open Program Lists
     Verify Required Field Warning
     
 
-TC-PG-07: Tạo PLO thành công
+Tạo PLO thành công
     [Documentation]    TC-PG-07
     [Tags]    Phương Ly     Thông tin chi tiết chương trình đào tạo
     Open Create PLO Form
@@ -94,7 +94,7 @@ TC-PG-07: Tạo PLO thành công
     Verify Success Message Is Displayed    1400156
     
 
-TC-PG-08: Kiểm tra thao tác hủy tạo PLO
+Kiểm tra thao tác hủy tạo PLO
     [Documentation]    TC-PG-08
     [Tags]    Phương Ly     Thông tin chi tiết chương trình đào tạo
     Open Create PLO Form
@@ -102,7 +102,7 @@ TC-PG-08: Kiểm tra thao tác hủy tạo PLO
     Exit PLO Form Without Saving
     Verify PLO Not Created    13148
 
-TC-PG-9: Tạo mới PLo với code Plo đã tồn tạo
+Tạo mới PLo với code Plo đã tồn tạo
     [Documentation]    TC-PG-09
     [Tags]    Phương Ly     Thông tin chi tiết chương trình đào tạo
     Open Create PLO Form
@@ -112,7 +112,7 @@ TC-PG-9: Tạo mới PLo với code Plo đã tồn tạo
 
 
 
-TC-PG-10: Tạo PLo trống thông tin
+Tạo PLo trống thông tin
     [Documentation]    TC-PG-10
     [Tags]    Phương Ly     Thông tin chi tiết chương trình đào tạo
     Go To PLO Page
@@ -120,7 +120,7 @@ TC-PG-10: Tạo PLo trống thông tin
 
 
 
-TC-PG-11: Kiểm tra thao tác tạo học phần mới thành công
+Kiểm tra thao tác tạo học phần mới thành công
     [Documentation]    TC-PG-11
     [Tags]    Phương Ly     Thông tin chi tiết chương trình đào tạo
     Open Create Course Form
@@ -129,7 +129,7 @@ TC-PG-11: Kiểm tra thao tác tạo học phần mới thành công
     Verify Course Creation Success    CNTT05    Kiểm thử phần mềm    3    Mandatory    Updating
 
 
-TC-PG-12: Kiểm tra thao tác tạo học phần mới khi để trống thông tin
+Kiểm tra thao tác tạo học phần mới khi để trống thông tin
     [Documentation]    TC-PG-12
     [Tags]    Phương Ly     Thông tin chi tiết chương trình đào tạo
     Open PLO Page
@@ -137,33 +137,33 @@ TC-PG-12: Kiểm tra thao tác tạo học phần mới khi để trống thông
     Verify Course Creation Error  
 
 
-TC-PG-13: Tạo học phần mới với Course Code đã tồn tại
+Tạo học phần mới với Course Code đã tồn tại
     [Documentation]    TC-PG-13
     [Tags]    Phương Ly     Thông tin chi tiết chương trình đào tạo
     
     Open Course Creation Page
     Fill Course Information    CNTT001    Quản lý dự án    3    Scrum    Mandatory    Updating
     Submit Course Creation
-TC-PG-14: Kiểm tra thao tác xem tất cả
+Kiểm tra thao tác xem tất cả
     [Documentation]    TC-PG-14
     [Tags]    Phương Ly     Thông tin chi tiết chương trình đào tạo
     Open Program Lists
     Verify Required Field Warning
     View All Button Selection
 
-TC-PG-15: Xem chi tiết học phần
+Xem chi tiết học phần
     [Documentation]    TC-PG-15
     [Tags]    Phương Ly     Thông tin chi tiết chương trình đào tạo
     Open Program Lists
     Verify Required Field Warning
     Click The Button To View Course Details
-TC-PG-16: Thao tác chỉnh sửa học phần
+Thao tác chỉnh sửa học phần
     [Documentation]    TC-PG-16
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
     Verify Required Field Warning
     Click The Button To Edit Course
-TC-PG-17: Thao tác tác quay lại
+Thao tác tác quay lại
     [Documentation]    TC-PG-17
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
@@ -171,7 +171,7 @@ TC-PG-17: Thao tác tác quay lại
     Click The Button To Edit Course
     Click The Button Back To Course
 
-TC-PG-18: Thao tác tạo lớp học
+Thao tác tạo lớp học
     [Documentation]    TC-PG-18
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
@@ -179,7 +179,7 @@ TC-PG-18: Thao tác tạo lớp học
     Click The Button To View Course Details
     Click The Button Create Class
  
-TC-PG-19: Tạo lớp học mới thành công
+Tạo lớp học mới thành công
     [Documentation]    TC-PG-19
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
@@ -188,7 +188,7 @@ TC-PG-19: Tạo lớp học mới thành công
     Click The Button Create Class
     Fill Out The Class Creation Form    Học kì 2    2025    Pending    03/08/2025    30/03/2025   1    30    học tập 
     Check The Class Creation Results Success
- TC-PG-20: Tạo lớp học mới sai lệch về thời gian
+Tạo lớp học mới sai lệch về thời gian
     [Documentation]    TC-PG-20
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
@@ -197,21 +197,21 @@ TC-PG-19: Tạo lớp học mới thành công
     Click The Button Create Class
     Fill Out The Class Creation Form    Học kì 2    2025    Pending    20/08/2025    10/08/2025   1    30    học tập 
     Check The Class Creation Results Failed
- TC-PG-21: Thao tác quay lại danh sách học phần
+Thao tác quay lại danh sách học phần
     [Documentation]    TC-PG-21
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
     Verify Required Field Warning
     Click The Button To View Course Details
     Operation To Return To The List Of Courses
- TC-PG-22: Thao tác xem CLOs
+Thao tác xem CLOs
     [Documentation]    TC-PG-22
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
     Verify Required Field Warning
     Click The Button To View Course Details
     Click The Button View CLOs
-TC-PG-23: Tạo CLO mới thành công
+Tạo CLO mới thành công
     [Documentation]    TC-PG-23
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
@@ -222,7 +222,7 @@ TC-PG-23: Tạo CLO mới thành công
     Fill Out The CLO Creation Form   ${Clocode}    ${Description_Clo}    ${Categoty_Clo}    ${Level_Clo}    ${Weight_Clo}    ${Assessmentmethod_Clo}
     Click The Button Create CLO
     Verify New CLO Creation Results    ${Clocode}    ${Description_Clo}    ${Categoty_Clo}    ${Level_Clo}    ${Weight_Clo}
-TC-PG-24: Tạo CLO với thông tin trống
+Tạo CLO với thông tin trống
     [Documentation]    TC-PG-24
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
@@ -233,7 +233,7 @@ TC-PG-24: Tạo CLO với thông tin trống
     Click The Button Create CLO
     Verify Message CLO Creation Results
 
-TC-PG-25: Tạo CLO với Clo code đã tồn tại
+Tạo CLO với Clo code đã tồn tại
     [Documentation]    TC-PG-25
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
@@ -245,7 +245,7 @@ TC-PG-25: Tạo CLO với Clo code đã tồn tại
     Fill Out The CLO Creation Form   ${Clocode}    ${Description_Clo}    ${Categoty_Clo}    ${Level_Clo}    ${Weight_Clo}    ${Assessmentmethod_Clo}
     Verify Error Message Mhen Code is Duplicated
 
-TC-PG-26: Thao tác Back to CLOs
+Thao tác Back to CLOs
     [Documentation]    TC-PG-26
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
@@ -254,7 +254,7 @@ TC-PG-26: Thao tác Back to CLOs
     Click The Button View CLOs
     Open Operation With Add CLO Button
     Click The Button Back To CLOs
-TC-PG-27: Thao tác Chi tiết CLOs
+Thao tác Chi tiết CLOs
     [Documentation]    TC-PG-27
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
@@ -262,7 +262,7 @@ TC-PG-27: Thao tác Chi tiết CLOs
     Click The Button To View Course Details
     Click The Button View CLOs
     View Details CLOs
-TC-PG-28: Thao tác chỉnh sửa trong trang CLO Details
+Thao tác chỉnh sửa trong trang CLO Details
     [Documentation]    TC-PG-28
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
@@ -270,7 +270,7 @@ TC-PG-28: Thao tác chỉnh sửa trong trang CLO Details
     Click The Button To View Course Details
     Click The Button View CLOs
     View Edit CLOs
-TC-PG-29: Thực hiện thao tác chỉnh sửa thành công
+Thực hiện thao tác chỉnh sửa thành công
     [Documentation]    TC-PG-29
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
@@ -284,7 +284,7 @@ TC-PG-29: Thực hiện thao tác chỉnh sửa thành công
     Verify CLO Edit Results    ${Clocode_up}    ${Description_up_Clo}    ${Categoty_up_Clo}    ${Level_up_Clo}    ${Weight_up_Clo}    ${Assessmentmethod_up_Clo}
     
 
-TC-PG-30: Thực hiện thao tác chỉnh sửa với CLo code đã tồn tại
+Thực hiện thao tác chỉnh sửa với CLo code đã tồn tại
     [Documentation]    TC-PG-29
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
@@ -296,7 +296,7 @@ TC-PG-30: Thực hiện thao tác chỉnh sửa với CLo code đã tồn tại
     Click The Button Edit CLO
     Verify Message CLO Edit Results With Clo Code Duplication
     
-TC-PG-31: Thao tác chỉnh sửa trong trang CLO Details
+Thaoo tác chỉnh sửa trong trang CLO Details
     [Documentation]    TC-PG-31
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
@@ -304,7 +304,7 @@ TC-PG-31: Thao tác chỉnh sửa trong trang CLO Details
     Click The Button To View Course Details
     Click The Button View CLOs
     View Map PLO
-TC-PG-32: Map CLO to PLo thành công
+Map CLO to PLo thành công
     [Documentation]    TC-PG-32
     [Tags]    Phương Ly     Thao tác trong trang Thông tin học phần
     Open Program Lists
@@ -314,7 +314,7 @@ TC-PG-32: Map CLO to PLo thành công
     View Map PLO
     Create Mapping PLOs    Công nghệ thông tin - 1400156    Medium
 
-TC-PG-33: Kiểm tra thao tác Thêm Clo
+Kiểm tra thao tác Thêm Clo
     [Documentation]    TC-PG-33
     [Tags]    Phương Ly     Thao tác thêm CLO
     Open Program Lists
@@ -322,7 +322,7 @@ TC-PG-33: Kiểm tra thao tác Thêm Clo
     Click The Button To View Course Details
     Click The Button Quick ADD CLO
     Verify Title Page CLo
-TC-PG-34: Kiểm tra thao tác thêm chương mới
+Kiểm tra thao tác thêm chương mới
     [Documentation]    TC-PG-34
     [Tags]    Phương Ly     Thao tác thêm chương mới
     Open Program Lists
@@ -330,7 +330,7 @@ TC-PG-34: Kiểm tra thao tác thêm chương mới
     Click The Button To View Course Details
     Click The Button ADD Chapter
     Verify Title Page Add Chapter
-TC-PG-35: Thêm chương mới thành công
+Thêm chương mới thành công
     [Documentation]    TC-PG-35
     [Tags]    Phương Ly     Thao tác thêm chương mới
     Open Program Lists
@@ -340,7 +340,7 @@ TC-PG-35: Thêm chương mới thành công
     Verify Title Page Add Chapter
     Fill Out The ADD Chapter Form    ${Chapter_Number}    ${Chapter_Title}    ${Chapter_Description}    ${Chapter_Leaning}    ${Chapter_Time}    ${Chapter_Teaching}
     Click The Button ADD 
-TC-PG-36: Thao tác hủy thêm chương mới
+Thao tác hủy thêm chương mới
     [Documentation]    TC-PG-36
     [Tags]    Phương Ly     Thao tác thêm chương mới
     Open Program Lists
@@ -350,7 +350,7 @@ TC-PG-36: Thao tác hủy thêm chương mới
     Verify Title Page Add Chapter
     Fill Out The ADD Chapter Form    ${Chapter_Number}    ${Chapter_Title}    ${Chapter_Description}    ${Chapter_Leaning}    ${Chapter_Time}    ${Chapter_Teaching}
     Click The Button Exit Chapter
-TC-PG-37: Thêm chương với số lượng chương là 0
+Thêm chương với số lượng chương là 0
     [Documentation]    TC-PG-37
     [Tags]    Phương Ly     Thao tác thêm chương mới
     Open Program Lists
@@ -361,7 +361,7 @@ TC-PG-37: Thêm chương với số lượng chương là 0
     Fill Out The ADD Chapter Form    ${Chapter_Number0}    ${Chapter_Title}    ${Chapter_Description}    ${Chapter_Leaning}    ${Chapter_Time}    ${Chapter_Teaching}
     Click The Button ADD
     Verify Page When Number0
-TC-PG-38: Để trống tiêu đề chương
+Để trống tiêu đề chương
     [Documentation]    TC-PG-38
     [Tags]    Phương Ly     Thao tác thêm chương mới
     Open Program Lists
@@ -373,7 +373,7 @@ TC-PG-38: Để trống tiêu đề chương
     Click The Button ADD
     Verify Page When Title Blank
     
-TC-PG-39: Kiểm tra thao tác thêm bài kiểm tra
+Kiểm tra thao tác thêm bài kiểm tra
     [Documentation]    TC-PG-39
     [Tags]    Phương Ly     Thao tác thêm bài kiểm tra
     Open Program Lists
@@ -381,7 +381,7 @@ TC-PG-39: Kiểm tra thao tác thêm bài kiểm tra
     Click The Button To View Course Details
     Click The Button Add Test
     Verify Page Test
-TC-PG-40: Thêm bài kiểm tra thành công
+Thêm bài kiểm tra thành công
     [Documentation]    TC-PG-40
     [Tags]    Phương Ly     Thao tác thêm bài kiểm tra
     Open Program Lists
@@ -394,7 +394,7 @@ TC-PG-40: Thêm bài kiểm tra thành công
 
 
    
-TC-PG-41: Kiểm tra thao tác hủy tạo bài kiểm tra
+Kiểm tra thao tác hủy tạo bài kiểm tra
     [Documentation]    TC-PG-41
     [Tags]    Phương Ly     Thao tác thêm bài kiểm tra
     Open Program Lists
@@ -403,7 +403,7 @@ TC-PG-41: Kiểm tra thao tác hủy tạo bài kiểm tra
     Click The Button Add Test
     Fill Our The Test Form    ${Test_Namee}    ${Test_Type}    ${Test_Percentage}    ${Test_Description}    ${Test_Format}    ${Test_Minutes}    ${Test_Total_Marks}    ${Test_Method}    ${Test_Criteria}    ${Test_Date}    ${Test_Location}    ${Test_Status}
     Click The Button Exit Create Test
-TC-PG-42: Thêm bài kiểm tra rỗng
+Thêm bài kiểm tra rỗng
     [Documentation]    TC-PG-41
     [Tags]    Phương Ly     Thao tác thêm bài kiểm tra
     Open Program Lists
@@ -413,39 +413,39 @@ TC-PG-42: Thêm bài kiểm tra rỗng
     Click The Button Create Test
     Verify Page When Form Create Test Blank Information
 
-TC-PG-43: Danh sách khóa học của chương trình đào tạo
+Danh sách khóa học của chương trình đào tạo
     [Documentation]    TC-PG-43
     [Tags]    Phương Ly     Danh sách khóa học
     Open Program List
     Click The Button Course 
     
-TC-PG-44: Kiểm tra thao tác thêm khóa học
+Kiểm tra thao tác thêm khóa học
     [Documentation]    TC-PG-44
     [Tags]    Phương Ly     Thao tác trong danh sách khóa học
     Open Program List
     Click The Button Course 
     Click The Button ADD Course
     
-TC-PG-45: Kiểm tra thao tác Back to Program
+Kiểm tra thao tác Back to Program
     [Documentation]    TC-PG-45
     [Tags]    Phương Ly     Thao tác trong danh sách khóa học
     Open Program List
     Click The Button Course 
     Click The Button Back to Program
     
-TC-PG-46: Chi tiết khóa học
+Chi tiết khóa học
     [Documentation]    TC-PG-46
     [Tags]    Phương Ly     Thao tác trong danh sách khóa học
     Open Program List
     Click The Button Course 
     Click The Button Infomation Course
-TC-PG-47: Thao tác chỉnh sửa
+Thao tác chỉnh sửa
     [Documentation]    TC-PG-47
     [Tags]    Phương Ly     Thao tác trong danh sách khóa học
     Open Program List
     Click The Button Course 
     Click The Button Edit Course
-TC-PG-48: Thao tác CLOs
+Thao tác CLOs
     [Documentation]    TC-PG-48
     [Tags]    Phương Ly     Thao tác trong danh sách khóa học
     Open Program List
