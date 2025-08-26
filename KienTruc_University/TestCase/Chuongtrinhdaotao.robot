@@ -414,7 +414,7 @@ TC-PG-42: Thêm bài kiểm tra rỗng
     Verify Page When Form Create Test Blank Information
 
 TC-PG-43: Danh sách khóa học của chương trình đào tạo
-    [Documentation]    TC-PG-01
+    [Documentation]    TC-PG-43
     [Tags]    Phương Ly     Danh sách khóa học
     Open Program List
     Click The Button Course 

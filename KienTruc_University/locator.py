@@ -1,5 +1,12 @@
 LOGO = '//div[@class="logo"]'
 USER = '//div[@class="user-avatar"]'
+#login
+USERNAME_INPUT = "//input[@id='id_username']"
+PASSWORD_INPUT = "//input[@id='id_password']"
+LOGIN_BUTTON = "//button[text()='Đăng nhập']"
+
+
+
 ## DashBoard
 MESSAGE_ERROR_LOGIN_V = '//div[contains(@class,"alert") and contains(@class,"error")]'
 MESSAGE_ERROR_LOGIN_E = '//div[contains(@class,"alert") and contains(@class,"danger")]'

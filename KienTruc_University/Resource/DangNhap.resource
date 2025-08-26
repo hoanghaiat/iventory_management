@@ -4,11 +4,6 @@ Variables    ../locator.py
 
 *** Variables ***
 ${URL}    https://demo-clo.minds.vn/
-${USERNAME_INPUT}  xpath=//input[@id='id_username']
-${PASSWORD_INPUT}  xpath=//input[@id='id_password']
-${LOGIN_BUTTON}    xpath=//button[text()='Đăng nhập']
-${MESSAGE_V}    Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại.
-${MESSAGE_E}    Please enter a correct username and password. Note that both fields may be case-sensitive.
 
 *** Keywords ***
 
@@ -33,6 +28,9 @@ Verify Login Successful
     Page Should Contain Element    //div[@class="user-avatar"]
 
 Verify Login Error
+    ${MESSAGE_V}    Set Variable    Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại.
+    ${MESSAGE_E}    Set Variable     Please enter a correct username and password. Note that both fields may be case-sensitive.
+
     Wait Until Element Is Visible    ${MESSAGE_ERROR_LOGIN_V}    30s
     ${Actual_Message_V}=    Get Text    ${MESSAGE_ERROR_LOGIN_V}
     
