@@ -3,11 +3,8 @@
 
 Library      SeleniumLibrary
 Library      CustomLibrary
-Library    ../Resources/program_UI.resource
 Variables     ../Variables/locator.py
 Resource      ../Resources/CLOs_ui.resource 
-Resource    ../Resources/student_profile.resource
-
 
 Test Setup       Open Browser And Login
 Test Teardown    Close Browser
@@ -17,7 +14,7 @@ Verify Open Create Page Successfully
    [Documentation]      TC_AC_12 
    [Tags]             Thu Phuong     Add CLOs 
     Go To Course Page
-    Click First View CLO Button
+    Click First View CLO Button 
     Click Add Clos Button
     Wait Until Page Contains Element    ${CLO_CREATE_TITLE} 
 Verify Open Home Page Successfully
@@ -163,4 +160,60 @@ Verify Fill CLO Code With Special Character
     Click Create CLO Button
     Error Message With Special Character     
 
-
+# SEARCH 
+Search By Exact CLO Code 
+   [Documentation]      TC_SC_01
+   [Tags]             Thu Phuong     SEARCH CLOs 
+    Go To Course Page
+    Click First View CLO Button 
+    Perform And Click Search Button In CLO    CL001
+    Verify Search Result Exists In CLO    CL001 
+Search With Non_existing Value 
+   [Documentation]      TC_SC_02
+   [Tags]             Thu Phuong     SEARCH CLOs 
+    Go To Course Page
+    Click First View CLO Button 
+    Perform And Click Search Button In CLO    aaaaaaaab
+    Verify Search No CLO Result
+Search By Full Description 
+   [Documentation]      TC_SC_03 
+   [Tags]             Thu Phuong     SEARCH CLOs 
+    Go To Course Page
+    Click First View CLO Button 
+    Perform And Click Search Button In CLO    Course goal for Block chain
+    Verify Search Result Exists In CLO    Course goal for Block chain
+ Search By Particial CLO 
+   [Documentation]      TC_SC_04 
+   [Tags]             Thu Phuong     SEARCH CLOs 
+    Go To Course Page
+    Click First View CLO Button 
+    Perform And Click Search Button In CLO    CLO
+    Verify Search Result Exists In CLO    CLO 
+Search With Empty Input Search CLO Box 
+    [Documentation]     TC_SC_05
+    [Tags]           Thu Phuong   SEARCH CLOs 
+    Go To Course Page
+    Click First View CLO Button 
+    Click Element    ${SEARCH_BOX} 
+    Wait Until Element Is Visible    ${RESULT_TABLE}
+ Search By Keyword In Description 
+   [Documentation]      TC_SC_06
+   [Tags]             Thu Phuong     SEARCH CLOs 
+    Go To Course Page
+    Click First View CLO Button 
+    Perform And Click Search Button In CLO    block
+    Verify Search Result Exists In CLO    block 
+ Search By Special Keywords CLO 
+   [Documentation]      TC_SC_07 
+   [Tags]             Thu Phuong     SEARCH CLOs 
+    Go To Course Page
+    Click First View CLO Button 
+    Perform And Click Search Button In CLO    @####
+    Verify Search No CLO Result 
+Search Case Sensitivity Test 
+    [Documentation]      TC_SC_08 
+    [Tags]          Thu Phuong        SEARCH CLOs
+    Go To Course Page
+    Click First View CLO Button
+    Perform And Click Search Button In CLO    cl001
+    Verify Search Result Exists In CLO    cl001

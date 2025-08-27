@@ -20,7 +20,7 @@ Go To Course Page
     Click Element    xpath=//*[@id="djHideToolBarButton"]
     Wait Until Element Is Visible    ${MENU_COURSE}    10s
     Click Element    ${MENU_COURSE}
-    Wait Until Element Is Visible    ${SEARCH_BOX_PROGRAMS}    10s
+    Wait Until Element Is Visible    ${SEARCH_BOX}    10s
     Wait Until Element Is Visible    ${COURSES_TABLE_ROWSS}    10s
 Get First Course Name
     ${name}=    Get Text    ${FIRST_COURSE_NAME_CELL}
@@ -238,3 +238,27 @@ Fill CLOs Form With CLO Code Already Exists
 Error Message With Clo Code Exists
     Page Should Contain    “The CLO code already exisits”  
 
+Perform And Click Search Button In CLO
+    [Arguments]   ${keyword}
+    Clear Element Text    ${_SEARCH_BOX_IN_COURSE} 
+    Input Text    ${_SEARCH_BOX_IN_COURSE}    ${keyword}
+    Click Element    ${_SEARCH_BOX_COURSES} 
+Verify Search Result Exists In CLO 
+    [Arguments]    ${keyword}
+    Wait Until Page Contains Element    ${RESULT_TABLE}    10s
+    ${titles}=    Get WebElements    ${RESULT_TITLE}
+    FOR    ${title}    IN    @{titles}
+        ${text}=    Get Text    ${title}
+        Log    Found title: ${text}
+        ${lower_title}=    Convert To Lower Case    ${text}
+        Run Keyword If    '${keyword.lower()}' in '${lower_title}'    Pass Execution    Found keyword in title
+    END
+    Fail    Không tìm thấy kết quả chứa từ khóa: ${keyword} 
+
+Verify Search No CLO Result 
+    Wait Until Page Contains Element    ${NO_RESULT_TEXT_COURSES}    10s
+    Element Should Contain    ${NO_RESULT_TEXT_COURSES}    No CLOs found. 
+Click Add One Link in Course 
+    Wait Until Element Is Visible     ${ADD_ONE_LINK}    10s 
+    Wait Until Element Is Enabled    ${ADD_ONE_LINK}        10s 
+    Click Element    ${ADD_ONE_LINK} 

@@ -66,7 +66,7 @@ CREATE_COURSE_FORM = "xpath=/html/body/div[3]/div[2]/div/div/div/div[2]"
 
 # Generic messages
 NO_RESULT_TEXT_PROGRAMS = '//div[@class="alert alert-info"]'
-NO_RESULT_TEXT_COURSES = "No courses found"
+NO_RESULT_TEXT_COURSES = '//div[@class="alert alert-info"]'
 
 SEE_ALL_BTN = "xpath=/html/body/div[3]/div[2]/div[3]/div/div/div[1]/div/a"
 VIEW_COURSE_BTN = "xpath=/html/body/div[3]/div[2]/div[3]/div/div/div[2]/div/table/tbody/tr[1]/td[7]/div/a"
@@ -119,7 +119,6 @@ ERROR_UPDATE_MESSAGES = {
     "credit": "//strong[contains(text(),'This field is required')]",
     "description": "//strong[contains(text(),'This field is required')]"
 }  
-
 MANDATORY ='//span[@class="badge bg-primary me-2"]'
 ELECTIVE='//span[@class="badge bg-secondary me-2"]'
 ACTIVE='//span[@class="badge bg-success"]'
@@ -190,3 +189,5 @@ EDIT_EVALUATE_TITLE='//div[@class="d-flex justify-content-between align-items-ce
 ERROR_DELETE_TITLE='//h5[@class="mb-0"]'
 ADD_EVALUATE_TITLE='//h1[@class="content-title"]'
 
+SEARCH_BOX_COURSES='//button[@class="btn btn-primary"]'
+SEARCH_BOX_IN_COURSE='//input[@name="q"]'
