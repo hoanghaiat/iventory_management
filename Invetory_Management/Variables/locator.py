@@ -84,6 +84,7 @@ Button_Delete_Phong = "//button[@type='submit' and contains(@class, 'btn-outline
 Button_Add_Mucluc = "//a[@href='/muc-luc/add' and contains(@class,'btn-primary')]"
 Button_Cancel_Mucluc = "//a[@href='/muc-luc' and contains(@class,'btn-secondary')]"
 Button_Back_To_Mucluc = "//a[@href='/muc-luc' and contains(@class,'btn-outline-secondary')]"
+Button_Save_Mucluc= "//button[@type='submit' and contains(@class, 'btn-primary')]" 
 Button_Edit_Mucluc = "//a[@href='/muc-luc/edit/5' and contains(@class,'btn-outline-primary')]"
 Button_Update_Mucluc = "//button[@type='submit' and contains(@class, 'btn-primary')]"
 Button_Delete_Mucluc = "//button[@type='submit' and contains(@class, 'btn-outline-danger')]"

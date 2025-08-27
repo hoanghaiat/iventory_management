@@ -15,7 +15,6 @@ Login To System
     
 Get And Compare Count
     [Arguments]    ${box_name}    ${menu_locator}    ${item_box}
-    # Lấy số trên homepage box
     ${locator}=    Set Variable    xpath=//div[contains(@class,"stats-card") and .//div[contains(@class,"stat-label") and contains(normalize-space(.),"${box_name}")]]//span[@class="stat-number"]
     Wait Until Element Is Visible    ${locator}    ${TIMEOUT}
     ${so_trang_chu}=    Get Text                ${locator}
@@ -23,7 +22,6 @@ Get And Compare Count
     ${so_trang_chu}=    Convert To Integer      ${so_trang_chu}
     Log    Số trên Trang chủ (${box_name}): ${so_trang_chu}
 
-    # Lấy số trong item menu
     Click Element    ${menu_locator}
     Wait Until Page Contains    ${item_box}    ${TimeOut}
     ${item_locator}=    Set Variable    xpath=//div[contains(@class,"stats-card")]//div[normalize-space(.)="${item_box}"]/preceding-sibling::span[@class="stat-number"]
@@ -156,7 +154,7 @@ Click Logout menu
 Close menu
     Wait Until Page Contains    Quản lý Kho    10s
     Click Element    ${SideBar}
-    Wait Until Element Is Not Visible    ${QLKho}    10s
+    Wait Until Element Is Not Visible    ${QLKho2}    10s
 
 Close QLToChuc
     Wait Until Page Contains    Quản lý Kho    10s
