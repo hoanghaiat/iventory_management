@@ -150,12 +150,12 @@ TC Search With Keyword Not in List Course
     Click First Program Courses Button
     Perform Search    artificial intelligence 
     Verify Search No Result
-TC Search With Special Characters Keyword 
+TC Search With Special Characters Keyword In Program 
     [Documentation]  TC_PS_08
     [Tags]           Thu Phuong    Search 
     Go To Programs Page
     Click First Program Courses Button
     Perform Search    @# 
     Click Add One Link in Course
-    Wait Until Page Contains Element    ${CREATE_COURSE_FORM}
+    Wait Until Page Contains Element    ${CREATE_COURSE_FORM}  
     

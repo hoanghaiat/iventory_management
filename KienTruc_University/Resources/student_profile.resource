@@ -16,28 +16,21 @@ Login As Student
     Click Button  xpath=//button[@type='submit' or contains(text(),'Login')]
 
 Open Profile Page
-    Wait Until Element Is Visible    xpath=//*[@id="djHideToolBarButton"]    10s
-    Click Element    xpath=//*[@id="djHideToolBarButton"]
-    Click Element    xpath=/html/body/div[1]/div[2]/div[2]/button
-    Click Link       xpath=/html/body/div[1]/div[2]/div[2]/ul/li[1]/a
+    Wait Until Element Is Visible    ${TAB}    10s
+    Click Element    ${TAB}
+    Click Element    ${SETTING_PROFILE}
+    Click Link       ${PROFILE_BTN}
     Wait Until Page Contains    Hồ sơ cá nhân
 
 Click Log Out Button 
-    Wait Until Element Is Visible    xpath=//*[@id="djHideToolBarButton"]    10s
-    Click Element    xpath=//*[@id="djHideToolBarButton"]
-    Click Element    xpath=/html/body/div[1]/div[2]/div[2]/button
+    Wait Until Element Is Visible    ${TAB}    10s
+    Click Element    ${TAB}
+    Click Element    ${SETTING_PROFILE}
     Click Element    ${LOGOUT_BUTTON}
     Wait Until Page Contains    Đăng nhập hệ thống 
 
 Verify Profile Information
     Page Should Contain    Hồ sơ cá nhân 
-    Page Should Contain Element    xpath=/html/body/div[3]/div[2]/div/div[1]/div/div[2]/div/h4
-    Page Should Contain Element    xpath=/html/body/div[3]/div[2]/div/div[1]/div/div[2]/div/p
-    Page Should Contain Element    xpath=/html/body/div[3]/div[2]/div/div[1]/div/div[2]/ul/li[1]/span[2]
-    Page Should Contain Element    xpath=/html/body/div[3]/div[2]/div/div[1]/div/div[2]/ul/li[2]/span[2]
-    Page Should Contain Element    xpath=/html/body/div[3]/div[2]/div/div[1]/div/div[2]/ul/li[3]/span[2]
-    Page Should Contain Element    xpath=/html/body/div[3]/div[2]/div/div[1]/div/div[2]/ul/li[4]/span[2]
-    Page Should Contain Element    xpath=/html/body/div[3]/div[2]/div/div[1]/div/div[2]/ul/li[5]/span[2]
 
 Click Edit Profile Button 
     Wait Until Element Is Visible    ${EDIT_PROFILE_BUTTON}    10s

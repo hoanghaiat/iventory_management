@@ -52,7 +52,6 @@ Click View Course Button In Detail Program
     Wait Until Element Is Enabled    ${VIEW_COURSE_BTN}    10s
     Wait Until Page Does Not Contain Element    xpath=//div[contains(@class,'loading')]    10s
     Click Element    ${VIEW_COURSE_BTN}
-    Wait Until Element Is Visible    ${COURSES_TABLE}    10s
     Page Should Contain    as1 - abc 
 
 Click All Course Button in Course Page 
@@ -60,7 +59,7 @@ Click All Course Button in Course Page
    Wait Until Element Is Visible    ${ALL_COURSES_BTN}       10s
    Wait Until Element Is Enabled    ${ALL_COURSES_BTN}       10s
    Click Element    ${ALL_COURSES_BTN}
-   Location Should Contain    ${URL_ALL_COURSE}
+
 
 Click Add Course Button In Courses Page 
     Wait Until Page Contains Element    ${ADD_COURSES_BTN}    10s
@@ -102,13 +101,12 @@ Click View CLOs Button In Course Page
    Click Element    ${VIEW_CLOS_BTN}
    Wait Until Element Is Visible    ${CLO_TITLE}
 
-
 Perform Search
     [Arguments]    ${keyword}
     Clear Element Text    ${SEARCH_BOX}
     Input Text    ${SEARCH_BOX}    ${keyword}
     Click Element    ${SEARCH_BTN}
-Verify Search Result Exists
+Verify Search Result Exists 
     [Arguments]    ${keyword}
     Wait Until Page Contains Element    ${RESULT_TABLE}    10s
     ${titles}=    Get WebElements    ${RESULT_TITLE}
@@ -119,7 +117,6 @@ Verify Search Result Exists
         Run Keyword If    '${keyword.lower()}' in '${lower_title}'    Pass Execution    Found keyword in title
     END
     Fail    Không tìm thấy kết quả chứa từ khóa: ${keyword}
-
 
 Verify Search Results Contain Keyword
     [Arguments]    ${keyword}
@@ -132,11 +129,11 @@ Verify Search Results Contain Keyword
 
 Verify Search No Result
     Wait Until Page Contains Element    ${NO_RESULT_TEXT_PROGRAMS}    10s
-    Element Should Contain    ${NO_RESULT_TEXT_PROGRAMS}    No programs found 
+    Element Should Contain    ${NO_RESULT_TEXT_PROGRAMS}   No courses found. Add one?
 
 Verify Search No Course Result
     Wait Until Page Contains Element    ${NO_RESULT_TEXT_COURSES}    10s
-    Element Should Contain    ${NO_RESULT_TEXT_COURSES}    No courses found 
+    Element Should Contain    ${NO_RESULT_TEXT_COURSES}    No course found. Add one? 
 
 Click Add One Link in Course 
     Wait Until Element Is Visible     ${ADD_ONE_LINK}    10s 

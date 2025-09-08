@@ -9,9 +9,9 @@ USERNAME = "student1"
 PASSWORD = "demostudent"
 
 # Buttons
-EDIT_PROFILE_BUTTON = "xpath=/html/body/div[3]/div[1]/div/div[2]/a"
-UPDATE_PROFILE_BUTTON = "xpath=/html/body/div[3]/div[2]/div/div/div/div[2]/form/div[8]/button"
-LOGOUT_BUTTON = "xpath=/html/body/div[1]/div[2]/div[2]/ul/li[3]/form/button"
+EDIT_PROFILE_BUTTON = '//a[@href="/en/accounts/profile/update/"]'
+UPDATE_PROFILE_BUTTON = '//div/button[@type="submit"]'
+LOGOUT_BUTTON = '//li//form//button[@type="submit"]'
 
 # Form Fields
 USENAME_FIELDS = "xpath=//*[@id='id_username']"
@@ -23,7 +23,7 @@ DEPARTMENT_FIELDS = "xpath=//*[@id='id_department']"
 SPECIALIZATION_FIELDS = "xpath=//*[@id='id_specialization']"
 
 # Messages
-SUCCESS_MESSAGE = "xpath=/html/body/div[3]/div[2]/div[1]"
+SUCCESS_MESSAGE = '//div[@class="alert alert-success alert-dismissible fade show"]'
 ERROR_MESSAGES = {
     "username": "xpath=//*[@id='error_1_id_username']/strong",
     "email": "xpath=//*[@id='error_1_id_email']/strong"
@@ -35,9 +35,12 @@ ERROR_MESSAGES = {
 BASE_LOGIN_URL = "https://demo-clo.minds.vn/en/accounts/login/"
 BASE_URL_ROOT = "https://demo-clo.minds.vn/en/"
 MENU_PROGRAMS = "xpath=//a[contains(.,'Chương trình đào tạo') or contains(.,'Program')]"
+TAB = '//*[@id="djHideToolBarButton"]'
+SETTING_PROFILE='//button[@class="btn btn-link text-white"]'
+PROFILE_BTN='//a[@href="/en/accounts/profile/"]'
 
 # Program list page
-PROGRAMS_PAGE_TITLE = "xpath=//h1|//h2|//h3"
+PROGRAMS_PAGE_TITLE = '//div/h1[text()="Quản lý chương trình"]'
 SEARCH_BOX ='//input[@name="q"]'
 SEARCH_BTN='//button[@class="btn btn-primary"]'
 RESULT_TABLE='//div[@class="card-body"]'
@@ -46,41 +49,40 @@ ADD_ONE_LINK="//a[contains(@href, '/programs/') and contains(@href, '/courses/cr
 PROGRAMS_TABLE_ROWS = "xpath=//table//tbody//tr"
 
 # First program row
-FIRST_PROGRAM_ROW = "xpath=(//table//tbody//tr)[1]"
-FIRST_PROGRAM_NAME_CELL = "xpath=(//table//tbody//tr)[1]//td[1]"
-FIRST_PROGRAM_VIEW_BTN = "xpath=(//table//tbody//tr)[1]//a[contains(@class,'btn') and (descendant::i[contains(@class,'eye') or contains(@class,'fa-eye')] or descendant::svg)]"
-FIRST_PROGRAM_COURSES_BTN = "xpath=(//table//tbody//tr)[1]//a[normalize-space(.)='Courses' or contains(.,'Courses')]"
-DETAIL_PROGRAM_TITLE = "xpath=/html/body/div[3]/div[1]/div/div[1]/h1"
-DETAIL_COURSE_TITLE = "xpath=/html/body/div[3]/div[1]/div/div[1]/h1"
+FIRST_PROGRAM_ROW = "(//table//tbody//tr)[1]"
+FIRST_PROGRAM_NAME_CELL = "(//table//tbody//tr)[1]//td[1]"
+FIRST_PROGRAM_VIEW_BTN = "(//table//tbody//tr)[1]//a[contains(@class,'btn') and (descendant::i[contains(@class,'eye') or contains(@class,'fa-eye')] or descendant::svg)]"
+FIRST_PROGRAM_COURSES_BTN = "(//table//tbody//tr)[1]//a[normalize-space(.)='Courses' or contains(.,'Courses')]"
+DETAIL_PROGRAM_TITLE = '//h1[@class="content-title"]'
+DETAIL_COURSE_TITLE =  '//div/h1[@class="content-title"]'
 # Courses page top actions
-COURSES_PAGE_TITLE = "xpath=//h1|//h2|//h3"
+COURSES_PAGE_TITLE = '//div/h1[@class="content-title"]'
 
 
 # Courses table and first course row
-COURSES_TABLE_ROWS = "xpath=/html/body/div[3]/div[2]/div[2]/div[2]"
-FIRST_COURSE_ROW = "xpath=(//table//tbody//tr)[1]"
-FIRST_COURSE_VIEW_BTN = "xpath=(//table//tbody//tr)[1]//a[contains(@class,'btn') and (descendant::i[contains(@class,'eye') or contains(@class,'fa-eye')] or descendant::svg)]"
+COURSES_TABLE_ROWS = '//div[@class="card-body"]'
+FIRST_COURSE_ROW = '(//table//tbody//tr)[1]'
+FIRST_COURSE_VIEW_BTN = "(//table//tbody//tr)[1]//a[contains(@class,'btn') and (descendant::i[contains(@class,'eye') or contains(@class,'fa-eye')] or descendant::svg)]"
 
 # Create Course form
-CREATE_COURSE_FORM = "xpath=/html/body/div[3]/div[2]/div/div/div/div[2]"
+CREATE_COURSE_FORM = '//div[contains(@class,"card-body p-4")]'
 
 # Generic messages
 NO_RESULT_TEXT_PROGRAMS = '//div[@class="alert alert-info"]'
 NO_RESULT_TEXT_COURSES = '//div[@class="alert alert-info"]'
 
-SEE_ALL_BTN = "xpath=/html/body/div[3]/div[2]/div[3]/div/div/div[1]/div/a"
-VIEW_COURSE_BTN = "xpath=/html/body/div[3]/div[2]/div[3]/div/div/div[2]/div/table/tbody/tr[1]/td[7]/div/a"
-COURSES_TABLE = "xpath=/html/body/div[3]/div[2]/div[1]/div[1]"
-ALL_COURSES_BTN = "xpath=/html/body/div[3]/div[1]/div/div[2]/div/a[1]"
-ADD_COURSES_BTN ="xpath=/html/body/div[3]/div[1]/div/div[2]/div/a[2]"
-BACK_TO_PROGRAM ="xpath=/html/body/div[3]/div[1]/div/div[2]/div/a[3]"
-URL_ALL_COURSE = "https://demo-clo.minds.vn/en/academics/programs/20/courses/"
-URL_PROGRAM ="xpath=https://demo-clo.minds.vn/en/academics/programs/20/"
-HOME_URL ="xpath=/html/body/div[3]/div[1]/div/div[1]/nav/ol/li/a"
+SEE_ALL_BTN = '//a[@class="btn btn-sm btn-info"]'
+VIEW_COURSE_BTN ='//a[contains(@class,"btn btn-sm btn-outline-primary")]'
+ALL_COURSES_BTN = '//a[contains(@class,"btn btn-primary")]'
+ADD_COURSES_BTN ='//a[contains(@class,"btn btn-success")]'
+BACK_TO_PROGRAM ='//a[contains(@class,"btn btn-secondary")]'
+URL_ALL_COURSE = '//h1[@class="content-title"]'
+URL_PROGRAM = '//h1[@class="content-title"]'
+HOME_URL ='//a[text()="Trang chủ"]'
 
-EYE_BTN = '//a[@href="/en/academics/courses/42/"]'
-EDIT_BTN= '//a[@href="/en/academics/courses/42/update/"]'
-VIEW_CLOS_BTN ='//a[@href="/en/academics/courses/42/update/"]'
+EYE_BTN = '//tbody//tr//td//div//a[contains(@class,"btn btn-info")]'
+EDIT_BTN= '//tbody//tr//td//div//a[contains(@class,"btn btn-primary")]'
+VIEW_CLOS_BTN ='//tbody//tr//td//div//a[contains(@class,"btn btn-success")]'
 DETAIL_COURSE_TITLE = '//h1[@class="content-title"]'
 EDIT_COURSE_TITLE ='//h1[@class="content-title"]'
 CLO_TITLE ='//h1[@class="content-title"]'
