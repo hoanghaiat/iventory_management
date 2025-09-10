@@ -13,7 +13,7 @@ Open Browser To Login Page
 Login As Student
     Input Text    id=id_username    ${USERNAME}
     Input Text    id=id_password    ${PASSWORD}
-    Click Button  xpath=//button[@type='submit' or contains(text(),'Login')]
+    Click Button  ${LOGIN_BTN}
 
 Open Profile Page
     Wait Until Element Is Visible    ${TAB}    10s
@@ -65,7 +65,7 @@ Click Update Profile Button
     Wait Until Element Is Visible    ${UPDATE_PROFILE_BUTTON}   10s 
     Scroll Element Into View    ${UPDATE_PROFILE_BUTTON}
     Wait Until Element Is Enabled    ${UPDATE_PROFILE_BUTTON}   
-    Wait Until Page Does Not Contain Element    xpath=//div[contains(@class,'loading')]    10s
+    Wait Until Page Does Not Contain Element    ${LOADING}    10s
     Click Element    ${UPDATE_PROFILE_BUTTON}
     Log     Profile update form submitted
 

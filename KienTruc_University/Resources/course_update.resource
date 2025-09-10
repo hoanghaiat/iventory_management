@@ -12,14 +12,14 @@ Open Browser And Login
     Wait Until Element Is Visible    id=id_username    10s
     Input Text    id=id_username    ${USERNAME}
     Input Text    id=id_password    ${PASSWORD}
-    Click Button    xpath=//button[@type='submit']
+    Click Button    ${LOGIN_BTN}
     Wait Until Element Is Visible    ${MENU_COURSE}    15s
 
 Go To Course Page
-    Click Element    xpath=//*[@id="djHideToolBarButton"]
+    Click Element    ${TAB}
     Wait Until Element Is Visible    ${MENU_COURSE}    10s
     Click Element    ${MENU_COURSE}
-    Wait Until Element Is Visible    ${SEARCH_BOX_PROGRAMS}    10s
+    Wait Until Element Is Visible    ${SEARCH_BOX}    10s
     Wait Until Element Is Visible    ${COURSES_TABLE_ROWSS}    10s
 
 Get First Course Name
@@ -32,7 +32,7 @@ Click First Edit Courses Button
    Wait Until Element Is Visible    ${EDIT_COURSE}       10s
    Wait Until Element Is Enabled    ${EDIT_COURSE}       10s
    Scroll Element Into View    ${EDIT_COURSE}        
-   Click Element     //a[@href="/en/academics/courses/50/update/"]
+   Click Element     ${EDIT_COURSE}
     Wait Until Element Is Visible    ${EDIT_COURSE_TITLE}    10s   
 
 Click Choose Program Drop 
@@ -58,7 +58,7 @@ Click Update Course Button
     Wait Until Element Is Visible    ${UPDATE_COURSE_BTN}        20s
     Scroll Element Into View    ${UPDATE_COURSE_BTN}           
     Wait Until Element Is Enabled    ${UPDATE_COURSE_BTN}         30s
-    Wait Until Page Does Not Contain Element    xpath=//div[contains(@class,'loading')]    20s
+    Wait Until Page Does Not Contain Element    ${LOADING}    20s
     Wait Until Page Does Not Contain Element    xpath=//div[contains(@class,'toast')]      
     Click Element    ${UPDATE_COURSE_BTN}
 

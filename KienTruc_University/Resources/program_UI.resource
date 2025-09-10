@@ -10,11 +10,11 @@ Open Browser And Login
     Wait Until Element Is Visible    id=id_username    10s
     Input Text    id=id_username    ${USERNAME}
     Input Text    id=id_password    ${PASSWORD}
-    Click Button    xpath=//button[@type='submit']
+    Click Button    ${LOGIN_BTN}
     Wait Until Element Is Visible    ${MENU_PROGRAMS}    15s
 
 Go To Programs Page
-    Click Element    xpath=//*[@id="djHideToolBarButton"]
+    Click Element    ${TAB}
     Wait Until Element Is Visible    ${MENU_PROGRAMS}    10s
     Click Element    ${MENU_PROGRAMS}
     Wait Until Element Is Visible    ${SEARCH_BOX}    10s
@@ -38,7 +38,7 @@ Click See All Button Courses
     Sleep    5s
     Wait Until Element Is Visible    ${SEE_ALL_BTN}    10s
     Wait Until Element Is Enabled    ${SEE_ALL_BTN}    10s
-     Wait Until Page Does Not Contain Element    xpath=//div[contains(@class,'loading')]    10s
+     Wait Until Page Does Not Contain Element    ${LOADING}    10s
     Click Element    ${SEE_ALL_BTN}
     Wait Until Element Is Visible    ${COURSES_TABLE_ROWS}    10s
     Page Should Contain    All Courses
@@ -50,7 +50,7 @@ Click View Course Button In Detail Program
     Sleep    5s
     Wait Until Element Is Visible    ${VIEW_COURSE_BTN}    10s
     Wait Until Element Is Enabled    ${VIEW_COURSE_BTN}    10s
-    Wait Until Page Does Not Contain Element    xpath=//div[contains(@class,'loading')]    10s
+    Wait Until Page Does Not Contain Element    ${LOADING}    10s
     Click Element    ${VIEW_COURSE_BTN}
     Page Should Contain    as1 - abc 
 

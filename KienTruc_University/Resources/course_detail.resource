@@ -13,14 +13,13 @@ Open Browser And Login
     Wait Until Element Is Visible    id=id_username    10s
     Input Text    id=id_username    ${USERNAME}
     Input Text    id=id_password    ${PASSWORD}
-    Click Button    xpath=//button[@type='submit']
-    
+    Click Button   ${LOGIN_BTN}
 
 Go To Course Page
-    Click Element    xpath=//*[@id="djHideToolBarButton"]
+    Click Element    ${TAB}
     Wait Until Element Is Visible    ${MENU_COURSE}    10s
     Click Element    ${MENU_COURSE}
-    Wait Until Element Is Visible    ${SEARCH_BOX_PROGRAMS}    10s
+    Wait Until Element Is Visible    ${SEARCH_BOX}    10s
     Wait Until Element Is Visible    ${COURSES_TABLE_ROWSS}    
 Click View Course Button
     [Documentation]    Click nút View của Course đầu tiên trong danh sách

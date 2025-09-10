@@ -12,6 +12,7 @@ PASSWORD = "demostudent"
 EDIT_PROFILE_BUTTON = '//a[@href="/en/accounts/profile/update/"]'
 UPDATE_PROFILE_BUTTON = '//div/button[@type="submit"]'
 LOGOUT_BUTTON = '//li//form//button[@type="submit"]'
+LOGIN_BTN="//button[@type='submit']"
 
 # Form Fields
 USENAME_FIELDS = "xpath=//*[@id='id_username']"
@@ -38,6 +39,7 @@ MENU_PROGRAMS = "xpath=//a[contains(.,'Chương trình đào tạo') or contains
 TAB = '//*[@id="djHideToolBarButton"]'
 SETTING_PROFILE='//button[@class="btn btn-link text-white"]'
 PROFILE_BTN='//a[@href="/en/accounts/profile/"]'
+LOADING ="//div[contains(@class,'loading')]"
 
 # Program list page
 PROGRAMS_PAGE_TITLE = '//div/h1[text()="Quản lý chương trình"]'
@@ -127,14 +129,14 @@ ACTIVE='//span[@class="badge bg-success"]'
 COMPLETED='//span[@class="badge bg-secondary"]'
 UPDATED='//span[@class="badge bg-warning"]'
 
-# VIEW_CLOC_BTN ='//a[@href="/en/academics/courses/50/clos/"]'
-VIEW_CLOC_BTN = '(//a[contains(@href, "/clos/")])[1]'
-EDIT_COURSE='//a[@href="/en/academics/courses/50/update/"]'
-VIEW_DETAIL_COURSE_BTN='//a[@href="/en/academics/courses/50/"]'
 
-ADD_CLO_BTN ='//a[@href="/en/academics/courses/58/clos/create/"]'
+VIEW_CLOC_BTN = '(//a[contains(@href, "/clos/")])[1]'
+EDIT_COURSE='//tbody//tr//td//div//a[contains(@class,"btn btn-primary")]'
+VIEW_DETAIL_COURSE_BTN='//tbody//tr//td//div//a[contains(@class,"btn btn-info")]'
+
+ADD_CLO_BTN ='//div//a[contains(@class,"btn btn-primary")]'
 CLO_CREATE_TITLE ='//h1[@class="content-title"]'
-BACK_TO_CLOS_BTN='//a[@href="/en/academics/courses/58/clos/"]'
+BACK_TO_CLOS_BTN='//div//a[contains(@class,"btn btn-secondary")]'
 
 COURSE_DROP ='//select[@id="id_course"]'
 CLO_CODE='//input[@id="id_clo_code"]'
