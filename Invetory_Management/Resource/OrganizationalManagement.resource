@@ -8,401 +8,398 @@ Variables    ../Variables/locator.py
 #Don vi
 Hien thi so ban ghi
     [Arguments]    ${so}
-    Wait Until Element Is Visible    ${Dropdown_HienThi}
-    Select From List By Label    ${Dropdown_HienThi}    ${so}
+    Wait Until Element Is Visible    ${DROPDOWN_HIENTHI}
+    Select From List By Label    ${DROPDOWN_HIENTHI}    ${so}
 
     ${row_count}=    Get Element Count    //tbody/tr
     Should Be Equal As Integers      ${row_count}    ${so}
 Cancel Add Unit 
-    Wait Until Element Is Visible    ${Button_Add_Unit}    10s
-    Click Element                   ${Button_Add_Unit}
-    Wait Until Element Is Visible    ${Input_ID_Unit}    10s
-    Input Text                    ${Input_ID_Unit}    1
+    Wait Until Element Is Visible    ${BUTTON_ADD_UNIT}    10s
+    Click Element                   ${BUTTON_ADD_UNIT}
+    Wait Until Element Is Visible    ${INPUT_ID_UNIT}    10s
+    Input Text                    ${INPUT_ID_UNIT}    1
     
-    Wait Until Element Is Visible    ${Input_Name_Unit}    10s
-    Scroll Element Into View    ${Input_Name_Unit}
-    Input Text                    ${Input_Name_Unit}    Ban kiểm soát
+    Wait Until Element Is Visible    ${INPUT_NAME_UNIT}    10s
+    Scroll Element Into View    ${INPUT_NAME_UNIT}
+    Input Text                    ${INPUT_NAME_UNIT}    Ban kiểm soát
 
-    Wait Until Element Is Visible    ${Button_Cancel_Add_Unit}    10s
-    Scroll Element Into View    ${Button_Cancel_Add_Unit}
-    Click Element                   ${Button_Cancel_Add_Unit}
+    Wait Until Element Is Visible    ${BUTTON_CANCEL_ADD_UNIT}    10s
+    Scroll Element Into View    ${BUTTON_CANCEL_ADD_UNIT}
+    Click Element                   ${BUTTON_CANCEL_ADD_UNIT}
 
     Wait Until Element Is Visible    Quản lý Đơn vị    10s
 
 
 Back To List 
-    Wait Until Element Is Visible    ${Button_Add_Unit}    10s
-    Click Element                   ${Button_Add_Unit}
-    Wait Until Element Is Visible    ${Input_ID_Unit}    10s
-    Input Text                    ${Input_ID_Unit}    1
+    Wait Until Element Is Visible    ${BUTTON_ADD_UNIT}    10s
+    Click Element                   ${BUTTON_ADD_UNIT}
+    Wait Until Element Is Visible    ${INPUT_ID_UNIT}    10s
+    Input Text                    ${INPUT_ID_UNIT}    1
     
-    Wait Until Element Is Visible    ${Input_Name_Unit}    10s
-    Scroll Element Into View    ${Input_Name_Unit}
-    Input Text                    ${Input_Name_Unit}    Ban kiểm soát
+    Wait Until Element Is Visible    ${INPUT_NAME_UNIT}    10s
+    Scroll Element Into View    ${INPUT_NAME_UNIT}
+    Input Text                    ${INPUT_NAME_UNIT}    Ban kiểm soát
 
-    Wait Until Element Is Visible    ${Button_Back_To_List}    10s
-    Scroll Element Into View    ${Button_Back_To_List}
+    Wait Until Element Is Visible    ${BUTTON_BACK_TO_LIST}    10s
+    Scroll Element Into View    ${BUTTON_BACK_TO_LIST}
     Execute Javascript    window.scrollBy(0, -100)
-    Click Element                   ${Button_Back_To_List}
+    Click Element                   ${BUTTON_BACK_TO_LIST}
 
     Wait Until Element Is Visible    Quản lý Đơn vị    10s
 
 
  Verify Add To Unit
-    Wait Until Element Is Visible    ${Button_Add_Unit}    10s
-    Click Element                   ${Button_Add_Unit}
-    Wait Until Element Is Visible    ${Input_ID_Unit}    10s
-    Input Text                    ${Input_ID_Unit}    2
+    Wait Until Element Is Visible    ${BUTTON_ADD_UNIT}    10s
+    Click Element                   ${BUTTON_ADD_UNIT}
+    Wait Until Element Is Visible    ${INPUT_ID_UNIT}    10s
+    Input Text                    ${INPUT_ID_UNIT}    2
     
-    Wait Until Element Is Visible    ${Input_Name_Unit}    10s
-    Scroll Element Into View    ${Input_Name_Unit}
-    Input Text                    ${Input_Name_Unit}    Ban kiểm soát
+    Wait Until Element Is Visible    ${INPUT_NAME_UNIT}    10s
+    Scroll Element Into View    ${INPUT_NAME_UNIT}
+    Input Text                    ${INPUT_NAME_UNIT}    Ban kiểm soát
 
-    Wait Until Element Is Visible    ${Button_Save_Add_Unit}    10s
-    Scroll Element Into View    ${Button_Save_Add_Unit}
-    Click Element                   ${Button_Save_Add_Unit}
+    Wait Until Element Is Visible    ${BUTTON_SAVE_ADD_UNIT}    10s
+    Scroll Element Into View    ${BUTTON_SAVE_ADD_UNIT}
+    Click Element                   ${BUTTON_SAVE_ADD_UNIT}
 
     Wait Until Page Contains    Thêm đơn vị thành công
 
 
 Edit Unit "Cancel"
-    Wait Until Element Is Visible    ${Button_Edit_Unit}    10s
-    Click Element                   ${Button_Edit_Unit}  
+    Wait Until Element Is Visible    ${BUTTON_EDIT_UNIT}    10s
+    Click Element                   ${BUTTON_EDIT_UNIT}  
     
-    Wait Until Element Is Visible    ${Input_Name_Unit}    10s
-    Scroll Element Into View    ${Input_Name_Unit}
-    Clear Element Text            ${Input_Name_Unit}
-    Input Text                    ${Input_Name_Unit}    Ban kiểm soát chỉnh sửa
+    Wait Until Element Is Visible    ${INPUT_NAME_UNIT}    10s
+    Scroll Element Into View    ${INPUT_NAME_UNIT}
+    Clear Element Text            ${INPUT_NAME_UNIT}
+    Input Text                    ${INPUT_NAME_UNIT}    Ban kiểm soát chỉnh sửa
 
-    Wait Until Element Is Visible    ${Button_Cancel_Add_Unit}    10s
-    Scroll Element Into View    ${Button_Cancel_Add_Unit}
-    Click Element                   ${Button_Cancel_Add_Unit}
+    Wait Until Element Is Visible    ${BUTTON_CANCEL_ADD_UNIT}    10s
+    Scroll Element Into View    ${BUTTON_CANCEL_ADD_UNIT}
+    Click Element                   ${BUTTON_CANCEL_ADD_UNIT}
 
     Wait Until Element Is Visible    Quản lý Đơn vị    10s
 
 
 Edit Unit "Back to list"
-    Wait Until Element Is Visible    ${Button_Edit_Unit}    10s
-    Click Element                   ${Button_Edit_Unit}  
+    Wait Until Element Is Visible    ${BUTTON_EDIT_UNIT}    10s
+    Click Element                   ${BUTTON_EDIT_UNIT}  
     
-    Wait Until Element Is Visible    ${Input_Name_Unit}    10s
-    Scroll Element Into View    ${Input_Name_Unit}
-    Clear Element Text            ${Input_Name_Unit}
-    Input Text                    ${Input_Name_Unit}    Ban kiểm soát chỉnh sửa
+    Wait Until Element Is Visible    ${INPUT_NAME_UNIT}    10s
+    Scroll Element Into View    ${INPUT_NAME_UNIT}
+    Clear Element Text            ${INPUT_NAME_UNIT}
+    Input Text                    ${INPUT_NAME_UNIT}    Ban kiểm soát chỉnh sửa
 
-    Wait Until Element Is Visible    ${Button_Back_To_List}    10s
-    Scroll Element Into View    ${Button_Back_To_List}
+    Wait Until Element Is Visible    ${BUTTON_BACK_TO_LIST}    10s
+    Scroll Element Into View    ${BUTTON_BACK_TO_LIST}
     Execute Javascript    window.scrollBy(0, -100)
-    Click Element                   ${Button_Back_To_List}
+    Click Element                   ${BUTTON_BACK_TO_LIST}
 
     Wait Until Element Is Visible    Quản lý Đơn vị    10s
 
 Edit Unit
-    Wait Until Element Is Visible    ${Button_Edit_Unit}    10s
-    Click Element                   ${Button_Edit_Unit}
+    Wait Until Element Is Visible    ${BUTTON_EDIT_UNIT}    10s
+    Click Element                   ${BUTTON_EDIT_UNIT}
 
-    Wait Until Element Is Visible    ${Input_Name_Unit}    10s
-    Clear Element Text             ${Input_Name_Unit}
-    Input Text                    ${Input_Name_Unit}    Ban kiểm soát chỉnh sửa
+    Wait Until Element Is Visible    ${INPUT_NAME_UNIT}    10s
+    Clear Element Text             ${INPUT_NAME_UNIT}
+    Input Text                    ${INPUT_NAME_UNIT}    Ban kiểm soát chỉnh sửa
 
-    Wait Until Element Is Visible    ${Button_Update_Unit}    10s
-    Scroll Element Into View    ${Button_Update_Unit}
-    Click Element               ${Button_Update_Unit}
+    Wait Until Element Is Visible    ${BUTTON_UPDATE_UNIT}    10s
+    Scroll Element Into View    ${BUTTON_UPDATE_UNIT}
+    Click Element               ${BUTTON_UPDATE_UNIT}
     Wait Until Page Contains             Cập nhật đơn vị thành công!
 
 Delete Unit
-    Wait Until Element Is Visible    ${Button_Delete_Unit}    10s
-    Click Element                   ${Button_Delete_Unit}
+    Wait Until Element Is Visible    ${BUTTON_DELETE_UNIT}    10s
+    Click Element                   ${BUTTON_DELETE_UNIT}
     Wait Until Page Contains             Xoá đơn vị thành công!
 
 #Phong luu tru
 Back To Phong
-    Wait Until Element Is Visible    ${Button_Add_Storage}    10s
-    Click Element                   ${Button_Add_Storage}
+    Wait Until Element Is Visible    ${BUTTON_ADD_STORAGE}    10s
+    Click Element                   ${BUTTON_ADD_STORAGE}
 
-    Wait Until Element Is Visible    ${Button_Back_To_storage}    10s
-    Click Element                   ${Button_Back_To_storage}
+    Wait Until Element Is Visible    ${BUTTON_BACK_TO_STORAGE}    10s
+    Click Element                   ${BUTTON_BACK_TO_STORAGE}
 
     Wait Until Element Is Visible    Quản lý Phông Lưu trữ    10s
 
 Cancel Add Phong
-    Wait Until Element Is Visible    ${Button_Add_Storage}    10s
-    Click Element                   ${Button_Add_Storage}
+    Wait Until Element Is Visible    ${BUTTON_ADD_STORAGE}    10s
+    Click Element                   ${BUTTON_ADD_STORAGE}
 
-    Wait Until Element Is Visible    ${Button_Cancel_Add_Phong}    10s
-    Scroll Element Into View    ${Button_Cancel_Add_Phong}
-    Click Element                   ${Button_Cancel_Add_Phong}
+    Wait Until Element Is Visible    ${BUTTON_CANCEL_ADD_PHONG}    10s
+    Scroll Element Into View    ${BUTTON_CANCEL_ADD_PHONG}
+    Click Element                   ${BUTTON_CANCEL_ADD_PHONG}
 
     Wait Until Element Is Visible    Quản lý Phông Lưu trữ    10s
 
- Verify Add To Phong
+Verify Add To Phong
     [Arguments]    ${donvi}
-    Wait Until Element Is Visible    ${Button_Add_Storage}
-    Click Element    ${Button_Add_Storage}
-    Wait Until Element Is Visible    ${Dropdown_Name_Unit}    10s
-    Select From List By Label    ${Dropdown_Name_Unit}    ${donvi}
+    Wait Until Element Is Visible    ${BUTTON_ADD_STORAGE}
+    Click Element    ${BUTTON_ADD_STORAGE}
+    Wait Until Element Is Visible    ${DROPDOWN_NAME_UNIT}    10s
+    Select From List By Label    ${DROPDOWN_NAME_UNIT}    ${donvi}
 
-    Input Text    ${Input_Name_Phong}    Tài liệu demo
+    Input Text    ${INPUT_NAME_PHONG}    Tài liệu demo
     
-    Wait Until Element Is Visible    ${Button_Save_Phong}
-    Scroll Element Into View    ${Button_Save_Phong}
-    Click Element    ${Button_Save_Phong}
+    Wait Until Element Is Visible    ${BUTTON_SAVE_PHONG}
+    Scroll Element Into View    ${BUTTON_SAVE_PHONG}
+    Click Element    ${BUTTON_SAVE_PHONG}
     Wait Until Page Contains             Thêm phông lưu trữ thành công!
 
 Edit Phong
-    Wait Until Element Is Visible    ${Button_Edit_Phong}    10s
-    Scroll Element Into View    ${Button_Edit_Phong}
-    Click Element                   ${Button_Edit_Phong}
+    Wait Until Element Is Visible    ${BUTTON_EDIT_PHONG}    10s
+    Scroll Element Into View    ${BUTTON_EDIT_PHONG}
+    Click Element                   ${BUTTON_EDIT_PHONG}
 
-    Wait Until Element Is Visible    ${Input_Name_Phong}    10s
-    Clear Element Text             ${Input_Name_Phong}
-    Input Text                    ${Input_Name_Phong}        Tài liệu
+    Wait Until Element Is Visible    ${INPUT_NAME_PHONG}    10s
+    Clear Element Text             ${INPUT_NAME_PHONG}
+    Input Text                    ${INPUT_NAME_PHONG}        Tài liệu
 
-    Wait Until Element Is Visible    ${Button_Update_Phong}    10s
-    Scroll Element Into View    ${Button_Update_Phong}
-    Click Element               ${Button_Update_Phong}
+    Wait Until Element Is Visible    ${BUTTON_UPDATE_PHONG}    10s
+    Scroll Element Into View    ${BUTTON_UPDATE_PHONG}
+    Click Element               ${BUTTON_UPDATE_PHONG}
 
     Wait Until Page Contains             Cập nhật phông lưu trữ thành công!
 
 Edit Phong "Cancel"
-    Wait Until Element Is Visible    ${Button_Edit_Phong}    10s
-    Scroll Element Into View    ${Button_Edit_Phong}
-    Click Element                   ${Button_Edit_Phong}  
+    Wait Until Element Is Visible    ${BUTTON_EDIT_PHONG}    10s
+    Scroll Element Into View    ${BUTTON_EDIT_PHONG}
+    Click Element                   ${BUTTON_EDIT_PHONG}  
 
-    Wait Until Element Is Visible    ${Button_Cancel_Add_Phong}    10s
-    Scroll Element Into View    ${Button_Cancel_Add_Phong}
-    Click Element                   ${Button_Cancel_Add_Phong}
+    Wait Until Element Is Visible    ${BUTTON_CANCEL_ADD_PHONG}    10s
+    Scroll Element Into View    ${BUTTON_CANCEL_ADD_PHONG}
+    Click Element                   ${BUTTON_CANCEL_ADD_PHONG}
 
     Wait Until Element Is Visible    Quản lý Phông Lưu trữ    10s
 
 Edit Back To Phong
-    Wait Until Element Is Visible    ${Button_Edit_Phong}    10s
-    Scroll Element Into View    ${Button_Edit_Phong}
-    Click Element                   ${Button_Edit_Phong}  
+    Wait Until Element Is Visible    ${BUTTON_EDIT_PHONG}    10s
+    Scroll Element Into View    ${BUTTON_EDIT_PHONG}
+    Click Element                   ${BUTTON_EDIT_PHONG}  
 
-    Wait Until Element Is Visible    ${Button_Back_To_storage}    10s
-    Click Element                   ${Button_Back_To_storage}
+    Wait Until Element Is Visible    ${BUTTON_BACK_TO_STORAGE}    10s
+    Click Element                   ${BUTTON_BACK_TO_STORAGE}
 
     Wait Until Element Is Visible    Quản lý Phông Lưu trữ    10s
 
 Delete Phong
-    Wait Until Element Is Visible    ${Button_Delete_Phong}    10s
-    Click Element                   ${Button_Delete_Phong}
+    Wait Until Element Is Visible    ${BUTTON_DELETE_PHONG}    10s
+    Click Element                   ${BUTTON_DELETE_PHONG}
     Wait Until Page Contains             Xoá phông lưu trữ thành công!
 
 Filter Phong
     [Arguments]    ${phong}
-    Wait Until Element Is Visible    ${Dropdown_Phong}    10s
-    Select From List By Label    ${Dropdown_Phong}    ${phong}
+    Wait Until Element Is Visible    ${DROPDOWN_PHONG}    10s
+    Select From List By Label    ${DROPDOWN_PHONG}    ${phong}
     Wait Until Element Is Visible    xpath=//table    10s
     Duyet Tung Dong Chua Nhieu Tu Khoa    ${phong}
 
 #Muc luc ho so
 Back To Mucluc
-    Wait Until Element Is Visible    ${Button_Add_Mucluc}    10s
-    Click Element                   ${Button_Add_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_ADD_MUCLUC}    10s
+    Click Element                   ${BUTTON_ADD_MUCLUC}
 
-    Wait Until Element Is Visible    ${Button_Back_To_Mucluc}    10s
-    Click Element                   ${Button_Back_To_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_BACK_TO_MUCLUC}    10s
+    Click Element                   ${BUTTON_BACK_TO_MUCLUC}
 
     Wait Until Element Is Visible    Quản lý Mục lục hồ sơ    10s
 
 Cancel Add Mucluc
-    Wait Until Element Is Visible    ${Button_Add_Mucluc}    10s
-    Click Element                   ${Button_Add_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_ADD_MUCLUC}    10s
+    Click Element                   ${BUTTON_ADD_MUCLUC}
 
-    Wait Until Element Is Visible    ${Button_Cancel_Mucluc}    10s
-    Scroll Element Into View    ${Button_Cancel_Mucluc}
-    Click Element                   ${Button_Cancel_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_CANCEL_MUCLUC}    10s
+    Scroll Element Into View    ${BUTTON_CANCEL_MUCLUC}
+    Click Element                   ${BUTTON_CANCEL_MUCLUC}
 
     Wait Until Element Is Visible    Quản lý Mục lục hồ sơ    10s
 
 Verify Add To Mucluc
-    [Arguments]    ${donvi}    ${phong}
-    Wait Until Element Is Visible    ${Button_Add_Mucluc}    10s
-    Click Element                    ${Button_Add_Mucluc}
-    Wait Until Element Is Visible    ${Input_ID_Mucluc}    10s
-    Input Text                       ${Input_ID_Mucluc}    2
+    [Arguments]    ${DONVI}    ${PHONG}
+    Wait Until Element Is Visible    ${BUTTON_ADD_MUCLUC}    10s
+    Click Element                    ${BUTTON_ADD_MUCLUC}
+    Wait Until Element Is Visible    ${INPUT_ID_MUCLUC}    10s
+    Input Text                       ${INPUT_ID_MUCLUC}    2
 
-    Wait Until Element Is Visible    ${Dropdown_DonVi}    10s
-    Select From List By Label    ${Dropdown_DonVi}    ${donvi}
+    Wait Until Element Is Visible    ${DROPDOWN_DONVI}    10s
+    Select From List By Label    ${DROPDOWN_DONVI}    ${DONVI}
 
-    Wait Until Element Is Visible    ${Dropdown_Phong}    10s
-    Wait Until Element Contains    ${Dropdown_Phong}    ${phong}    10s 
-    Scroll Element Into View    ${Dropdown_Phong}
-    Select From List By Label    ${Dropdown_Phong}    ${phong}
+    Wait Until Element Is Visible    ${DROPDOWN_PHONG}    10s
+    Wait Until Element Contains    ${DROPDOWN_PHONG}    ${PHONG}    10s 
+    Scroll Element Into View    ${DROPDOWN_PHONG}
+    Select From List By Label    ${DROPDOWN_PHONG}    ${PHONG}
 
-    Wait Until Element Is Visible    ${Input_Name_Mucluc}    10s
-    Input Text                       ${Input_Name_Mucluc}    Tài liệu demo
+    Wait Until Element Is Visible    ${INPUT_NAME_MUCLUC}    10s
+    Input Text                       ${INPUT_NAME_MUCLUC}    Tài liệu demo
 
-    Wait Until Element Is Visible    ${Button_Save_Mucluc}    10s
-    Scroll Element Into View         ${Button_Save_Mucluc}
-    Click Element                    ${Button_Save_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_SAVE_MUCLUC}    10s
+    Scroll Element Into View         ${BUTTON_SAVE_MUCLUC}
+    Click Element                    ${BUTTON_SAVE_MUCLUC}
 
     Wait Until Page Contains              Thêm mục lục hồ sơ thành công!
 
 Edit Mucluc
-    Wait Until Element Is Visible    ${Button_Edit_Mucluc}    10s
-    Scroll Element Into View    ${Button_Edit_Mucluc}
-    Click Element                   ${Button_Edit_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_EDIT_MUCLUC}    10s
+    Scroll Element Into View    ${BUTTON_EDIT_MUCLUC}
+    Click Element                   ${BUTTON_EDIT_MUCLUC}
     
-    Wait Until Element Is Visible    ${Input_Name_Mucluc}    10s
-    Clear Element Text             ${Input_Name_Mucluc}
-    Input Text                       ${Input_Name_Mucluc}    Tài liệu demo1
+    Wait Until Element Is Visible    ${INPUT_NAME_MUCLUC}    10s
+    Clear Element Text             ${INPUT_NAME_MUCLUC}
+    Input Text                       ${INPUT_NAME_MUCLUC}    Tài liệu demo1
     
-    Wait Until Element Is Visible    ${Button_Update_Mucluc}    10s
-    Scroll Element Into View    ${Button_Update_Mucluc}
-    Click Element               ${Button_Update_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_UPDATE_MUCLUC}    10s
+    Scroll Element Into View    ${BUTTON_UPDATE_MUCLUC}
+    Click Element               ${BUTTON_UPDATE_MUCLUC}
 
     Wait Until Page Contains             Cập nhật mục lục hồ sơ thành công!
 
 Edit Mucluc "Cancel"
-    Wait Until Element Is Visible    ${Button_Edit_Mucluc}    10s
-    Scroll Element Into View    ${Button_Edit_Mucluc}
-    Click Element                   ${Button_Edit_Mucluc}  
+    Wait Until Element Is Visible    ${BUTTON_EDIT_MUCLUC}    10s
+    Scroll Element Into View    ${BUTTON_EDIT_MUCLUC}
+    Click Element                   ${BUTTON_EDIT_MUCLUC}  
 
-    Wait Until Element Is Visible    ${Input_Name_Mucluc}    10s
-    Clear Element Text             ${Input_Name_Mucluc}
-    Input Text                       ${Input_Name_Mucluc}    Tài liệu demo1
+    Wait Until Element Is Visible    ${INPUT_NAME_MUCLUC}    10s
+    Clear Element Text             ${INPUT_NAME_MUCLUC}
+    Input Text                       ${INPUT_NAME_MUCLUC}    Tài liệu demo1
 
-    Wait Until Element Is Visible    ${Button_Cancel_Mucluc}    10s
-    Scroll Element Into View    ${Button_Cancel_Mucluc}
-    Click Element                   ${Button_Cancel_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_CANCEL_MUCLUC}    10s
+    Scroll Element Into View    ${BUTTON_CANCEL_MUCLUC}
+    Click Element                   ${BUTTON_CANCEL_MUCLUC}
 
     Wait Until Element Is Visible    Quản lý Mục lục hồ sơ    10s
 
 Edit Back To Mucluc
-    Wait Until Element Is Visible    ${Button_Edit_Mucluc}    10s
-    Scroll Element Into View    ${Button_Edit_Mucluc}
-    Click Element                   ${Button_Edit_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_EDIT_MUCLUC}    10s
+    Scroll Element Into View    ${BUTTON_EDIT_MUCLUC}
+    Click Element                   ${BUTTON_EDIT_MUCLUC}
 
-    Wait Until Element Is Visible    ${Input_Name_Mucluc}    10s
-    Scroll Element Into View    ${Input_Name_Mucluc}
-    Clear Element Text             ${Input_Name_Mucluc}
-    Input Text                       ${Input_Name_Mucluc}    Tài liệu demo1  
+    Wait Until Element Is Visible    ${INPUT_NAME_MUCLUC}    10s
+    Scroll Element Into View    ${INPUT_NAME_MUCLUC}
+    Clear Element Text             ${INPUT_NAME_MUCLUC}
+    Input Text                       ${INPUT_NAME_MUCLUC}    Tài liệu demo1  
 
-    Wait Until Element Is Visible    ${Button_Back_To_Mucluc}    10s
+    Wait Until Element Is Visible    ${BUTTON_BACK_TO_MUCLUC}    10s
     Press Keys    None    PAGE_UP
-    Click Element                   ${Button_Back_To_Mucluc}
+    Click Element                   ${BUTTON_BACK_TO_MUCLUC}
 
     Wait Until Element Is Visible    Quản lý Mục lục hồ sơ    10s
 
 Delete Mucluc
-    Wait Until Element Is Visible    ${Button_Delete_Mucluc}    10s
-    Scroll Element Into View    ${Button_Delete_Mucluc}
-    Click Element                   ${Button_Delete_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_DELETE_MUCLUC}    10s
+    Scroll Element Into View    ${BUTTON_DELETE_MUCLUC}
+    Click Element                   ${BUTTON_DELETE_MUCLUC}
     Wait Until Page Contains             Xoá mục lục hồ sơ thành công!
 
 Filter Phong_Donvi
     [Arguments]    ${donvi}
-    Wait Until Element Is Visible    ${Dropdown_DonViP}    10s
-    Select From List By Label    ${Dropdown_DonViP}    ${donvi}   
+    Wait Until Element Is Visible    ${DROPDOWN_DONVIP}    10s
+    Select From List By Label    ${DROPDOWN_DONVIP}    ${donvi}   
     Wait Until Page Contains             Chi nhánh TP.HCM
 
 Filter Phong_Donvi2
     [Arguments]    ${donvi}    ${phong}
-    Wait Until Element Is Visible    ${Dropdown_DonViP}    10s
-    Select From List By Label    ${Dropdown_DonViP}    ${donvi} 
+    Wait Until Element Is Visible    ${DROPDOWN_DONVIP}    10s
+    Select From List By Label    ${DROPDOWN_DONVIP}    ${donvi} 
 
-    Wait Until Element Is Visible    ${Dropdown_DVPhong}    10s
-    Wait Until Element Contains    ${Dropdown_DVPhong}    ${phong}    10s 
-    Select From List By Label    ${Dropdown_DVPhong}    ${phong}
+    Wait Until Element Is Visible    ${DROPDOWN_DVPHONG}    10s
+    Wait Until Element Contains    ${DROPDOWN_DVPHONG}    ${phong}    10s 
+    Select From List By Label    ${DROPDOWN_DVPHONG}    ${phong}
 
     Wait Until Page Contains    Chi nhánh TP.HCM    10s
     Wait Until Page Contains    Phông Hồ sơ Nhân sự    10s
 
-
 Add Unit and Name Unit Blank 
-    Wait Until Element Is Visible    ${Button_Add_Unit}    10s
-    Click Element                   ${Button_Add_Unit}
+    Wait Until Element Is Visible    ${BUTTON_ADD_UNIT}    10s
+    Click Element                   ${BUTTON_ADD_UNIT}
 
-    
-    Wait Until Element Is Visible    ${Input_ID_Unit}    10s
-    Scroll Element Into View    ${Input_ID_Unit}
-    Input Text                    ${Input_ID_Unit}    01
+    Wait Until Element Is Visible    ${INPUT_ID_UNIT}    10s
+    Scroll Element Into View    ${INPUT_ID_UNIT}
+    Input Text                    ${INPUT_ID_UNIT}    01
 
-    Wait Until Element Is Visible    ${Button_Save_Add_Unit}    10s
-    Scroll Element Into View    ${Button_Save_Add_Unit}
-    Click Element                   ${Button_Save_Add_Unit}
+    Wait Until Element Is Visible    ${BUTTON_SAVE_ADD_UNIT}    10s
+    Scroll Element Into View    ${BUTTON_SAVE_ADD_UNIT}
+    Click Element                   ${BUTTON_SAVE_ADD_UNIT}
 
     Wait Until Page Contains    Tên đơn vị không được để trống
 
 Add Unit and ID_Name Unit Blank
-    Wait Until Element Is Visible    ${Button_Add_Unit}    10s
-    Click Element                   ${Button_Add_Unit}
+    Wait Until Element Is Visible    ${BUTTON_ADD_UNIT}    10s
+    Click Element                   ${BUTTON_ADD_UNIT}
 
-    Wait Until Element Is Visible    ${Button_Save_Add_Unit}    10s
-    Scroll Element Into View    ${Button_Save_Add_Unit}
-    Click Element                   ${Button_Save_Add_Unit}
+    Wait Until Element Is Visible    ${BUTTON_SAVE_ADD_UNIT}    10s
+    Scroll Element Into View    ${BUTTON_SAVE_ADD_UNIT}
+    Click Element                   ${BUTTON_SAVE_ADD_UNIT}
     Wait Until Page Contains    Mã đơn vị không được để trống
     Wait Until Page Contains    Tên đơn vị không được để trống    
 
 Add Phong but Name Phong Blank
     [Arguments]    ${donvi}
-    Wait Until Element Is Visible    ${Button_Add_Storage}    10s
-    Click Element                   ${Button_Add_Storage}
-    Wait Until Element Is Visible    ${Dropdown_Name_Unit}    10s
-    Select From List By Label    ${Dropdown_Name_Unit}    ${donvi}
+    Wait Until Element Is Visible    ${BUTTON_ADD_STORAGE}    10s
+    Click Element                   ${BUTTON_ADD_STORAGE}
+    Wait Until Element Is Visible    ${DROPDOWN_NAME_UNIT}    10s
+    Select From List By Label    ${DROPDOWN_NAME_UNIT}    ${donvi}
 
-    Wait Until Element Is Visible    ${Button_Save_Phong}    10s
-    Scroll Element Into View    ${Button_Save_Phong}
-    Click Element                   ${Button_Save_Phong}
+    Wait Until Element Is Visible    ${BUTTON_SAVE_PHONG}    10s
+    Scroll Element Into View    ${BUTTON_SAVE_PHONG}
+    Click Element                   ${BUTTON_SAVE_PHONG}
 
 Add Phong but Unit Blank
-    Wait Until Element Is Visible    ${Button_Add_Storage}    10s
-    Click Element                   ${Button_Add_Storage}
+    Wait Until Element Is Visible    ${BUTTON_ADD_STORAGE}    10s
+    Click Element                   ${BUTTON_ADD_STORAGE}
 
-    Wait Until Element Is Visible    ${Input_Name_Phong}    10s
-    Scroll Element Into View    ${Input_Name_Phong}
-    Input Text    ${Input_Name_Phong}    tài liệu
+    Wait Until Element Is Visible    ${INPUT_NAME_PHONG}    10s
+    Scroll Element Into View    ${INPUT_NAME_PHONG}
+    Input Text    ${INPUT_NAME_PHONG}    tài liệu
 
-    Wait Until Element Is Visible    ${Button_Save_Phong}    10s
-    Scroll Element Into View    ${Button_Save_Phong}
-    Click Element                   ${Button_Save_Phong}
+    Wait Until Element Is Visible    ${BUTTON_SAVE_PHONG}    10s
+    Scroll Element Into View    ${BUTTON_SAVE_PHONG}
+    Click Element                   ${BUTTON_SAVE_PHONG}
     Wait Until Page Contains    Vui lòng chọn đơn vị
 
 Add Mucluc Blank All 
-    Wait Until Element Is Visible    ${Button_Add_Mucluc}    10s
-    Click Element                   ${Button_Add_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_ADD_MUCLUC}    10s
+    Click Element                   ${BUTTON_ADD_MUCLUC}
 
-    Wait Until Element Is Visible    ${Button_Save_Mucluc}    10s
-    Scroll Element Into View    ${Button_Save_Mucluc}
-    Click Element                   ${Button_Save_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_SAVE_MUCLUC}    10s
+    Scroll Element Into View    ${BUTTON_SAVE_MUCLUC}
+    Click Element                   ${BUTTON_SAVE_MUCLUC}
 
 Add Mucluc Unit Blank 
-    Wait Until Element Is Visible    ${Button_Add_Mucluc}    10s
-    Click Element                   ${Button_Add_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_ADD_MUCLUC}    10s
+    Click Element                   ${BUTTON_ADD_MUCLUC}
 
-    Wait Until Element Is Visible    ${Input_ID_Mucluc}    10s
-    Input Text    ${Input_ID_Mucluc}    01
-    Scroll Element Into View    ${Input_Name_Mucluc}
-    Input Text    ${Input_ID_Mucluc}    Hồ sơ demo
-    
+    Wait Until Element Is Visible    ${INPUT_ID_MUCLUC}    10s
+    Input Text    ${INPUT_ID_MUCLUC}    01
+    Scroll Element Into View    ${INPUT_NAME_MUCLUC}
+    Input Text    ${INPUT_ID_MUCLUC}    Hồ sơ demo
 
-    Wait Until Element Is Visible    ${Button_Save_Mucluc}    10s
-    Scroll Element Into View    ${Button_Save_Mucluc}
-    Click Element                   ${Button_Save_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_SAVE_MUCLUC}    10s
+    Scroll Element Into View    ${BUTTON_SAVE_MUCLUC}
+    Click Element                   ${BUTTON_SAVE_MUCLUC}
 
 Add Mucluc but Name MucLuc Blank 
     [Arguments]    ${donvi}    ${phong}
-    Wait Until Element Is Visible    ${Button_Add_Mucluc}    10s
-    Click Element                   ${Button_Add_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_ADD_MUCLUC}    10s
+    Click Element                   ${BUTTON_ADD_MUCLUC}
 
-    Wait Until Element Is Visible    ${Input_ID_Mucluc}    10s
-    Input Text    ${Input_ID_Mucluc}    01
-    Scroll Element Into View    ${Input_Name_Mucluc}
-    Input Text    ${Input_ID_Mucluc}    Hồ sơ demo
+    Wait Until Element Is Visible    ${INPUT_ID_MUCLUC}    10s
+    Input Text    ${INPUT_ID_MUCLUC}    01
+    Scroll Element Into View    ${INPUT_NAME_MUCLUC}
+    Input Text    ${INPUT_ID_MUCLUC}    Hồ sơ demo
 
-    Wait Until Element Is Visible    ${Dropdown_DonVi}    10s
-    Select From List By Label    ${Dropdown_DonVi}    ${donvi}
+    Wait Until Element Is Visible    ${DROPDOWN_DONVI}    10s
+    Select From List By Label    ${DROPDOWN_DONVI}    ${donvi}
 
-    Wait Until Element Is Visible    ${Dropdown_Phong}    10s
-    Wait Until Element Contains    ${Dropdown_Phong}    ${phong}    10s 
-    Select From List By Label    ${Dropdown_Phong}    ${phong}
+    Wait Until Element Is Visible    ${DROPDOWN_PHONG}    10s
+    Wait Until Element Contains    ${DROPDOWN_PHONG}    ${phong}    10s 
+    Select From List By Label    ${DROPDOWN_PHONG}    ${phong}
 
-    Wait Until Element Is Visible    ${Button_Save_Mucluc}    10s
-    Scroll Element Into View    ${Button_Save_Mucluc}
-    Click Element                   ${Button_Save_Mucluc}
+    Wait Until Element Is Visible    ${BUTTON_SAVE_MUCLUC}    10s
+    Scroll Element Into View    ${BUTTON_SAVE_MUCLUC}
+    Click Element                   ${BUTTON_SAVE_MUCLUC}
 
 Verify Field Is Focused
     [Arguments]    ${locator}

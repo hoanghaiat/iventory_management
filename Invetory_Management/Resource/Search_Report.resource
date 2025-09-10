@@ -43,44 +43,44 @@ Do Search
     [Arguments]    ${keyword}
     Click Element    ${Search_Textbox}
     Input Text    ${Search_Textbox}    ${keyword}
-    Wait Until Element Is Visible    ${Button_Search}    10s
-    Scroll Element Into View         ${Button_Search}
-    Click Button    ${Button_Search}
+    Wait Until Element Is Visible    ${BUTTON_SEARCH}    10s
+    Scroll Element Into View         ${BUTTON_SEARCH}
+    Click Button    ${BUTTON_SEARCH}
 
 Verify Search Error 
     Wait Until Page Contains    Không tìm thấy kết quả nào
 
 
 Search Textbox Blank
-    Wait Until Element Is Visible    ${Button_Search}    10s
-    Scroll Element Into View         ${Button_Search}
-    Click Button    ${Button_Search}
+    Wait Until Element Is Visible    ${BUTTON_SEARCH}    10s
+    Scroll Element Into View         ${BUTTON_SEARCH}
+    Click Button    ${BUTTON_SEARCH}
     Wait Until Page Contains    Không tìm thấy kết quả nào
 
 Search DonVi
     [Arguments]    ${don_vi}
-    Wait Until Element Is Visible    ${Dropdown_DonVi}    10s
-    Select From List By Label    ${Dropdown_DonVi}    ${don_vi}
+    Wait Until Element Is Visible    ${DROPDOWN_DONVI}    10s
+    Select From List By Label    ${DROPDOWN_DONVI}    ${don_vi}
 
-    Wait Until Element Is Visible    ${Button_Search}    10s
-    Scroll Element Into View    ${Button_Search}
-    Click Button    ${Button_Search}
+    Wait Until Element Is Visible    ${BUTTON_SEARCH}    10s
+    Scroll Element Into View    ${BUTTON_SEARCH}
+    Click Button    ${BUTTON_SEARCH}
 
     Wait Until Element Is Visible    xpath=//table    10s
     Duyet Tung Dong Bang Chua Tu Khoa    ${don_vi}
 
 Search DonVi and Phong 
     [Arguments]    ${DV}    ${phong}
-    Wait Until Element Is Visible    ${Dropdown_DonVi}    10s
-    Select From List By Label    ${Dropdown_DonVi}    ${DV}
-    Wait Until Element Is Visible    ${Dropdown_Phong}    10s
-    Wait Until Element Contains    ${Dropdown_Phong}    ${phong}    10s 
-    Scroll Element Into View    ${Dropdown_Phong}
-    Select From List By Label    ${Dropdown_Phong}    ${phong}
+    Wait Until Element Is Visible    ${DROPDOWN_DONVI}    10s
+    Select From List By Label    ${DROPDOWN_DONVI}    ${DV}
+    Wait Until Element Is Visible    ${DROPDOWN_PHONG}    10s
+    Wait Until Element Contains    ${DROPDOWN_PHONG}    ${phong}    10s 
+    Scroll Element Into View    ${DROPDOWN_PHONG}
+    Select From List By Label    ${DROPDOWN_PHONG}    ${phong}
 
-    Wait Until Element Is Visible    ${Button_Search}    10s
-    Scroll Element Into View    ${Button_Search}
-    Click Button    ${Button_Search}
+    Wait Until Element Is Visible    ${BUTTON_SEARCH}    10s
+    Scroll Element Into View    ${BUTTON_SEARCH}
+    Click Button    ${BUTTON_SEARCH}
 
     Wait Until Element Is Visible    xpath=//table    10s
     Scroll Element Into View    xpath=//table
@@ -88,52 +88,52 @@ Search DonVi and Phong
 
 Search Kho
     [Arguments]    ${kho}
-    Wait Until Element Is Visible    ${Dropdown_Kho}    10s
-    Scroll Element Into View    ${Dropdown_Kho}
-    Select From List By Label    ${Dropdown_Kho}    ${kho}
+    Wait Until Element Is Visible    ${DROPDOWN_KHO}    10s
+    Scroll Element Into View    ${DROPDOWN_KHO}
+    Select From List By Label    ${DROPDOWN_KHO}    ${kho}
 
-    Wait Until Element Is Visible    ${Button_Search}    10s
-    Scroll Element Into View    ${Button_Search}
-    Click Button    ${Button_Search}
+    Wait Until Element Is Visible    ${BUTTON_SEARCH}    10s
+    Scroll Element Into View    ${BUTTON_SEARCH}
+    Click Button    ${BUTTON_SEARCH}
 
     Wait Until Element Is Visible    xpath=//table    10s
     Duyet Tung Dong Bang Chua Tu Khoa    ${kho}
 Search Gia        
     [Arguments]    ${donvi}    ${phong}    ${kho}    ${gia}
-    Wait Until Element Is Visible    ${Dropdown_DonVi}    10s
-    Select From List By Label    ${Dropdown_DonVi}    ${donvi}
+    Wait Until Element Is Visible    ${DROPDOWN_DONVI}    10s
+    Select From List By Label    ${DROPDOWN_DONVI}    ${donvi}
 
-    Wait Until Element Is Visible    ${Dropdown_Phong}    10s
-    Wait Until Element Contains    ${Dropdown_Phong}    ${phong}    10s 
-    Scroll Element Into View    ${Dropdown_Phong}
-    Select From List By Label    ${Dropdown_Phong}    ${phong}
+    Wait Until Element Is Visible    ${DROPDOWN_PHONG}    10s
+    Wait Until Element Contains    ${DROPDOWN_PHONG}    ${phong}    10s 
+    Scroll Element Into View    ${DROPDOWN_PHONG}
+    Select From List By Label    ${DROPDOWN_PHONG}    ${phong}
 
-    Wait Until Element Is Visible    ${Dropdown_Kho}    10s
-    Wait Until Element Contains    ${Dropdown_Kho}    ${kho}    10s
-    Select From List By Label    ${Dropdown_Kho}    ${kho}
+    Wait Until Element Is Visible    ${DROPDOWN_KHO}    10s
+    Wait Until Element Contains    ${DROPDOWN_KHO}    ${kho}    10s
+    Select From List By Label    ${DROPDOWN_KHO}    ${kho}
 
-    Wait Until Element Is Visible    ${Dropdown_Gia}    10s
-    Wait Until Element Contains    ${Dropdown_Gia}    ${gia}    10s
-    Select From List By Label    ${Dropdown_Gia}    ${gia}
+    Wait Until Element Is Visible    ${DROPDOWN_GIA}    10s
+    Wait Until Element Contains    ${DROPDOWN_GIA}    ${gia}    10s
+    Select From List By Label    ${DROPDOWN_GIA}    ${gia}
 
-    Wait Until Element Is Visible    ${Button_Search}    10s
-    Scroll Element Into View    ${Button_Search}
-    Click Button    ${Button_Search}
+    Wait Until Element Is Visible    ${BUTTON_SEARCH}    10s
+    Scroll Element Into View    ${BUTTON_SEARCH}
+    Click Button    ${BUTTON_SEARCH}
 
     Wait Until Element Is Visible    xpath=//table    10s
     Duyet Tung Dong Chua Nhieu Tu Khoa    ${donvi}    ${phong}    ${kho}    ${gia}
 
 Search key and Unit
     [Arguments]    ${keyword}    ${donvi}
-    Click Element    ${Search_Textbox}
-    Input Text    ${Search_Textbox}    ${keyword}
+    Click Element    ${SEARCH_TEXTBOX}
+    Input Text    ${SEARCH_TEXTBOX}    ${keyword}
 
-    Wait Until Element Is Visible    ${Dropdown_DonVi}    10s
-    Select From List By Label    ${Dropdown_DonVi}    ${donvi}  
+    Wait Until Element Is Visible    ${DROPDOWN_DONVI}    10s
+    Select From List By Label    ${DROPDOWN_DONVI}    ${donvi}  
 
-    Wait Until Element Is Visible    ${Button_Search}    10s
-    Scroll Element Into View         ${Button_Search}
-    Click Button    ${Button_Search}
+    Wait Until Element Is Visible    ${BUTTON_SEARCH}    10s
+    Scroll Element Into View         ${BUTTON_SEARCH}
+    Click Button    ${BUTTON_SEARCH}
 
     Wait Until Element Is Visible    xpath=//table    10s
     Duyet Tung Dong Chua Nhieu Tu Khoa    ${keyword}    ${donvi}
@@ -143,84 +143,84 @@ Search key and Unit and Phong
     Click Element    ${Search_Textbox}
     Input Text    ${Search_Textbox}    ${keyword}
 
-    Wait Until Element Is Visible    ${Dropdown_DonVi}    10s
-    Select From List By Label    ${Dropdown_DonVi}    ${donvi}  
+    Wait Until Element Is Visible    ${DROPDOWN_DONVI}    10s
+    Select From List By Label    ${DROPDOWN_DONVI}    ${donvi}  
 
-    Wait Until Element Is Visible    ${Dropdown_Phong}    10s
-    Wait Until Element Contains    ${Dropdown_Phong}    ${phong}    10s 
-    Scroll Element Into View    ${Dropdown_Phong}
-    Select From List By Label    ${Dropdown_Phong}    ${phong}
+    Wait Until Element Is Visible    ${DROPDOWN_PHONG}    10s
+    Wait Until Element Contains    ${DROPDOWN_PHONG}    ${phong}    10s 
+    Scroll Element Into View    ${DROPDOWN_PHONG}
+    Select From List By Label    ${DROPDOWN_PHONG}    ${phong}
 
-    Wait Until Element Is Visible    ${Button_Search}    10s
-    Scroll Element Into View         ${Button_Search}
-    Click Button    ${Button_Search}
+    Wait Until Element Is Visible    ${BUTTON_SEARCH}    10s
+    Scroll Element Into View         ${BUTTON_SEARCH}
+    Click Button    ${BUTTON_SEARCH}
 
     Wait Until Element Is Visible    xpath=//table    10s
     Duyet Tung Dong Chua Nhieu Tu Khoa    ${keyword}    ${donvi}    ${phong}
 
 Search key and Kho
     [Arguments]    ${keyword}    ${kho}
-    Click Element    ${Search_Textbox}
-    Input Text    ${Search_Textbox}    ${keyword}
+    Click Element    ${SEARCH_TEXTBOX}
+    Input Text    ${SEARCH_TEXTBOX}    ${keyword}
 
-    Wait Until Element Is Visible    ${Dropdown_Kho}    10s
-    Select From List By Label    ${Dropdown_Kho}    ${kho}  
+    Wait Until Element Is Visible    ${DROPDOWN_KHO}    10s
+    Select From List By Label    ${DROPDOWN_KHO}    ${kho}  
 
-    Wait Until Element Is Visible    ${Button_Search}    10s
-    Scroll Element Into View         ${Button_Search}
-    Click Button    ${Button_Search}
+    Wait Until Element Is Visible    ${BUTTON_SEARCH}    10s
+    Scroll Element Into View         ${BUTTON_SEARCH}
+    Click Button    ${BUTTON_SEARCH}
 
     Wait Until Element Is Visible    xpath=//table    10s
     Duyet Tung Dong Chua Nhieu Tu Khoa    ${keyword}    ${kho}
 
 Search key and Gia
     [Arguments]    ${keyword}    ${kho}    ${gia}
-    Click Element    ${Search_Textbox}
-    Input Text    ${Search_Textbox}    ${keyword}
+    Click Element    ${SEARCH_TEXTBOX}
+    Input Text    ${SEARCH_TEXTBOX}    ${keyword}
 
-    Wait Until Element Is Visible    ${Dropdown_Kho}    10s
-    Select From List By Label    ${Dropdown_Kho}    ${kho}  
+    Wait Until Element Is Visible    ${DROPDOWN_KHO}    10s
+    Select From List By Label    ${DROPDOWN_KHO}    ${kho}  
 
-    Wait Until Element Is Visible    ${Dropdown_Gia}    10s
-    Wait Until Element Contains    ${Dropdown_Gia}    ${gia}    10s
-    Select From List By Label    ${Dropdown_Gia}    ${gia}
+    Wait Until Element Is Visible    ${DROPDOWN_GIA}    10s
+    Wait Until Element Contains    ${DROPDOWN_GIA}    ${gia}    10s
+    Select From List By Label    ${DROPDOWN_GIA}    ${gia}
 
-    Wait Until Element Is Visible    ${Button_Search}    10s
-    Scroll Element Into View         ${Button_Search}
-    Click Button    ${Button_Search}
+    Wait Until Element Is Visible    ${BUTTON_SEARCH}    10s
+    Scroll Element Into View         ${BUTTON_SEARCH}
+    Click Button    ${BUTTON_SEARCH}
 
     Wait Until Element Is Visible    xpath=//table    10s
     Duyet Tung Dong Chua Nhieu Tu Khoa    ${keyword}    ${kho}    ${gia}
 
 Search All
     [Arguments]    ${keyword}    ${donvi}    ${phong}    ${kho}    ${gia}
-    Click Element    ${Search_Textbox}
-    Input Text    ${Search_Textbox}    ${keyword}
+    Click Element    ${SEARCH_TEXTBOX}
+    Input Text    ${SEARCH_TEXTBOX}    ${keyword}
 
-    Wait Until Element Is Visible    ${Dropdown_DonVi}    10s
-    Select From List By Label    ${Dropdown_DonVi}    ${donvi}  
+    Wait Until Element Is Visible    ${DROPDOWN_DONVI}    10s
+    Select From List By Label    ${DROPDOWN_DONVI}    ${donvi}  
 
-    Wait Until Element Is Visible    ${Dropdown_Phong}    10s
-    Wait Until Element Contains    ${Dropdown_Phong}    ${phong}    10s 
-    Scroll Element Into View    ${Dropdown_Phong}
-    Select From List By Label    ${Dropdown_Phong}    ${phong}
+    Wait Until Element Is Visible    ${DROPDOWN_PHONG}    10s
+    Wait Until Element Contains    ${DROPDOWN_PHONG}    ${phong}    10s 
+    Scroll Element Into View    ${DROPDOWN_PHONG}
+    Select From List By Label    ${DROPDOWN_PHONG}    ${phong}
 
-    Wait Until Element Is Visible    ${Dropdown_Kho}    10s
-    Select From List By Label    ${Dropdown_Kho}    ${kho}  
+    Wait Until Element Is Visible    ${DROPDOWN_KHO}    10s
+    Select From List By Label    ${DROPDOWN_KHO}    ${kho}  
 
-    Wait Until Element Is Visible    ${Dropdown_Gia}    10s
-    Wait Until Element Contains    ${Dropdown_Gia}    ${gia}    10s
-    Select From List By Label    ${Dropdown_Gia}    ${gia}
+    Wait Until Element Is Visible    ${DROPDOWN_GIA}    10s
+    Wait Until Element Contains    ${DROPDOWN_GIA}    ${gia}    10s
+    Select From List By Label    ${DROPDOWN_GIA}    ${gia}
 
-    Wait Until Element Is Visible    ${Button_Search}    10s
-    Scroll Element Into View         ${Button_Search}
-    Click Button    ${Button_Search}
+    Wait Until Element Is Visible    ${BUTTON_SEARCH}    10s
+    Scroll Element Into View         ${BUTTON_SEARCH}
+    Click Button    ${BUTTON_SEARCH}
 
     Wait Until Element Is Visible    xpath=//table    10s
     Duyet Tung Dong Chua Nhieu Tu Khoa    ${keyword}    ${donvi}    ${phong}    ${kho}    ${gia}
 
 Clear Filter
-    Wait Until Element Is Visible    ${Button_Clear_Filter}    10s
-    Scroll Element Into View         ${Button_Clear_Filter}
-    Click Element                   ${Button_Clear_Filter}
+    Wait Until Element Is Visible    ${BUTTON_CLEAR_FILTER}    10s
+    Scroll Element Into View         ${BUTTON_CLEAR_FILTER}
+    Click Element                   ${BUTTON_CLEAR_FILTER}
     Wait Until Page Contains    Tìm kiếm thông tin trong hệ thống

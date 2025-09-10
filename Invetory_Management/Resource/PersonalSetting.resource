@@ -5,5 +5,5 @@ Variables    ../Variables/locator.py
 
 *** Keywords ***
 Button Come Back
-    Click Element    ${Button_Come_Back}
+    Click Element    ${BUTTON_COME_BACK}
     Wait Until Page Contains    Trang chủ
