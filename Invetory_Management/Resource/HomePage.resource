@@ -8,10 +8,10 @@ Variables   ../Variables/locator.py
 Login To System
     Open Browser    ${URL}    chrome
     Maximize Browser Window
-    Wait Until Element Is Visible    ${username_xpath}    30s
-    Input Text    ${username_xpath}    ${USERNAME}
-    Input Text    ${password_xpath}    ${PASSWORD}
-    Click Button  ${loginbtn_xpath}
+    Wait Until Element Is Visible    ${USERNAME_XPATH}    30s
+    Input Text    ${USERNAME_XPATH}    ${USERNAME}
+    Input Text    ${PASSWORD_XPATH}    ${PASSWORD}
+    Click Button  ${LOGINBTN_XPATH}
     
 Get And Compare Count
     [Arguments]    ${box_name}    ${menu_locator}    ${item_box}
