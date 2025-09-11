@@ -154,7 +154,7 @@ Click Logout menu
 Close menu
     Wait Until Page Contains    Quản lý Kho    10s
     Click Element    ${SIDEBAR}
-    Wait Until Element Is Not Visible    ${QLKHO2}    10s
+    Wait Until Element Is Not Visible    ${QLKHOO}    10s
 
 Close QLToChuc
     Wait Until Page Contains    Quản lý Kho    10s
@@ -163,7 +163,7 @@ Close QLToChuc
 
 Close QLKho2
     Wait Until Page Contains    Quản lý Kho    10s
-    Click Element    ${QLKHO2}
+    Click Element    ${QLKHOO}
     Wait Until Element Is Not Visible    ${ITEM_WAREHOUSE}    10s
 
 Close Search_Report
