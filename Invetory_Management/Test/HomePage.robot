@@ -11,37 +11,37 @@ Test Teardown    Close Browser
 TC002 - Kiểm tra hiển thị đúng số lượng "Đơn vị"
     [Documentation]    TC002
     [Tags]    TuAnh    HomePage
-    Get And Compare Count    Đơn vị    ${Item_Unit}    Tổng số đơn vị
+    Get And Compare Count    Đơn vị    ${ITEM_UNIT}    Tổng số đơn vị
 
 TC003 - Kiểm tra hiển thị đúng số lượng "Phông lưu trữ"
     [Documentation]    TC003
     [Tags]    TuAnh    HomePage
-    Get And Compare Count    Phông lưu trữ    ${Item_Storage_Room}    xpath=//table//tbody//tr
+    Get And Compare Count    Phông lưu trữ    ${ITEM_STORAGE_ROOM}    xpath=//table//tbody//tr
 
 TC004 - Kiểm tra hiển thị đúng "Mục lục hồ sơ"
     [Documentation]    TC004
     [Tags]    TuAnh    HomePage
-    Get And Compare Count    Mục lục hồ sơ    ${Item_Profile_Table_Contents}    Tổng mục lục
+    Get And Compare Count    Mục lục hồ sơ    ${ITEM_PROFILE_TABLE_CONTENTS}    Tổng mục lục
 
 TC005 - Kiểm tra hiển thị đúng "Kho lưu trữ"
     [Documentation]    TC005
     [Tags]    TuAnh    HomePage
-    Get And Compare Count    Kho lưu trữ    ${Item_Warehouse}    Tổng số kho
+    Get And Compare Count    Kho lưu trữ    ${ITEM_WAREHOUSE}    Tổng số kho
 
 TC006 - Kiểm tra hiển thị đúng số lượng "Giá kệ"
     [Documentation]    TC006
     [Tags]    TuAnh    HomePage
-    Get And Compare Count    Giá kệ    ${Item_shelf}    Tổng số giá
+    Get And Compare Count    Giá kệ    ${ITEM_SHELF}    Tổng số giá
 
 TC007 - Kiểm tra hiển thị đúng số lượng "Tổng số hộp"
     [Documentation]    TC007
     [Tags]    TuAnh    HomePage
-    Get And Compare Count    Tổng số hộp    ${Item_Box}    Tổng số hộp
+    Get And Compare Count    Tổng số hộp    ${ITEM_BOX}    Tổng số hộp
 
 TC008 - Kiểm tra hiển thị đúng số lượng "Hộp có tài liệu"
     [Documentation]    TC008
     [Tags]    TuAnh    HomePage
-    Get And Compare Count    Hộp có tài liệu    ${Item_Box}    Tổng số hộp
+    Get And Compare Count    Hộp có tài liệu    ${ITEM_BOX}    Tổng số hộp
     
 TC010 - Kiểm tra thao tác nhanh “Thêm đơn vị mới”
     [Documentation]    TC010

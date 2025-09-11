@@ -93,3 +93,4 @@ BUTTON_SEARCH = "//button[@type='submit' and contains(@class,'btn btn-primary')]
 BUTTON_CLEAR_FILTER = "//button[@type='button' and contains(@class,'btn-secondary')]"
 
 SEARCH_TEXTBOX = "//input[@id='keyword']"
+
