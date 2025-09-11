@@ -183,7 +183,7 @@ TC090 - Thêm Phông lưu trữ mới để trống Tên Phông
     [Tags]    TuAnh    OrganizationalManagement
     Click Storage Room
     Add Phong but Name Phong Blank    Ban kiểm soát chỉnh sửa
-    Verify Field Is Focused    ${Input_Name_Phong}
+    Verify Field Is Focused    ${INPUT_NAME_PHONG}
 
 TC091 - Thêm Phông lưu trữ mới để trống Đơn vịị
     [Documentation]    TC091
@@ -196,18 +196,18 @@ TC092 - Thêm mục lục hồ sơ bỏ trống mã mục lục
     [Tags]    TuAnh    OrganizationalManagement
     Click Profile Table of Contents
     Add Mucluc Blank All
-    Verify Field Is Focused    ${Input_ID_Mucluc}
+    Verify Field Is Focused    ${INPUT_ID_MUCLUC}
 
 TC093 - Thêm mục lục hồ sơ mới bỏ trống đơn vị
     [Documentation]    TC093
     [Tags]    TuAnh    OrganizationalManagement
     Click Profile Table of Contents
     Add Mucluc Unit Blank
-    Verify Field Is Focused    ${Dropdown_DonVi}
+    Verify Field Is Focused    ${DROPDOWN_DONVI}
 
 TC094 - Thêm mục mục hồ sơ mới bỏ trống tên mục lục
     [Documentation]    TC093
     [Tags]    TuAnh    OrganizationalManagement
     Click Profile Table of Contents
     Add Mucluc but Name MucLuc Blank    Chi nhánh TP.HCM    Phông Hồ sơ Nhân sự
-    Verify Field Is Focused    ${Input_Name_Mucluc}
+    Verify Field Is Focused    ${INPUT_NAME_MUCLUC}
