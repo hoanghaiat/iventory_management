@@ -1,1794 +1,694 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.1 (Python 3.13.5 on win32)" generated="2025-08-19T13:59:03.331701" rpa="false" schemaversion="5">
-<suite id="s1" name="Test" source="D:\iventory_management\KienTruc_University\Test">
-<suite id="s1-s1" name="Cauhoicuatoi" source="D:\iventory_management\KienTruc_University\Test\cauhoicuatoi.robot">
-<kw name="Open Browser And Login" owner="cauhoicuatoi" type="SETUP">
+<robot generator="Robot 7.3.1 (Python 3.13.5 on win32)" generated="2025-09-16T14:08:43.016850" rpa="false" schemaversion="5">
+<suite id="s1" name="Classes" source="D:\iventory_management\KienTruc_University\Test\Classes.robot">
+<test id="s1-t1" name="Login" line="14">
+<kw name="Login To System" owner="Classes">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:04.081208" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn'.</msg>
+<msg time="2025-09-16T14:08:43.682662" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn'.</msg>
 <arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-19T13:59:04.080929" elapsed="8.521977"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-08-19T13:59:12.603603" elapsed="0.042057"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:12.646565" level="FAIL">Variable '${H_LOGIN}' not found.</msg>
-<arg>${H_LOGIN}</arg>
-<arg>${TIMEOUT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-08-19T13:59:12.645848" elapsed="0.000816">Variable '${H_LOGIN}' not found.</status>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${H_LOGIN}</arg>
-<arg>${USERNAME}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:12.646931" elapsed="0.000091"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${P_LOGIN}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:12.647278" elapsed="0.000054"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>${BTN_LOGIN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:12.647506" elapsed="0.000039"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${MENU_HOCVU}</arg>
-<arg>${TIMEOUT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:12.647668" elapsed="0.000025"/>
-</kw>
-<status status="FAIL" start="2025-08-19T13:59:04.079916" elapsed="8.568062">Variable '${H_LOGIN}' not found.</status>
-</kw>
-<test id="s1-s1-t1" name="QB-FUNC-05 - Chi hien thi cau hoi cua toi" line="9">
-<status status="FAIL" start="2025-08-19T13:59:12.648207" elapsed="0.001084">Parent suite setup failed:
-Variable '${H_LOGIN}' not found.</status>
-</test>
-<test id="s1-s1-t2" name="QB-FUNC-06 - Khong co cau hoi cua toi" line="20">
-<doc>Kiểm tra khi user chưa có câu hỏi, tick "Show only my questions" =&gt; Hiển thị "No data found"</doc>
-<status status="FAIL" start="2025-08-19T13:59:12.651307" elapsed="0.001383">Parent suite setup failed:
-Variable '${H_LOGIN}' not found.</status>
-</test>
-<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-08-19T13:59:12.653755" elapsed="2.309619"/>
-</kw>
-<status status="FAIL" start="2025-08-19T13:59:03.380907" elapsed="11.582592">Suite setup failed:
-Variable '${H_LOGIN}' not found.</status>
-</suite>
-<suite id="s1-s2" name="Hocky" source="D:\iventory_management\KienTruc_University\Test\hocky.robot">
-<kw name="Open Browser And Login" owner="hocky" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:14.996526" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-19T13:59:14.996252" elapsed="4.271537"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-08-19T13:59:19.268227" elapsed="0.061487"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${H_LOGIN}</arg>
-<arg>${TIMEOUT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T13:59:19.330117" elapsed="0.302678"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:19.633349" level="INFO">Typing text 'lecturer1' into text field 'id=id_username'.</msg>
-<arg>${H_LOGIN}</arg>
-<arg>${USERNAME}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T13:59:19.633019" elapsed="0.150019"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:19.783804" level="INFO">Typing text 'demolecturer' into text field 'id=id_password'.</msg>
-<arg>${P_LOGIN}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T13:59:19.783277" elapsed="0.137838"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:19.921738" level="INFO">Clicking button 'xpath=//button[normalize-space(.)='Đăng nhập' or normalize-space(.)='Login']'.</msg>
-<arg>${BTN_LOGIN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T13:59:19.921436" elapsed="0.079209"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:21.236120" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<msg time="2025-08-19T13:59:21.238192" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>${DASHBOARD_H1}</arg>
-<arg>${TIMEOUT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-08-19T13:59:20.001304" elapsed="1.394676">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<msg time="2025-08-19T13:59:21.396455" level="INFO">${ok} = False</msg>
-<var>${ok}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${DASHBOARD_H1}</arg>
-<arg>${TIMEOUT}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-19T13:59:20.000912" elapsed="1.395582"/>
-</kw>
-<if>
-<branch type="IF" condition="not ${ok}">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:21.399428" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<msg time="2025-08-19T13:59:21.400257" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<arg>${SIDEBAR}</arg>
-<arg>${TIMEOUT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-08-19T13:59:21.396964" elapsed="0.005435">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<status status="FAIL" start="2025-08-19T13:59:21.396690" elapsed="0.005870">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</branch>
-<status status="FAIL" start="2025-08-19T13:59:21.396613" elapsed="0.006026">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</if>
-<status status="FAIL" start="2025-08-19T13:59:14.995915" elapsed="6.406928">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<test id="s1-s2-t1" name="CL-SM-01 - Lọc theo học kỳ Summer" line="9">
-<timeout value="3 minutes"/>
-<status status="FAIL" start="2025-08-19T13:59:21.403033" elapsed="0.000874">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s2-t2" name="CL-SM-02 - Xoá lọc học kỳ All Semesters" line="14">
-<timeout value="3 minutes"/>
-<status status="FAIL" start="2025-08-19T13:59:21.404894" elapsed="0.000523">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<kw name="Capture And Close" owner="hocky" type="TEARDOWN">
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:21.411020" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<msg time="2025-08-19T13:59:21.411636" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="FAIL" start="2025-08-19T13:59:21.407899" elapsed="0.024058">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-08-19T13:59:21.432243" elapsed="2.048002"/>
-</kw>
-<status status="FAIL" start="2025-08-19T13:59:21.407447" elapsed="2.073324">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<status status="FAIL" start="2025-08-19T13:59:14.967839" elapsed="8.513143">Suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-
-
-Also suite teardown failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</suite>
-<suite id="s1-s3" name="Loccauhoi" source="D:\iventory_management\KienTruc_University\Test\loccauhoi.robot">
-<kw name="Open Browser To TaoMoiCauHoi" owner="TaoMoiCauHoi" type="SETUP">
-<kw name="Login" owner="TaoMoiCauHoi">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:23.495432" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/'.</msg>
-<arg>${URL}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-19T13:59:23.495165" elapsed="2.992444"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:26.493134" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<msg time="2025-08-19T13:59:26.493867" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<doc>Maximizes current browser window.</doc>
-<status status="FAIL" start="2025-08-19T13:59:26.488277" elapsed="0.028320">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:26.516808" elapsed="0.000046"/>
+<status status="PASS" start="2025-09-16T14:08:43.680295" elapsed="14.733745"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${BTN_HIDE}</arg>
+<arg>${LOGIN_USER}</arg>
 <arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:26.516971" elapsed="0.000026"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>${BTN_HIDE}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:26.517096" elapsed="0.000023"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${USERNAME_INPUT}</arg>
-<arg>30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:26.517209" elapsed="0.000025"/>
+<status status="PASS" start="2025-09-16T14:08:58.414437" elapsed="0.311471"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<arg>${USERNAME_INPUT}</arg>
-<arg>${username}</arg>
+<msg time="2025-09-16T14:08:58.726771" level="INFO">Typing text 'student1' into text field 'xpath=//input[@id="id_username" or @name="username"]'.</msg>
+<arg>${LOGIN_USER}</arg>
+<arg>${USERNAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:26.517337" elapsed="0.000028"/>
+<status status="PASS" start="2025-09-16T14:08:58.726125" elapsed="0.098696"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<arg>${PASSWORD_INPUT}</arg>
-<arg>${password}</arg>
+<msg time="2025-09-16T14:08:58.825778" level="INFO">Typing text 'demostudent' into text field 'xpath=//input[@id="id_password" or @name="password"]'.</msg>
+<arg>${LOGIN_PASS}</arg>
+<arg>${PASSWORD}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:26.517452" elapsed="0.000023"/>
+<status status="PASS" start="2025-09-16T14:08:58.825013" elapsed="0.122883"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<arg>${LOGIN_BUTTON}</arg>
+<msg time="2025-09-16T14:08:58.948980" level="INFO">Clicking button 'xpath=//button[@type="submit" or contains(normalize-space(.),"Login") or contains(normalize-space(.),"Đăng nhập")]'.</msg>
+<arg>${BTN_LOGIN}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:26.517558" elapsed="0.000025"/>
+<status status="PASS" start="2025-09-16T14:08:58.948087" elapsed="0.136181"/>
 </kw>
-<arg>admin</arg>
-<arg>demoadmin</arg>
-<status status="FAIL" start="2025-08-19T13:59:23.494844" elapsed="3.022882">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:02.011457" level="INFO">Current location contains 'https://demo-clo.minds.vn/'.</msg>
+<arg>https://demo-clo.minds.vn/</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-09-16T14:08:59.084440" elapsed="2.927218"/>
 </kw>
-<status status="FAIL" start="2025-08-19T13:59:23.494169" elapsed="3.023681">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
+<arg>student1</arg>
+<arg>demostudent</arg>
+<status status="PASS" start="2025-09-16T14:08:43.679247" elapsed="18.332583"/>
 </kw>
-<test id="s1-s3-t1" name="TC_CB_01 : Thêm câu hỏi bỏ trống các trường dữ liệu" line="9">
-<doc>TC_CB_01</doc>
-<tag>honghanh</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:26.517964" elapsed="0.000823">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s3-t2" name="TC_CB_02 : Thêm câu hỏi thành công" line="14">
-<doc>TC_CB_02</doc>
-<tag>honghanh</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:26.519651" elapsed="0.000527">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s3-t3" name="TC_CB_03 : Kiểm tra trường Course" line="18">
-<doc>TC_CB_03</doc>
-<tag>honghanh</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:26.521886" elapsed="0.001163">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s3-t4" name="TC_CB_04 : Kiểm tra trường Content" line="22">
-<doc>TC_CB_04</doc>
-<tag>honghanh</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:26.523756" elapsed="0.000488">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s3-t5" name="TC_CB_05 : Kiểm tra trường Type" line="27">
-<doc>TC_CB_05</doc>
-<tag>honghanh</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:26.524915" elapsed="0.000838">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s3-t6" name="TC_CB_06 : Kiểm tra trường Difficulty" line="32">
-<doc>TC_CB_06</doc>
-<tag>honghanh</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:26.529395" elapsed="0.001076">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s3-t7" name="TC_CB_07 : Kiểm tra trường Bloom" line="37">
-<doc>TC_CB_07</doc>
-<tag>honghanh</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:26.533216" elapsed="0.000570">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s3-t8" name="TC_CB_08 : Kiểm tra trường Status" line="42">
-<doc>TC_CB_08</doc>
-<tag>honghanh</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:26.537002" elapsed="0.004413">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s3-t9" name="TC_CB_09 : Kiểm tra trường Approval Status" line="47">
-<doc>TC_CB_09</doc>
-<tag>honghanh</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:26.542510" elapsed="0.000670">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s3-t10" name="TC_CB_10 : Kiểm tra nút Back to Question Bank" line="52">
-<doc>TC_CB_10</doc>
-<tag>honghanh</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:26.543742" elapsed="0.000610">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s3-t11" name="TC_CB_11 : Điều hướng trang Thẻ phân loại" line="57">
-<doc>TC_CB_11</doc>
-<tag>honghanh</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:26.545932" elapsed="0.000666">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s3-t12" name="TC_CB_12 : Điều hướng trang nhập câu hỏi" line="62">
-<doc>TC_CB_12</doc>
-<tag>honghanh</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:26.547467" elapsed="0.000646">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-08-19T13:59:26.549121" elapsed="3.006055"/>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-09-16T14:09:02.241177" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-16T14:09:02.012451" elapsed="0.228952"/>
 </kw>
-<status status="FAIL" start="2025-08-19T13:59:23.483305" elapsed="6.072239">Suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</suite>
-<suite id="s1-s4" name="Nhapcauhoi" source="D:\iventory_management\KienTruc_University\Test\nhapcauhoi.robot">
-<kw name="Open Browser And Login" owner="nhapcauhoi" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:29.576895" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-19T13:59:29.576591" elapsed="3.404779"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:32.985063" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<msg time="2025-08-19T13:59:32.985795" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<doc>Maximizes current browser window.</doc>
-<status status="FAIL" start="2025-08-19T13:59:32.981732" elapsed="0.006053">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<arg>${BASE_URL}/en/questionbank/questions/</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:32.988042" elapsed="0.000059"/>
+<doc>Đăng nhập vào hệ thống</doc>
+<tag>Classes</tag>
+<tag>honghanh</tag>
+<timeout value="4 minutes"/>
+<status status="PASS" start="2025-09-16T14:08:43.678306" elapsed="18.563496"/>
+</test>
+<test id="s1-t2" name="CLF-DEFAULTS-01 - Kiểm tra giá trị mặc định và có thể mở trang Lớp học" line="18">
+<kw name="Go To Classes Page" owner="Classes">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:02.245888" level="INFO">Clicking element 'xpath=//a[@href="/en/academics/classes/"]'.</msg>
+<arg>${MENU_CLASSES}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:09:02.245064" elapsed="1.480437"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${H_LOGIN}</arg>
+<arg>${FILTER_SEM}</arg>
 <arg>15s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:32.988244" elapsed="0.000035"/>
+<status status="PASS" start="2025-09-16T14:09:03.725778" elapsed="0.049398"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:09:02.244648" elapsed="1.530737"/>
+</kw>
+<kw name="Assert Default Filters" owner="Classes">
+<kw name="Get Selected List Label" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:03.860012" level="INFO">${sem} = All Semesters</msg>
+<var>${sem}</var>
+<arg>${FILTER_SEM}</arg>
+<doc>Returns the label of selected option from selection list ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:09:03.776389" elapsed="0.083727"/>
+</kw>
+<kw name="Get Selected List Label" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:03.940437" level="INFO">${ay} = All Years</msg>
+<var>${ay}</var>
+<arg>${FILTER_AY}</arg>
+<doc>Returns the label of selected option from selection list ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:09:03.860409" elapsed="0.080094"/>
+</kw>
+<kw name="Get Selected List Label" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:03.998894" level="INFO">${st} = All Statuses</msg>
+<var>${st}</var>
+<arg>${FILTER_STA}</arg>
+<doc>Returns the label of selected option from selection list ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:09:03.940710" elapsed="0.058241"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>"${sem}".lower().strip() in ["all semesters", "tất cả học kỳ"]</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-16T14:09:03.999118" elapsed="0.001469"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>"${ay}".lower().strip() in ["all years", "tất cả năm học"]</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-16T14:09:04.000826" elapsed="0.001037"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>"${st}".lower().strip() in ["all statuses", "tất cả trạng thái"]</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-16T14:09:04.002156" elapsed="0.000570"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:09:03.775961" elapsed="0.226850"/>
+</kw>
+<kw name="Wait Table Has Rows" owner="Classes">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Table Should Have At Least One Row" owner="Classes">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:04.022354" level="INFO">${n} = 9</msg>
+<var>${n}</var>
+<arg>${GRID_ROWS}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:09:04.004816" elapsed="0.017612"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${n} &gt; 0</arg>
+<arg>Bảng không có dòng nào hiển thị.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-16T14:09:04.022650" elapsed="0.001234"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:09:04.004495" elapsed="0.019548"/>
+</kw>
+<arg>${timeout}</arg>
+<arg>1s</arg>
+<arg>Table Should Have At Least One Row</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-09-16T14:09:04.003884" elapsed="0.020222"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:09:04.003137" elapsed="0.021034"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-09-16T14:09:04.211220" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-16T14:09:04.024787" elapsed="0.186584"/>
+</kw>
+<timeout value="4 minutes"/>
+<status status="PASS" start="2025-09-16T14:09:02.242968" elapsed="1.968701"/>
+</test>
+<test id="s1-t3" name="CLF-COMB-SEARCH-01 - Lọc theo Semester + AY + Status + Search và bấm Tìm" line="23">
+<kw name="Go To Classes Page" owner="Classes">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:04.215571" level="INFO">Clicking element 'xpath=//a[@href="/en/academics/classes/"]'.</msg>
+<arg>${MENU_CLASSES}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:09:04.214766" elapsed="1.567914"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${FILTER_SEM}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:09:05.782869" elapsed="0.027269"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:09:04.213755" elapsed="1.596529"/>
+</kw>
+<kw name="Select Semester" owner="Classes">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:05.811646" level="INFO">Selecting options from selection list 'xpath=//select[@id="semester"]' by label Summer.</msg>
+<arg>${FILTER_SEM}</arg>
+<arg>${label}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-09-16T14:09:05.810988" elapsed="0.217531"/>
+</kw>
+<arg>Summer</arg>
+<status status="PASS" start="2025-09-16T14:09:05.810649" elapsed="0.218022"/>
+</kw>
+<kw name="Get List Items" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:06.089323" level="INFO">${years} = ['All Years']</msg>
+<var>${years}</var>
+<arg>${FILTER_AY}</arg>
+<doc>Returns all labels or values of selection list ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:09:06.029094" elapsed="0.060312"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-09-16T14:09:06.090931" level="INFO">Length is 1.</msg>
+<msg time="2025-09-16T14:09:06.091180" level="INFO">${len} = 1</msg>
+<var>${len}</var>
+<arg>${years}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-09-16T14:09:06.090071" elapsed="0.001153"/>
+</kw>
+<if>
+<branch type="IF" condition="${len} &gt; 1">
+<kw name="Select Academic Year" owner="Classes">
+<arg>${years}[-1]</arg>
+<status status="NOT RUN" start="2025-09-16T14:09:06.092553" elapsed="0.000069"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${yr_for_assert}</var>
+<arg>${years}[-1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-16T14:09:06.092804" elapsed="0.000041"/>
+</kw>
+<status status="NOT RUN" start="2025-09-16T14:09:06.091997" elapsed="0.000913"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-16T14:09:06.094422" level="INFO">${yr_for_assert} = </msg>
+<var>${yr_for_assert}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-16T14:09:06.093111" elapsed="0.001369"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:09:06.092985" elapsed="0.001583"/>
+</branch>
+<status status="PASS" start="2025-09-16T14:09:06.091865" elapsed="0.002771"/>
+</if>
+<kw name="Select Status" owner="Classes">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:06.096235" level="INFO">Selecting options from selection list 'xpath=//select[@id="status"]' by label Ongoing.</msg>
+<arg>${FILTER_STA}</arg>
+<arg>${label}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-09-16T14:09:06.095429" elapsed="0.149071"/>
+</kw>
+<arg>Ongoing</arg>
+<status status="PASS" start="2025-09-16T14:09:06.095028" elapsed="0.149656"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${INPUT_Q}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-09-16T14:09:06.245194" elapsed="0.338026"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:06.584622" level="INFO">Clicking element 'xpath=//body'.</msg>
+<arg>xpath=//body</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:09:06.583996" elapsed="0.090290"/>
+</kw>
+<arg>Click Element</arg>
+<arg>xpath=//body</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-16T14:09:06.583679" elapsed="0.090747"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_Q}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:09:06.674929" elapsed="0.042715"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<arg>${H_LOGIN}</arg>
-<arg>${USERNAME}</arg>
+<msg time="2025-09-16T14:09:06.718922" level="INFO">Typing text 'Nhập môn lập trình' into text field 'xpath=//input[@id="query"]'.</msg>
+<arg>${INPUT_Q}</arg>
+<arg>Nhập môn lập trình</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:32.988427" elapsed="0.000035"/>
+<status status="PASS" start="2025-09-16T14:09:06.718245" elapsed="0.160668"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${P_LOGIN}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:32.988577" elapsed="0.000030"/>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:06.892608" level="INFO">Sending key(s) ('ENTER',) to xpath=//input[@id="query"] element.</msg>
+<msg time="2025-09-16T14:09:07.209952" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2025-09-16T14:09:07.210085" level="INFO">Releasing special key ENTER.</msg>
+<arg>${INPUT_Q}</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-09-16T14:09:06.881239" elapsed="1.449812"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>${BTN_LOGIN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:32.988733" elapsed="0.000034"/>
+<kw name="Wait Table Has Rows" owner="Classes">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Table Should Have At Least One Row" owner="Classes">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:08.358309" level="INFO">${n} = 9</msg>
+<var>${n}</var>
+<arg>${GRID_ROWS}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:09:08.333560" elapsed="0.024846"/>
 </kw>
-<kw name="Wait For QB Landed" owner="nhapcauhoi">
-<status status="NOT RUN" start="2025-08-19T13:59:32.989006" elapsed="0.000052"/>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${n} &gt; 0</arg>
+<arg>Bảng không có dòng nào hiển thị.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-16T14:09:08.358783" elapsed="0.001136"/>
 </kw>
-<doc>Mở site, để hệ thống tự redirect login tại trang Question Bank, đăng nhập và chờ trang ổn định.</doc>
-<status status="FAIL" start="2025-08-19T13:59:29.576280" elapsed="3.412964">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
+<status status="PASS" start="2025-09-16T14:09:08.332975" elapsed="0.027108"/>
+</kw>
+<arg>${timeout}</arg>
+<arg>1s</arg>
+<arg>Table Should Have At Least One Row</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-09-16T14:09:08.332433" elapsed="0.027719"/>
+</kw>
+<arg>10s</arg>
+<status status="PASS" start="2025-09-16T14:09:08.331743" elapsed="0.028485"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Table Rows Should Match" owner="Classes">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:08.376823" level="INFO">${rows} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;, &lt;selenium.webdri...</msg>
+<var>${rows}</var>
+<arg>${GRID_ROWS}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:09:08.362265" elapsed="0.014693"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-16T14:09:08.380124" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>${True}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-16T14:09:08.378709" elapsed="0.001489"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${semester}&quot;">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:09:08.578559" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-16T14:09:08.579489" level="FAIL">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression &lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '&lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3]' is not a valid XPath expression.
+  (Session info: chrome=139.0.7258.155); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidselectorexception
 Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
+	GetHandleVerifier [0x0x7ff7a1813d85+79397]
+	GetHandleVerifier [0x0x7ff7a1813de0+79488]
+	(No symbol) [0x0x7ff7a15bc0fa]
+	(No symbol) [0x0x7ff7a15c3a99]
+	(No symbol) [0x0x7ff7a15c6b3c]
+	(No symbol) [0x0x7ff7a15c6c0f]
+	(No symbol) [0x0x7ff7a1612887]
+	(No symbol) [0x0x7ff7a161328c]
+	(No symbol) [0x0x7ff7a1666567]
+	(No symbol) [0x0x7ff7a163b1df]
+	(No symbol) [0x0x7ff7a1663344]
+	(No symbol) [0x0x7ff7a163af73]
+	(No symbol) [0x0x7ff7a16041b1]
+	(No symbol) [0x0x7ff7a1604f43]
+	GetHandleVerifier [0x0x7ff7a1ade1ed+3005069]
+	GetHandleVerifier [0x0x7ff7a1ad831d+2980797]
+	GetHandleVerifier [0x0x7ff7a1af7e0d+3110573]
+	GetHandleVerifier [0x0x7ff7a182d6de+184190]
+	GetHandleVerifier [0x0x7ff7a183516f+215567]
+	GetHandleVerifier [0x0x7ff7a181c974+115220]
+	GetHandleVerifier [0x0x7ff7a181cb29+115657]
+	GetHandleVerifier [0x0x7ff7a1803268+11016]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<var>${sem}</var>
+<arg>xpath=${r}/${COL_SEM}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-09-16T14:09:08.380787" elapsed="0.502478">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression &lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '&lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3]' is not a valid XPath expression.
+  (Session info: chrome=139.0.7258.155); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidselectorexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7a1813d85+79397]
+	GetHandleVerifier [0x0x7ff7a1813de0+79488]
+	(No symbol) [0x0x7ff7a15bc0fa]
+	(No symbol) [0x0x7ff7a15c3a99]
+	(No symbol) [0x0x7ff7a15c6b3c]
+	(No symbol) [0x0x7ff7a15c6c0f]
+	(No symbol) [0x0x7ff7a1612887]
+	(No symbol) [0x0x7ff7a161328c]
+	(No symbol) [0x0x7ff7a1666567]
+	(No symbol) [0x0x7ff7a163b1df]
+	(No symbol) [0x0x7ff7a1663344]
+	(No symbol) [0x0x7ff7a163af73]
+	(No symbol) [0x0x7ff7a16041b1]
+	(No symbol) [0x0x7ff7a1604f43]
+	GetHandleVerifier [0x0x7ff7a1ade1ed+3005069]
+	GetHandleVerifier [0x0x7ff7a1ad831d+2980797]
+	GetHandleVerifier [0x0x7ff7a1af7e0d+3110573]
+	GetHandleVerifier [0x0x7ff7a182d6de+184190]
+	GetHandleVerifier [0x0x7ff7a183516f+215567]
+	GetHandleVerifier [0x0x7ff7a181c974+115220]
+	GetHandleVerifier [0x0x7ff7a181cb29+115657]
+	GetHandleVerifier [0x0x7ff7a1803268+11016]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
 </status>
 </kw>
-<test id="s1-s4-t1" name="TC_BTN_002: Import file câu hỏi hợp lệ" line="16">
-<doc>Import file CSV đúng định dạng, kiểm tra thông báo thành công</doc>
-<timeout value="3 minutes"/>
-<status status="FAIL" start="2025-08-19T13:59:32.989463" elapsed="0.001136">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${sem}</arg>
+<arg>${semester}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2025-09-16T14:09:08.883672" elapsed="0.000071"/>
+</kw>
+<status status="FAIL" start="2025-09-16T14:09:08.380425" elapsed="0.503491">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression &lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '&lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3]' is not a valid XPath expression.
+  (Session info: chrome=139.0.7258.155); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidselectorexception
 Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
+	GetHandleVerifier [0x0x7ff7a1813d85+79397]
+	GetHandleVerifier [0x0x7ff7a1813de0+79488]
+	(No symbol) [0x0x7ff7a15bc0fa]
+	(No symbol) [0x0x7ff7a15c3a99]
+	(No symbol) [0x0x7ff7a15c6b3c]
+	(No symbol) [0x0x7ff7a15c6c0f]
+	(No symbol) [0x0x7ff7a1612887]
+	(No symbol) [0x0x7ff7a161328c]
+	(No symbol) [0x0x7ff7a1666567]
+	(No symbol) [0x0x7ff7a163b1df]
+	(No symbol) [0x0x7ff7a1663344]
+	(No symbol) [0x0x7ff7a163af73]
+	(No symbol) [0x0x7ff7a16041b1]
+	(No symbol) [0x0x7ff7a1604f43]
+	GetHandleVerifier [0x0x7ff7a1ade1ed+3005069]
+	GetHandleVerifier [0x0x7ff7a1ad831d+2980797]
+	GetHandleVerifier [0x0x7ff7a1af7e0d+3110573]
+	GetHandleVerifier [0x0x7ff7a182d6de+184190]
+	GetHandleVerifier [0x0x7ff7a183516f+215567]
+	GetHandleVerifier [0x0x7ff7a181c974+115220]
+	GetHandleVerifier [0x0x7ff7a181cb29+115657]
+	GetHandleVerifier [0x0x7ff7a1803268+11016]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
 </status>
-</test>
-<test id="s1-s4-t2" name="TC_BTN_003: Import file sai định dạng" line="22">
-<doc>Import file .txt sai định dạng, kiểm tra thông báo lỗi</doc>
-<timeout value="3 minutes"/>
-<status status="FAIL" start="2025-08-19T13:59:32.991642" elapsed="0.000687">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
+</branch>
+<status status="FAIL" start="2025-09-16T14:09:08.380380" elapsed="0.503660">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression &lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '&lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3]' is not a valid XPath expression.
+  (Session info: chrome=139.0.7258.155); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidselectorexception
 Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
+	GetHandleVerifier [0x0x7ff7a1813d85+79397]
+	GetHandleVerifier [0x0x7ff7a1813de0+79488]
+	(No symbol) [0x0x7ff7a15bc0fa]
+	(No symbol) [0x0x7ff7a15c3a99]
+	(No symbol) [0x0x7ff7a15c6b3c]
+	(No symbol) [0x0x7ff7a15c6c0f]
+	(No symbol) [0x0x7ff7a1612887]
+	(No symbol) [0x0x7ff7a161328c]
+	(No symbol) [0x0x7ff7a1666567]
+	(No symbol) [0x0x7ff7a163b1df]
+	(No symbol) [0x0x7ff7a1663344]
+	(No symbol) [0x0x7ff7a163af73]
+	(No symbol) [0x0x7ff7a16041b1]
+	(No symbol) [0x0x7ff7a1604f43]
+	GetHandleVerifier [0x0x7ff7a1ade1ed+3005069]
+	GetHandleVerifier [0x0x7ff7a1ad831d+2980797]
+	GetHandleVerifier [0x0x7ff7a1af7e0d+3110573]
+	GetHandleVerifier [0x0x7ff7a182d6de+184190]
+	GetHandleVerifier [0x0x7ff7a183516f+215567]
+	GetHandleVerifier [0x0x7ff7a181c974+115220]
+	GetHandleVerifier [0x0x7ff7a181cb29+115657]
+	GetHandleVerifier [0x0x7ff7a1803268+11016]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
 </status>
-</test>
-<test id="s1-s4-t3" name="TC_BTN_004: Mở trang quản lý tag" line="28">
-<doc>Click Manage Tags, kiểm tra mở trang quản lý tag</doc>
-<timeout value="3 minutes"/>
-<status status="FAIL" start="2025-08-19T13:59:32.993502" elapsed="0.000674">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
+</if>
+<if>
+<branch type="IF" condition="&quot;${year}&quot;">
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${yr}</var>
+<arg>xpath=${r}/${COL_YEAR}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-16T14:09:08.884412" elapsed="0.000053"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${yr}</arg>
+<arg>${year}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2025-09-16T14:09:08.884717" elapsed="0.000054"/>
+</kw>
+<status status="NOT RUN" start="2025-09-16T14:09:08.884218" elapsed="0.000642"/>
+</branch>
+<status status="NOT RUN" start="2025-09-16T14:09:08.884182" elapsed="0.000746"/>
+</if>
+<if>
+<branch type="IF" condition="&quot;${status}&quot;">
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${st}</var>
+<arg>xpath=${r}/${COL_STATUS}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-16T14:09:08.885178" elapsed="0.000052"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${st}</arg>
+<arg>${status}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2025-09-16T14:09:08.885415" elapsed="0.000053"/>
+</kw>
+<status status="NOT RUN" start="2025-09-16T14:09:08.885024" elapsed="0.000533"/>
+</branch>
+<status status="NOT RUN" start="2025-09-16T14:09:08.884995" elapsed="0.000634"/>
+</if>
+<if>
+<branch type="IF" condition="&quot;${name_contains}&quot;">
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${name}</var>
+<arg>xpath=${r}/${COL_NAME}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-16T14:09:08.885912" elapsed="0.000052"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${name}</arg>
+<arg>${name_contains}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2025-09-16T14:09:08.886139" elapsed="0.000051"/>
+</kw>
+<status status="NOT RUN" start="2025-09-16T14:09:08.885741" elapsed="0.000533"/>
+</branch>
+<status status="NOT RUN" start="2025-09-16T14:09:08.885709" elapsed="0.000634"/>
+</if>
+<var name="${r}">&lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;</var>
+<status status="FAIL" start="2025-09-16T14:09:08.378353" elapsed="0.508139">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression &lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '&lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3]' is not a valid XPath expression.
+  (Session info: chrome=139.0.7258.155); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidselectorexception
 Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
+	GetHandleVerifier [0x0x7ff7a1813d85+79397]
+	GetHandleVerifier [0x0x7ff7a1813de0+79488]
+	(No symbol) [0x0x7ff7a15bc0fa]
+	(No symbol) [0x0x7ff7a15c3a99]
+	(No symbol) [0x0x7ff7a15c6b3c]
+	(No symbol) [0x0x7ff7a15c6c0f]
+	(No symbol) [0x0x7ff7a1612887]
+	(No symbol) [0x0x7ff7a161328c]
+	(No symbol) [0x0x7ff7a1666567]
+	(No symbol) [0x0x7ff7a163b1df]
+	(No symbol) [0x0x7ff7a1663344]
+	(No symbol) [0x0x7ff7a163af73]
+	(No symbol) [0x0x7ff7a16041b1]
+	(No symbol) [0x0x7ff7a1604f43]
+	GetHandleVerifier [0x0x7ff7a1ade1ed+3005069]
+	GetHandleVerifier [0x0x7ff7a1ad831d+2980797]
+	GetHandleVerifier [0x0x7ff7a1af7e0d+3110573]
+	GetHandleVerifier [0x0x7ff7a182d6de+184190]
+	GetHandleVerifier [0x0x7ff7a183516f+215567]
+	GetHandleVerifier [0x0x7ff7a181c974+115220]
+	GetHandleVerifier [0x0x7ff7a181cb29+115657]
+	GetHandleVerifier [0x0x7ff7a1803268+11016]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
 </status>
-</test>
-<test id="s1-s4-t4" name="TC_BTN_005: Xóa toàn bộ bộ lọc" line="33">
-<doc>Chọn Course, Difficulty rồi click Clear Filters, kiểm tra về trạng thái mặc định</doc>
-<timeout value="3 minutes"/>
-<status status="FAIL" start="2025-08-19T13:59:32.995801" elapsed="0.000859">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
+</iter>
+<var>${r}</var>
+<value>@{rows}</value>
+<status status="FAIL" start="2025-09-16T14:09:08.377314" elapsed="0.509549">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression &lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '&lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3]' is not a valid XPath expression.
+  (Session info: chrome=139.0.7258.155); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidselectorexception
 Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
+	GetHandleVerifier [0x0x7ff7a1813d85+79397]
+	GetHandleVerifier [0x0x7ff7a1813de0+79488]
+	(No symbol) [0x0x7ff7a15bc0fa]
+	(No symbol) [0x0x7ff7a15c3a99]
+	(No symbol) [0x0x7ff7a15c6b3c]
+	(No symbol) [0x0x7ff7a15c6c0f]
+	(No symbol) [0x0x7ff7a1612887]
+	(No symbol) [0x0x7ff7a161328c]
+	(No symbol) [0x0x7ff7a1666567]
+	(No symbol) [0x0x7ff7a163b1df]
+	(No symbol) [0x0x7ff7a1663344]
+	(No symbol) [0x0x7ff7a163af73]
+	(No symbol) [0x0x7ff7a16041b1]
+	(No symbol) [0x0x7ff7a1604f43]
+	GetHandleVerifier [0x0x7ff7a1ade1ed+3005069]
+	GetHandleVerifier [0x0x7ff7a1ad831d+2980797]
+	GetHandleVerifier [0x0x7ff7a1af7e0d+3110573]
+	GetHandleVerifier [0x0x7ff7a182d6de+184190]
+	GetHandleVerifier [0x0x7ff7a183516f+215567]
+	GetHandleVerifier [0x0x7ff7a181c974+115220]
+	GetHandleVerifier [0x0x7ff7a181cb29+115657]
+	GetHandleVerifier [0x0x7ff7a1803268+11016]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</for>
+<arg>Summer</arg>
+<arg>${EMPTY}</arg>
+<arg>Ongoing</arg>
+<arg>Nhập môn lập trình</arg>
+<status status="FAIL" start="2025-09-16T14:09:08.361420" elapsed="0.525781">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression &lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '&lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3]' is not a valid XPath expression.
+  (Session info: chrome=139.0.7258.155); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidselectorexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7a1813d85+79397]
+	GetHandleVerifier [0x0x7ff7a1813de0+79488]
+	(No symbol) [0x0x7ff7a15bc0fa]
+	(No symbol) [0x0x7ff7a15c3a99]
+	(No symbol) [0x0x7ff7a15c6b3c]
+	(No symbol) [0x0x7ff7a15c6c0f]
+	(No symbol) [0x0x7ff7a1612887]
+	(No symbol) [0x0x7ff7a161328c]
+	(No symbol) [0x0x7ff7a1666567]
+	(No symbol) [0x0x7ff7a163b1df]
+	(No symbol) [0x0x7ff7a1663344]
+	(No symbol) [0x0x7ff7a163af73]
+	(No symbol) [0x0x7ff7a16041b1]
+	(No symbol) [0x0x7ff7a1604f43]
+	GetHandleVerifier [0x0x7ff7a1ade1ed+3005069]
+	GetHandleVerifier [0x0x7ff7a1ad831d+2980797]
+	GetHandleVerifier [0x0x7ff7a1af7e0d+3110573]
+	GetHandleVerifier [0x0x7ff7a182d6de+184190]
+	GetHandleVerifier [0x0x7ff7a183516f+215567]
+	GetHandleVerifier [0x0x7ff7a181c974+115220]
+	GetHandleVerifier [0x0x7ff7a181cb29+115657]
+	GetHandleVerifier [0x0x7ff7a1803268+11016]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</kw>
+<arg>'${yr_for_assert}'==''</arg>
+<arg>Table Rows Should Match</arg>
+<arg>Summer</arg>
+<arg>${EMPTY}</arg>
+<arg>Ongoing</arg>
+<arg>Nhập môn lập trình</arg>
+<arg>ELSE</arg>
+<arg>Table Rows Should Match</arg>
+<arg>Summer</arg>
+<arg>${yr_for_assert}</arg>
+<arg>Ongoing</arg>
+<arg>Nhập môn lập trình</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-09-16T14:09:08.360739" elapsed="0.526633">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression &lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '&lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3]' is not a valid XPath expression.
+  (Session info: chrome=139.0.7258.155); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidselectorexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7a1813d85+79397]
+	GetHandleVerifier [0x0x7ff7a1813de0+79488]
+	(No symbol) [0x0x7ff7a15bc0fa]
+	(No symbol) [0x0x7ff7a15c3a99]
+	(No symbol) [0x0x7ff7a15c6b3c]
+	(No symbol) [0x0x7ff7a15c6c0f]
+	(No symbol) [0x0x7ff7a1612887]
+	(No symbol) [0x0x7ff7a161328c]
+	(No symbol) [0x0x7ff7a1666567]
+	(No symbol) [0x0x7ff7a163b1df]
+	(No symbol) [0x0x7ff7a1663344]
+	(No symbol) [0x0x7ff7a163af73]
+	(No symbol) [0x0x7ff7a16041b1]
+	(No symbol) [0x0x7ff7a1604f43]
+	GetHandleVerifier [0x0x7ff7a1ade1ed+3005069]
+	GetHandleVerifier [0x0x7ff7a1ad831d+2980797]
+	GetHandleVerifier [0x0x7ff7a1af7e0d+3110573]
+	GetHandleVerifier [0x0x7ff7a182d6de+184190]
+	GetHandleVerifier [0x0x7ff7a183516f+215567]
+	GetHandleVerifier [0x0x7ff7a181c974+115220]
+	GetHandleVerifier [0x0x7ff7a181cb29+115657]
+	GetHandleVerifier [0x0x7ff7a1803268+11016]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-09-16T14:09:09.079744" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-16T14:09:08.888904" elapsed="0.191010"/>
+</kw>
+<timeout value="4 minutes"/>
+<status status="FAIL" start="2025-09-16T14:09:04.212767" elapsed="4.867512">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression &lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '&lt;selenium.webdriver.remote.webelement.WebElement (session="27bf868408498b06a509a836b0ad13d8", element="f.B34DD290F1DFDFC41975C3BD656CA8C1.d.649824B1EE7CF2931758A305769C5DC4.e.240")&gt;/xpath=.//td[3]' is not a valid XPath expression.
+  (Session info: chrome=139.0.7258.155); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidselectorexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7a1813d85+79397]
+	GetHandleVerifier [0x0x7ff7a1813de0+79488]
+	(No symbol) [0x0x7ff7a15bc0fa]
+	(No symbol) [0x0x7ff7a15c3a99]
+	(No symbol) [0x0x7ff7a15c6b3c]
+	(No symbol) [0x0x7ff7a15c6c0f]
+	(No symbol) [0x0x7ff7a1612887]
+	(No symbol) [0x0x7ff7a161328c]
+	(No symbol) [0x0x7ff7a1666567]
+	(No symbol) [0x0x7ff7a163b1df]
+	(No symbol) [0x0x7ff7a1663344]
+	(No symbol) [0x0x7ff7a163af73]
+	(No symbol) [0x0x7ff7a16041b1]
+	(No symbol) [0x0x7ff7a1604f43]
+	GetHandleVerifier [0x0x7ff7a1ade1ed+3005069]
+	GetHandleVerifier [0x0x7ff7a1ad831d+2980797]
+	GetHandleVerifier [0x0x7ff7a1af7e0d+3110573]
+	GetHandleVerifier [0x0x7ff7a182d6de+184190]
+	GetHandleVerifier [0x0x7ff7a183516f+215567]
+	GetHandleVerifier [0x0x7ff7a181c974+115220]
+	GetHandleVerifier [0x0x7ff7a181cb29+115657]
+	GetHandleVerifier [0x0x7ff7a1803268+11016]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
 </status>
 </test>
 <kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-08-19T13:59:32.998305" elapsed="4.998028"/>
+<status status="PASS" start="2025-09-16T14:09:09.083191" elapsed="2.302187"/>
 </kw>
-<doc>Bộ test Import/Manage/Clear Filters cho Question Bank.</doc>
-<status status="FAIL" start="2025-08-19T13:59:29.565911" elapsed="8.430622">Suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
+<doc>Login -&gt; Lớp học -&gt; thao tác bộ lọc Semester/AY/Status + Search.</doc>
+<status status="FAIL" start="2025-09-16T14:08:43.019247" elapsed="28.366368"/>
 </suite>
-<suite id="s1-s5" name="TaoMoiCauHoi" source="D:\iventory_management\KienTruc_University\Test\TaoMoiCauHoi.robot">
-<kw name="Open Browser To TaoMoiCauHoi" owner="TaoMoiCauHoi" type="SETUP">
-<kw name="Login" owner="TaoMoiCauHoi">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:38.003107" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/'.</msg>
-<arg>${URL}</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-19T13:59:38.002915" elapsed="2.756413"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<msg time="2025-08-19T13:59:40.764533" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<msg time="2025-08-19T13:59:40.765744" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</msg>
-<doc>Maximizes current browser window.</doc>
-<status status="FAIL" start="2025-08-19T13:59:40.759767" elapsed="0.012210">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:40.772355" elapsed="0.000071"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${BTN_HIDE}</arg>
-<arg>30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:40.772636" elapsed="0.000060"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>${BTN_HIDE}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:40.772902" elapsed="0.000056"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${USERNAME_INPUT}</arg>
-<arg>30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:40.773141" elapsed="0.000053"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${USERNAME_INPUT}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:40.773373" elapsed="0.000051"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${PASSWORD_INPUT}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:40.773596" elapsed="0.000048"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>${LOGIN_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T13:59:40.773804" elapsed="0.000048"/>
-</kw>
-<arg>admin</arg>
-<arg>demoadmin</arg>
-<status status="FAIL" start="2025-08-19T13:59:38.002709" elapsed="2.771410">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<status status="FAIL" start="2025-08-19T13:59:38.002512" elapsed="2.771873">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</kw>
-<test id="s1-s5-t1" name="TC_CB_01 : Thêm câu hỏi bỏ trống các trường dữ liệu" line="10">
-<doc>TC_CB_01</doc>
-<tag>AnhTuyet</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:40.775862" elapsed="0.002065">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s5-t2" name="TC_CB_02 : Thêm câu hỏi thành công" line="15">
-<doc>TC_CB_02</doc>
-<tag>AnhTuyet</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:40.779634" elapsed="0.000950">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s5-t3" name="TC_CB_03 : Kiểm tra trường Course" line="19">
-<doc>TC_CB_03</doc>
-<tag>AnhTuyet</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:40.782393" elapsed="0.001317">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s5-t4" name="TC_CB_04 : Kiểm tra trường Content" line="23">
-<doc>TC_CB_04</doc>
-<tag>AnhTuyet</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:40.786448" elapsed="0.001863">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s5-t5" name="TC_CB_05 : Kiểm tra trường Type" line="28">
-<doc>TC_CB_05</doc>
-<tag>AnhTuyet</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:40.790406" elapsed="0.001415">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s5-t6" name="TC_CB_06 : Kiểm tra trường Difficulty" line="33">
-<doc>TC_CB_06</doc>
-<tag>AnhTuyet</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:40.793403" elapsed="0.000913">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
-</status>
-</test>
-<test id="s1-s5-t7" name="TC_CB_07 : Kiểm tra trường Bloom" line="38">
-<doc>TC_CB_07</doc>
-<tag>AnhTuyet</tag>
-<tag>TaoMoiCauHoi</tag>
-<status status="FAIL" start="2025-08-19T13:59:40.795966" elapsed="0.001056">Parent suite setup failed:
-NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=139.0.7258.128)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6409b6b25+79621]
-	GetHandleVerifier [0x0x7ff6409b6b80+79712]
-	(No symbol) [0x0x7ff64074c0ea]
-	(No symbol) [0x0x7ff640724601]
-	(No symbol) [0x0x7ff6407d25fe]
-	(No symbol) [0x0x7ff6407f2d02]
-	(No symbol) [0x0x7ff6407caf13]
-	(No symbol) [0x0x7ff640794151]
-	(No symbol) [0x0x7ff640794ee3]
-	GetHandleVerifier [0x0x7ff640c7683d+2962461]
-	GetHandleVerifier [0x0x7ff640c70b5d+2938685]
-	GetHandleVerifier [0x0x7ff640c8f71d+3064573]
-	GetHandleVerifier [0x0x7ff6409d0c6e+186446]
-	GetHandleVerifier [0x0x7ff6409d8a3f+218655]
-	GetHandleVerifier [0x0x7ff6409bf914+115956]
-	GetHandleVerifier [0x0x7ff6409bfac9+116393]
-	GetHandleVerifier [0x0x7ff6409a5ef8+10968]
-	BaseThreadInitThunk [0x0x7ff8bdc9e8d7+23]
-	RtlUserThreadStart [0x0x7ff8bf61c34c+44]
+<statistics>
+<total>
+<stat pass="2" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Classes</stat>
+<stat pass="1" fail="0" skip="0">honghanh</stat>
+</tag>
+<suite>
+<stat name="Classes" id="s1" pass="2" fail="1" skip="0">Classes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

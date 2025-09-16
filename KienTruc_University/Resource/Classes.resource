@@ -1,108 +1,135 @@
+*** Comments ***
+# Ghi chú tổng quan về quy trình chạy test (không cần sửa).
+
 *** Settings ***
 Library    SeleniumLibrary
+# Import thư viện SeleniumLibrary để thao tác với trình duyệt.
 
 *** Variables ***
-# ====== Config ======
-${BASE_URL}      https://demo-clo.minds.vn
-${BROWSER}       chrome
-${USERNAME}      student1
-${PASSWORD}      demostudent
+${BASE_URL}     https://demo-clo.minds.vn
+# Địa chỉ trang web cần test.
+${BROWSER}      chrome
+# Loại trình duyệt sử dụng.
+${USERNAME}     lecturer1
+${PASSWORD}     demolecturer
+# Tài khoản đăng nhập.
 
-# ====== Login page ======
-${LOGIN_USER}    xpath=//input[@id="id_username" or @name="username"]
-${LOGIN_PASS}    xpath=//input[@id="id_password" or @name="password"]
-${BTN_LOGIN}     xpath=//button[@type="submit" or contains(normalize-space(.),"Login") or contains(normalize-space(.),"Đăng nhập")]
-
-# ====== Menu / Classes page ======
-${MENU_CLASSES}  xpath=//a[@href="/en/academics/classes/"]
-${FILTER_SEM}    xpath=//select[@id="semester"]
-${FILTER_AY}     xpath=//select[@id="academic_year"]
-${FILTER_STA}    xpath=//select[@id="status"]
-${INPUT_Q}       xpath=//input[@id="query"]
-${BTN_SEARCH}    xpath=//i[@class="fas fa-search"]/ancestor::button[1]
-
-# ====== Table (Classes) ======
-${GRID_ROWS}     xpath=//table//tbody/tr
-${COL_NAME}      xpath=.//td[2]
-${COL_SEM}       xpath=.//td[3]
-${COL_YEAR}      xpath=.//td[4]
-${COL_STATUS}    xpath=.//td[last()-1]
+# ====== Locators ======
+# Định nghĩa các locator (vị trí phần tử trên giao diện) để sử dụng cho các thao tác.
+${MENU_QB}                 xpath=//a[contains(@href,'/questionbank/questions/')]
+${COURSE}                  xpath=(//div[contains(@class,'filter') or contains(.,'Filter Options')]//select)[1]
+# ... các locator khác dùng cho bộ lọc, input, nút, v.v.
 
 *** Keywords ***
-*** Keywords ***
-Open Chrome Browser
-    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
-    Call Method    ${options}    add_argument    --disable-gpu
-    Call Method    ${options}    add_argument    --disable-speech-api
-    Call Method    ${options}    add_argument    --disable-software-rasterizer
-    Open Browser    ${BASE_URL}    chrome    options=${options}
-Login To System
-    [Arguments]    ${USERNAME}    ${PASSWORD}
-    Open Browser    ${BASE_URL}    chrome
-    Wait Until Element Is Visible    ${LOGIN_USER}    30s
-    Input Text    ${LOGIN_USER}    ${USERNAME}
-    Input Text    ${LOGIN_PASS}    ${PASSWORD}
-    Click Button    ${BTN_LOGIN}
-    Location Should Contain        https://demo-clo.minds.vn/
+Open Browser And Login
+    Open Browser    ${BASE_URL}/en/accounts/login/?next=/en/    ${BROWSER}
+    # Mở trình duyệt và truy cập trang đăng nhập.
+    Maximize Browser Window
+    # Phóng to cửa sổ trình duyệt.
+    Wait Until Element Is Visible    xpath=//input[@id='id_username']    20s
+    # Đợi đến khi ô nhập username xuất hiện.
+    Input Text    xpath=//input[@id='id_username']    ${USERNAME}
+    # Nhập username.
+    Input Text    xpath=//input[@id='id_password']    ${PASSWORD}
+    # Nhập password.
+    Click Button   xpath=//button[normalize-space()='Đăng nhập']
+    # Click nút đăng nhập.
+    Wait Until Element Is Visible    ${MENU_QB}    30s
+    # Đợi đến khi menu Question Bank xuất hiện.
 
+Go To Question Bank
+    Click Element    ${MENU_QB}
+    # Click vào menu Question Bank.
+    Wait Until Element Is Visible    ${BTN_APPLY}    20s
+    # Đợi nút Apply Filters xuất hiện.
+    Run Keyword And Ignore Error     Close Debug Overlay
+    # Đóng overlay debug nếu có.
 
-Go To Classes Page
-    Click Element    ${MENU_CLASSES}
-    Wait Until Element Is Visible    ${FILTER_SEM}    15s
-
-Select Semester
-    [Arguments]    ${label}
-    Select From List By Label    ${FILTER_SEM}    ${label}
-
-Select Academic Year
-    [Arguments]    ${label}
-    Select From List By Label    ${FILTER_AY}     ${label}
-
-Select Status
-    [Arguments]    ${label}
-    Select From List By Label    ${FILTER_STA}    ${label}
-
-Search By Query
-    [Arguments]    ${text}
-    Clear Element Text    ${INPUT_Q}
-    Input Text    ${INPUT_Q}    ${text}
-    Click Element         ${BTN_SEARCH}
-
-Wait Table Has Rows
-    [Arguments]    ${timeout}=10s
-    Wait Until Keyword Succeeds    ${timeout}    1s    Table Should Have At Least One Row
-
-Table Should Have At Least One Row
-    ${n}=    Get Element Count    ${GRID_ROWS}
-    Should Be True    ${n} > 0    Bảng không có dòng nào hiển thị.
-
-Table Rows Should Match
-    [Arguments]    ${semester}=    ${year}=    ${status}=    ${name_contains}=
-    ${rows}=    Get WebElements    ${GRID_ROWS}
-    FOR    ${r}    IN    @{rows}
-        ${ok}=    Set Variable    ${True}
-        IF    "${semester}"
-            ${sem}=    Get Text    xpath=${r}/${COL_SEM}
-            Should Be Equal As Strings    ${sem}    ${semester}
-        END
-        IF    "${year}"
-            ${yr}=     Get Text    xpath=${r}/${COL_YEAR}
-            Should Contain    ${yr}    ${year}
-        END
-        IF    "${status}"
-            ${st}=     Get Text    xpath=${r}/${COL_STATUS}
-            Should Contain    ${st}    ${status}
-        END
-        IF    "${name_contains}"
-            ${name}=   Get Text    xpath=${r}/${COL_NAME}
-            Should Contain    ${name}    ${name_contains}
-        END
+Close Debug Overlay
+    # Keyword helper để đóng overlay debug nếu xuất hiện.
+    ${overlay}=    Set Variable    css=.StaticFilesPanel, #djDebug, .djDebug
+    ${exists}=     Run Keyword And Return Status    Execute Javascript    return document.querySelector(arguments[0])!==null;    ${overlay}
+    IF    ${exists}
+        Execute Javascript    document.querySelectorAll(arguments[0]).forEach(e=>e.style.display='none');    ${overlay}
     END
 
-Assert Default Filters
-    ${sem}=    Get Selected List Label    ${FILTER_SEM}
-    ${ay}=     Get Selected List Label    ${FILTER_AY}
-    ${st}=     Get Selected List Label    ${FILTER_STA}
-    Should Be True    "${sem}".lower().strip() in ["all semesters", "tất cả học kỳ"]
-    Should Be True    "${ay}".lower().strip() in ["all years", "tất cả năm học"]
-    Should Be True    "${st}".lower().strip() in ["all statuses", "tất cả trạng thái"]
+Normalize Text
+    [Arguments]    ${text}
+    # Chuẩn hóa text: bỏ dấu, chuyển về chữ thường, loại bỏ khoảng trắng.
+    ${norm}=    Evaluate    import unicodedata; ''.join(c for c in unicodedata.normalize('NFKD', """${text}""") if not unicodedata.combining(c)).lower().strip()
+    [Return]    ${norm}
+
+Select Option Smart
+    [Arguments]    ${select_locator}    ${desired_label}
+    # Chọn option trong dropdown theo label, không phân biệt hoa-thường, có thể contains.
+    Wait Until Element Is Visible    ${select_locator}    10s
+    ${items}=    Get List Items      ${select_locator}
+    Log    Options in ${select_locator}: ${items}
+    ${norm_desired}=    Normalize Text    ${desired_label}
+    ${selected}=        Set Variable    ${False}
+    FOR    ${index}    ${label}    IN ENUMERATE    @{items}
+        ${norm_label}=       Normalize Text    ${label}
+        ${match_exact}=      Run Keyword And Return Status    Should Be Equal    ${norm_label}    ${norm_desired}
+        ${match_contains}=   Run Keyword And Return Status    Should Contain     ${norm_label}    ${norm_desired}
+        IF    ${match_exact} or ${match_contains}
+            Select From List By Index    ${select_locator}    ${index}
+            ${selected}=    Set Variable    ${True}
+            Exit For Loop
+        END
+    END
+    Run Keyword If    not ${selected}    Fail    Option '${desired_label}' not found. Available: ${items}
+
+# Các keyword Set Course, Set CLO, ... dùng Select Option Smart để chọn giá trị cho từng bộ lọc.
+Set Course
+    [Arguments]    ${label}
+    Select Option Smart    ${COURSE}    ${label}
+
+# ... các keyword Set CLO, Set Question Type, ... tương tự.
+
+Set Search Query
+    [Arguments]    ${text}
+    # Đặt giá trị cho ô tìm kiếm.
+    Clear Element Text    ${SEARCH_INPUT}
+    Input Text            ${SEARCH_INPUT}    ${text}
+
+Toggle My Questions
+    [Arguments]    ${should_check}=True
+    # Bật/tắt checkbox 'Show only my questions'.
+    ${is_checked}=    Run Keyword And Return Status    Checkbox Should Be Selected    ${MY_QUESTIONS_CHECK}
+    Run Keyword If    ${should_check} and not ${is_checked}    Click Element    ${MY_QUESTIONS_CHECK}
+    ...    ELSE IF    not ${should_check} and ${is_checked}    Click Element    ${MY_QUESTIONS_CHECK}
+
+Apply Filters
+    # Thực hiện thao tác Apply Filters, có chống overlay và fallback JS nếu click thường không được.
+    Wait Until Element Is Visible    ${BTN_APPLY}    15s
+    Scroll Element Into View         ${BTN_APPLY}
+    Sleep    0.3s
+    Run Keyword And Ignore Error     Close Debug Overlay
+    ${clicked}=    Run Keyword And Return Status    Click Element    ${BTN_APPLY}
+    IF    not ${clicked}
+        ${js_clicked}=    Run Keyword And Return Status    Execute Javascript    arguments[0].click();    ${BTN_APPLY}
+        IF    not ${js_clicked}
+            Execute Javascript    (function(b){var f=b.closest('form'); if(f){f.submit();}})(arguments[0]);    ${BTN_APPLY}
+        END
+    END
+    Wait Until Any Elements Visible    ${ROWS}    ${NO_DATA}    15s
+
+Clear Filters
+    Click Element    ${BTN_CLEAR}
+    Wait Until Element Is Visible    ${BTN_APPLY}    10s
+
+Should Have Data
+    # Kiểm tra có dữ liệu hiển thị trên bảng.
+    Run Keyword And Expect Error    *    Element Should Not Be Visible    ${NO_DATA}
+    Page Should Contain Element     ${ROWS}
+
+Should Show No Data
+    # Kiểm tra trạng thái không có dữ liệu.
+    Element Should Be Visible       ${NO_DATA}
+
+Wait Until Any Elements Visible
+    [Arguments]    ${locator1}    ${locator2}    ${timeout}=15s
+    # Đợi cho đến khi một trong hai locator xuất hiện.
+    ${ok}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator1}    ${timeout}
+    Return From Keyword If    ${ok}
+    Wait Until Element Is Visible    ${locator2}    ${timeout}

@@ -51,8 +51,8 @@ Open Question Bank
 Maybe Hide Debug Toolbar
     ${has}=    Run Keyword And Return Status    Page Should Contain Element    ${BTN_HIDE_DEBUG}
     IF    ${has}
-        Click Element    ${BTN_HIDE_DEBUG}
-        Sleep    0.2s
+    Click Element    ${BTN_HIDE_DEBUG}
+    Wait Until Element Is Not Visible    ${BTN_HIDE_DEBUG}    5s
     END
 
 Clear All Filters
@@ -71,14 +71,14 @@ Toggle My Questions
     ${is_selected}=    Run Keyword And Return Status    Checkbox Should Be Selected    ${CHECK_MYQ}
     Run Keyword If    '${state}'=='on' and not ${is_selected}    Click Element    ${CHECK_MYQ}
     Run Keyword If    '${state}'!='on' and ${is_selected}    Click Element    ${CHECK_MYQ}
-    Sleep    0.2s
+    Wait Until Page Contains Element    ${QUESTION_CARD}    5s
 
 Set Search Query
     [Arguments]    ${text}
     Wait Until Element Is Visible    ${INPUT_SEARCH}    5s
     Wait Until Element Is Enabled    ${INPUT_SEARCH}    5s
     Input Text    ${INPUT_SEARCH}    ${text}
-    Sleep    0.2s
+    Wait Until Page Contains Element    ${QUESTION_CARD}    5s
 
 Apply Filters
     Wait Until Element Is Visible    ${BTN_APPLY}    5s
@@ -92,7 +92,7 @@ Wait For Results Or Empty
     Return From Keyword If    ${empty}
     ${n}=    Get Element Count    ${QUESTION_CARD}
     Return From Keyword If    ${n} == 0
-    Sleep    0.5s
+    Wait Until Page Contains Element    ${QUESTION_CARD}    5s
 
 Safe Click
     [Arguments]    ${locator}

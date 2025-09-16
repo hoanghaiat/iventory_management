@@ -1,59 +1,1286 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.1 (Python 3.13.5 on win32)" generated="2025-08-12T15:58:51.068379" rpa="false" schemaversion="5">
-<suite id="s1" name="Test" source="D:\iventory_management\KienTruc_University\test.robot">
-<test id="s1-t1" name="Login" line="8">
-<kw name="Login To System" owner="resource">
+<robot generator="Robot 7.3.1 (Python 3.13.5 on win32)" generated="2025-09-16T14:12:56.829062" rpa="false" schemaversion="5">
+<suite id="s1" name="Hocky" source="D:\iventory_management\KienTruc_University\Test\hocky.robot">
+<kw name="Open Browser And Login" owner="hocky" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-12T15:58:51.397514" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/'.</msg>
-<arg>${URL}</arg>
-<arg>chrome</arg>
+<msg time="2025-09-16T14:12:57.930668" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-12T15:58:51.397169" elapsed="4.635719"/>
+<status status="PASS" start="2025-09-16T14:12:57.930450" elapsed="5.472273"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-16T14:13:03.403418" elapsed="0.034479"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${USERNAME_INPUT}</arg>
-<arg>30s</arg>
+<arg>${H_LOGIN}</arg>
+<arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-12T15:58:56.033206" elapsed="0.041100"/>
+<status status="PASS" start="2025-09-16T14:13:03.438516" elapsed="0.049772"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-12T15:58:56.074673" level="INFO">Typing text 'admin' into text field 'xpath=//input[@id='id_username']'.</msg>
-<arg>${USERNAME_INPUT}</arg>
-<arg>${username}</arg>
+<msg time="2025-09-16T14:13:03.488948" level="INFO">Typing text 'lecturer1' into text field 'id=id_username'.</msg>
+<arg>${H_LOGIN}</arg>
+<arg>${USERNAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T15:58:56.074469" elapsed="0.130393"/>
+<status status="PASS" start="2025-09-16T14:13:03.488529" elapsed="0.161209"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-12T15:58:56.205361" level="INFO">Typing text 'demoadmin' into text field 'xpath=//input[@id='id_password']'.</msg>
-<arg>${PASSWORD_INPUT}</arg>
-<arg>${password}</arg>
+<msg time="2025-09-16T14:13:03.650358" level="INFO">Typing text 'demolecturer' into text field 'id=id_password'.</msg>
+<arg>${P_LOGIN}</arg>
+<arg>${PASSWORD}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T15:58:56.205061" elapsed="0.139011"/>
+<status status="PASS" start="2025-09-16T14:13:03.650002" elapsed="0.089183"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-12T15:58:56.344716" level="INFO">Clicking button 'xpath=//button[text()='Đăng nhập']'.</msg>
-<arg>${LOGIN_BUTTON}</arg>
+<msg time="2025-09-16T14:13:03.739576" level="INFO">Clicking button 'xpath=//button[normalize-space(.)='Đăng nhập' or normalize-space(.)='Login']'.</msg>
+<arg>${BTN_LOGIN}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-12T15:58:56.344416" elapsed="0.089045"/>
+<status status="PASS" start="2025-09-16T14:13:03.739359" elapsed="3.317710"/>
 </kw>
-<arg>admin</arg>
-<arg>demoadmin</arg>
-<status status="PASS" start="2025-08-12T15:58:51.395671" elapsed="5.038136"/>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DASHBOARD_H1}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:13:07.058116" elapsed="0.387962"/>
 </kw>
-<status status="PASS" start="2025-08-12T15:58:51.395005" elapsed="5.039261"/>
+<msg time="2025-09-16T14:13:07.446574" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${DASHBOARD_H1}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-16T14:13:07.057599" elapsed="0.389066"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${ok}">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SIDEBAR}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-09-16T14:13:07.448129" elapsed="0.000104"/>
+</kw>
+<status status="NOT RUN" start="2025-09-16T14:13:07.447042" elapsed="0.001355"/>
+</branch>
+<status status="PASS" start="2025-09-16T14:13:07.446942" elapsed="0.001598"/>
+</if>
+<status status="PASS" start="2025-09-16T14:12:57.929619" elapsed="9.519121"/>
+</kw>
+<test id="s1-t1" name="CL-SM-01 - Lọc theo học kỳ Summer" line="10">
+<kw name="Open Classes Page" owner="hocky">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:13:28.135911" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-16T14:13:28.136319" level="FAIL">Element 'xpath=(//aside|//nav)//a[.//span[normalize-space(.)='Lớp học' or normalize-space(.)='Classes']]' not visible after 20 seconds.</msg>
+<arg>${MENU_LOPHOC_TEXT}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-09-16T14:13:07.559706" elapsed="20.613277">Element 'xpath=(//aside|//nav)//a[.//span[normalize-space(.)='Lớp học' or normalize-space(.)='Classes']]' not visible after 20 seconds.</status>
+</kw>
+<msg time="2025-09-16T14:13:28.173207" level="INFO">${seen} = False</msg>
+<var>${seen}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${MENU_LOPHOC_TEXT}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-16T14:13:07.559416" elapsed="20.613820"/>
+</kw>
+<if>
+<branch type="IF" condition="${seen}">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${MENU_LOPHOC_TEXT}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2025-09-16T14:13:28.173613" elapsed="0.000034"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${MENU_LOPHOC_TEXT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-16T14:13:28.173736" elapsed="0.000021"/>
+</kw>
+<status status="NOT RUN" start="2025-09-16T14:13:28.173391" elapsed="0.000398"/>
+</branch>
+<branch type="ELSE">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:13:39.924034" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:39.925635" level="FAIL">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: Unable to receive message from renderer
+  (Session info: chrome=139.0.7258.155); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55c0fa]
+	(No symbol) [0x0x7ff71f549a0c]
+	(No symbol) [0x0x7ff71f5496fa]
+	(No symbol) [0x0x7ff71f5472cb]
+	(No symbol) [0x0x7ff71f547d2f]
+	(No symbol) [0x0x7ff71f561651]
+	(No symbol) [0x0x7ff71f562147]
+	(No symbol) [0x0x7ff71f566b3c]
+	(No symbol) [0x0x7ff71f566c0f]
+	(No symbol) [0x0x7ff71f5b2887]
+	(No symbol) [0x0x7ff71f5b328c]
+	(No symbol) [0x0x7ff71f606567]
+	(No symbol) [0x0x7ff71f5db1df]
+	(No symbol) [0x0x7ff71f603344]
+	(No symbol) [0x0x7ff71f5daf73]
+	(No symbol) [0x0x7ff71f5a41b1]
+	(No symbol) [0x0x7ff71f5a4f43]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	GetHandleVerifier [0x0x7ff71f7bc974+115220]
+	GetHandleVerifier [0x0x7ff71f7bcb29+115657]
+	GetHandleVerifier [0x0x7ff71f7a3268+11016]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<arg>${MENU_LOPHOC_HREF}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-09-16T14:13:28.174085" elapsed="11.760395">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: Unable to receive message from renderer
+  (Session info: chrome=139.0.7258.155); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55c0fa]
+	(No symbol) [0x0x7ff71f549a0c]
+	(No symbol) [0x0x7ff71f5496fa]
+	(No symbol) [0x0x7ff71f5472cb]
+	(No symbol) [0x0x7ff71f547d2f]
+	(No symbol) [0x0x7ff71f561651]
+	(No symbol) [0x0x7ff71f562147]
+	(No symbol) [0x0x7ff71f566b3c]
+	(No symbol) [0x0x7ff71f566c0f]
+	(No symbol) [0x0x7ff71f5b2887]
+	(No symbol) [0x0x7ff71f5b328c]
+	(No symbol) [0x0x7ff71f606567]
+	(No symbol) [0x0x7ff71f5db1df]
+	(No symbol) [0x0x7ff71f603344]
+	(No symbol) [0x0x7ff71f5daf73]
+	(No symbol) [0x0x7ff71f5a41b1]
+	(No symbol) [0x0x7ff71f5a4f43]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	GetHandleVerifier [0x0x7ff71f7bc974+115220]
+	GetHandleVerifier [0x0x7ff71f7bcb29+115657]
+	GetHandleVerifier [0x0x7ff71f7a3268+11016]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</kw>
+<msg time="2025-09-16T14:13:39.934775" level="INFO">${seen2} = False</msg>
+<var>${seen2}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${MENU_LOPHOC_HREF}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-16T14:13:28.173931" elapsed="11.760889"/>
+</kw>
+<if>
+<branch type="IF" condition="${seen2}">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${MENU_LOPHOC_HREF}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2025-09-16T14:13:39.935285" elapsed="0.000057"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${MENU_LOPHOC_HREF}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-16T14:13:39.935485" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2025-09-16T14:13:39.935008" elapsed="0.000557"/>
+</branch>
+<branch type="ELSE">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:13:39.960009" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:39.972220" level="FAIL">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<arg>${MENU_LOPHOC_SPAN}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="FAIL" start="2025-09-16T14:13:39.935731" elapsed="0.040859">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${MENU_LOPHOC_SPAN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-16T14:13:39.976893" elapsed="0.000072"/>
+</kw>
+<status status="FAIL" start="2025-09-16T14:13:39.935619" elapsed="0.041470">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</branch>
+<status status="FAIL" start="2025-09-16T14:13:39.934959" elapsed="0.042212">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</if>
+<status status="FAIL" start="2025-09-16T14:13:28.173827" elapsed="11.803457">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</branch>
+<status status="FAIL" start="2025-09-16T14:13:28.173346" elapsed="11.804402">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</if>
+<kw name="Wait For Class Table" owner="hocky">
+<status status="NOT RUN" start="2025-09-16T14:13:39.978062" elapsed="0.000064"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<arg>/classes</arg>
+<arg>ignore_case=True</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="NOT RUN" start="2025-09-16T14:13:39.978271" elapsed="0.000037"/>
+</kw>
+<status status="FAIL" start="2025-09-16T14:13:07.558920" elapsed="32.419577">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</kw>
+<kw name="Select Semester" owner="hocky">
+<arg>Summer</arg>
+<status status="NOT RUN" start="2025-09-16T14:13:39.979831" elapsed="0.000064"/>
+</kw>
+<kw name="Assert Table Only Shows Semester" owner="hocky">
+<arg>Summer</arg>
+<status status="NOT RUN" start="2025-09-16T14:13:39.981794" elapsed="0.000061"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-09-16T14:13:39.990867" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:39.991863" level="FAIL">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="FAIL" start="2025-09-16T14:13:39.987678" elapsed="0.034179">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</kw>
+<tag>hocky</tag>
+<tag>honghanh</tag>
+<timeout value="3 minutes"/>
+<status status="FAIL" start="2025-09-16T14:13:07.449137" elapsed="32.573078">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+
+
+Also teardown failed:
+InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
 </test>
-<status status="PASS" start="2025-08-12T15:58:51.070893" elapsed="5.364183"/>
+<test id="s1-t2" name="CL-SM-02 - Xoá lọc về All Semesters" line="16">
+<kw name="Open Classes Page" owner="hocky">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:13:40.028409" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:40.029427" level="FAIL">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<arg>${MENU_LOPHOC_TEXT}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-09-16T14:13:40.025194" elapsed="0.008038">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</kw>
+<msg time="2025-09-16T14:13:40.033494" level="INFO">${seen} = False</msg>
+<var>${seen}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${MENU_LOPHOC_TEXT}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-16T14:13:40.025038" elapsed="0.008543"/>
+</kw>
+<if>
+<branch type="IF" condition="${seen}">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${MENU_LOPHOC_TEXT}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2025-09-16T14:13:40.033997" elapsed="0.000041"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${MENU_LOPHOC_TEXT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-16T14:13:40.034156" elapsed="0.000024"/>
+</kw>
+<status status="NOT RUN" start="2025-09-16T14:13:40.033758" elapsed="0.000458"/>
+</branch>
+<branch type="ELSE">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:13:40.038361" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:40.039115" level="FAIL">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<arg>${MENU_LOPHOC_HREF}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-09-16T14:13:40.034538" elapsed="0.007478">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</kw>
+<msg time="2025-09-16T14:13:40.042204" level="INFO">${seen2} = False</msg>
+<var>${seen2}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${MENU_LOPHOC_HREF}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-16T14:13:40.034386" elapsed="0.007848"/>
+</kw>
+<if>
+<branch type="IF" condition="${seen2}">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${MENU_LOPHOC_HREF}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2025-09-16T14:13:40.042532" elapsed="0.000046"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${MENU_LOPHOC_HREF}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-16T14:13:40.042691" elapsed="0.000026"/>
+</kw>
+<status status="NOT RUN" start="2025-09-16T14:13:40.042345" elapsed="0.000421"/>
+</branch>
+<branch type="ELSE">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:13:40.046384" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:40.047164" level="FAIL">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<arg>${MENU_LOPHOC_SPAN}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="FAIL" start="2025-09-16T14:13:40.042961" elapsed="0.005607">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${MENU_LOPHOC_SPAN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-16T14:13:40.048826" elapsed="0.000102"/>
+</kw>
+<status status="FAIL" start="2025-09-16T14:13:40.042822" elapsed="0.006282">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</branch>
+<status status="FAIL" start="2025-09-16T14:13:40.042317" elapsed="0.006861">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</if>
+<status status="FAIL" start="2025-09-16T14:13:40.034259" elapsed="0.015013">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</branch>
+<status status="FAIL" start="2025-09-16T14:13:40.033715" elapsed="0.015607">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</if>
+<kw name="Wait For Class Table" owner="hocky">
+<status status="NOT RUN" start="2025-09-16T14:13:40.049558" elapsed="0.000070"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<arg>/classes</arg>
+<arg>ignore_case=True</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="NOT RUN" start="2025-09-16T14:13:40.049786" elapsed="0.000038"/>
+</kw>
+<status status="FAIL" start="2025-09-16T14:13:40.024709" elapsed="0.025336">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</kw>
+<kw name="Clear Semester Filter To All" owner="hocky">
+<status status="NOT RUN" start="2025-09-16T14:13:40.050473" elapsed="0.000053"/>
+</kw>
+<kw name="Assert Multiple Semesters Visible" owner="hocky">
+<status status="NOT RUN" start="2025-09-16T14:13:40.051081" elapsed="0.000046"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-09-16T14:13:40.054557" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:40.055299" level="FAIL">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="FAIL" start="2025-09-16T14:13:40.051554" elapsed="0.006013">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</kw>
+<tag>hocky</tag>
+<tag>honghanh</tag>
+<timeout value="3 minutes"/>
+<status status="FAIL" start="2025-09-16T14:13:40.023509" elapsed="0.034733">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+
+
+Also teardown failed:
+InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</test>
+<kw name="Capture And Close" owner="hocky" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:13:40.064058" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:40.064523" level="FAIL">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="FAIL" start="2025-09-16T14:13:40.061404" elapsed="0.005338">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-09-16T14:13:40.067158" elapsed="2.050729"/>
+</kw>
+<status status="FAIL" start="2025-09-16T14:13:40.061034" elapsed="2.057149">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
+</kw>
+<doc>Kiểm thử bộ lọc "Semester" trên trang Lớp học.</doc>
+<status status="FAIL" start="2025-09-16T14:12:56.831908" elapsed="45.286555">Suite teardown failed:
+InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="0" fail="2" skip="0">hocky</stat>
+<stat pass="0" fail="2" skip="0">honghanh</stat>
 </tag>
 <suite>
-<stat name="Test" id="s1" pass="1" fail="0" skip="0">Test</stat>
+<stat name="Hocky" id="s1" pass="0" fail="2" skip="0">Hocky</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-09-16T14:13:39.924034" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:39.960009" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:39.990867" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:40.028409" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:40.038361" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:40.046384" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:40.054557" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
+<msg time="2025-09-16T14:13:40.064058" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71f7b3d85+79397]
+	GetHandleVerifier [0x0x7ff71f7b3de0+79488]
+	(No symbol) [0x0x7ff71f55bf2c]
+	(No symbol) [0x0x7ff71f5a32df]
+	(No symbol) [0x0x7ff71f5db062]
+	(No symbol) [0x0x7ff71f5d5b93]
+	(No symbol) [0x0x7ff71f5d4c59]
+	(No symbol) [0x0x7ff71f526fd5]
+	GetHandleVerifier [0x0x7ff71fa7e1ed+3005069]
+	GetHandleVerifier [0x0x7ff71fa7831d+2980797]
+	GetHandleVerifier [0x0x7ff71fa97e0d+3110573]
+	GetHandleVerifier [0x0x7ff71f7cd6de+184190]
+	GetHandleVerifier [0x0x7ff71f7d516f+215567]
+	(No symbol) [0x0x7ff71f525fd1]
+	GetHandleVerifier [0x0x7ff71fba1d48+4199912]
+	BaseThreadInitThunk [0x0x7ff9424ce8d7+23]
+	RtlUserThreadStart [0x0x7ff943f1c34c+44]
+</msg>
 </errors>
 </robot>

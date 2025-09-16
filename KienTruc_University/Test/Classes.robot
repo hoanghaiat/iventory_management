@@ -13,6 +13,7 @@ Documentation   Login -> Lớp học -> thao tác bộ lọc Semester/AY/Status 
 *** Test Cases ***
 Login
     [Documentation]    Đăng nhập vào hệ thống
+    [Tags]    honghanh    Classes
     Login To System    student1    demostudent
 CLF-DEFAULTS-01 - Kiểm tra giá trị mặc định và có thể mở trang Lớp học
     Go To Classes Page

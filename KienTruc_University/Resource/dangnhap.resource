@@ -1,3 +1,13 @@
+*** Comments ***
+Ghi chú quy trình chạy file test Robot Framework:
+1. Kiểm tra cấu trúc file test, đảm bảo đã import resource và library cần thiết.
+2. Chuẩn bị môi trường: cài đặt Python, Robot Framework, SeleniumLibrary, ChromeDriver.
+3. Đóng hết các trình duyệt Chrome đang mở để tránh lỗi session.
+4. Chạy file test bằng lệnh: robot đường_dẫn_đến_file.robot (hoặc đường dẫn file mong muốn).
+5. Theo dõi quá trình chạy, kiểm tra log và report trong thư mục kết quả (results).
+6. Sau khi chạy xong, các keyword teardown sẽ tự động đóng trình duyệt.
+7. Nếu có lỗi, kiểm tra lại locator, resource, version ChromeDriver.
+8. Kết quả chi tiết nằm ở log.html, report.html trong thư mục results.
 *** Settings ***
 Library    SeleniumLibrary
 Variables  ../variables/locator.py

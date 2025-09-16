@@ -1,433 +1,800 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.1 (Python 3.13.5 on win32)" generated="2025-08-20T11:23:55.400026" rpa="false" schemaversion="5">
-<suite id="s1" name="Classes" source="D:\iventory_management\KienTruc_University\test\Classes.robot">
-<test id="s1-t1" name="Login" line="14">
-<kw name="Login To System" owner="Classes">
+<robot generator="Robot 7.3.1 (Python 3.13.5 on win32)" generated="2025-09-16T14:21:47.655099" rpa="false" schemaversion="5">
+<suite id="s1" name="TaoMoiCauHoi" source="D:\iventory_management\KienTruc_University\test\TaoMoiCauHoi.robot">
+<kw name="Open Browser To TaoMoiCauHoi" owner="TaoMoiCauHoi" type="SETUP">
+<kw name="Login" owner="TaoMoiCauHoi">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:23:55.701210" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn'.</msg>
-<arg>${BASE_URL}</arg>
+<msg time="2025-09-16T14:21:48.166396" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/'.</msg>
+<arg>${URL}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-20T11:23:55.699484" elapsed="6.190060"/>
+<status status="PASS" start="2025-09-16T14:21:48.166179" elapsed="8.458403"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-16T14:21:56.625348" elapsed="0.691503"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:22:02.369033" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:21:57.317101" elapsed="5.052570"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOGIN_USER}</arg>
+<arg>${BTN_HIDE}</arg>
 <arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-20T11:24:01.890003" elapsed="0.038035"/>
+<status status="PASS" start="2025-09-16T14:22:02.370411" elapsed="0.116044"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:22:02.487683" level="INFO">Clicking element '//a[@id="djHideToolBarButton"]'.</msg>
+<arg>${BTN_HIDE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:22:02.486978" elapsed="0.286574"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_INPUT}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:22:02.773946" elapsed="0.138124"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:01.929237" level="INFO">Typing text 'student1' into text field 'xpath=//input[@id="id_username" or @name="username"]'.</msg>
-<arg>${LOGIN_USER}</arg>
-<arg>${USERNAME}</arg>
+<msg time="2025-09-16T14:22:02.912657" level="INFO">Typing text 'admin' into text field 'xpath=//input[@id='id_username']'.</msg>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:01.928358" elapsed="0.103026"/>
+<status status="PASS" start="2025-09-16T14:22:02.912362" elapsed="0.654775"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:02.032770" level="INFO">Typing text 'demostudent' into text field 'xpath=//input[@id="id_password" or @name="password"]'.</msg>
-<arg>${LOGIN_PASS}</arg>
-<arg>${PASSWORD}</arg>
+<msg time="2025-09-16T14:22:03.568019" level="INFO">Typing text 'demoadmin' into text field 'xpath=//input[@id='id_password']'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:02.031768" elapsed="0.078601"/>
+<status status="PASS" start="2025-09-16T14:22:03.567388" elapsed="1.237666"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:02.111022" level="INFO">Clicking button 'xpath=//button[@type="submit" or contains(normalize-space(.),"Login") or contains(normalize-space(.),"Đăng nhập")]'.</msg>
-<arg>${BTN_LOGIN}</arg>
+<msg time="2025-09-16T14:22:04.806188" level="INFO">Clicking button 'xpath=//button[text()='Đăng nhập']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:02.110504" elapsed="0.079645"/>
+<status status="PASS" start="2025-09-16T14:22:04.805495" elapsed="0.266181"/>
 </kw>
-<kw name="Location Should Contain" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:02.194818" level="INFO">Current location contains 'https://demo-clo.minds.vn/'.</msg>
-<arg>https://demo-clo.minds.vn/</arg>
-<doc>Verifies that the current URL contains ``expected``.</doc>
-<status status="PASS" start="2025-08-20T11:24:02.190273" elapsed="0.004666"/>
+<arg>admin</arg>
+<arg>demoadmin</arg>
+<status status="PASS" start="2025-09-16T14:21:48.165605" elapsed="16.906427"/>
 </kw>
-<arg>student1</arg>
-<arg>demostudent</arg>
-<status status="PASS" start="2025-08-20T11:23:55.699044" elapsed="6.495987"/>
+<status status="PASS" start="2025-09-16T14:21:48.165160" elapsed="16.907144"/>
 </kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2025-08-20T11:24:05.504482" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-67.png"&gt;&lt;img src="selenium-screenshot-67.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-20T11:24:02.195704" elapsed="3.308873"/>
+<test id="s1-t1" name="TC_CB_01 : Thêm câu hỏi bỏ trống các trường dữ liệu" line="10">
+<kw name="Add a new question to the data field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:22:05.085550" elapsed="6.270966"/>
 </kw>
-<doc>Đăng nhập vào hệ thống</doc>
-<timeout value="4 minutes"/>
-<status status="PASS" start="2025-08-20T11:23:55.698367" elapsed="9.806380"/>
-</test>
-<test id="s1-t2" name="CLF-DEFAULTS-01 - Kiểm tra giá trị mặc định và có thể mở trang Lớp học" line="17">
-<kw name="Go To Classes Page" owner="Classes">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:05.508009" level="INFO">Clicking element 'xpath=//a[@href="/en/academics/classes/"]'.</msg>
-<arg>${MENU_CLASSES}</arg>
+<msg time="2025-09-16T14:22:11.357672" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:05.507010" elapsed="1.286159"/>
+<status status="PASS" start="2025-09-16T14:22:11.356819" elapsed="4.214871"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${FILTER_SEM}</arg>
-<arg>15s</arg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-20T11:24:06.793415" elapsed="0.030888"/>
-</kw>
-<status status="PASS" start="2025-08-20T11:24:05.506686" elapsed="1.317814"/>
-</kw>
-<kw name="Assert Default Filters" owner="Classes">
-<kw name="Get Selected List Label" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:06.877494" level="INFO">${sem} = All Semesters</msg>
-<var>${sem}</var>
-<arg>${FILTER_SEM}</arg>
-<doc>Returns the label of selected option from selection list ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:06.825528" elapsed="0.052019"/>
-</kw>
-<kw name="Get Selected List Label" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:06.921147" level="INFO">${ay} = All Years</msg>
-<var>${ay}</var>
-<arg>${FILTER_AY}</arg>
-<doc>Returns the label of selected option from selection list ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:06.877710" elapsed="0.043494"/>
-</kw>
-<kw name="Get Selected List Label" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:06.957306" level="INFO">${st} = All Statuses</msg>
-<var>${st}</var>
-<arg>${FILTER_STA}</arg>
-<doc>Returns the label of selected option from selection list ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:06.921439" elapsed="0.035916"/>
-</kw>
-<kw name="Should Be True" owner="BuiltIn">
-<arg>"${sem}".lower().strip() in ["all semesters", "tất cả học kỳ"]</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-08-20T11:24:06.957523" elapsed="0.000945"/>
-</kw>
-<kw name="Should Be True" owner="BuiltIn">
-<arg>"${ay}".lower().strip() in ["all years", "tất cả năm học"]</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-08-20T11:24:06.958649" elapsed="0.000546"/>
-</kw>
-<kw name="Should Be True" owner="BuiltIn">
-<arg>"${st}".lower().strip() in ["all statuses", "tất cả trạng thái"]</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-08-20T11:24:06.959314" elapsed="0.000466"/>
-</kw>
-<status status="PASS" start="2025-08-20T11:24:06.825060" elapsed="0.134810"/>
-</kw>
-<kw name="Wait Table Has Rows" owner="Classes">
-<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
-<kw name="Table Should Have At Least One Row" owner="Classes">
-<kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:06.970172" level="INFO">${n} = 9</msg>
-<var>${n}</var>
-<arg>${GRID_ROWS}</arg>
-<doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:06.961064" elapsed="0.009156"/>
-</kw>
-<kw name="Should Be True" owner="BuiltIn">
-<arg>${n} &gt; 0</arg>
-<arg>Bảng không có dòng nào hiển thị.</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-08-20T11:24:06.970376" elapsed="0.000635"/>
-</kw>
-<status status="PASS" start="2025-08-20T11:24:06.960791" elapsed="0.010313"/>
-</kw>
-<arg>${timeout}</arg>
-<arg>1s</arg>
-<arg>Table Should Have At Least One Row</arg>
-<doc>Runs the specified keyword and retries if it fails.</doc>
-<status status="PASS" start="2025-08-20T11:24:06.960517" elapsed="0.010643"/>
-</kw>
-<status status="PASS" start="2025-08-20T11:24:06.960191" elapsed="0.011038"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2025-08-20T11:24:07.081882" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-68.png"&gt;&lt;img src="selenium-screenshot-68.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-20T11:24:06.971587" elapsed="0.110384"/>
-</kw>
-<timeout value="4 minutes"/>
-<status status="PASS" start="2025-08-20T11:24:05.505371" elapsed="1.576754"/>
-</test>
-<test id="s1-t3" name="CLF-COMB-SEARCH-01 - Lọc theo Semester + AY + Status + Search và bấm Tìm" line="22">
-<kw name="Go To Classes Page" owner="Classes">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:07.084346" level="INFO">Clicking element 'xpath=//a[@href="/en/academics/classes/"]'.</msg>
-<arg>${MENU_CLASSES}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:07.083472" elapsed="1.228386"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${FILTER_SEM}</arg>
-<arg>15s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-20T11:24:08.312278" elapsed="0.019511"/>
-</kw>
-<status status="PASS" start="2025-08-20T11:24:07.083224" elapsed="1.248708"/>
-</kw>
-<kw name="Select Semester" owner="Classes">
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:08.333484" level="INFO">Selecting options from selection list 'xpath=//select[@id="semester"]' by label Summer.</msg>
-<arg>${FILTER_SEM}</arg>
-<arg>${label}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2025-08-20T11:24:08.332762" elapsed="0.086779"/>
-</kw>
-<arg>Summer</arg>
-<status status="PASS" start="2025-08-20T11:24:08.332428" elapsed="0.087279"/>
-</kw>
-<kw name="Get List Items" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:08.461384" level="INFO">${years} = ['All Years']</msg>
-<var>${years}</var>
-<arg>${FILTER_AY}</arg>
-<doc>Returns all labels or values of selection list ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:08.420063" elapsed="0.041377"/>
-</kw>
-<kw name="Get Length" owner="BuiltIn">
-<msg time="2025-08-20T11:24:08.463364" level="INFO">Length is 1.</msg>
-<msg time="2025-08-20T11:24:08.463606" level="INFO">${len} = 1</msg>
-<var>${len}</var>
-<arg>${years}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2025-08-20T11:24:08.461878" elapsed="0.001768"/>
-</kw>
-<if>
-<branch type="IF" condition="${len} &gt; 1">
-<kw name="Select Academic Year" owner="Classes">
-<arg>${years}[-1]</arg>
-<status status="NOT RUN" start="2025-08-20T11:24:08.464433" elapsed="0.000080"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${yr_for_assert}</var>
-<arg>${years}[-1]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-20T11:24:08.464684" elapsed="0.000039"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T11:24:08.464066" elapsed="0.000716"/>
-</branch>
-<branch type="ELSE">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-20T11:24:08.466248" level="INFO">${yr_for_assert} = </msg>
-<var>${yr_for_assert}</var>
-<arg>${EMPTY}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-20T11:24:08.465008" elapsed="0.001328"/>
-</kw>
-<status status="PASS" start="2025-08-20T11:24:08.464843" elapsed="0.001603"/>
-</branch>
-<status status="PASS" start="2025-08-20T11:24:08.463998" elapsed="0.002509"/>
-</if>
-<kw name="Select Status" owner="Classes">
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:08.467708" level="INFO">Selecting options from selection list 'xpath=//select[@id="status"]' by label Ongoing.</msg>
-<arg>${FILTER_STA}</arg>
-<arg>${label}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2025-08-20T11:24:08.467173" elapsed="0.076741"/>
-</kw>
-<arg>Ongoing</arg>
-<status status="PASS" start="2025-08-20T11:24:08.466822" elapsed="0.077209"/>
+<status status="PASS" start="2025-09-16T14:22:15.572023" elapsed="0.030241"/>
 </kw>
 <kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${INPUT_Q}</arg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-08-20T11:24:08.544379" elapsed="0.293076"/>
+<status status="PASS" start="2025-09-16T14:22:15.602468" elapsed="0.357270"/>
 </kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<status status="PASS" start="2025-09-16T14:22:05.084676" elapsed="10.875200"/>
+</kw>
+<doc>TC_CB_01</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-09-16T14:22:05.073256" elapsed="10.887067"/>
+</test>
+<test id="s1-t2" name="TC_CB_02 : Thêm câu hỏi thành công" line="15">
+<kw name="Add new question" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:22:15.962233" elapsed="0.021268"/>
+</kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:08.839871" level="INFO">Clicking element 'xpath=//body'.</msg>
-<arg>xpath=//body</arg>
+<msg time="2025-09-16T14:22:15.984083" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:08.838800" elapsed="0.090809"/>
+<status status="PASS" start="2025-09-16T14:22:15.983741" elapsed="1.729291"/>
 </kw>
-<arg>Click Element</arg>
-<arg>xpath=//body</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-20T11:24:08.838341" elapsed="0.091407"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_COURSE}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:22:17.713350" elapsed="0.299110"/>
 </kw>
-<kw name="Clear Element Text" owner="SeleniumLibrary">
-<arg>${INPUT_Q}</arg>
-<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:08.930531" elapsed="0.053084"/>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:22:18.013073" level="INFO">Selecting options from selection list '//select[@id="id_course"]' by value 29.</msg>
+<arg>${POST_COURSE}</arg>
+<arg>29</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-09-16T14:22:18.012747" elapsed="0.814738"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_CONTENT}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:22:18.827764" elapsed="0.239976"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:08.984647" level="INFO">Typing text 'Nhập môn lập trình' into text field 'xpath=//input[@id="query"]'.</msg>
-<arg>${INPUT_Q}</arg>
-<arg>Nhập môn lập trình</arg>
+<msg time="2025-09-16T14:22:19.068589" level="INFO">Typing text 'Cấu trúc dữ liệu và giải thuật là gì?' into text field '//textarea[@id="id_content"]'.</msg>
+<arg>${POST_CONTENT}</arg>
+<arg>Cấu trúc dữ liệu và giải thuật là gì?</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:08.984175" elapsed="0.105775"/>
+<status status="PASS" start="2025-09-16T14:22:19.068089" elapsed="1.937082"/>
 </kw>
-<kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:09.092151" level="INFO">Sending key(s) ('ENTER',) to xpath=//input[@id="query"] element.</msg>
-<msg time="2025-08-20T11:24:09.376242" level="INFO">Pressing special key ENTER to element.</msg>
-<msg time="2025-08-20T11:24:09.376297" level="INFO">Releasing special key ENTER.</msg>
-<arg>${INPUT_Q}</arg>
-<arg>ENTER</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-08-20T11:24:09.090400" elapsed="0.292334"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_TYPE}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:22:21.005415" elapsed="0.184175"/>
 </kw>
-<kw name="Wait Table Has Rows" owner="Classes">
-<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
-<kw name="Table Should Have At Least One Row" owner="Classes">
-<kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:09.390446" level="INFO">${n} = 9</msg>
-<var>${n}</var>
-<arg>${GRID_ROWS}</arg>
-<doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:09.384216" elapsed="0.006265"/>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:22:21.190703" level="INFO">Selecting options from selection list '//select[@id="id_type"]' by value practical.</msg>
+<arg>${POST_TYPE}</arg>
+<arg>practical</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-09-16T14:22:21.190134" elapsed="2.998443"/>
 </kw>
-<kw name="Should Be True" owner="BuiltIn">
-<arg>${n} &gt; 0</arg>
-<arg>Bảng không có dòng nào hiển thị.</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-08-20T11:24:09.390597" elapsed="0.000534"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_DIFFICULTY}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:22:24.189181" elapsed="0.499141"/>
 </kw>
-<status status="PASS" start="2025-08-20T11:24:09.383959" elapsed="0.007259"/>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:22:24.689349" level="INFO">Selecting options from selection list '//select[@id="id_difficulty"]' by value medium.</msg>
+<arg>${POST_DIFFICULTY}</arg>
+<arg>medium</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-09-16T14:22:24.688825" elapsed="0.565571"/>
 </kw>
-<arg>${timeout}</arg>
-<arg>1s</arg>
-<arg>Table Should Have At Least One Row</arg>
-<doc>Runs the specified keyword and retries if it fails.</doc>
-<status status="PASS" start="2025-08-20T11:24:09.383526" elapsed="0.007724"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_BLOOM}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:22:25.254854" elapsed="0.189422"/>
 </kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:22:25.445468" level="INFO">Selecting options from selection list '//select[@id="id_bloom_level"]' by value apply.</msg>
+<arg>${POST_BLOOM}</arg>
+<arg>apply</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-09-16T14:22:25.444848" elapsed="0.865678"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_STATUS}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:22:26.310979" elapsed="0.244850"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:22:26.556842" level="INFO">Selecting options from selection list '//select[@id="id_status"]' by value inactive.</msg>
+<arg>${POST_STATUS}</arg>
+<arg>inactive</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-09-16T14:22:26.556261" elapsed="0.663550"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_APPROVAL_STATUS}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:22:27.220187" elapsed="0.235973"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:22:27.457781" level="INFO">Selecting options from selection list '//select[@id="id_approval_status"]' by value pending.</msg>
+<arg>${POST_APPROVAL_STATUS}</arg>
+<arg>pending</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-09-16T14:22:27.456630" elapsed="0.646086"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
 <arg>10s</arg>
-<status status="PASS" start="2025-08-20T11:24:09.383119" elapsed="0.008167"/>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:22:28.103190" elapsed="0.040312"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Table Rows Should Match" owner="Classes">
-<kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2025-08-20T11:24:10.989625" level="INFO">${rows} = []</msg>
-<var>${rows}</var>
-<arg>${GRID_ROWS}</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2025-08-20T11:24:09.392309" elapsed="1.597393"/>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-09-16T14:22:28.144213" elapsed="0.529330"/>
 </kw>
-<for flavor="IN">
-<iter>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${ok}</var>
-<arg>${True}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-08-20T11:24:10.990565" elapsed="0.000042"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:22:38.721351" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:22:28.674468" elapsed="10.047042"/>
 </kw>
-<if>
-<branch type="IF" condition="&quot;${semester}&quot;">
-<kw name="Get Text" owner="SeleniumLibrary">
-<var>${sem}</var>
-<arg>xpath=${r}/${COL_SEM}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-20T11:24:10.990834" elapsed="0.000031"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:22:38.727605" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:22:38.723092" elapsed="2.916310"/>
 </kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${sem}</arg>
-<arg>${semester}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="NOT RUN" start="2025-08-20T11:24:10.990968" elapsed="0.000031"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:22:46.640158" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:22:41.639681" elapsed="5.000684"/>
 </kw>
-<status status="NOT RUN" start="2025-08-20T11:24:10.990723" elapsed="0.000325"/>
-</branch>
-<status status="NOT RUN" start="2025-08-20T11:24:10.990696" elapsed="0.000556"/>
-</if>
-<if>
-<branch type="IF" condition="&quot;${year}&quot;">
-<kw name="Get Text" owner="SeleniumLibrary">
-<var>${yr}</var>
-<arg>xpath=${r}/${COL_YEAR}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-20T11:24:10.991525" elapsed="0.000035"/>
+<status status="PASS" start="2025-09-16T14:22:15.961776" elapsed="30.679802"/>
 </kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${yr}</arg>
-<arg>${year}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" start="2025-08-20T11:24:10.991670" elapsed="0.000031"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T11:24:10.991382" elapsed="0.000368"/>
-</branch>
-<status status="NOT RUN" start="2025-08-20T11:24:10.991338" elapsed="0.000456"/>
-</if>
-<if>
-<branch type="IF" condition="&quot;${status}&quot;">
-<kw name="Get Text" owner="SeleniumLibrary">
-<var>${st}</var>
-<arg>xpath=${r}/${COL_STATUS}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-20T11:24:10.991946" elapsed="0.000028"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${st}</arg>
-<arg>${status}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" start="2025-08-20T11:24:10.992072" elapsed="0.000028"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T11:24:10.991852" elapsed="0.000295"/>
-</branch>
-<status status="NOT RUN" start="2025-08-20T11:24:10.991835" elapsed="0.000351"/>
-</if>
-<if>
-<branch type="IF" condition="&quot;${name_contains}&quot;">
-<kw name="Get Text" owner="SeleniumLibrary">
-<var>${name}</var>
-<arg>xpath=${r}/${COL_NAME}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-20T11:24:10.992351" elapsed="0.000031"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${name}</arg>
-<arg>${name_contains}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" start="2025-08-20T11:24:10.992495" elapsed="0.000031"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T11:24:10.992243" elapsed="0.000344"/>
-</branch>
-<status status="NOT RUN" start="2025-08-20T11:24:10.992225" elapsed="0.000429"/>
-</if>
-<var name="${r}"/>
-<status status="NOT RUN" start="2025-08-20T11:24:10.990407" elapsed="0.002276"/>
-</iter>
-<var>${r}</var>
-<value>@{rows}</value>
-<status status="NOT RUN" start="2025-08-20T11:24:10.989851" elapsed="0.002911"/>
-</for>
-<arg>Summer</arg>
-<arg>${EMPTY}</arg>
-<arg>Ongoing</arg>
-<arg>Nhập môn lập trình</arg>
-<status status="PASS" start="2025-08-20T11:24:09.391862" elapsed="1.601043"/>
-</kw>
-<arg>'${yr_for_assert}'==''</arg>
-<arg>Table Rows Should Match</arg>
-<arg>Summer</arg>
-<arg>${EMPTY}</arg>
-<arg>Ongoing</arg>
-<arg>Nhập môn lập trình</arg>
-<arg>ELSE</arg>
-<arg>Table Rows Should Match</arg>
-<arg>Summer</arg>
-<arg>${yr_for_assert}</arg>
-<arg>Ongoing</arg>
-<arg>Nhập môn lập trình</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-20T11:24:09.391522" elapsed="1.601491"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2025-08-20T11:24:11.120151" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-69.png"&gt;&lt;img src="selenium-screenshot-69.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-20T11:24:10.993545" elapsed="0.126751"/>
-</kw>
-<timeout value="4 minutes"/>
-<status status="PASS" start="2025-08-20T11:24:07.082670" elapsed="4.037918"/>
+<doc>TC_CB_02</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-09-16T14:22:15.960993" elapsed="30.681384"/>
 </test>
-<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-08-20T11:24:11.122660" elapsed="2.185198"/>
+<test id="s1-t3" name="TC_CB_03 : Kiểm tra trường Course" line="19">
+<kw name="Check the Course field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:22:46.644388" elapsed="0.129769"/>
 </kw>
-<doc>Login -&gt; Lớp học -&gt; thao tác bộ lọc Semester/AY/Status + Search.</doc>
-<status status="PASS" start="2025-08-20T11:23:55.401228" elapsed="17.906783"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:22:46.775464" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:22:46.774892" elapsed="1.077359"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_COURSE}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:22:47.852509" elapsed="0.029060"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:22:47.881926" level="INFO">Selecting options from selection list '//select[@id="id_course"]' by value 29.</msg>
+<arg>${POST_COURSE}</arg>
+<arg>29</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-09-16T14:22:47.881725" elapsed="0.113906"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:22:47.996152" elapsed="0.031638"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-09-16T14:22:48.028153" elapsed="0.312715"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:22:58.342626" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:22:48.341614" elapsed="10.001269"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:22:58.343528" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:22:58.343174" elapsed="1.412440"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:23:04.756458" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:22:59.755778" elapsed="5.001215"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:22:46.644040" elapsed="18.113383"/>
+</kw>
+<doc>TC_CB_03</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-09-16T14:22:46.643169" elapsed="18.117590"/>
+</test>
+<test id="s1-t4" name="TC_CB_04 : Kiểm tra trường Content" line="23">
+<kw name="Check the Content field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:23:04.764149" elapsed="0.032624"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:23:04.797410" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:23:04.797041" elapsed="1.289008"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_CONTENT}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:23:06.086332" elapsed="0.028998"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:23:06.115921" level="INFO">Typing text 'Cấu trúc dữ liệu và giải thuật là gì?' into text field '//textarea[@id="id_content"]'.</msg>
+<arg>${POST_CONTENT}</arg>
+<arg>Cấu trúc dữ liệu và giải thuật là gì?</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:23:06.115586" elapsed="0.130833"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:23:06.246607" elapsed="0.018888"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-09-16T14:23:06.265682" elapsed="0.294463"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:23:16.561295" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:23:06.560542" elapsed="10.001013"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:23:16.562558" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:23:16.561922" elapsed="0.100994"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:23:21.663626" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:23:16.663192" elapsed="5.000561"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:23:04.763707" elapsed="16.900176"/>
+</kw>
+<doc>TC_CB_04</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-09-16T14:23:04.762325" elapsed="16.901890"/>
+</test>
+<test id="s1-t5" name="TC_CB_05 : Kiểm tra trường Type" line="28">
+<kw name="Check the Type field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:23:21.665857" elapsed="0.034020"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:23:21.700393" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:23:21.700106" elapsed="1.099672"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_TYPE}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:23:22.800110" elapsed="0.029427"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:23:22.830102" level="INFO">Selecting options from selection list '//select[@id="id_type"]' by value practical.</msg>
+<arg>${POST_TYPE}</arg>
+<arg>practical</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-09-16T14:23:22.829794" elapsed="0.111231"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:23:22.941303" elapsed="0.025916"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-09-16T14:23:22.967364" elapsed="0.326769"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:23:33.295231" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:23:23.294338" elapsed="10.001156"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:23:33.296204" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:23:33.295813" elapsed="1.451407"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:23:39.748357" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:23:34.747499" elapsed="5.001046"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:23:21.665595" elapsed="18.083132"/>
+</kw>
+<doc>TC_CB_05</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-09-16T14:23:21.664973" elapsed="18.084417"/>
+</test>
+<test id="s1-t6" name="TC_CB_06 : Kiểm tra trường Difficulty" line="33">
+<kw name="Check the Difficulty field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:23:39.763742" elapsed="0.023771"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:23:39.787922" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:23:39.787699" elapsed="1.331972"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_DIFFICULTY}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:23:41.119870" elapsed="0.023550"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:23:41.144477" level="INFO">Selecting options from selection list '//select[@id="id_difficulty"]' by value medium.</msg>
+<arg>${POST_DIFFICULTY}</arg>
+<arg>medium</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-09-16T14:23:41.143882" elapsed="0.078906"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:23:41.223045" elapsed="0.021715"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-09-16T14:23:41.245106" elapsed="0.301649"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:23:51.548689" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:23:41.547165" elapsed="10.001732"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:23:51.549521" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:23:51.549161" elapsed="1.264173"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:23:57.814485" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:23:52.813701" elapsed="5.000924"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:23:39.763193" elapsed="18.051533"/>
+</kw>
+<doc>TC_CB_06</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-09-16T14:23:39.760876" elapsed="18.054250"/>
+</test>
+<test id="s1-t7" name="TC_CB_07 : Kiểm tra trường Bloom" line="38">
+<kw name="Check the Bloom field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:23:57.818188" elapsed="0.028209"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:23:57.847210" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:23:57.846687" elapsed="1.291975"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_BLOOM}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:23:59.138914" elapsed="0.037199"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:23:59.177321" level="INFO">Selecting options from selection list '//select[@id="id_bloom_level"]' by value apply.</msg>
+<arg>${POST_BLOOM}</arg>
+<arg>apply</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-09-16T14:23:59.176622" elapsed="0.191157"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:23:59.368189" elapsed="0.069482"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-09-16T14:23:59.438122" elapsed="0.320257"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:24:09.759900" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:23:59.758823" elapsed="10.001401"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:24:09.762010" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:24:09.760982" elapsed="1.136187"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:24:15.898729" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:24:10.897672" elapsed="5.001272"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:23:57.817949" elapsed="18.081145"/>
+</kw>
+<doc>TC_CB_07</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-09-16T14:23:57.816897" elapsed="18.082713"/>
+</test>
+<test id="s1-t8" name="TC_CB_08 : Kiểm tra trường Status" line="43">
+<kw name="Check the Status field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:24:15.901731" elapsed="0.030357"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:24:15.932757" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:24:15.932432" elapsed="1.015763"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_STATUS}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:24:16.948559" elapsed="0.033366"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:24:16.982382" level="INFO">Selecting options from selection list '//select[@id="id_status"]' by value inactive.</msg>
+<arg>${POST_STATUS}</arg>
+<arg>inactive</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-09-16T14:24:16.982118" elapsed="0.114316"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:24:17.096687" elapsed="0.030488"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-09-16T14:24:17.127434" elapsed="0.310416"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:24:27.442221" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:24:17.438055" elapsed="10.004487"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:24:27.445774" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:24:27.442994" elapsed="0.191835"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:24:32.635709" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:24:27.635181" elapsed="5.000730"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:24:15.901381" elapsed="16.735506"/>
+</kw>
+<doc>TC_CB_08</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-09-16T14:24:15.900590" elapsed="16.739188"/>
+</test>
+<test id="s1-t9" name="TC_CB_09 : Kiểm tra trường Approval Status" line="48">
+<kw name="Check the Approval Status field" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:24:32.646235" elapsed="0.050184"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:24:32.697215" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:24:32.696737" elapsed="1.102263"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POST_APPROVAL_STATUS}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:24:33.799413" elapsed="0.054213"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:24:33.854563" level="INFO">Selecting options from selection list '//select[@id="id_approval_status"]' by value pending.</msg>
+<arg>${POST_APPROVAL_STATUS}</arg>
+<arg>pending</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-09-16T14:24:33.853995" elapsed="0.055673"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:24:33.910107" elapsed="0.021945"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-09-16T14:24:33.932433" elapsed="0.286259"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:24:44.220727" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:24:34.219745" elapsed="10.001238"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:24:44.222780" level="INFO">Clicking element '//button[@class="btn btn-primary"]'.</msg>
+<arg>${BUTTON_CREATE_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:24:44.221346" elapsed="0.920219"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:24:50.142772" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:24:45.141928" elapsed="5.001006"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:24:32.645298" elapsed="17.497812"/>
+</kw>
+<doc>TC_CB_09</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-09-16T14:24:32.642717" elapsed="17.500697"/>
+</test>
+<test id="s1-t10" name="TC_CB_10 : Kiểm tra nút Back to Question Bank" line="53">
+<kw name="Back to Question Bank" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_NEW_QUESTION}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:24:50.146025" elapsed="0.151191"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:24:50.297609" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][2]'.</msg>
+<arg>${URL_NEW_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:24:50.297384" elapsed="1.358776"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BUTTON_BACK}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:24:51.656413" elapsed="0.054092"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:24:51.711027" level="INFO">Clicking element '//a[contains(@href,"/questionbank/questions") and @class="btn btn-secondary"]'.</msg>
+<arg>${BUTTON_BACK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:24:51.710764" elapsed="2.403210"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:24:57.118531" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:24:54.114279" elapsed="3.004382"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:24:50.145680" elapsed="6.973100"/>
+</kw>
+<doc>TC_CB_10</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-09-16T14:24:50.144254" elapsed="6.975054"/>
+</test>
+<test id="s1-t11" name="TC_CB_11 : Điều hướng trang Thẻ phân loại" line="58">
+<kw name="Manage Tags navigation" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${URL_MANAGE_TAGS}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-16T14:24:57.120962" elapsed="0.026968"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:24:57.148327" level="INFO">Clicking element '//div[@class='menu-section']//a[contains(@href, '/questionbank/tags/')]'.</msg>
+<arg>${URL_MANAGE_TAGS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-16T14:24:57.148106" elapsed="0.879216"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-16T14:25:01.028064" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-16T14:24:58.027504" elapsed="3.000954"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:24:57.120667" elapsed="3.907969"/>
+</kw>
+<doc>TC_CB_11</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="PASS" start="2025-09-16T14:24:57.119961" elapsed="3.909094"/>
+</test>
+<test id="s1-t12" name="TC_CB_12 : Điều hướng trang nhập câu hỏi" line="63">
+<kw name="Import Questions navigation" owner="TaoMoiCauHoi">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-09-16T14:25:31.371554" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-22.png"&gt;&lt;img src="selenium-screenshot-22.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-16T14:25:31.375871" level="FAIL">Element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][3]' not visible after 30 seconds.</msg>
+<arg>${URL_IMPORT_QUESTION}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-09-16T14:25:01.032788" elapsed="30.361237">Element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][3]' not visible after 30 seconds.</status>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${URL_IMPORT_QUESTION}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2025-09-16T14:25:31.394473" elapsed="0.000061"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${URL_IMPORT_QUESTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-16T14:25:31.394666" elapsed="0.000025"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-16T14:25:31.394779" elapsed="0.000024"/>
+</kw>
+<status status="FAIL" start="2025-09-16T14:25:01.032413" elapsed="30.363128">Element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][3]' not visible after 30 seconds.</status>
+</kw>
+<doc>TC_CB_12</doc>
+<tag>honghanh</tag>
+<tag>TaoMoiCauHoi</tag>
+<status status="FAIL" start="2025-09-16T14:25:01.030890" elapsed="30.365695">Element '//div[@class='menu-section']//a[contains(@href, '/questionbank/questions/')][3]' not visible after 30 seconds.</status>
+</test>
+<kw name="Close Web" owner="TaoMoiCauHoi" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-09-16T14:25:31.399463" elapsed="2.348013"/>
+</kw>
+<status status="PASS" start="2025-09-16T14:25:31.399183" elapsed="2.348431"/>
+</kw>
+<status status="FAIL" start="2025-09-16T14:21:47.657091" elapsed="226.090573"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="11" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="11" fail="1" skip="0">honghanh</stat>
+<stat pass="11" fail="1" skip="0">TaoMoiCauHoi</stat>
 </tag>
 <suite>
-<stat name="Classes" id="s1" pass="3" fail="0" skip="0">Classes</stat>
+<stat name="TaoMoiCauHoi" id="s1" pass="11" fail="1" skip="0">TaoMoiCauHoi</stat>
 </suite>
 </statistics>
 <errors>

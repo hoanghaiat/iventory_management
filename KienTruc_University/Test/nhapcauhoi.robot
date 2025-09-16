@@ -15,23 +15,27 @@ ${INVALID_FILE}    ${CURDIR}/../data/invalid_questions.txt
 *** Test Cases ***
 TC_BTN_002: Import file câu hỏi hợp lệ
     [Documentation]    Import file CSV đúng định dạng, kiểm tra thông báo thành công
+    [Tags]    honghanh    nhapcauhoi
     Open Import Dialog
     Import File And Submit    ${VALID_FILE}
     Toast Should Be Success
 
 TC_BTN_003: Import file sai định dạng
     [Documentation]    Import file .txt sai định dạng, kiểm tra thông báo lỗi
+     [Tags]    honghanh    nhapcauhoi
     Open Import Dialog
     Import File And Submit    ${INVALID_FILE}
     Toast Should Be Error
 
 TC_BTN_004: Mở trang quản lý tag
     [Documentation]    Click Manage Tags, kiểm tra mở trang quản lý tag
+    [Tags]    honghanh    nhapcauhoi
     Go To Manage Tags
     Tag Page Should Open
 
 TC_BTN_005: Xóa toàn bộ bộ lọc
     [Documentation]    Chọn Course, Difficulty rồi click Clear Filters, kiểm tra về trạng thái mặc định
+    [Tags]    honghanh    nhapcauhoi
     Go To Question Bank
     Select Filter Values    Course    Easy
     Clear All Filters
