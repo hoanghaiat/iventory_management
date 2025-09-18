@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    ../Resource/HomePage.resource
-Resource    ../Resource/PersonalSetting.resource
+Resource    ../resource/home_page.resource
+Resource    ../resource/personal_setting.resource
 Test Setup    Login To System
 Test Teardown    Close Browser
 

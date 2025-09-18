@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    ../Resource/Search_Report.resource
-Resource    ../Resource/HomePage.resource
+Resource    ../resource/search_report.resource
+Resource    ../resource/home_page.resource
 Test Setup    Login To System
 Test Teardown    Close Browser
 
