@@ -1,61 +1,76 @@
 *** Settings ***
-Resource    ../resources/student_profile.resource
+Library    SeleniumLibrary    run_on_failure=No Operation
+Library    Easter
+Resource   ../resources/student_profile.resource
+Resource   ../resources/common.resource
 
-Test Setup       Open Browser To Login Page
-Test Teardown    Close Browser
-Suite Teardown   Close Browser
-
+Suite Setup       Open Browser To Login Page
+Test Setup        Open Profile Page
+Test Teardown    Go Back Home
+Suite Teardown    Close Browser
+    
 *** Test Cases ***
-TC_PI_01 View Profile Page Successfully
-    [Tags]    Profile    Interface    Positive
-    Login As Student
-    Open Profile Page
+View Profile Page Successfully
+    [Documentation]    TC_PI_01
+    [Tags]    Thu Phuong    Interface
     Verify Profile Information
 
-TC_PL_02 Verify Edit Profile Button Visibility And Clickability 
-    [Tags]    Profile    Interface    Positive
-    Login As Student
-    Open Profile Page
+Verify Edit Profile Button Is Visible And Clickable
+    [Documentation]    TC_PI_02
+    [Tags]    Thu Phuong    Interface
     Click Edit Profile Button
     Page Should Contain Element    ${UPDATE_PROFILE_BUTTON}
 
-TC_PE_03 Update profile successfully with valid data 
-    [Tags]    Profile   Edit    Positive 
-    Login As Student
-    Open Profile Page
+Update Profile Successfully With Valid Data
+    [Documentation]    TC_PI_03
+    [Tags]    Thu Phuong    Edit Profile
     Click Edit Profile Button
-    Fill Profile With Valid Data   student1   Nguyễn Văn    A     student@student.university.edu.vn   0905475265    Khoa Công Nghệ Thông Tin    Software Engineer
-    Click Update Profile Button 
-    Verify Success Message And Profile Update  
+    ${profile_data}=    Get Default Profile Data
+    Fill Profile Form    ${profile_data}
+    Click Update Profile Button
+    Verify Success Message
 
-TC_PE_04 Verify Update Profile With Empty Username Fields 
-    [Tags]    Profile   Edit   Negative 
-    Login As Student
-    Open Profile Page
+Update Profile Fails With Empty Username
+    [Documentation]    TC_PI_04
+    [Tags]    Thu Phuong    Edit Profile
     Click Edit Profile Button
-    Fill Profile Form With Empty Username Fields
+    ${profile_data}=    Get Profile Data With Empty Username
+    Fill Profile Form    ${profile_data}
     Click Update Profile Button
     Verify Error Message For Required Fields    username
 
-TC_PE_05 Verify Update Profile With Empty Email Fields 
-    [Tags]   Profile    Edit   Negative 
-    Login As Student
-    Open Profile Page 
+Update Profile Fails With Empty Email
+    [Documentation]    TC_PI_05 
+    [Tags]    Thu Phuong    Edit Profile
     Click Edit Profile Button
-    Fill Profile Form With Empty Email
+    ${profile_data}=    Get Profile Data With Empty Email
+    Fill Profile Form    ${profile_data}
     Click Update Profile Button
-    Verify Error Message For Required Fields     email
+    Verify Error Message For Required Fields    email
 
-TC_PE_06 Verify Update Profile With Valid Username & Email
-    [Tags]  Profile    Edit   Positive 
-    Login As Student
-    Open Profile Page 
-    Click Edit Profile Button 
-    Fill Profile Form With Valid Username & Email 
+Update Profile Fails With Empty Username And Email
+    [Documentation]    TC_PI_06 
+    [Tags]    Thu Phuong    Edit Profile
+    Click Edit Profile Button
+    ${profile_data}=    Get Profile Data With Empty Username And Email
+    Fill Profile Form    ${profile_data}
     Click Update Profile Button
-    Verify Success Message And Profile Update 
+    Verify Error Message For Required Fields    username
+    Verify Error Message For Required Fields    email
 
-TC_PL_08 Verify Log Out Successfully 
-    [Tags]  Log out    Positive 
-    Login As Student
+Verify Log Out Successfully
+    [Documentation]    TC_PL_08
+    [Tags]    Thu Phuong    Log out
+    [Setup]    NONE 
+    [Teardown]    NONE
     Click Log Out Button
+    Wait Until Location Contains    ${URL}
+
+Update Profile Successfully With Valid Data
+    [Documentation]    TC_PI_03 
+    [Tags]    Thu Phuong    Edit Profile
+    Click Edit Profile Button
+    ${profile_data}=    Get Default Profile Data
+    Fill Profile Form    ${profile_data}
+    Click Update Profile Button
+    Verify Success Message

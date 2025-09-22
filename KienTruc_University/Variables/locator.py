@@ -1,6 +1,4 @@
-# =========================
-# Student Profile Locators
-# =========================
+
 URL = "https://demo-clo.minds.vn/en/accounts/login/"
 BROWSER = "Chrome"
 
@@ -11,7 +9,7 @@ PASSWORD = "demostudent"
 # Buttons
 EDIT_PROFILE_BUTTON = '//a[@href="/en/accounts/profile/update/"]'
 UPDATE_PROFILE_BUTTON = '//div/button[@type="submit"]'
-LOGOUT_BUTTON = '//li//form//button[@type="submit"]'
+LOGOUT_BUTTON = '//button[@class="dropdown-item"]'
 LOGIN_BTN="//button[@type='submit']"
 
 # Form Fields
@@ -30,9 +28,7 @@ ERROR_MESSAGES = {
     "email": "xpath=//*[@id='error_1_id_email']/strong"
 }
 
-# =========================
-# Program UI Locators
-# =========================
+
 BASE_LOGIN_URL = "https://demo-clo.minds.vn/en/accounts/login/"
 BASE_URL_ROOT = "https://demo-clo.minds.vn/en/"
 MENU_PROGRAMS = "xpath=//a[contains(.,'Chương trình đào tạo') or contains(.,'Program')]"
@@ -54,7 +50,7 @@ PROGRAMS_TABLE_ROWS = "xpath=//table//tbody//tr"
 FIRST_PROGRAM_ROW = "(//table//tbody//tr)[1]"
 FIRST_PROGRAM_NAME_CELL = "(//table//tbody//tr)[1]//td[1]"
 FIRST_PROGRAM_VIEW_BTN = "(//table//tbody//tr)[1]//a[contains(@class,'btn') and (descendant::i[contains(@class,'eye') or contains(@class,'fa-eye')] or descendant::svg)]"
-FIRST_PROGRAM_COURSES_BTN = "(//table//tbody//tr)[1]//a[normalize-space(.)='Courses' or contains(.,'Courses')]"
+FIRST_PROGRAM_COURSES_BTN = "//td//div//a[2]"
 DETAIL_PROGRAM_TITLE = '//h1[@class="content-title"]'
 DETAIL_COURSE_TITLE =  '//div/h1[@class="content-title"]'
 # Courses page top actions
@@ -88,6 +84,7 @@ VIEW_CLOS_BTN ='//tbody//tr//td//div//a[contains(@class,"btn btn-success")]'
 DETAIL_COURSE_TITLE = '//h1[@class="content-title"]'
 EDIT_COURSE_TITLE ='//h1[@class="content-title"]'
 CLO_TITLE ='//h1[@class="content-title"]'
+edit_clo_btn='//a//i[contains(@class,"fas fa-edit")]'
 
 
 MENU_COURSE = '//a[@href="/en/academics/courses/"]' 
@@ -115,7 +112,7 @@ STATUS_OPT = '//option[@value="completed"]'
 PREREQUISITE_COURSE_DROP='//select[@id="id_prerequisite_courses"]'
 PREREQUISITE_COURSE_OPT='//select[@id="id_prerequisite_courses"]/option[@value="4"]'
 UPDATE_COURSE_BTN ="//button[@type='submit' and contains(@class,'btn-primary')]"
-SUCCESS_UPDATE_MESSAGE ='//div[contains(@class,"alert-success")]'
+SUCCESS_UPDATE_MESSAGE ='//div[@class="alert alert-success alert-dismissible fade show"]'
 ERROR_UPDATE_MESSAGES = {
     "program": "//strong[contains(text(),'This field is required')]",
     "course code": "//strong[contains(text(),'This field is required')]",
@@ -139,7 +136,7 @@ CLO_CREATE_TITLE ='//h1[@class="content-title"]'
 BACK_TO_CLOS_BTN='//div//a[contains(@class,"btn btn-secondary")]'
 
 COURSE_DROP ='//select[@id="id_course"]'
-CLO_CODE='//input[@id="id_clo_code"]'
+CLO_CODE_FIELD='//input[@id="id_clo_code"]'
 DESCRIPTION_CLO ='//textarea[@id="id_description"]'
 CATEGORY_CLO_DROP='//select[@id="id_category"]'
 LEVEL_CLO_DROP='//select[@id="id_level"]'

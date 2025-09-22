@@ -1,124 +1,102 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    String
 Library    Collections
 Variables  ../variables/locator.py
 
-
+*** Variables ***
+${DEFAULT_USERNAME}          student1
+${DEFAULT_FIRSTNAME}         Nguyễn Văn
+${DEFAULT_LASTNAME}          A
+${DEFAULT_EMAIL}             student@student.university.edu.vn
+${DEFAULT_PHONE}             0905475265
+${DEFAULT_DEPARTMENT}        Khoa Công Nghệ Thông Tin
+${DEFAULT_SPECIALIZATION}    Software Engineer
 *** Keywords ***
-Open Browser To Login Page
-    Open Browser    ${URL}    ${BROWSER}
-    Maximize Browser Window
-
-Login As Student
-    Input Text    id=id_username    ${USERNAME}
-    Input Text    id=id_password    ${PASSWORD}
-    Click Button  ${LOGIN_BTN}
 
 Open Profile Page
     Wait Until Element Is Visible    ${TAB}    10s
     Click Element    ${TAB}
     Click Element    ${SETTING_PROFILE}
     Click Link       ${PROFILE_BTN}
-    Wait Until Page Contains    Hồ sơ cá nhân
 
-Click Log Out Button 
-    Wait Until Element Is Visible    ${TAB}    10s
-    Click Element    ${TAB}
-    Click Element    ${SETTING_PROFILE}
-    Click Element    ${LOGOUT_BUTTON}
-    Wait Until Page Contains    Đăng nhập hệ thống 
+Click Log Out Button
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${TAB}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${SETTING_PROFILE}
+    Wait Until Keyword Succeeds    30s    1s    Click Element    ${LOGOUT_BUTTON}
 
 Verify Profile Information
-    Page Should Contain    Hồ sơ cá nhân 
+    Page Should Contain    Hồ sơ cá nhân
 
-Click Edit Profile Button 
+Click Edit Profile Button
     Wait Until Element Is Visible    ${EDIT_PROFILE_BUTTON}    10s
-    Click Element    ${EDIT_PROFILE_BUTTON}  
+    Click Element    ${EDIT_PROFILE_BUTTON}
     Wait Until Element Is Visible    ${UPDATE_PROFILE_BUTTON}   10s
 
-Fill Profile With Valid Data 
-    [Arguments]     ${user_name}   ${first_name}   ${last_name}    ${email}   ${phone}   ${department}   ${specialization}
-    Wait Until Element Is Visible    ${FIRST_NAME_FIELDS}    5s 
-    Clear Element Text    ${FIRST_NAME_FIELDS}
-    Input Text    ${FIRST_NAME_FIELDS}   ${first_name}
 
-    Clear Element Text    ${USENAME_FIELDS}
-    Input Text    ${USENAME_FIELDS}    ${user_name}
+Get Default Profile Data
+    ${profile_data}=    Create Dictionary
+    ...    ${USENAME_FIELDS}         ${DEFAULT_USERNAME}
+    ...    ${FIRST_NAME_FIELDS}      ${DEFAULT_FIRSTNAME}
+    ...    ${LAST_NAME_FIELDS}       ${DEFAULT_LASTNAME}
+    ...    ${EMAIL_FIELDS}           ${DEFAULT_EMAIL}
+    ...    ${PHONE_FIELDS}           ${DEFAULT_PHONE}
+    ...    ${DEPARTMENT_FIELDS}      ${DEFAULT_DEPARTMENT}
+    ...    ${SPECIALIZATION_FIELDS}  ${DEFAULT_SPECIALIZATION}
+    [Return]    ${profile_data}
 
-    Clear Element Text    ${LAST_NAME_FIELDS}
-    Input Text    ${LAST_NAME_FIELDS}    ${last_name}
+Get Profile Data With Empty Username
+    ${profile_data}=    Get Default Profile Data
+    Set To Dictionary    ${profile_data}    ${USENAME_FIELDS}=${EMPTY}
+    [Return]    ${profile_data}
 
-    Clear Element Text     ${EMAIL_FIELDS}
-    Input Text    ${EMAIL_FIELDS}    ${email}
+Get Profile Data With Empty Email
+    ${profile_data}=    Get Default Profile Data
+    Set To Dictionary    ${profile_data}    ${EMAIL_FIELDS}=${EMPTY}
+    [Return]    ${profile_data}
 
-    Clear Element Text     ${PHONE_FIELDS}
-    Input Text    ${PHONE_FIELDS}    ${phone}
+Get Profile Data With Empty Username And Email
+    ${profile_data}=    Get Default Profile Data
+    Set To Dictionary    ${profile_data}    ${USENAME_FIELDS}=${EMPTY}
+    Set To Dictionary    ${profile_data}    ${EMAIL_FIELDS}=${EMPTY}
+    [Return]    ${profile_data}
 
-    Clear Element Text    ${DEPARTMENT_FIELDS}  
-    Input Text    ${DEPARTMENT_FIELDS}    ${department}
+Fill Profile Form
+    [Arguments]    ${profile_data}
+    Wait Until Element Is Visible    ${FIRST_NAME_FIELDS}    10s
+    FOR    ${field}    ${value}    IN    &{profile_data}
+        Clear Field And Input Value    ${field}    ${value}
+    END
 
-    Clear Element Text    ${SPECIALIZATION_FIELDS}    
-    Input Text    ${SPECIALIZATION_FIELDS}   ${specialization}
+Clear Field And Input Value
+    [Arguments]    ${field_input}    ${info_user}
+    Clear Element Text    ${field_input}
+    Run Keyword If    '${info_user}' != '${EMPTY}'    Input Text    ${field_input}    ${info_user}
 
 Click Update Profile Button
-    Wait Until Element Is Visible    ${UPDATE_PROFILE_BUTTON}   10s 
+    Wait Until Element Is Visible    ${UPDATE_PROFILE_BUTTON}   10s
     Scroll Element Into View    ${UPDATE_PROFILE_BUTTON}
-    Wait Until Element Is Enabled    ${UPDATE_PROFILE_BUTTON}   
+    Wait Until Element Is Enabled    ${UPDATE_PROFILE_BUTTON}
     Wait Until Page Does Not Contain Element    ${LOADING}    10s
     Click Element    ${UPDATE_PROFILE_BUTTON}
-    Log     Profile update form submitted
 
-Verify Success Message And Profile Update 
-    Wait Until Element Contains    ${SUCCESS_MESSAGE}    Your profile has been updated      10s
-    Element Should Contain    ${SUCCESS_MESSAGE}    updated
-    Log   Success message should displayed : Your profile has been updated
+Verify Success Message
+    [Arguments]    ${expected_msg}=Your profile has been updated
+    Wait Until Element Contains    ${SUCCESS_MESSAGE}    ${expected_msg}    10s
+    Element Should Contain    ${SUCCESS_MESSAGE}    ${expected_msg}
+   
 
 Verify Error Message For Required Fields
     [Arguments]    ${field_key}
     ${locator}=    Set Variable    ${ERROR_MESSAGES}[${field_key}]
     Wait Until Element Contains    ${locator}    This field is required    10s
     Element Should Contain    ${locator}    This field is required
-    Log    Error message displayed for ${field_key} : This field is required
 
-Fill Profile Form With Empty Username Fields
-    Wait Until Element Is Visible    ${FIRST_NAME_FIELDS}   10s
-    Clear Element Text    ${FIRST_NAME_FIELDS} 
-    Input Text    ${FIRST_NAME_FIELDS}    Nguyễn Văn
-    Clear Element Text    ${USENAME_FIELDS}
-    Clear Element Text    ${EMAIL_FIELDS}
-    Input Text    ${EMAIL_FIELDS}    student@student.university.edu.vn
-    Clear Element Text    ${LAST_NAME_FIELDS}
-    Input Text    ${LAST_NAME_FIELDS}    A
-    Clear Element Text    ${PHONE_FIELDS}
-    Input Text    ${PHONE_FIELDS}    0905475265
-    Clear Element Text    ${DEPARTMENT_FIELDS}
-    Input Text    ${DEPARTMENT_FIELDS}    Khoa Công Nghệ Thông Tin
-    Clear Element Text    ${SPECIALIZATION_FIELDS}
-    Input Text    ${SPECIALIZATION_FIELDS}    Software Engineer
-    Log    Form filled with empty username field
 
-Fill Profile Form With Empty Email 
-    Wait Until Element Is Visible    ${FIRST_NAME_FIELDS}   10s
-    Clear Element Text    ${FIRST_NAME_FIELDS} 
-    Input Text    ${FIRST_NAME_FIELDS}    Nguyễn Văn
-    Clear Element Text    ${USENAME_FIELDS}
-    Input Text    ${USENAME_FIELDS}    student1
-    Clear Element Text    ${EMAIL_FIELDS}
-    Clear Element Text    ${LAST_NAME_FIELDS}
-    Input Text    ${LAST_NAME_FIELDS}    A
-    Clear Element Text    ${PHONE_FIELDS}
-    Input Text    ${PHONE_FIELDS}    0905475265
-    Clear Element Text    ${DEPARTMENT_FIELDS}
-    Input Text    ${DEPARTMENT_FIELDS}    Khoa Công Nghệ Thông Tin
-    Clear Element Text    ${SPECIALIZATION_FIELDS}
-    Input Text    ${SPECIALIZATION_FIELDS}    Software Engineer
-    Log    Form filled with empty username field
+Verify Profile Data In Form
+    [Arguments]    ${profile_data}
+    FOR    ${field_input}    ${expected_value}    IN    &{profile_data}
+        ${current_value}=    Get Value    ${field_input}
+        Should Be Equal    ${current_value}    ${expected_value}
+    END
 
-Fill Profile Form With Valid Username & Email
-    Wait Until Element Is Visible    ${USENAME_FIELDS}
-    Clear Element Text    ${USENAME_FIELDS} 
-    Input Text    ${USENAME_FIELDS}    student1
-    Clear Element Text    ${EMAIL_FIELDS}
-    Input Text    ${EMAIL_FIELDS}    student@student.university.edu.vn
-    Log    Form filled with valid username & email
+
