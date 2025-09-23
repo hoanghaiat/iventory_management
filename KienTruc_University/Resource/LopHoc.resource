@@ -77,6 +77,20 @@ Fill All The Input Search
     Fill Dropdown    ${SELECT_STATUS}    ${status}
     Fill Text Field    ${INPUT_SEARCH_CLASS}    ${keyword}
 
+Fill All Input Search
+    [Arguments]    ${semester}    ${academicyear}    ${status}    ${keyword}
+    Wait Until Element Is Visible    ${SELECT_SEMESTER}    30s
+    ${info_search_list}    Create List    ${semester}    ${academicyear}    ${status}    
+    ${info_fields_list}    Create List    ${SELECT_SEMESTER}     ${SELECT_ACADEMIC_YEAR}   ${SELECT_STATUS} 
+
+    FOR    ${info_search_index}    ${info_fields_index}    IN ZIP    ${info_search_list}     ${info_fields_list}
+        Wait Until Element Is Visible    ${info_fields_index}    30s
+        Scroll Element Into View    ${info_fields_index}
+        Select From List By Label    ${info_fields_index}    ${info_search_index}   
+            
+    END
+    Fill Text Field    ${INPUT_SEARCH_CLASS}    ${keyword}
+ 
 Click The Button Search In The Page Class
     Wait Until Element Is Visible    ${SEARCH_CLASS_BTN}    30s
     Scroll Element Into View    ${SEARCH_CLASS_BTN}

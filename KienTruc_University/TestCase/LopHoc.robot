@@ -42,7 +42,7 @@ Tìm kiếm tất cả với từ khóa tồn tại
     [Tags]    PhuongLy    Thao tác tìm kiếm
     Open Class List
     Verify The Page
-    Fill All The Input Search    ${SEMESTER}    ${ACADEMIC_YEAR}    ${STATUS}    ${KEYWORD}
+    Fill All Input Search    ${SEMESTER}    ${ACADEMIC_YEAR}    ${STATUS}    ${KEYWORD}
     Click The Button Search In The Page Class
     Verify Search Results Contain Keyword Class    ${KEYWORD}
 Tìm kiếm với Semester Summer
