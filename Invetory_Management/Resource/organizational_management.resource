@@ -12,7 +12,16 @@ Verify Success Alert
     Wait Until Element Is Visible    ${message_unit}    10s
     Element Should Contain    ${message_unit}    ${expected_message}
 
-#Don vi
+Verify Invalid Feedback Unit
+    [Arguments]    ${expected_message}
+    Wait Until Element Is Visible    ${mess_invalid_feedback_unit}    10s
+    Element Should Contain    ${mess_invalid_feedback_unit}    ${expected_message}
+
+Verify Invalid Feedback Phong
+    [Arguments]    ${expected_message}
+    Wait Until Element Is Visible    ${mess_invalid_feedback_phong}    10s
+    Element Should Contain    ${mess_invalid_feedback_phong}    ${expected_message}
+#Unit
 Hien thi so ban ghi
     [Arguments]    ${so}
     Wait Until Element Is Visible    ${dropdown_hienthi}
@@ -24,7 +33,14 @@ Click Add Unit Form
     Wait Until Element Is Visible    ${button_add_unit}    10s
     Click Element    ${button_add_unit}
 
-Click Cancel Add Unit
+Fill Unit Form
+    [Arguments]    ${id}    ${name}
+    Wait Until Element Is Visible    ${input_id_unit}    10s
+    Input Text    ${input_id_unit}    ${id}
+    Wait Until Element Is Visible    ${input_name_unit}    10s
+    Input Text    ${input_name_unit}    ${name}
+
+Click Cancel Unit
     Wait Until Element Is Visible    ${button_cancel_add_unit}    10s
     Scroll Element Into View    ${button_cancel_add_unit}
     Click Element    ${button_cancel_add_unit}
@@ -49,18 +65,11 @@ Click Edit Unit
  Click Delete Unit
     Wait Until Element Is Visible    ${button_delete_unit}    10s
     Click Element                   ${button_delete_unit}
-    Wait Until Page Contains             Xoá đơn vị thành công!
 
 Click Update Unit
     Wait Until Element Is Visible    ${button_update_unit}    10s
     Scroll Element Into View    ${button_update_unit}
     Click Element               ${button_update_unit}
-Fill Unit Form
-    [Arguments]    ${id}    ${name}
-    Wait Until Element Is Visible    ${input_id_unit}    10s
-    Input Text    ${input_id_unit}    ${id}
-    Wait Until Element Is Visible    ${input_name_unit}    10s
-    Input Text    ${input_name_unit}    ${name}
 
 Edit Unit Form
     [Arguments]    ${new_name}
@@ -68,80 +77,50 @@ Edit Unit Form
     Clear Element Text    ${input_name_unit}
     Input Text    ${input_name_unit}    ${new_name}
 
-#Phong luu tru
-Back To Phong
+#Phong
+Click Add Phong Form
     Wait Until Element Is Visible    ${button_add_phong}    10s
-    Click Element                   ${button_add_phong}
-
-    Wait Until Element Is Visible    ${button_back_to_phong}    10s
-    Click Element                   ${button_back_to_phong}
-
-    Wait Until Element Is Visible    Quản lý Phông Lưu trữ    10s
-
-Cancel Add Phong
-    Wait Until Element Is Visible    ${button_add_phong}    10s
-    Click Element                   ${button_add_phong}
-
-    Wait Until Element Is Visible    ${button_cancel_add_phong}    10s
-    Scroll Element Into View    ${button_cancel_add_phong}
-    Click Element                   ${button_cancel_add_phong}
-
-    Wait Until Element Is Visible    Quản lý Phông Lưu trữ    10s
-
-Verify Add To Phong
-    [Arguments]    ${donvi}
-    Wait Until Element Is Visible    ${button_add_phong}
     Click Element    ${button_add_phong}
+Fill Phong Form
+    [Arguments]    ${donvi}
     Wait Until Element Is Visible    ${dropdown_name_unit}    10s
     Select From List By Label    ${dropdown_name_unit}    ${donvi}
-
     Input Text    ${input_name_phong}    Tài liệu demo
-    
-    Wait Until Element Is Visible    ${button_save_phong}
+
+Click Cancel Phong
+    Wait Until Element Is Visible    ${button_cancel_add_phong}    10s
+    Scroll Element Into View    ${button_cancel_add_phong}
+    Click Element    ${button_cancel_add_phong}
+    Wait Until Location Is    ${url_phong}
+
+Click Back To Phong
+    Wait Until Element Is Visible    ${button_back_to_phong}    10s
+    Click Element    ${button_back_to_phong}
+    Wait Until Location Is    ${url_phong}
+
+Click Save Phong
+    Wait Until Element Is Visible    ${button_save_phong}    10s
     Scroll Element Into View    ${button_save_phong}
     Click Element    ${button_save_phong}
-    Wait Until Page Contains             Thêm phông lưu trữ thành công!
 
-Edit Phong
+Click Edit Phong
     Wait Until Element Is Visible    ${button_edit_phong}    10s
-    Scroll Element Into View    ${button_edit_phong}
     Click Element                   ${button_edit_phong}
-
+    
+Edit Phong Form
+    [Arguments]    ${new_name}
     Wait Until Element Is Visible    ${input_name_phong}    10s
-    Clear Element Text             ${input_name_phong}
-    Input Text                    ${input_name_phong}        Tài liệu
+    Clear Element Text    ${input_name_phong}
+    Input Text    ${input_name_phong}    ${new_name}
 
+ Click Delete Phong
+    Wait Until Element Is Visible    ${button_delete_phong}    10s
+    Click Element                   ${button_delete_phong}
+
+Click Update Phong
     Wait Until Element Is Visible    ${button_update_phong}    10s
     Scroll Element Into View    ${button_update_phong}
     Click Element               ${button_update_phong}
-
-    Wait Until Page Contains             Cập nhật phông lưu trữ thành công!
-
-Edit Phong "Cancel"
-    Wait Until Element Is Visible    ${button_edit_phong}    10s
-    Scroll Element Into View    ${button_edit_phong}
-    Click Element                   ${button_edit_phong}  
-
-    Wait Until Element Is Visible    ${button_cancel_add_phong}    10s
-    Scroll Element Into View    ${button_cancel_add_phong}
-    Click Element                   ${button_cancel_add_phong}
-
-    Wait Until Element Is Visible    Quản lý Phông Lưu trữ    10s
-
-Edit Back To Phong
-    Wait Until Element Is Visible    ${button_edit_phong}    10s
-    Scroll Element Into View    ${button_edit_phong}
-    Click Element                   ${button_edit_phong}  
-
-    Wait Until Element Is Visible    ${button_back_to_phong}    10s
-    Click Element                   ${button_back_to_phong}
-
-    Wait Until Element Is Visible    Quản lý Phông Lưu trữ    10s
-
-Delete Phong
-    Wait Until Element Is Visible    ${button_delete_phong}    10s
-    Click Element                   ${button_delete_phong}
-    Wait Until Page Contains             Xoá phông lưu trữ thành công!
 
 Filter Phong
     [Arguments]    ${phong}
@@ -150,27 +129,12 @@ Filter Phong
     Wait Until Element Is Visible    xpath=//table    10s
     Duyet Tung Dong Chua Nhieu Tu Khoa    ${phong}
 
-#Muc luc ho so
-Back To Mucluc
+#index
+Click Add Index Form
     Wait Until Element Is Visible    ${button_add_index}    10s
-    Click Element                   ${button_add_index}
+    Click Element    ${button_add_index}
 
-    Wait Until Element Is Visible    ${button_back_to_index}    10s
-    Click Element                   ${button_back_to_index}
-
-    Wait Until Element Is Visible    Quản lý Mục lục hồ sơ    10s
-
-Cancel Add Mucluc
-    Wait Until Element Is Visible    ${button_add_index}    10s
-    Click Element                   ${button_add_index}
-
-    Wait Until Element Is Visible    ${button_cancel_index}    10s
-    Scroll Element Into View    ${button_cancel_index}
-    Click Element                   ${button_cancel_index}
-
-    Wait Until Element Is Visible    Quản lý Mục lục hồ sơ    10s
-
-Verify Add To Mucluc
+Fill Index Form
     [Arguments]    ${donvi}    ${phong}
     Wait Until Element Is Visible    ${button_add_index}    10s
     Click Element                    ${button_add_index}
@@ -188,63 +152,47 @@ Verify Add To Mucluc
     Wait Until Element Is Visible    ${input_name_index}    10s
     Input Text                       ${input_name_index}    Tài liệu demo
 
-    Wait Until Element Is Visible    ${button_save_index}    10s
-    Scroll Element Into View         ${button_save_index}
-    Click Element                    ${button_save_index}
+Click Cancel Index
+    Wait Until Element Is Visible    ${button_cancel_index}    10s
+    Scroll Element Into View    ${button_cancel_index}
+    Click Element    ${button_cancel_index}
+    Wait Until Location Is    ${url_index}
 
-    Wait Until Page Contains              Thêm mục lục hồ sơ thành công!
+Click Back To Index
+    Wait Until Element Is Visible    ${button_back_to_index}    10s
+    Click Element    ${button_back_to_index}
+    Wait Until Location Is    ${url_index}
 
-Edit Mucluc
+Click Save Index
+    Wait Until Element Is Visible    ${button_save_phong}    10s
+    Scroll Element Into View    ${button_save_phong}
+    Click Element    ${button_save_phong}
+
+Click Edit Index
     Wait Until Element Is Visible    ${button_edit_index}    10s
-    Scroll Element Into View    ${button_edit_index}
     Click Element                   ${button_edit_index}
-    
+
+Edit Index Form
+    [Arguments]    ${new_name}
     Wait Until Element Is Visible    ${input_name_index}    10s
-    Clear Element Text             ${input_name_index}
-    Input Text                       ${input_name_index}    Tài liệu demo1
-    
+    Clear Element Text    ${input_name_index}
+    Input Text    ${input_name_index}    ${new_name}
+
+ Click Delete Index
+    Wait Until Element Is Visible    ${button_delete_index}    10s
+    Click Element                   ${button_delete_index}
+
+Click Update Index
     Wait Until Element Is Visible    ${button_update_index}    10s
     Scroll Element Into View    ${button_update_index}
     Click Element               ${button_update_index}
 
-    Wait Until Page Contains             Cập nhật mục lục hồ sơ thành công!
-
-Edit Mucluc "Cancel"
-    Wait Until Element Is Visible    ${button_edit_index}    10s
-    Scroll Element Into View    ${button_edit_index}
-    Click Element                   ${button_edit_index}  
-
-    Wait Until Element Is Visible    ${input_name_index}    10s
-    Clear Element Text             ${input_name_index}
-    Input Text                       ${input_name_index}    Tài liệu demo1
-
-    Wait Until Element Is Visible    ${button_cancel_index}    10s
-    Scroll Element Into View    ${button_cancel_index}
-    Click Element                   ${button_cancel_index}
-
-    Wait Until Element Is Visible    Quản lý Mục lục hồ sơ    10s
-
-Edit Back To Mucluc
-    Wait Until Element Is Visible    ${button_edit_index}    10s
-    Scroll Element Into View    ${button_edit_index}
-    Click Element                   ${button_edit_index}
-
-    Wait Until Element Is Visible    ${input_name_index}    10s
-    Scroll Element Into View    ${input_name_index}
-    Clear Element Text             ${input_name_index}
-    Input Text                       ${input_name_index}    Tài liệu demo1  
-
-    Wait Until Element Is Visible    ${button_back_to_index}    10s
-    Press Keys    None    PAGE_UP
-    Click Element                   ${button_back_to_index}
-
-    Wait Until Element Is Visible    Quản lý Mục lục hồ sơ    10s
-
-Delete Mucluc
-    Wait Until Element Is Visible    ${button_delete_index}    10s
-    Scroll Element Into View    ${button_delete_index}
-    Click Element                   ${button_delete_index}
-    Wait Until Page Contains             Xoá mục lục hồ sơ thành công!
+Filter Phong
+    [Arguments]    ${phong}
+    Wait Until Element Is Visible    ${dropdown_phong}    10s
+    Select From List By Label    ${dropdown_phong}    ${phong}
+    Wait Until Element Is Visible    xpath=//table    10s
+    Duyet Tung Dong Chua Nhieu Tu Khoa    ${phong}
 
 Filter Phong_Donvi
     [Arguments]    ${donvi}
@@ -265,79 +213,28 @@ Filter Phong_Donvi2
     Wait Until Page Contains    Phông Hồ sơ Nhân sự    10s
 
 Add Unit and Name Unit Blank 
-    Wait Until Element Is Visible    ${button_add_unit}    10s
-    Click Element                   ${button_add_unit}
-
     Wait Until Element Is Visible    ${input_id_unit}    10s
     Scroll Element Into View    ${input_id_unit}
-    Input Text                    ${input_id_unit}    01
-
-    Wait Until Element Is Visible    ${button_save_add_unit}    10s
-    Scroll Element Into View    ${button_save_add_unit}
-    Click Element                   ${button_save_add_unit}
-
-    Wait Until Page Contains    Tên đơn vị không được để trống
-
-Add Unit and ID_Name Unit Blank
-    Wait Until Element Is Visible    ${button_add_unit}    10s
-    Click Element                   ${button_add_unit}
-
-    Wait Until Element Is Visible    ${button_save_add_unit}    10s
-    Scroll Element Into View    ${button_save_add_unit}
-    Click Element                   ${button_save_add_unit}
-    Wait Until Page Contains    Mã đơn vị không được để trống
-    Wait Until Page Contains    Tên đơn vị không được để trống    
+    Input Text                    ${input_id_unit}    01 
 
 Add Phong but Name Phong Blank
     [Arguments]    ${donvi}
-    Wait Until Element Is Visible    ${button_add_phong}    10s
-    Click Element                   ${button_add_phong}
     Wait Until Element Is Visible    ${dropdown_name_unit}    10s
     Select From List By Label    ${dropdown_name_unit}    ${donvi}
 
-    Wait Until Element Is Visible    ${button_save_phong}    10s
-    Scroll Element Into View    ${button_save_phong}
-    Click Element                   ${button_save_phong}
-
 Add Phong but Unit Blank
-    Wait Until Element Is Visible    ${button_add_phong}    10s
-    Click Element                   ${button_add_phong}
-
     Wait Until Element Is Visible    ${input_name_phong}    10s
     Scroll Element Into View    ${input_name_phong}
     Input Text    ${input_name_phong}    tài liệu
 
-    Wait Until Element Is Visible    ${button_save_phong}    10s
-    Scroll Element Into View    ${button_save_phong}
-    Click Element                   ${button_save_phong}
-    Wait Until Page Contains    Vui lòng chọn đơn vị
-
-Add Mucluc Blank All 
-    Wait Until Element Is Visible    ${button_add_index}    10s
-    Click Element                   ${button_add_index}
-
-    Wait Until Element Is Visible    ${button_save_index}    10s
-    Scroll Element Into View    ${button_save_index}
-    Click Element                   ${button_save_index}
-
 Add Mucluc Unit Blank 
-    Wait Until Element Is Visible    ${button_add_index}    10s
-    Click Element                   ${button_add_index}
-
     Wait Until Element Is Visible    ${input_id_index}    10s
     Input Text    ${input_id_index}    01
     Scroll Element Into View    ${input_name_index}
     Input Text    ${input_name_index}    Hồ sơ demo
 
-    Wait Until Element Is Visible    ${button_save_index}    10s
-    Scroll Element Into View    ${button_save_index}
-    Click Element                   ${button_save_index}
-
 Add Mucluc but Name MucLuc Blank 
     [Arguments]    ${donvi}    ${phong}
-    Wait Until Element Is Visible    ${button_add_index}    10s
-    Click Element                   ${button_add_index}
-
     Wait Until Element Is Visible    ${input_id_index}    10s
     Input Text    ${input_id_index}    01
     Scroll Element Into View    ${input_name_index}
@@ -349,10 +246,6 @@ Add Mucluc but Name MucLuc Blank
     Wait Until Element Is Visible    ${dropdown_phong}    10s
     Wait Until Element Contains    ${dropdown_phong}    ${phong}    10s 
     Select From List By Label    ${dropdown_phong}    ${phong}
-
-    Wait Until Element Is Visible    ${button_save_index}    10s
-    Scroll Element Into View    ${button_save_index}
-    Click Element                   ${button_save_index}
 
 Verify Field Is Focused
     [Arguments]    ${locator}

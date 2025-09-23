@@ -88,6 +88,9 @@ search_textbox = '//input[@id="keyword"]'
 
 #message
 message_unit = '//div[@class="alert alert-success alert-dismissible fade show"]'
+mess_invalid_feedback_unit = '//div[@class="invalid-feedback"]'
+mess_invalid_feedback_phong = '//div[@class="invalid-feedback d-block"]'
 
 #page
 page_title = '//div[@class="page-title"]'
+
