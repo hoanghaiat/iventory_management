@@ -1,12 +1,11 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library    SeleniumLibrary    run_on_failure=Nothing
 Library    String
 Library    Collections
 Library    XML
 Variables    ../locator.py
 Resource    ../Resource/DangNhap.resource
 Resource    ../Resource/HocPhan.resource
-
 
 *** Variables ***
 #${ACTUAL_TITLE_CLASS}    Quản lý lớp học
@@ -43,14 +42,40 @@ Click The Button Courses In Page Class
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_COURSES_PAGE_CLASS}
     Page Should Contain    ${TITLE_COURSES}
 
+Fill Text Field
+    [Arguments]    ${locator}    ${value}
+    Wait Until Element Is Visible    ${locator}    30s
+    Scroll Element Into View    ${locator}
+    Input Text    ${locator}    ${value}
+Fill Dropdown
+    [Arguments]    ${locator}    ${value}
+    Wait Until Element Is Visible    ${locator}    30s
+    Scroll Element Into View    ${locator}
+    Select From List By Label    ${locator}    ${value}
+    
+Fill Checkbox
+    [Arguments]    ${locator}    
+    Wait Until Element Is Visible    ${locator}    30s
+    Scroll Element Into View    ${locator}
+    Select Checkbox    ${locator}    
+
+Verify Text Equal
+    [Arguments]    ${locator}    ${expected}
+    Wait Until Element Is Visible    ${locator}    30s
+    ${actual}=    Get Text    ${locator}
+    Should Be Equal    ${actual}    ${expected}
+Verify Text Contain
+    [Arguments]    ${locator}    ${expected}
+    Wait Until Element Is Visible    ${locator}    30s
+    ${actual}=    Get Text    ${locator}
+    Should Contain    ${actual}    ${expected}
+
 Fill All The Input Search
     [Arguments]    ${semester}    ${academicyear}    ${status}    ${keyword}
-    Wait Until Element Is Visible    ${SELECT_SEMESTER}    30s
-    Select From List By Label  ${SELECT_SEMESTER}    ${semester}
-    Select From List By Label    ${SELECT_ACADEMIC_YEAR}    ${academicyear}
-    Select From List By Label    ${SELECT_STATUS}    ${status}
-    Wait Until Element Is Visible    ${INPUT_SEARCH_CLASS}    30s
-    Input Text    ${INPUT_SEARCH_CLASS}    ${keyword}
+    Fill Dropdown    ${SELECT_SEMESTER}    ${semester}
+    Fill Dropdown    ${SELECT_ACADEMIC_YEAR}    ${academicyear}
+    Fill Dropdown    ${SELECT_STATUS}    ${status}
+    Fill Text Field    ${INPUT_SEARCH_CLASS}    ${keyword}
 
 Click The Button Search In The Page Class
     Wait Until Element Is Visible    ${SEARCH_CLASS_BTN}    30s
@@ -127,14 +152,11 @@ Click The Button View Information Class
     RETURN    ${codeex}    ${nameex}    ${semesterex}    ${yearex}    
 Verify The Information View Class
     [Arguments]    ${codeex}    ${nameex}    ${semesterex}    ${yearex}    
-    Wait Until Element Is Visible    ${ACTUAL_CODE_COURSE}    30s
-    ${code_name}=    Get Text    ${ACTUAL_CODE_CLASS}
-    Wait Until Element Is Visible    ${ACTUAL_SEMESTER_CLASS}    30s
-    ${semester_year}=    Get Text    ${ACTUAL_SEMESTER_CLASS}
-    Should Contain    ${code_name}    ${codeex}
-    Should Contain    ${code_name}    ${nameex}
-    Should Contain    ${semester_year}    ${semesterex}
-    Should Contain    ${semester_year}    ${yearex}
+    
+    Verify Text Contain    ${ACTUAL_CODE_CLASS}    ${codeex}
+    Verify Text Contain    ${ACTUAL_CODE_CLASS}    ${nameex}
+    Verify Text Contain    ${ACTUAL_SEMESTER_CLASS}    ${semesterex}
+    Verify Text Contain    ${ACTUAL_SEMESTER_CLASS}    ${yearex}
 
 Click The Button View
     ${id}    Set Variable    5
@@ -161,24 +183,18 @@ Click The Button View All CLOs
     Wait Until Element Is Visible    ${viewall}    30s
     Scroll Element Into View    ${viewall}
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${viewall}
-    Wait Until Element Is Visible    ${TITLE_PAGE}    30s
-    ${title}=    Get Text    ${TITLE_PAGE}
-    Should Contain    ${title}    CLOs
+    Verify Text Contain    ${TITLE_PAGE}    CLOs
 Click The Button Add Content
     Wait Until Element Is Visible    ${URL_ADD_CONTENT}    30s
     Scroll Element Into View    ${URL_ADD_CONTENT}
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_ADD_CONTENT}
-    Wait Until Element Is Visible    ${TITLE_PAGE}    30s
-    ${actual}=    Get Text    ${TITLE_PAGE}
-    Should Be Equal    ${actual}    Thêm chương mới
+    Verify Text Equal    ${TITLE_PAGE}    Thêm chương mới
 
 Click The Button Add Assessment
     Wait Until Element Is Visible    ${URL_ADD_ASS}    30s
     Scroll Element Into View    ${URL_ADD_ASS}
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_ADD_ASS}
-    Wait Until Element Is Visible    ${TITLE_PAGE}    30s
-    ${title}=    Get Text    ${TITLE_PAGE}
-    Should Be Equal    ${title}    Thêm đánh giá mới
+    Verify Text Equal    ${TITLE_PAGE}    Thêm đánh giá mới
 
 Click The Button Tests And Verify 
     ${id}    Set Variable    2
@@ -216,22 +232,15 @@ Click The Button Back To Class And Verify
 Click The Button Create Class And Verify Results
     Wait Until Element Is Visible    ${URL_CREATE_TEST}    30s
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_CREATE_TEST}
-    Wait Until Element Is Visible    ${TITLE_PAGE}    30s
-    ${actual}=    Get Text    ${TITLE_PAGE}
-    Should Be Equal    ${actual}    Create New Test
+    Verify Text Equal    ${TITLE_PAGE}    Create New Test
 Fill In Create Test Form
     [Arguments]    ${testtype}    ${testname}    ${description}    ${duration}    ${weight}    ${time}
-    Wait Until Element Is Visible    ${SELECT_TEST_TYPE_TEST}    30s
-    Scroll Element Into View    ${SELECT_TEST_TYPE_TEST}
-    Select From List By Label    ${SELECT_TEST_TYPE_TEST}    ${testtype}
-    Scroll Element Into View    ${INPUT_TEST_NAME_TEST}    
-    Input Text    ${INPUT_TEST_NAME_TEST}    ${testname}
-    Scroll Element Into View    ${TEXTAREA_TEST_DESCRIPTION_TEST}    
-    Input Text    ${TEXTAREA_TEST_DESCRIPTION_TEST}    ${description}
-    Scroll Element Into View    ${INPUT_DURATION_TEST}
-    Input Text    ${INPUT_DURATION_TEST}    ${duration}
-    Input Text    ${INPUT_WEIGHT_TEST}    ${weight}
-    Scroll Element Into View    ${INPUT_TIME_TEST}
+    Fill Dropdown    ${SELECT_TEST_TYPE_TEST}    ${testtype}
+       
+    Fill Text Field    ${INPUT_TEST_NAME_TEST}    ${testname}
+    Fill Text Field    ${TEXTAREA_TEST_DESCRIPTION_TEST}    ${description}
+    Fill Text Field    ${INPUT_DURATION_TEST}    ${duration}
+    Fill Text Field    ${INPUT_WEIGHT_TEST}    ${weight}
     Execute JavaScript    document.getElementById("id_test_date").value = "2025-08-21T13:30"
     #Input Text    ${INPUT_TIME_TEST}    ${time}
 Click The Button Create Test And Continue

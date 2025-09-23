@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library    SeleniumLibrary    run_on_failure=Nothing
 Resource    ../Resource/DangNhap.resource
 Variables    ../locator.py
 

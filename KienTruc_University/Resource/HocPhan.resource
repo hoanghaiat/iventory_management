@@ -1,11 +1,9 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library    SeleniumLibrary    run_on_failure=Nothing
 Library    String
 Library    Collections
 Library    XML
 Variables    ../locator.py
-Resource    ../Resource/DangNhap.resource
-Resource    ../Resource/Chuongtrinhdaotao.resource
 
 
 *** Variables ***
@@ -70,6 +68,33 @@ Verify That The Search Sesult Does Not Exist
 Verify Empty Search Result
     Page Should Contain    Vui lòng nhập từ khóa tìm kiếm
 
+Verify Text Equal
+    [Arguments]    ${locator}    ${expected}
+    Wait Until Element Is Visible    ${locator}    30s
+    ${actual}=    Get Text    ${locator}
+    Should Be Equal    ${actual}    ${expected}
+Verify Text Contain
+    [Arguments]    ${locator}    ${expected}
+    Wait Until Element Is Visible    ${locator}    30s
+    ${actual}=    Get Text    ${locator}
+    Should Contain    ${actual}    ${expected}
+Fill Text Field
+    [Arguments]    ${locator}    ${value}
+    Wait Until Element Is Visible    ${locator}    30s
+    Scroll Element Into View    ${locator}
+    Input Text    ${locator}    ${value}
+Fill Dropdown
+    [Arguments]    ${locator}    ${value}
+    Wait Until Element Is Visible    ${locator}    30s
+    Scroll Element Into View    ${locator}
+    Select From List By Label    ${locator}    ${value}
+    
+Fill Checkbox
+    [Arguments]    ${locator}    
+    Wait Until Element Is Visible    ${locator}    30s
+    Scroll Element Into View    ${locator}
+    Select Checkbox    ${locator}    
+  
 Click The Button Information Courses
     ${id}    Set Variable    1
     ${urlinfo}    Replace Variables    ${URL_COURSE_INFO}
@@ -86,15 +111,11 @@ Click The Button Information Courses
     Wait Until Element Is Visible    ${urlinfo}    30s
     Scroll Element Into View    ${urlinfo}
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlinfo}
-    Wait Until Element Is Visible    ${ACTUAL_CODE_COURSE}    30s
-    ${actualcode}=    Get Text    ${ACTUAL_CODE_COURSE}
-    ${actualtype}=    Get Text    ${ACTUAL_TYPE_COURSE}
-    ${actualstatus}=    Get Text    ${ACTUAL_STATUS_COURSE}
-    ${actualname}=    Get Text    ${ACTUAL_CODE_COURSE}
-    Should Contain    ${actualcode}    ${code}
-    Should Contain    ${actualname}    ${name}
-    Should Contain    ${actualtype}    ${type}
-    Should Contain    ${actualstatus}    ${status}
+    
+    Verify Text Contain   ${ACTUAL_CODE_COURSE}    ${code}
+    Verify Text Contain    ${ACTUAL_CODE_COURSE}    ${name}
+    Verify Text Contain    ${ACTUAL_TYPE_COURSE}    ${type}
+    Verify Text Contain    ${ACTUAL_STATUS_COURSE}    ${status}
 
 Click The Button Edit Courses
     Wait Until Element Is Visible    ${URL_EDIT_COURSES}    30s
@@ -104,18 +125,13 @@ Click The Button Edit Courses
 
 Fill In Edit Course Form
     [Arguments]    ${code}    ${name}    ${credits}    ${description}    ${type}    ${status}
-    Wait Until Element Is Visible    ${INPUT_COURSE_CODE}    30s
-    Scroll Element Into View    ${INPUT_COURSE_CODE}
-    Input Text    ${INPUT_COURSE_CODE}    ${code}
-    Wait Until Element Is Visible    ${INPUT_COURSE_NAME}    30s
-    Input Text    ${INPUT_COURSE_NAME}    ${name}
-    Input Text    ${INPUT_CREDITS}    ${credits}
-    Scroll Element Into View    ${TEXTAREA_DESCRIPTION_COURSE}
-    Input Text    ${TEXTAREA_DESCRIPTION_COURSE}    ${description}
-    Wait Until Element Is Visible    ${SELECT_TYPE_COURSE}    30s
-    Scroll Element Into View    ${SELECT_TYPE_COURSE}    
-    Select From List By Label    ${SELECT_TYPE_COURSE}    ${type}
-    Select From List By Label    ${SELECT_STATUS_COURSE}    ${status}
+
+    Fill Text Field    ${INPUT_COURSE_CODE}    ${code}
+    Fill Text Field    ${INPUT_COURSE_NAME}    ${name}
+    Fill Text Field    ${INPUT_CREDITS}    ${credits}
+    Fill Text Field    ${TEXTAREA_DESCRIPTION_COURSE}    ${description}
+    Fill Dropdown    ${SELECT_TYPE_COURSE}    ${type}
+    Fill Dropdown    ${SELECT_STATUS_COURSE}    ${status}
 
 Click The Button Update Course
     Wait Until Element Is Visible    ${UPDATE_COURSE_BTN}    30s
@@ -126,16 +142,12 @@ Verify The Result Of The Update
     [Arguments]    ${code}    ${name}    ${credits}    ${description}    ${type}    ${status}
     Wait Until Element Is Visible    ${MESSAGE_ACTUAL_COURSE}
     ${message}=    Get Text    ${MESSAGE_ACTUAL_COURSE}
-    Wait Until Element Is Visible    ${ACTUAL_CODE_COURSE}    30s
-    ${upcode}=    Get Text    ${ACTUAL_CODE_COURSE}
-    ${uptype}=    Get Text    ${ACTUAL_TYPE_COURSE}
-    ${upstatus}=    Get Text    ${ACTUAL_STATUS_COURSE}
-    ${upname}=    Get Text    ${ACTUAL_CODE_COURSE}
-    Should Be Equal    ${message}    Course updated successfully!
-    Should Contain    ${upcode}    ${code}
-    Should Contain    ${upname}    ${name}
-    Should Contain    ${uptype}    ${type}
-    Should Contain    ${upstatus}    ${status}
+    
+    Verify Text Equal    ${message}    Course updated successfully!
+    Verify Text Contain    ${ACTUAL_CODE_COURSE}    ${code}
+    Verify Text Contain    ${ACTUAL_CODE_COURSE}    ${name}
+    Verify Text Contain    ${ACTUAL_TYPE_COURSE}    ${type}
+    Verify Text Contain    ${ACTUAL_STATUS_COURSE}    ${status}
 Clear All Information Fields In The Edit Form
     Wait Until Element Is Visible    ${INPUT_COURSE_CODE}    30s
     Scroll Element Into View    ${INPUT_COURSE_CODE}

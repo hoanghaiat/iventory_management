@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library    SeleniumLibrary    run_on_failure=Nothing
 Library    String
 Library    Collections
 Library    XML
@@ -7,17 +7,6 @@ Variables    ../locator.py
 Resource    ../Resource/DangNhap.resource
 
 *** Variables ***
-#${EXPECTED_TITLE}    Quản lý chương trình
-#${EXPECTED_SEARCH_NOT}    No programs found.
-#${EXPECTED_VAL}    Danh sách Học phần
-#${EXPECTED_SUCCESS}    Course created successfully!
-#${EXPECTED_ERROR}    This field is required.
-#${MESSAGE_UNIQUE}    Course code is unique
-#${CLOS}    CLOs
-#${EXPECTED_MESSAGE_CLO}    CLO created successfully!
-#${TITLE_CLO_DETAIL}    CLO Details
-#${EXPECTED_MESSAGE_UPDATE_CLO}    CLO updated successfully!
-#${TITLE_ADD_CLO}    Create New CLO
 *** Keywords ***
 Handle Advertise
     ${check}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${BOX_ADVERTISE}    5s
@@ -25,7 +14,6 @@ Handle Advertise
         Click Element    //a[@id="djHideToolBarButton"]
     END
     
-
 Open Program List
     Wait Until Element Is Visible    ${URL_CTDT}    30s
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_CTDT}
@@ -65,21 +53,16 @@ Verify Search Results Contain Keyword
         Should Contain    ${lower_text}    ${lower_keyword}
     END
 
-
 Verify No Search Results
     ${EXPECTED_SEARCH_NOT}    Set Variable    No programs found.
     Wait Until Element Is Visible    ${ACTUAL_SEARCH_NOT}    30s
     ${actual}=    Get Text    ${ACTUAL_SEARCH_NOT}
     Should Be Equal    ${actual}    ${EXPECTED_SEARCH_NOT}
 
-
 Verify Empty Field Message
     Run Keyword And Return    Page Should Contain    Vui lòng nhập từ khóa cần tìm kiếm
 
 #######
-Open Program Lists
-    Wait Until Element Is Visible    ${URL_CTDT}    30s
-    Wait Until Keyword Succeeds    30s    1s    Click Element    ${URL_CTDT}
 Verify Required Field Warning
     ${id}    Set Variable    5
     Handle Advertise
@@ -88,11 +71,9 @@ Verify Required Field Warning
     Wait Until Element Is Visible    //a[@href="/en/academics/programs/${id}/"]    30s
     Wait Until Keyword Succeeds    30s    1s    Click Element    //a[@href="/en/academics/programs/${id}/"]
 
-
-###############  
 Open Create PLO Form
     ${id}    Set Variable    5
-    Open Program Lists
+    Open Program Page
     Verify Required Field Warning
     Wait Until Element Is Visible    //a[@href="/en/academics/programs/${id}/plos/create/"]    30s
     Scroll Element Into View    //a[@href="/en/academics/programs/${id}/plos/create/"]
@@ -100,26 +81,29 @@ Open Create PLO Form
 
 Fill In Valid PLO Information
     [Arguments]    ${plocode}    ${description}    ${category}    ${level}    ${version}
-    Wait Until Element Is Visible    ${INPUT_PLO_CODE}    30s
-    Scroll Element Into View    ${INPUT_PLO_CODE}
-    Input Text    ${INPUT_PLO_CODE}    ${plocode}
+    Fill Text Field    ${INPUT_PLO_CODE}    ${plocode}
+    Fill Text Field    ${TEXTAREA_DESCRIPTION}    ${description}
+    Fill Dropdown    ${SELECT_CATEGORY}    ${category}
+    Fill Dropdown    ${SELECT_LEVEL}    ${level}
+    Fill Text Field    ${INPUT_VERSION}    ${version}
 
-    Wait Until Element Is Visible    ${TEXTAREA_DESCRIPTION}    30s
-    Scroll Element Into View    ${TEXTAREA_DESCRIPTION}
-    Input Text    ${TEXTAREA_DESCRIPTION}    ${description}
-
-    Wait Until Element Is Visible    ${SELECT_CATEGORY}    30s
-    Scroll Element Into View    ${SELECT_CATEGORY}
-    Select From List By Label    ${SELECT_CATEGORY}    ${category}
-
-    Wait Until Element Is Visible    ${SELECT_LEVEL}    30s
-    Scroll Element Into View    ${SELECT_LEVEL}
-    Select From List By Label    ${SELECT_LEVEL}    ${level}
-
-    Wait Until Element Is Visible    ${INPUT_VERSION}
-    Scroll Element Into View    ${INPUT_VERSION}
-    Input Text    ${INPUT_VERSION}    ${version}
-
+Fill Text Field
+    [Arguments]    ${locator}    ${value}
+    Wait Until Element Is Visible    ${locator}    30s
+    Scroll Element Into View    ${locator}
+    Input Text    ${locator}    ${value}
+Fill Dropdown
+    [Arguments]    ${locator}    ${value}
+    Wait Until Element Is Visible    ${locator}    30s
+    Scroll Element Into View    ${locator}
+    Select From List By Label    ${locator}    ${value}
+    
+Fill Checkbox
+    [Arguments]    ${locator}    
+    Wait Until Element Is Visible    ${locator}    30s
+    Scroll Element Into View    ${locator}
+    Select Checkbox    ${locator}    
+    
 Submit Forms
     Wait Until Element Is Visible    ${BTN_CREATE}    30s
     Scroll Element Into View    ${BTN_CREATE}
@@ -146,12 +130,9 @@ Verify PLO Not Created
 Verify Duplicate Code Warning Displayed
     Page Should Contain    Plo code is unique.
 
-
-
-
 Go To PLO Page
     ${id}    Set Variable    5
-    Open Program Lists
+    Open Program Page
     Handle Advertise
     Verify Required Field Warning
     Wait Until Element Is Visible    //a[@href="/en/academics/programs/${id}/plos/create/"]    30s
@@ -164,7 +145,7 @@ Click Create PLO Button
     Wait Until Keyword Succeeds    30s    1s    Click Button    ${BTN_CREATE}
 Open Create Course Form
     ${id}    Set Variable    5
-    Open Program Lists
+    Open Program Page
     Handle Advertise
     Verify Required Field Warning
     Wait Until Element Is Visible    //a[@href="/en/academics/programs/${id}/courses/create/"]    30s
@@ -173,27 +154,13 @@ Open Create Course Form
 
 Fill In Valid Course Information
     [Arguments]    ${CourseCode}    ${CourseName}    ${Credits}    ${DescriptionCourse}    ${TypeCourse}    ${StatusCourse}
-    Wait Until Element Is Visible    ${INPUT_COURSE_CODE}    30s
-    Scroll Element Into View    ${INPUT_COURSE_CODE}
-    Input Text    ${INPUT_COURSE_CODE}    ${CourseCode}
-    Wait Until Element Is Visible    ${INPUT_COURSE_NAME}    30s
-    Scroll Element Into View    ${INPUT_COURSE_NAME}
-    Input Text    ${INPUT_COURSE_NAME}    ${CourseName}
-    Wait Until Element Is Visible    ${INPUT_CREDITS}    30s
-    Scroll Element Into View    ${INPUT_CREDITS}
-    Input Text    ${INPUT_CREDITS}    ${Credits}
-    Wait Until Element Is Visible    ${TEXTAREA_DESCRIPTION_COURSE}    30s
-    Scroll Element Into View    ${TEXTAREA_DESCRIPTION_COURSE}
-    Input Text    ${TEXTAREA_DESCRIPTION_COURSE}    ${DescriptionCourse}
-    Wait Until Element Is Visible    ${SELECT_TYPE_COURSE}    30s
-    Scroll Element Into View    ${SELECT_TYPE_COURSE}
-    Select From List By Label    ${SELECT_TYPE_COURSE}    ${TypeCourse}
-    Wait Until Element Is Visible    ${CHECKBOX_CORE_SUBJECT}    30s
-    Scroll Element Into View    ${CHECKBOX_CORE_SUBJECT}
-    Select Checkbox    ${CHECKBOX_CORE_SUBJECT}
-    Wait Until Element Is Visible    ${SELECT_STATUS_COURSE}    30s
-    Scroll Element Into View    ${SELECT_STATUS_COURSE}
-    Select From List By Label    ${SELECT_STATUS_COURSE}    ${StatusCourse}
+    Fill Text Field    ${INPUT_COURSE_CODE}    ${CourseCode}
+    Fill Text Field    ${INPUT_COURSE_NAME}    ${CourseName}
+    Fill Text Field    ${INPUT_CREDITS}    ${Credits}
+    Fill Text Field    ${TEXTAREA_DESCRIPTION_COURSE}    ${DescriptionCourse}
+    Fill Dropdown    ${SELECT_TYPE_COURSE}    ${TypeCourse}
+    Fill Checkbox    ${CHECKBOX_CORE_SUBJECT}
+    Fill Dropdown    ${SELECT_STATUS_COURSE}    ${StatusCourse}
 
 Submit Course Form
     Wait Until Element Is Visible    ${BTN_CREATE_COURSE}    30s
@@ -203,34 +170,30 @@ Submit Course Form
 Verify Course Creation Success
     ${EXPECTED_SUCCESS}    Set Variable    Course created successfully!
     [Arguments]    ${CourseCode}    ${CourseName}    ${Credits}    ${TypeCourse}    ${StatusCourse}
+
     Wait Until Element Is Visible    ${MESSAGE_ACTUAL_COURSE}    30s
     ${Actual_Course_Message}=    Get Text    ${MESSAGE_ACTUAL_COURSE}
-    Should Be Equal    ${Actual_Course_Message}    ${EXPECTED_SUCCESS}
+    Verify Text Equal    ${MESSAGE_ACTUAL_COURSE}    ${EXPECTED_SUCCESS}
+    Verify Text Equal    ${ACTUAL_COURSE_CODE}       ${CourseCode}
+    Verify Text Equal    ${ACTUAL_COURSE_NAME}       ${CourseName}
+    Verify Text Equal    ${ACTUAL_COURSE_CREDITS}    ${Credits}
+    Verify Text Equal    ${ACTUAL_COURSE_TYPE}       ${TypeCourse}
+    Verify Text Equal    ${ACTUAL_COURSE_STATUS}     ${StatusCourse}
 
-    Wait Until Element Is Visible    ${ACTUAL_COURSE_CODE}    30s
-    ${Actual_Course_Code}=    Get Text    ${ACTUAL_COURSE_CODE}
-    Should Be Equal    ${Actual_Course_Code}    ${CourseCode}
-
-    Wait Until Element Is Visible    ${ACTUAL_COURSE_NAME}    30s
-    ${Actual_Course_Name}=    Get Text    ${ACTUAL_COURSE_NAME}
-    Should Be Equal    ${Actual_Course_Name}    ${CourseName}
-
-    Wait Until Element Is Visible    ${ACTUAL_COURSE_CREDITS}    30s
-    ${Actual_Course_Credits}=    Get Text    ${ACTUAL_COURSE_CREDITS}
-    Should Be Equal    ${Actual_Course_Credits}    ${Credits}
-
-    Wait Until Element Is Visible    ${ACTUAL_COURSE_TYPE}    30s
-    ${Actual_Course_Type}=    Get Text    ${ACTUAL_COURSE_TYPE}
-    Should Be Equal    ${Actual_Course_Type}    ${TypeCourse}
-
-    Wait Until Element Is Visible    ${ACTUAL_COURSE_STATUS}    30s
-    ${Actual_Course_Status}=    Get Text    ${ACTUAL_COURSE_STATUS}
-    Should Be Equal    ${Actual_Course_Status}    ${StatusCourse}
-
+Verify Text Equal
+    [Arguments]    ${locator}    ${expected}
+    Wait Until Element Is Visible    ${locator}    30s
+    ${actual}=    Get Text    ${locator}
+    Should Be Equal    ${actual}    ${expected}
+Verify Text Contain
+    [Arguments]    ${locator}    ${expected}
+    Wait Until Element Is Visible    ${locator}    30s
+    ${actual}=    Get Text    ${locator}
+    Should Contain    ${actual}    ${expected}
 
 Open PLO Page
     ${id}    Set Variable    5
-    Open Program Lists
+    Open Program Page
     Handle Advertise
     Verify Required Field Warning
     Wait Until Element Is Visible    //a[@href="/en/academics/programs/${id}/courses/create/"]    30s
@@ -243,14 +206,10 @@ Verify Course Creation Error
     Scroll Element Into View    //p[@id="error_1_id_course_code"]/strong
     ${Message_Course_Error}=    Get Text    //p[@id="error_1_id_course_code"]/strong
     Should Be Equal    ${Message_Course_Error}    ${EXPECTED_ERROR}
-
-
-
-
 Open Course Creation Page
     ${id}    Set Variable    5
     ${SectionStudy}    Replace Variables    ${URL_CREATE_SECTION_STUDY}
-    Open Program Lists
+    Open Program Page
     Handle Advertise
     Verify Required Field Warning
 
@@ -260,39 +219,19 @@ Open Course Creation Page
 
 Fill Course Information
     [Arguments]    ${CourseCode}    ${CourseName}    ${Credits}    ${DescriptionCourse}    ${TypeCourse}    ${StatusCourse}
-    Wait Until Element Is Visible    ${INPUT_COURSE_CODE}    30s
-    Scroll Element Into View    ${INPUT_COURSE_CODE}
-    Input Text    ${INPUT_COURSE_CODE}    ${CourseCode}
-
-    Wait Until Element Is Visible    ${INPUT_COURSE_NAME}    30s
-    Scroll Element Into View    ${INPUT_COURSE_NAME}
-    Input Text    ${INPUT_COURSE_NAME}    ${CourseName}
-
-    Wait Until Element Is Visible    ${INPUT_CREDITS}    30s
-    Scroll Element Into View    ${INPUT_CREDITS}
-    Input Text    ${INPUT_CREDITS}    ${Credits}
-
-    Wait Until Element Is Visible    ${TEXTAREA_DESCRIPTION_COURSE}    30s
-    Scroll Element Into View    ${TEXTAREA_DESCRIPTION_COURSE}
-    Input Text    ${TEXTAREA_DESCRIPTION_COURSE}    ${DescriptionCourse}
-
-    Wait Until Element Is Visible    ${SELECT_TYPE_COURSE}    30s
-    Scroll Element Into View    ${SELECT_TYPE_COURSE}
-    Select From List By Label    ${SELECT_TYPE_COURSE}    ${TypeCourse}
-
-    Wait Until Element Is Visible    ${CHECKBOX_CORE_SUBJECT}    30s
-    Scroll Element Into View    ${CHECKBOX_CORE_SUBJECT}
-    Select Checkbox    ${CHECKBOX_CORE_SUBJECT}
-
-    Wait Until Element Is Visible    ${SELECT_STATUS_COURSE}    30s
-    Scroll Element Into View    ${SELECT_STATUS_COURSE}
-    Select From List By Label    ${SELECT_STATUS_COURSE}    ${StatusCourse}
+    
+    Fill Text Field    ${INPUT_COURSE_CODE}    ${CourseCode}
+    Fill Text Field    ${INPUT_COURSE_NAME}    ${CourseName}
+    Fill Text Field    ${INPUT_CREDITS}    ${Credits}
+    Fill Text Field    ${TEXTAREA_DESCRIPTION_COURSE}    ${DescriptionCourse}
+    Fill Dropdown    ${SELECT_TYPE_COURSE}    ${TypeCourse}
+    Fill Checkbox    ${CHECKBOX_CORE_SUBJECT}
+    Fill Dropdown    ${SELECT_STATUS_COURSE}    ${StatusCourse}
 
 Submit Course Creation
     Wait Until Element Is Visible    ${BTN_CREATE_COURSE}    30s
     Scroll Element Into View    ${BTN_CREATE_COURSE}
     Wait Until Keyword Succeeds    30s    1s    Click Button    ${BTN_CREATE_COURSE}
-    
     Page Should Contain    Course code is unique
 
 View All Button Selection
@@ -311,6 +250,7 @@ View All Button Selection
 Click The Button To View Course Details
     ${id}    Set Variable    45
     ${coursedetail}    Replace Variables    ${URL_COURSE_DETAILS}
+
     Wait Until Element Is Visible    ${coursedetail}    30s
     Scroll Element Into View    ${coursedetail}
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${coursedetail}
@@ -352,38 +292,15 @@ Click The Button Create Class
 
 Fill Out The Class Creation Form
     [Arguments]    ${semester}    ${academicyear}    ${status}    ${startdate}    ${enddate}    ${room}    ${maxstudent}    ${schedule}
-    Wait Until Element Is Visible    ${INPUT_SEMESTER}    30s
-    Scroll Element Into View    ${INPUT_SEMESTER}
-    Input Text    ${INPUT_SEMESTER}    ${semester}
-
-    Wait Until Element Is Visible    ${INPUT_ACADEMIC_YEAR}    30s
-    Scroll Element Into View    ${INPUT_ACADEMIC_YEAR}
-    Input Text    ${INPUT_ACADEMIC_YEAR}    ${academicyear}
-
-    Wait Until Element Is Visible    ${SELECT_STATUS_CLASS}    30s
-    Scroll Element Into View    ${SELECT_STATUS_CLASS}
-    Select From List By Label    ${SELECT_STATUS_CLASS}    ${status}
-
+    Fill Text Field    ${INPUT_SEMESTER}    ${semester}
+    Fill Text Field    ${INPUT_ACADEMIC_YEAR}    ${academicyear}
+    Fill Dropdown    ${SELECT_STATUS_CLASS}    ${status}
     Wait Until Element Is Visible    ${INPUT_START_DATE}    30s
-    Scroll Element Into View    ${INPUT_START_DATE}
-    Input Text    ${INPUT_START_DATE}    ${startdate}
-    
-
-    Wait Until Element Is Visible    ${INPUT_END_DATE}    30s
-    Scroll Element Into View    ${INPUT_END_DATE}
-    Input Text    ${INPUT_END_DATE}    ${enddate}
-
-    Wait Until Element Is Visible    ${INPUT_ROOM}    30s
-    Scroll Element Into View    ${INPUT_ROOM}
-    Input Text    ${INPUT_ROOM}    ${room}
-
-    Wait Until Element Is Visible    ${INPUT_MAX_STUDENTS}    30s
-    Scroll Element Into View    ${INPUT_MAX_STUDENTS}
-    Input Text    ${INPUT_MAX_STUDENTS}    ${maxstudent}
-    Wait Until Element Is Visible    ${TEXTATEA_SCHEDULE}    30s
-    Scroll Element Into View    ${TEXTATEA_SCHEDULE}
-    Input Text    ${TEXTATEA_SCHEDULE}    ${schedule}
-
+    Fill Text Field    ${INPUT_START_DATE}    ${startdate}
+    Fill Text Field    ${INPUT_END_DATE}    ${enddate}
+    Fill Text Field    ${INPUT_ROOM}    ${room}
+    Fill Text Field    ${INPUT_MAX_STUDENTS}    ${maxstudent}
+    Fill Text Field   ${TEXTATEA_SCHEDULE}    ${schedule}
     Wait Until Element Is Visible    ${CREAT_CLASS_BTN}    30s
     Scroll Element Into View    ${CREAT_CLASS_BTN}
     Wait Until Keyword Succeeds    30s    1s    Click Button    ${CREAT_CLASS_BTN}
@@ -407,6 +324,7 @@ Click The Button View CLOs
     ${urlclos}    Replace Variables    ${URL_PAGE_CLOS}
     ${CLOS}    Set Variable    CLOs
     Wait Until Element Is Visible    ${urlclos}    30s
+    
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlclos}
     Wait Until Element Is Visible    ${ACTUAL_TITLE_CLOS}    30s
     ${title_clos}=    Get Text    ${ACTUAL_TITLE_CLOS}
@@ -422,30 +340,13 @@ Open Operation With Add CLO Button
 
 Fill Out The CLO Creation Form
     [Arguments]    ${Clocode}    ${Description}    ${Category}    ${Level}    ${Weight}    ${Assessmentmethod}
-    Wait Until Element Is Visible    ${INPUT_CLO_CODE}    30s
-    Scroll Element Into View    ${INPUT_CLO_CODE}
-    Input Text    ${INPUT_CLO_CODE}    ${Clocode}
-    
-    Wait Until Element Is Visible    ${TEXTAREA_DESCRIPTION_CLO}    30s
-    Scroll Element Into View    ${TEXTAREA_DESCRIPTION_CLO}
-    Input Text    ${TEXTAREA_DESCRIPTION_CLO}    ${Description}
-    
-    
-    Wait Until Element Is Visible    ${SELECT_CATEGORY_CLO}    30s
-    Scroll Element Into View    ${SELECT_CATEGORY_CLO}
-    Select From List By Label   ${SELECT_CATEGORY_CLO}    ${Category}
-    
-    Wait Until Element Is Visible    ${SELECT_LEVEL_CLO}    30s
-    Scroll Element Into View    ${SELECT_LEVEL_CLO}
-    Select From List By Label    ${SELECT_LEVEL_CLO}    ${Level}
-    
-    Wait Until Element Is Visible    ${INPUT_WEIGHT_CLO}    30s
-    Scroll Element Into View    ${INPUT_WEIGHT_CLO}
-    Input Text   ${INPUT_WEIGHT_CLO}    ${Weight}
-    
-    Wait Until Element Is Visible    ${SELECT_ASSESSMENT_METHOD}    30s
-    Scroll Element Into View    ${SELECT_ASSESSMENT_METHOD}
-    Select From List By Label    ${SELECT_ASSESSMENT_METHOD}    ${Assessmentmethod}
+
+    Fill Text Field    ${INPUT_CLO_CODE}    ${Clocode}
+    Fill Text Field    ${TEXTAREA_DESCRIPTION_CLO}    ${Description}
+    Fill Dropdown   ${SELECT_CATEGORY_CLO}    ${Category}
+    Fill Dropdown    ${SELECT_LEVEL_CLO}    ${Level}
+    Fill Text Field   ${INPUT_WEIGHT_CLO}    ${Weight}
+    Fill Dropdown    ${SELECT_ASSESSMENT_METHOD}    ${Assessmentmethod}
   
 Click The Button Create CLO
     Wait Until Element Is Visible    ${CREATE_CLO_BTN}    30s
@@ -455,35 +356,15 @@ Click The Button Create CLO
 Verify New CLO Creation Results
     ${EXPECTED_MESSAGE_CLO}    Set Variable    CLO created successfully!
     [Arguments]    ${Clocode}    ${Description}    ${Category}    ${Level}    ${Weight}
-    Wait Until Element Is Visible    ${ACTUAL_MESSAGE_CLO}    30s
-    ${actual_message_clo}=    Get Text    ${ACTUAL_MESSAGE_CLO}
-    Should Be Equal    ${actual_message_clo}    ${EXPECTED_MESSAGE_CLO}
-    
-    Wait Until Element Is Visible    ${ACTUAL_CLO_CODE}    30s
-    Scroll Element Into View    ${ACTUAL_CLO_CODE}
-    ${actual_clo_code}=    Get Text    ${ACTUAL_CLO_CODE}
-    Should Be Equal    ${actual_clo_code}    ${Clocode}
-
-    Wait Until Element Is Visible    ${ACTUAL_DESCRIPTION_CLO}    30s
-    ${actual_description_clo}=    Get Text    ${ACTUAL_DESCRIPTION_CLO}
-    Should Be Equal    ${actual_description_clo}    ${Description}
-
-    Wait Until Element Is Visible    ${ACTUAL_CATEGORY_CLO}    30s
-    ${actual_category_clo}=    Get Text    ${ACTUAL_CATEGORY_CLO}
-    Should Be Equal    ${actual_category_clo}    ${Category}
-
-    Wait Until Element Is Visible    ${ACTUAL_LEVEL_CLO}    30s
-    ${actual_level_clo}=    Get Text    ${ACTUAL_LEVEL_CLO}
-    Should Be Equal    ${actual_level_clo}    ${Level}
-
-    Wait Until Element Is Visible    ${ACTUAL_WEIGHT_CLO}    30s
-    ${actual_weight}=    Get Text    ${ACTUAL_WEIGHT_CLO}
-    Should Contain    ${actual_weight}    ${Weight}
+    Verify Text Equal    ${ACTUAL_MESSAGE_CLO}      ${EXPECTED_MESSAGE_CLO}
+    Verify Text Equal    ${ACTUAL_CLO_CODE}         ${Clocode}
+    Verify Text Equal    ${ACTUAL_DESCRIPTION_CLO}  ${Description}
+    Verify Text Equal    ${ACTUAL_CATEGORY_CLO}     ${Category}
+    Verify Text Equal    ${ACTUAL_LEVEL_CLO}        ${Level}
+    Verify Text Contain  ${ACTUAL_WEIGHT_CLO}       ${Weight}
     
  Verify Message CLO Creation Results   
-     Wait Until Element Is Visible    ${ACTUAL_MESSAGE_CLO_ERROR}    30s
-     ${actual_message_clo_error}=    Get Text    ${ACTUAL_MESSAGE_CLO_ERROR}
-     Should Be Equal    ${actual_message_clo_error}    This field is required.
+    Verify Text Equal    ${ACTUAL_MESSAGE_CLO_ERROR}    This field is required.
        
 Verify Error Message Mhen Code is Duplicated
     Page Should Contain    Clo code is unique
@@ -494,9 +375,7 @@ Click The Button Back To CLOs
     ${CLOS}    Set Variable    CLOs
     Wait Until Element Is Visible    ${urlbacktocourse}   30s
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlbacktocourse}
-    Wait Until Element Is Visible    ${ACTUAL_TITLE_CLOS}    30s
-    ${title_clos}=    Get Text    ${ACTUAL_TITLE_CLOS}
-    Should Contain    ${title_clos}    ${CLOS}
+    Verify Text Contain    ${ACTUAL_TITLE_CLOS}    ${CLOS}
 
 View Details CLOs
     ${id}    Set Variable    122
@@ -504,40 +383,31 @@ View Details CLOs
     ${TITLE_CLO_DETAIL}    Set Variable    CLO Details
     Wait Until Element Is Visible    ${urldetailclos}    30s
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urldetailclos}
-    Wait Until Element Is Visible    ${TITLE_PAGE_DETAIL_CLOS}    30s
-    ${page_title}=    Get Text    ${TITLE_PAGE_DETAIL_CLOS}
-    Should Be Equal    ${page_title}    ${TITLE_CLO_DETAIL}
+
+    Verify Text Equal    ${TITLE_PAGE_DETAIL_CLOS}    ${TITLE_CLO_DETAIL}
 View Edit CLOs
     ${id}    Set Variable    122
     ${urledit}    Replace Variables    ${URL_EDIT_CLOS}
     Wait Until Element Is Visible   ${urledit}    30s
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urledit}
-    Wait Until Element Is Visible    ${TITLE_PAGE_EDIT_CLOS}    30s
-    ${page_title}=    Get Text    ${TITLE_PAGE_EDIT_CLOS}
-    Should Be Equal    ${page_title}    Edit CLO
+
+    Verify Text Equal    ${TITLE_PAGE_EDIT_CLOS}    Edit CLO
 View Map PLO
     ${id}    Set Variable    122
     ${urlplo}    Replace Variables    ${URL_PLO}
     Wait Until Element Is Visible    ${urlplo}    30s
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlplo}
-    Wait Until Element Is Visible    ${TITLE_PLO}    30s
-    ${page_title}=    Get Text    ${TITLE_PLO}
-    Should Be Equal    ${page_title}    Map CLO to PLO
+    Should Be Equal    ${TITLE_PLO}    Map CLO to PLO
 
 Create Mapping PLOs
     [Arguments]    ${Plo}    ${MappingPlo}
-    Wait Until Element Is Visible    ${SELECT_PLO}    30s
-    Scroll Element Into View    ${SELECT_PLO}
-    Select From List By Label    ${SELECT_PLO}    ${Plo}
-    Wait Until Element Is Visible    ${SELECT_MAPPING_PLO}    30s
-    Scroll Element Into View    ${SELECT_MAPPING_PLO}
-    Select From List By Label    ${SELECT_MAPPING_PLO}    ${MappingPlo}
+    Fill Dropdown    ${SELECT_PLO}    ${Plo}
+    Fill Dropdown    ${SELECT_MAPPING_PLO}    ${MappingPlo}
+
     Wait Until Element Is Visible    ${CREATE_MAPPING_BTN}    30s
     Scroll Element Into View    ${CREATE_MAPPING_BTN}
     Wait Until Keyword Succeeds    30s    1s    Click Button    ${CREATE_MAPPING_BTN}
-    Wait Until Element Is Visible    ${ACTUAL_MESSAGE_MAPPING}    30s
-    ${actual_message_mapping}=    Get Text    ${ACTUAL_MESSAGE_MAPPING}
-    Should Be Equal    ${actual_message_mapping}    PLO-CLO Mapping created successfully!
+    Should Be Equal    ${ACTUAL_MESSAGE_MAPPING}    PLO-CLO Mapping created successfully!
 
 Click The Button Edit CLOs
     ${id}    Set Variable    123
@@ -547,30 +417,12 @@ Click The Button Edit CLOs
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urledit}
 Fill Out The CLO Edit Form
     [Arguments]    ${Clocode}    ${Description}    ${Category}    ${Level}    ${Weight}    ${Assessmentmethod}
-    Wait Until Element Is Visible    ${INPUT_CLO_CODE}    30s
-    Scroll Element Into View    ${INPUT_CLO_CODE}
-    Input Text    ${INPUT_CLO_CODE}    ${Clocode}
-    
-    Wait Until Element Is Visible    ${TEXTAREA_DESCRIPTION_CLO}    30s
-    Scroll Element Into View    ${TEXTAREA_DESCRIPTION_CLO}
-    Input Text    ${TEXTAREA_DESCRIPTION_CLO}    ${Description}
-    
-    
-    Wait Until Element Is Visible    ${SELECT_CATEGORY_CLO}    30s
-    Scroll Element Into View    ${SELECT_CATEGORY_CLO}
-    Select From List By Label   ${SELECT_CATEGORY_CLO}    ${Category}
-    
-    Wait Until Element Is Visible    ${SELECT_LEVEL_CLO}    30s
-    Scroll Element Into View    ${SELECT_LEVEL_CLO}
-    Select From List By Label    ${SELECT_LEVEL_CLO}    ${Level}
-    
-    Wait Until Element Is Visible    ${INPUT_WEIGHT_CLO}    30s
-    Scroll Element Into View    ${INPUT_WEIGHT_CLO}
-    Input Text   ${INPUT_WEIGHT_CLO}    ${Weight}
-    
-    Wait Until Element Is Visible    ${SELECT_ASSESSMENT_METHOD}    30s
-    Scroll Element Into View    ${SELECT_ASSESSMENT_METHOD}
-    Select From List By Label    ${SELECT_ASSESSMENT_METHOD}    ${Assessmentmethod}
+    Fill Text Field    ${INPUT_CLO_CODE}    ${Clocode}
+    Fill Text Field    ${TEXTAREA_DESCRIPTION_CLO}    ${Description}
+    Fill Dropdown   ${SELECT_CATEGORY_CLO}    ${Category}
+    Fill Dropdown    ${SELECT_LEVEL_CLO}    ${Level}
+    Fill Text Field   ${INPUT_WEIGHT_CLO}    ${Weight}
+    Fill Dropdown    ${SELECT_ASSESSMENT_METHOD}    ${Assessmentmethod}
   
 Click The Button Edit CLO
     Wait Until Element Is Visible    ${EDIT_CLOS_BTN}    30s
@@ -579,38 +431,16 @@ Click The Button Edit CLO
 
 Verify Message CLO Edit Results 
     ${EXPECTED_MESSAGE_UPDATE_CLO}    Set Variable    CLO updated successfully!
-    Wait Until Element Is Visible    ${MESSAGE_UPDATE_CLOS}    30s
-    ${message_up_clos}=    Get Text    ${MESSAGE_UPDATE_CLOS}
-    Should Be Equal    ${message_up_clos}    ${EXPECTED_MESSAGE_UPDATE_CLO}
+    Verify Text Equal    ${MESSAGE_UPDATE_CLOS}    ${EXPECTED_MESSAGE_UPDATE_CLO}
 Verify CLO Edit Results  
     [Arguments]    ${clocodeup}  ${descriptionup}  ${categoryup}   ${levelup}    ${weightup}       ${assessmentmethodup}
-    Wait Until Element Is Visible    ${MESSAGE_UPDATE_CLOS}    30s
-    ${actualmessage}=    Get Text    ${MESSAGE_UPDATE_CLOS}
-    Wait Until Element Is Visible    ${ACTUAL_UPDATE_CLOCODE_CLOS}    30s
-    Scroll Element Into View    ${ACTUAL_UPDATE_CLOCODE_CLOS}
-    ${actual_code_up}=    Get Text    ${ACTUAL_UPDATE_CLOCODE_CLOS}
-    Wait Until Element Is Visible    ${ACTUAL_UPDATE_CATEGORY_CLOS}    30s
-    Scroll Element Into View    ${ACTUAL_UPDATE_CATEGORY_CLOS}
-    ${actual_category_up}=    Get Text    ${ACTUAL_UPDATE_CATEGORY_CLOS}
-    Scroll Element Into View    ${ACTUAL_UPDATE_LEVEL_CLOS}    
-    ${actual_level_up}=    Get Text    ${ACTUAL_UPDATE_LEVEL_CLOS}
-    Wait Until Element Is Visible    ${ACTUAL_UPDATE_WEIGHT_CLOS}    30s
-    ${actual_weight_up}=    Get Text    ${ACTUAL_UPDATE_WEIGHT_CLOS}
-    Wait Until Element Is Visible    ${ACTUAL_UPDATE_DESCRIPTION_CLOS}    30s
-    Scroll Element Into View    ${ACTUAL_UPDATE_DESCRIPTION_CLOS}
-    ${actual_description_up}=    Get Text    ${ACTUAL_UPDATE_DESCRIPTION_CLOS}
-    Wait Until Element Is Visible    ${ACTUAL_UPDATE_ASSESSMENT_CLOS}    30s
-    Scroll Element Into View    ${ACTUAL_UPDATE_ASSESSMENT_CLOS}
-    ${actual_assessmentmethod_up}=    Get Text    ${ACTUAL_UPDATE_ASSESSMENT_CLOS}
-    ##Verify
-    Should Be Equal    ${actualmessage}    CLO updated successfully!
-    Should Be Equal    ${actual_code_up}    ${clocodeup}
-    Should Be Equal    ${actual_description_up}    ${descriptionup}
-    Should Be Equal    ${actual_category_up}    ${categoryup}
-    Should Be Equal    ${actual_level_up}    ${levelup}
-    Should Contain    ${actual_weight_up}    ${weightup}
-    
-    Should Be Equal    ${actual_assessmentmethod_up}    ${assessmentmethodup}
+    Verify Text Equal    ${MESSAGE_UPDATE_CLOS}              CLO updated successfully!
+    Verify Text Equal    ${ACTUAL_UPDATE_CLOCODE_CLOS}       ${clocodeup}
+    Verify Text Equal    ${ACTUAL_UPDATE_DESCRIPTION_CLOS}   ${descriptionup}
+    Verify Text Equal    ${ACTUAL_UPDATE_CATEGORY_CLOS}      ${categoryup}
+    Verify Text Equal    ${ACTUAL_UPDATE_LEVEL_CLOS}         ${levelup}
+    Verify Text Contain  ${ACTUAL_UPDATE_WEIGHT_CLOS}        ${weightup}
+    Verify Text Equal    ${ACTUAL_UPDATE_ASSESSMENT_CLOS}    ${assessmentmethodup}
     
 Verify Message CLO Edit Results With Clo Code Duplication
     Page Should Contain    Clo code is unique
@@ -635,24 +465,12 @@ Verify Title Page Add Chapter
 
 Fill Out The ADD Chapter Form
     [Arguments]    ${chapternumber}    ${chaptertitle}    ${chapterdescription}    ${chapterleaning}    ${chaptertime}    ${chapterteaching}    
-    Wait Until Element Is Visible    ${INPUT_CHAPTER_NUMBER}    30s
-    Scroll Element Into View    ${INPUT_CHAPTER_NUMBER}
-    Input Text    ${INPUT_CHAPTER_NUMBER}    ${chapternumber}
-    Wait Until Element Is Visible    ${INPUT_CHAPTER_TITLE}    30s
-    Scroll Element Into View    ${INPUT_CHAPTER_TITLE}
-    Input Text    ${INPUT_CHAPTER_TITLE}    ${chaptertitle}
-    Wait Until Element Is Visible    ${TEXTAREA_CHAPTER_DESCRIPTION}    30s
-    Scroll Element Into View    ${TEXTAREA_CHAPTER_DESCRIPTION}
-    Input Text    ${TEXTAREA_CHAPTER_DESCRIPTION}    ${chapterdescription}
-    Wait Until Element Is Visible    ${TEXTAREA_CHAPTER_LEARNING}    30s
-    Scroll Element Into View    ${TEXTAREA_CHAPTER_LEARNING}
-    Input Text    ${TEXTAREA_CHAPTER_LEARNING}    ${chapterleaning}
-    Wait Until Element Is Visible    ${INPUT_CHAPTER_TIME}    30s
-    Scroll Element Into View    ${INPUT_CHAPTER_TIME}
-    Input Text    ${INPUT_CHAPTER_TIME}   ${chaptertime}
-    Wait Until Element Is Visible    ${TEXTAREA_CHAPTER_TEACHING_METHOD}    30s
-    Scroll Element Into View    ${TEXTAREA_CHAPTER_TEACHING_METHOD}
-    Input Text    ${TEXTAREA_CHAPTER_TEACHING_METHOD}    ${chapterteaching}
+    Fill Text Field    ${INPUT_CHAPTER_NUMBER}             ${chapternumber}
+    Fill Text Field    ${INPUT_CHAPTER_TITLE}              ${chaptertitle}
+    Fill Text Field    ${TEXTAREA_CHAPTER_DESCRIPTION}     ${chapterdescription}
+    Fill Text Field    ${TEXTAREA_CHAPTER_LEARNING}        ${chapterleaning}
+    Fill Text Field    ${INPUT_CHAPTER_TIME}               ${chaptertime}
+    Fill Text Field    ${TEXTAREA_CHAPTER_TEACHING_METHOD}    ${chapterteaching}
 
 Click The Button ADD 
     Wait Until Element Is Visible    ${CREATE_CHAPTER_BTN}    30s
@@ -670,22 +488,11 @@ Verify Page When Number0
 
 Fill Out Form Title Chapter Blank
     [Arguments]    ${chapternumber}    ${chapterdescription}    ${chapterleaning}    ${chaptertime}    ${chapterteaching}    
-    Wait Until Element Is Visible    ${INPUT_CHAPTER_NUMBER}    30s
-    Scroll Element Into View    ${INPUT_CHAPTER_NUMBER}
-    Input Text    ${INPUT_CHAPTER_NUMBER}    ${chapternumber}
-    
-    Wait Until Element Is Visible    ${TEXTAREA_CHAPTER_DESCRIPTION}    30s
-    Scroll Element Into View    ${TEXTAREA_CHAPTER_DESCRIPTION}
-    Input Text    ${TEXTAREA_CHAPTER_DESCRIPTION}    ${chapterdescription}
-    Wait Until Element Is Visible    ${TEXTAREA_CHAPTER_LEARNING}    30s
-    Scroll Element Into View    ${TEXTAREA_CHAPTER_LEARNING}
-    Input Text    ${TEXTAREA_CHAPTER_LEARNING}    ${chapterleaning}
-    Wait Until Element Is Visible    ${INPUT_CHAPTER_TIME}    30s
-    Scroll Element Into View    ${INPUT_CHAPTER_TIME}
-    Input Text    ${INPUT_CHAPTER_TIME}   ${chaptertime}
-    Wait Until Element Is Visible    ${TEXTAREA_CHAPTER_TEACHING_METHOD}    30s
-    Scroll Element Into View    ${TEXTAREA_CHAPTER_TEACHING_METHOD}
-    Input Text    ${TEXTAREA_CHAPTER_TEACHING_METHOD}    ${chapterteaching}
+    Fill Text Field    ${INPUT_CHAPTER_NUMBER}             ${chapternumber}
+    Fill Text Field    ${TEXTAREA_CHAPTER_DESCRIPTION}     ${chapterdescription}
+    Fill Text Field    ${TEXTAREA_CHAPTER_LEARNING}        ${chapterleaning}
+    Fill Text Field    ${INPUT_CHAPTER_TIME}               ${chaptertime}
+    Fill Text Field    ${TEXTAREA_CHAPTER_TEACHING_METHOD}    ${chapterteaching}
 
 Verify Page When Title Blank
     Page Should Contain    Tiêu đề chương không được để trống
@@ -702,39 +509,22 @@ Verify Page Test
 
 Fill Our The Test Form
     [Arguments]    ${name}    ${type}    ${percentage}    ${description}    ${format}    ${minutes}    ${totalmarks}    ${method}    ${criteria}    ${date}    ${location}    ${status}
-    Wait Until Element Is Visible    ${INPUT_TEST_NAME}    30s
-    Scroll Element Into View    ${INPUT_TEST_NAME}
-    Input Text    ${INPUT_TEST_NAME}    ${name}
-    Wait Until Element Is Visible    ${SELECT_TEST_TYPE}    30s
-    Scroll Element Into View    ${SELECT_TEST_TYPE}
-    Select From List By Label    ${SELECT_TEST_TYPE}    ${type}
-    Wait Until Element Is Visible    ${INPUT_TEST_PERCENTAGE}    30s
-    Scroll Element Into View    ${INPUT_TEST_PERCENTAGE}
-    Input Text    ${INPUT_TEST_PERCENTAGE}    ${percentage}
-    Wait Until Element Is Visible    ${TEXTAREA_TEST_DESCRIPTION}    30s
-    Scroll Element Into View    ${TEXTAREA_TEST_DESCRIPTION}
-    Input Text    ${TEXTAREA_TEST_DESCRIPTION}    ${description}
-    Wait Until Element Is Visible    ${SELECT_TEST_FORMAT}    30s
-    Scroll Element Into View    ${SELECT_TEST_FORMAT}    
-    Select From List By Label    ${SELECT_TEST_FORMAT}    ${format}
-    Wait Until Element Is Visible    ${INPUT_TEST_MINUTES}    30s
-    Scroll Element Into View    ${INPUT_TEST_MINUTES}
-    Input Text    ${INPUT_TEST_MINUTES}    ${minutes}
-    Scroll Element Into View    ${INPUT_TEST_TOTAL_MARKS}
-    Input Text    ${INPUT_TEST_TOTAL_MARKS}    ${totalmarks}
-    Scroll Element Into View    ${TEXTAREA_TEST_METHOD}
-    Input Text    ${TEXTAREA_TEST_METHOD}    ${method}
-    Scroll Element Into View    ${TEXTAREA_TEST_CRITERIA}
-    Input Text    ${TEXTAREA_TEST_CRITERIA}    ${criteria}
-    
-    Scroll Element Into View    ${INPUT_TEST_DATE}
-    Execute JavaScript    document.getElementById("id_assessment_date").value = "2025-08-21T13:30"
-    #Input Text    ${INPUT_TEST_DATE}    ${date}
+    Fill Text Field    ${INPUT_TEST_NAME}           ${name}
+    Fill Dropdown      ${SELECT_TEST_TYPE}          ${type}
+    Fill Text Field    ${INPUT_TEST_PERCENTAGE}     ${percentage}
+    Fill Text Field    ${TEXTAREA_TEST_DESCRIPTION}    ${description}
+    Fill Dropdown      ${SELECT_TEST_FORMAT}        ${format}
+    Fill Text Field    ${INPUT_TEST_MINUTES}        ${minutes}
+    Fill Text Field    ${INPUT_TEST_TOTAL_MARKS}    ${totalmarks}
+    Fill Text Field    ${TEXTAREA_TEST_METHOD}      ${method}
+    Fill Text Field    ${TEXTAREA_TEST_CRITERIA}    ${criteria}
 
-    Scroll Element Into View    ${INPUT_TEST_LOCATION}    
-    Input Text    ${INPUT_TEST_LOCATION}    ${location}
-    Scroll Element Into View    ${SELECT_TEST_STATUS}
-    Select From List By Label    ${SELECT_TEST_STATUS}    ${status}
+    # Xử lý date đặc biệt bằng JS
+    Scroll Element Into View    ${INPUT_TEST_DATE}
+    Execute JavaScript    document.getElementById("id_assessment_date").value = "${date}"
+
+    Fill Text Field    ${INPUT_TEST_LOCATION}       ${location}
+    Fill Dropdown      ${SELECT_TEST_STATUS}        ${status}
 
 Click The Button Create Test
     Wait Until Element Is Visible    ${CREATE_TEST_BTN}    30s
@@ -757,23 +547,20 @@ Click The Button Course
     ${urlcourse}    Replace Variables    ${URL_COURSE}
     Handle Advertise
     Wait Until Element Is Visible    ${urlcourse}    30s
+
     Wait Until Element Is Visible    ${NAME_COURSE}    30s
     ${namecourse}=    Get Text    ${NAME_COURSE}
 
     Scroll Element Into View    ${urlcourse}
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlcourse}
-    Wait Until Element Is Visible    ${ACTUAL_PAGE_COURSE}    30s
-    ${actualcourse}=    Get Text    ${ACTUAL_PAGE_COURSE}
-    Should Contain    ${actualcourse}    ${namecourse}
+        Verify Text Contain    ${ACTUAL_PAGE_COURSE}    ${namecourse}
 Click The Button ADD Course
     ${id}    Set Variable    5
     ${urlcourse}    Replace Variables    ${URL_ADD_COURSE}
     Wait Until Element Is Visible    ${urlcourse}    30s
     Scroll Element Into View    ${urlcourse}
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlcourse}
-    Wait Until Element Is Visible    ${ACTUAL_ADD_COURSE}    30s
-    ${actualadd}=    Get Text    ${ACTUAL_ADD_COURSE}
-    Should Be Equal    ${actualadd}    Create New Course
+    Verify Text Equal    ${ACTUAL_ADD_COURSE}    Create New Course
 
 Click The Button Back to Program
     Wait Until Element Is Visible    ${URL_BACK_TO_PROGRAM}    30s
@@ -796,10 +583,9 @@ Click The Button Infomation Course
     ${namecourse}=    Get Text    ${name}
     Scroll Element Into View    ${urlcourse}
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urlcourse}
-    Wait Until Element Is Visible    ${ACTUAL_COURSE_INFO}    30s
-    ${actualinfo}=    Get Text    ${ACTUAL_COURSE_INFO}
-    Should Contain    ${actualinfo}    ${codecourse}
-    Should Contain    ${actualinfo}    ${namecourse}
+    
+    Verify Text Contain    ${ACTUAL_COURSE_INFO}    ${codecourse}
+    Verify Text Contain    ${ACTUAL_COURSE_INFO}    ${namecourse}
 
 Click The Button Edit Course
     Wait Until Element Is Visible    ${URL_EDIT_COURSES}    30s
@@ -819,9 +605,7 @@ Click The Button CLOs
     ${namecourse}=    Get Text    ${name}
     Scroll Element Into View    ${urledit}
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${urledit}
-    Wait Until Element Is Visible    ${ACTUAL_COURSE_INFO}    30s
-    ${actualinfo}=    Get Text    ${ACTUAL_COURSE_INFO}
-    Should Contain    ${actualinfo}    CLOs
-    Should Contain    ${actualinfo}    ${codecourse}
-    Should Contain    ${actualinfo}    ${namecourse}
+    Verify Text Contain    ${ACTUAL_COURSE_INFO}    CLOs
+    Verify Text Contain    ${ACTUAL_COURSE_INFO}    ${codecourse}
+    Verify Text Contain    ${ACTUAL_COURSE_INFO}    ${namecourse}
     

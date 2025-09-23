@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library    SeleniumLibrary    run_on_failure=No Operation
 Resource    ../Resource/DangNhap.resource
 Resource    ../Resource/TrangChu.resource
 Resource    ../Resource/HocPhan.resource
