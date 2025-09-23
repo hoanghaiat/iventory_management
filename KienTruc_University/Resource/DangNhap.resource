@@ -1,5 +1,6 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library    SeleniumLibrary    run_on_failure=Nothing
+
 Variables    ../locator.py
 
 *** Variables ***
