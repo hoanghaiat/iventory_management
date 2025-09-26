@@ -94,11 +94,19 @@ Mandatory turns blue after update
     [Documentation]    TC_CE_07
     [Tags]    Thu Phuong    Edit Course
     Click First Edit Courses Button
-    Fill Course Form    Công nghệ thông tin    BL    block chain    4    Khóa học Block Chain    Mandatory    Completed    CS301 - Cơ sở dữ liệu
+    Fill Course Form    Cử nhân Khoa học Máy tính    BL    block chain    4    Khóa học Block Chain    Mandatory    Completed    CS301 - Cơ sở dữ liệu
     Click Update Course Button
     Verify Success Message And Course Update
     Wait Until Page Contains Element    ${MANDATORY}    
-
+Verify Course Ui Matches Input 
+    [Documentation]    TC_CE_08
+    [Tags]    Thu Phuong    Edit Course
+    Click First Edit Courses Button
+    ${course_data}=    Fill Course Form    Cử nhân Khoa học Máy tính    B8    block chain    5    Khóa học Block Chain    Elective    Completed    CS301 - Cơ sở dữ liệu
+    Click Update Course Button
+    Verify Success Message And Course Update
+    Verify Course Data In UI    ${course_data}
+  
 # Search Course 
 
 Search With Valid Keywords Course Page

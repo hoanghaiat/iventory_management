@@ -30,8 +30,19 @@ Update Profile Successfully With Valid Data
     Click Update Profile Button
     Verify Success Message
 
-Update Profile Fails With Empty Username
+Verify Information Profile Data In UI
     [Documentation]    TC_PI_04
+    [Tags]    Thu Phuong    Edit Profile
+    Click Edit Profile Button
+    ${profile_data}=    Get Default Profile Data
+    Fill Profile Form    ${profile_data}
+    Click Update Profile Button
+    Verify Success Message
+    Verify Profile Data In UI    ${profile_data}
+   
+
+Update Profile Fails With Empty Username
+    [Documentation]    TC_PI_05
     [Tags]    Thu Phuong    Edit Profile
     Click Edit Profile Button
     ${profile_data}=    Get Profile Data With Empty Username
@@ -40,7 +51,7 @@ Update Profile Fails With Empty Username
     Verify Error Message For Required Fields    username
 
 Update Profile Fails With Empty Email
-    [Documentation]    TC_PI_05 
+    [Documentation]    TC_PI_06 
     [Tags]    Thu Phuong    Edit Profile
     Click Edit Profile Button
     ${profile_data}=    Get Profile Data With Empty Email
@@ -49,7 +60,7 @@ Update Profile Fails With Empty Email
     Verify Error Message For Required Fields    email
 
 Update Profile Fails With Empty Username And Email
-    [Documentation]    TC_PI_06 
+    [Documentation]    TC_PI_07 
     [Tags]    Thu Phuong    Edit Profile
     Click Edit Profile Button
     ${profile_data}=    Get Profile Data With Empty Username And Email
@@ -67,7 +78,7 @@ Verify Log Out Successfully
     Wait Until Location Contains    ${URL}
 
 Update Profile Successfully With Valid Data
-    [Documentation]    TC_PI_03 
+    [Documentation]    TC_PI_09 
     [Tags]    Thu Phuong    Edit Profile
     Click Edit Profile Button
     ${profile_data}=    Get Default Profile Data

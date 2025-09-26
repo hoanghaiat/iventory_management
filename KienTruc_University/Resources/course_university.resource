@@ -2,7 +2,36 @@
 Library    SeleniumLibrary     
 Library    CustomLibrary 
 Library    String
+Library    Collections
 Variables  ../variables/locator.py
+
+*** Variables ***
+${detail_program}        xpath=(//p[contains(@class,"text-muted mb-2")])[1]
+${detail_fullcourse}     xpath=(//h5[contains(@class,"text-primary")])[1]
+${detail_type}           xpath=(//div[@class="mb-3"]/div/span[contains(@class,"badge")])[1]
+${detail_status}         xpath=(//div[@class="mb-3"]/div/span[contains(@class,"badge")])[2]
+${detail_description}    xpath=(//div[h6[text()="Mô tả"]]/p)[2]
+${detail_credit}         xpath=(//h6[text()="Số tín chỉ"]/following-sibling::p)[1]
+${detail_prerequisite}   xpath=//ul[@class="list-group"]/li/a
+
+&{input_locator}
+...    program=${PROGRAM_DROP}
+...    coursecode=${COURSE_CODE_FIELD}
+...    coursename=${COURSE_NAME_FILED}
+...    credit=${CREDIT_FIELD}
+...    description=${DESCRIPTION_FIELD}
+...    type=${TYPE_DROP}
+...    status=${STATUS_DROP}
+...    prerequisite=${PREREQUISITE_COURSE_DROP}
+
+&{detail_locator}   
+...    program=${detail_program}
+...    fullname=${detail_fullcourse}
+...    credit=${detail_credit}
+...    description=${detail_description}
+...    type=${detail_type}
+...    status=${detail_status}
+...    prerequisite=${detail_prerequisite}
 
 *** Keywords ***
 
@@ -49,7 +78,8 @@ Verify Search Result Exists In Course
         ${lower_title}=    Convert To Lower Case    ${text}
         Run Keyword If    '${keyword.lower()}' in '${lower_title}'    Pass Execution    Found keyword in title
     END
-    Fail    Không tìm thấy kết quả chứa từ khóa: ${keyword} 
+    Fail    Không tìm thấy kết quả chứa từ khóa: ${keyword}
+
  Verify Search Results Contain Keyword
     [Arguments]    ${keyword}
     ${results}=    Get WebElements    ${RESULT_TITLE}
@@ -81,6 +111,7 @@ Click Update Course Button
     Wait Until Page Does Not Contain Element    ${LOADING}    20s
     Wait Until Page Does Not Contain Element    xpath=//div[contains(@class,'toast')]      
     Wait Until Keyword Succeeds    30s    1s    Click Element    ${UPDATE_COURSE_BTN}
+    Wait Until Page Contains Element    ${detail_fullcourse}    20s
 
 Verify Success Message And Course Update 
     Wait Until Element Is Visible    ${SUCCESS_UPDATE_MESSAGE}    20s
@@ -92,8 +123,24 @@ Verify Error Update Message For Required Fields
     Element Should Contain         ${locator}    This field is required
     Log    Error message displayed for ${field_key} : This field is required
 
+Normalize String
+    [Arguments]    ${text}
+    ${text}=    Replace String Using Regexp    ${text}    [\p{Zs}\s]+    ${SPACE}
+    ${text}=    Strip String    ${text}
+    [Return]    ${text}
 Fill Course Form
     [Arguments]    ${program}   ${course_code}   ${course_name}   ${credit}   ${description}   ${type}   ${status}   ${prerequisite}
+
+    ${course}=     Create Dictionary  
+    ...    program=${program}
+    ...    coursecode=${course_code}
+    ...    coursename=${course_name}
+    ...    credit=${credit}
+    ...    description=${description}
+    ...    type=${type}
+    ...    status=${status}
+    ...    prerequisite=${prerequisite}
+    [Return]    ${course}
 
     Wait Until Element Is Visible    ${PROGRAM_DROP}    5s
     Run Keyword If    '${program}' != '${EMPTY}'    Select From List By Label    ${PROGRAM_DROP}    ${program}
@@ -110,11 +157,32 @@ Fill Course Form
     Run Keyword If    '${credit}' != '${EMPTY}'    Input Text    ${CREDIT_FIELD}    ${credit}
 
     Clear Element Text    ${DESCRIPTION_FIELD}
-    Run Keyword If    '${description}' != '${EMPTY}'    Input Text    ${DESCRIPTION_FIELD}    ${description}
+    Run Keyword If    '${description}' != '${EMPTY}'    Input Text    ${DESCRIPTION_FIELD}    ${description} 
 
-    Run Keyword If    '${type}' != '${EMPTY}'    Select From List By Label    ${TYPE_DROP}    ${type}
+    Run Keyword If    '${type}' != '${EMPTY}'    Select From List By Label    ${TYPE_DROP}    ${type} 
     Run Keyword If    '${status}' != '${EMPTY}'    Select From List By Label    ${STATUS_DROP}    ${status}
     Run Keyword If    '${prerequisite}' != '${EMPTY}'    Select From List By Label    ${PREREQUISITE_COURSE_DROP}    ${prerequisite}
+
+
+Verify Course Data In UI
+    [Arguments]    ${course}
+    ${coursecode}=    Get From Dictionary    ${course}    coursecode
+    ${coursename}=    Get From Dictionary    ${course}    coursename
+    ${fullname}=    Set Variable    ${coursecode} - ${coursename}
+
+    Set To Dictionary    ${course}    fullname=${fullname}
+
+    Remove From Dictionary    ${course}    coursecode    coursename
+
+    FOR    ${field}    ${expected}    IN    &{course}
+        ${locator}=    Get From Dictionary    ${DETAIL_LOCATOR}    ${field}
+        ${actual}=     Get Text    ${locator}
+        ${actual}=     Replace String Using Regexp    ${actual}    \s+    ${SPACE}
+        ${actual}=     Strip String    ${actual}
+        ${expected}=   Replace String Using Regexp    ${expected}    \s+    ${SPACE}
+        ${expected}=   Strip String    ${expected}
+        Should Be Equal As Strings    ${actual}    ${expected}    msg=Mismatch in field '${field}'
+    END
 
 
 Click View Course Button
